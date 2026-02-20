@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bfsensfo38dwk" path="res://player/player.tscn" id="1_4rr7c"]
 [ext_resource type="PackedScene" uid="uid://b5lgxsfykvq31" path="res://items/ball.tscn" id="2_bpbnc"]
+[ext_resource type="Script" uid="uid://dcncvtksw1tn0" path="res://camera/registered_camera.gd" id="2_rsilw"]
 [ext_resource type="PackedScene" uid="uid://bj485t2ul33ix" path="res://items/club.tscn" id="3_rsilw"]
 [ext_resource type="PackedScene" uid="uid://opmn5mrir4jc" path="res://hole/hole.tscn" id="4_rsilw"]
 
@@ -28,6 +29,7 @@ material = SubResource("StandardMaterial3D_4rr7c")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1638719990]
 transform = Transform3D(1, 0, 0, 0, 0.34202015, 0.9396926, 0, -0.9396926, 0.34202015, 0, 6.552105, 4.8779526)
+script = ExtResource("2_rsilw")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=649967273]
 transform = Transform3D(0.7210592, 0.09255984, -0.6866632, 0.6928735, -0.09632509, 0.71459633, 0, -0.9910369, -0.13358834, 0, 7.213431, 3.579121)

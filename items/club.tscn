@@ -16,6 +16,7 @@ axis_lock_angular_y = true
 axis_lock_angular_z = true
 linear_damp = 10.0
 script = ExtResource("1_8oco2")
+power_segments = 4
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1781506810]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4370554, 0)
