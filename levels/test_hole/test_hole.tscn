@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://mhwbx5wt4klx"]
+
+[ext_resource type="PackedScene" uid="uid://bfsensfo38dwk" path="res://player/player.tscn" id="1_4rr7c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rr7c"]
+albedo_color = Color(0.20620483, 0.7107474, 7.70092e-07, 1)
+
+[node name="TestHole" type="Node3D" unique_id=542123667]
+
+[node name="Player" parent="." unique_id=1295117305 instance=ExtResource("1_4rr7c")]
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+mass = 25.0
+speed = 500.0
+
+[node name="Ground" type="CSGBox3D" parent="." unique_id=70624706]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, -1, 0)
+material = SubResource("StandardMaterial3D_4rr7c")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1638719990]
+transform = Transform3D(1, 0, 0, 0, 0.34202015, 0.9396926, 0, -0.9396926, 0.34202015, 0, 6.552105, 4.8779526)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=649967273]
+transform = Transform3D(0.7210592, 0.09255984, -0.6866632, 0.6928735, -0.09632509, 0.71459633, 0, -0.9910369, -0.13358834, 0, 7.213431, 3.579121)
+shadow_enabled = true

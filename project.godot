@@ -11,7 +11,12 @@ config_version=5
 [application]
 
 config/name="goblinmode"
+run/main_scene="uid://bfsensfo38dwk"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
 
 [physics]
 
