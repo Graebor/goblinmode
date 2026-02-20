@@ -9,16 +9,23 @@ const ITEM_GROUP: String = "Item"
 @onready var inventory: Node3D = %Inventory
 @export var power_meter: PowerMeter
 @export var swing_force_per_segment: float = 10.0
+@export var aim_ring: Node3D
 
 var _is_swinging: bool = false
+var _last_move_direction: Vector3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	power_meter.visible = false
+	aim_ring.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	var input: Vector3 = _get_movement()
+	if (input.length() > 0.1):
+		_last_move_direction = input
+	
 	if Input.is_action_just_pressed("pickup"):
 		var current_item: RigidBody3D = inventory.get_child(0)
 		if current_item != null:
@@ -32,12 +39,19 @@ func _process(_delta: float) -> void:
 			item.global_position = inventory.global_position
 	
 	if (_is_swinging):
+		if (_last_move_direction.length() > 0.1):
+			aim_ring.visible = true
+			aim_ring.rotation.y = Vector2(_last_move_direction.z, _last_move_direction.x).angle()
+		else:
+			aim_ring.visible = false
+		
 		if (!Input.is_action_pressed("swing")):
 			var result: int = power_meter.lock_in() + 1
 			var closest: RigidBody3D = _get_closest_item(null)
 			if (closest != null):
-				closest.apply_central_force(Vector3.FORWARD * result * swing_force_per_segment)
+				closest.apply_central_force(_last_move_direction * result * swing_force_per_segment)
 			_is_swinging = false
+			aim_ring.visible = false
 	else:
 		if Input.is_action_just_pressed("swing"):
 			var segments: int = 4

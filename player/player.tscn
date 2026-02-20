@@ -2,16 +2,30 @@
 
 [ext_resource type="Script" uid="uid://dxpgpa37ipadq" path="res://player/player_controller.gd" id="1_oul6g"]
 [ext_resource type="PackedScene" uid="uid://cc57wo0yynp10" path="res://player/power_meter/power_meter.tscn" id="2_rkbax"]
+[ext_resource type="ArrayMesh" uid="uid://dfcibv72s6f35" path="res://art/power_meter_arrow.obj" id="3_g1dw6"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_oul6g"]
 height = 1.0
 
-[node name="Player" type="RigidBody3D" unique_id=1295117305 node_paths=PackedStringArray("power_meter")]
+[sub_resource type="TorusMesh" id="TorusMesh_yw30f"]
+inner_radius = 1.341
+outer_radius = 1.535
+rings = 32
+ring_segments = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qjkh3"]
+shading_mode = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g6k8r"]
+shading_mode = 0
+
+[node name="Player" type="RigidBody3D" unique_id=1295117305 node_paths=PackedStringArray("power_meter", "aim_ring")]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_oul6g")
 power_meter = NodePath("PowerMeterOffset/PowerMeter")
-swing_force_per_segment = 100.0
+swing_force_per_segment = 130.0
+aim_ring = NodePath("AimRing")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2050052044]
 
@@ -26,3 +40,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5283829, 0.7047223, 0)
 
 [node name="PowerMeter" parent="PowerMeterOffset" unique_id=2023038941 instance=ExtResource("2_rkbax")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1, 1, 0)
+
+[node name="AimRing" type="Node3D" parent="." unique_id=2135693647]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AimRing" unique_id=490568492]
+mesh = SubResource("TorusMesh_yw30f")
+surface_material_override/0 = SubResource("StandardMaterial3D_qjkh3")
+
+[node name="Arrow" type="MeshInstance3D" parent="AimRing" unique_id=514593895]
+transform = Transform3D(-0.3, 0, -4.3711385e-08, 0, 0.39999998, 0, 2.6226834e-08, 0, -0.49999997, 0, 0, 1.7139137)
+mesh = ExtResource("3_g1dw6")
+surface_material_override/0 = SubResource("StandardMaterial3D_g6k8r")

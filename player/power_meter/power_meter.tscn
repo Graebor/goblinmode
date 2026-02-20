@@ -24,7 +24,7 @@ shading_mode = 0
 
 [node name="PowerMeter" type="Node3D" unique_id=2023038941 node_paths=PackedStringArray("segment_container", "back_scaler", "arrow_mover")]
 script = ExtResource("1_cfu55")
-move_speed = 14.0
+move_speed = 7.0
 color_sequence = SubResource("Gradient_cfu55")
 curve = SubResource("Curve_uhxlq")
 segment_scene = ExtResource("2_52bia")
