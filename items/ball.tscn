@@ -9,6 +9,7 @@ albedo_color = Color(0.82606, 0.82606006, 0.82606, 1)
 
 [node name="Ball" type="RigidBody3D" unique_id=1772857852 groups=["Ball", "Item"]]
 collision_layer = 8
+collision_mask = 9
 axis_lock_linear_y = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true

@@ -14,6 +14,8 @@ const ITEM_GROUP: String = "Item"
 
 var _is_swinging: bool = false
 var _last_move_direction: Vector3
+var _swinging_item_has_layer_3: bool
+var _swinging_item_has_layer_4: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -67,6 +69,13 @@ func _begin_swing() -> void:
 		item.reparent(swing_spot)
 		item.add_to_group(IN_HAND_GROUP)
 		item.global_position = swing_spot.global_position
+		_swinging_item_has_layer_3 = item.get_collision_layer_value(3)
+		_swinging_item_has_layer_4 = item.get_collision_layer_value(4)
+		item.set_collision_layer_value(3, false)
+		item.set_collision_layer_value(4, false)
+	else:
+		#whiff your swing
+		return
 
 	var segments: int = 2
 	if (inventory.get_child_count() > 0):
@@ -83,6 +92,8 @@ func _finish_swing() -> void:
 	if (locked != null):
 		_release_item(locked)
 		locked.apply_central_force(_last_move_direction * result * swing_force_per_segment)
+		locked.set_collision_layer_value(3, _swinging_item_has_layer_3)
+		locked.set_collision_layer_value(4, _swinging_item_has_layer_4)
 	_is_swinging = false
 	aim_ring.visible = false
 
