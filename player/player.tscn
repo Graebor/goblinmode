@@ -6,9 +6,15 @@
 height = 1.0
 
 [node name="Player" type="RigidBody3D" unique_id=1295117305]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_oul6g")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2050052044]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=141657803]
 shape = SubResource("CylinderShape3D_oul6g")
+
+[node name="Inventory" type="Node3D" parent="." unique_id=1765923093]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5283829, 0.7047223, 0)

@@ -14,9 +14,24 @@ config/name="goblinmode"
 run/main_scene="uid://bfsensfo38dwk"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 
+[autoload]
+
+ItemManager="*uid://kbtn3a8tswf3"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
+
+[global_group]
+
+Item=""
+Ball=""
+
+[layer_names]
+
+3d_physics/layer_1="World"
+3d_physics/layer_2="Players"
+3d_physics/layer_3="Items"
 
 [physics]
 
