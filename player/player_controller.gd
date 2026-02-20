@@ -10,6 +10,7 @@ const ITEM_GROUP: String = "Item"
 @export var power_meter: PowerMeter
 @export var swing_force_per_segment: float = 10.0
 @export var aim_ring: Node3D
+@onready var swing_spot: Node3D = %SwingSpot
 
 var _is_swinging: bool = false
 var _last_move_direction: Vector3
@@ -46,23 +47,10 @@ func _process(_delta: float) -> void:
 			aim_ring.visible = false
 		
 		if (!Input.is_action_pressed("swing")):
-			var result: int = power_meter.lock_in() + 1
-			var closest: RigidBody3D = _get_closest_item(null)
-			if (closest != null):
-				closest.apply_central_force(_last_move_direction * result * swing_force_per_segment)
-			_is_swinging = false
-			aim_ring.visible = false
+			_finish_swing()
 	else:
 		if Input.is_action_just_pressed("swing"):
-			var segments: int = 4
-			if (inventory.get_child_count() > 0):
-				var item: RigidBody3D = inventory.get_child(0)
-				if (item != null):
-					pass
-					#TODO - change segments to whatever the item's power value is
-			
-			power_meter.begin(segments)
-			_is_swinging = true
+			_begin_swing()
 
 
 func _release_item(item: RigidBody3D) -> void:
@@ -70,6 +58,33 @@ func _release_item(item: RigidBody3D) -> void:
 	item.owner = ItemManager
 	item.remove_from_group(IN_HAND_GROUP)
 	item.global_position.y = 0
+
+
+func _begin_swing() -> void:
+	var item: Item = _get_closest_item(null)
+	if item != null:
+		print(item.name)
+		item.reparent(swing_spot)
+		item.add_to_group(IN_HAND_GROUP)
+		item.global_position = swing_spot.global_position
+
+	var segments: int = 2
+	if (inventory.get_child_count() > 0):
+		var held: Item = inventory.get_child(0)
+		if (held != null):
+			segments = held.power_segments
+	power_meter.begin(segments)
+	_is_swinging = true
+
+
+func _finish_swing() -> void:
+	var result: int = power_meter.lock_in() + 1
+	var locked: RigidBody3D = swing_spot.get_child(0)
+	if (locked != null):
+		_release_item(locked)
+		locked.apply_central_force(_last_move_direction * result * swing_force_per_segment)
+	_is_swinging = false
+	aim_ring.visible = false
 
 
 func _physics_process(_delta: float) -> void:

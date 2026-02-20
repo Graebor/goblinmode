@@ -16,10 +16,13 @@ axis_lock_angular_y = true
 axis_lock_angular_z = true
 linear_damp = 10.0
 script = ExtResource("1_8oco2")
+power_segments = 4
 
-[node name="CSGSphere3D" type="CSGBox3D" parent="." unique_id=1781506810]
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1781506810]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4370554, 0)
 size = Vector3(0.2, 0.2, 1)
 material = SubResource("StandardMaterial3D_kb7cm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1539824022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4370554, 0)
 shape = SubResource("BoxShape3D_kb7cm")
