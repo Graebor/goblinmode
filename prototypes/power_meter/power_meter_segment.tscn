@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cmbaspguo40uw"]
+
+[ext_resource type="ArrayMesh" uid="uid://bhecqy1tvbxmr" path="res://art/power_meter_segment.obj" id="1_3nm5f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ehxa5"]
+shading_mode = 0
+albedo_color = Color(0.18, 1, 0.37133336, 1)
+
+[node name="PowerMeterSegment" type="MeshInstance3D" unique_id=150005796]
+mesh = ExtResource("1_3nm5f")
+surface_material_override/0 = SubResource("StandardMaterial3D_ehxa5")
