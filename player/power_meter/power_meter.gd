@@ -21,8 +21,6 @@ var _waiting: bool = false
 
 func _process(delta: float) -> void:
 	if (!_waiting):
-		if (Input.is_key_pressed(KEY_SPACE)):
-			begin(4)
 		return
 	
 	_time += delta
@@ -45,13 +43,11 @@ func _process(delta: float) -> void:
 		tween2.set_parallel(true)
 		tween2.tween_property(segment_container.get_child(tick), "scale", Vector3(1.3, 1.0, 1.3), 0.1)
 		tween2.set_parallel(false)
-		
-	if (!Input.is_key_pressed(KEY_SPACE)):
-		lock_in()
 
 
 func begin(segments: int) -> void:
 	_clear()
+	visible = true
 	_waiting = true
 	arrow_mover.visible = true
 	_previous_tick = -1
@@ -77,8 +73,13 @@ func lock_in() -> int:
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
 	tween.tween_property(segment_container.get_child(result), "position:z", 1, 0.1)
 	tween.tween_property(segment_container.get_child(result), "scale", Vector3(2, 1.0, 1.0), 0.1)
+	tween.set_parallel(false)
+	tween.tween_callback(_on_tween_complete)
 	
 	return result
+
+func _on_tween_complete() -> void:
+	visible = false
 
 func _get_normalized() -> float:
 	var t: float = wrapf(_time, 0.0, _time_for_full * 2.0)

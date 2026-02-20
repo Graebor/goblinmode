@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://cc57wo0yynp10"]
 
 [ext_resource type="ArrayMesh" uid="uid://cqdbdi2krblgy" path="res://art/power_meter_back.obj" id="1_52bia"]
-[ext_resource type="Script" uid="uid://nugkkg5dulxd" path="res://prototypes/power_meter/power_meter.gd" id="1_cfu55"]
-[ext_resource type="PackedScene" uid="uid://cmbaspguo40uw" path="res://prototypes/power_meter/power_meter_segment.tscn" id="2_52bia"]
+[ext_resource type="Script" uid="uid://nugkkg5dulxd" path="res://player/power_meter/power_meter.gd" id="1_cfu55"]
+[ext_resource type="PackedScene" uid="uid://cmbaspguo40uw" path="res://player/power_meter/power_meter_segment.tscn" id="2_52bia"]
 [ext_resource type="ArrayMesh" uid="uid://dfcibv72s6f35" path="res://art/power_meter_arrow.obj" id="4_uhxlq"]
+[ext_resource type="Script" uid="uid://2wiv6ccuo06f" path="res://camera/parent_face_camera.gd" id="5_pq506"]
 
 [sub_resource type="Gradient" id="Gradient_cfu55"]
 interpolation_color_space = 2
@@ -32,15 +33,17 @@ back_scaler = NodePath("Back")
 arrow_mover = NodePath("Arrow")
 
 [node name="Back" type="MeshInstance3D" parent="." unique_id=1486964538]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 mesh = ExtResource("1_52bia")
 surface_material_override/0 = SubResource("StandardMaterial3D_7pq3f")
 
 [node name="SegmentContainer" type="Node3D" parent="." unique_id=1579654195]
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1602487399]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18.87713)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Arrow" type="MeshInstance3D" parent="." unique_id=850334832]
-transform = Transform3D(1, 0, 0, 0, 2.8048048, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 2.8048048, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 mesh = ExtResource("4_uhxlq")
 surface_material_override/0 = SubResource("StandardMaterial3D_uhxlq")
+
+[node name="ParentFaceCamera" type="Node3D" parent="." unique_id=1078137802]
+script = ExtResource("5_pq506")

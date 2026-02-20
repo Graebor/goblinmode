@@ -7,22 +7,22 @@ const ITEM_GROUP: String = "Item"
 @export var damping: float = 2.0
 @export var pickup_range: float = 1.5
 @onready var inventory: Node3D = %Inventory
+@export var power_meter: PowerMeter
+@export var swing_force_per_segment: float = 10.0
 
+var _is_swinging: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	power_meter.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_select"):
+	if Input.is_action_just_pressed("pickup"):
 		var current_item: RigidBody3D = inventory.get_child(0)
 		if current_item != null:
-			current_item.reparent(ItemManager)
-			current_item.owner = ItemManager
-			current_item.remove_from_group(IN_HAND_GROUP)
-			current_item.global_position.y = 0
+			_release_item(current_item)
 		
 		var item: Item = _get_closest_item(current_item)
 		if item != null:
@@ -30,24 +30,51 @@ func _process(_delta: float) -> void:
 			item.reparent(inventory)
 			item.add_to_group(IN_HAND_GROUP)
 			item.global_position = inventory.global_position
+	
+	if (_is_swinging):
+		if (!Input.is_action_pressed("swing")):
+			var result: int = power_meter.lock_in() + 1
+			var closest: RigidBody3D = _get_closest_item(null)
+			if (closest != null):
+				closest.apply_central_force(Vector3.FORWARD * result * swing_force_per_segment)
+			_is_swinging = false
+	else:
+		if Input.is_action_just_pressed("swing"):
+			var segments: int = 4
+			if (inventory.get_child_count() > 0):
+				var item: RigidBody3D = inventory.get_child(0)
+				if (item != null):
+					pass
+					#TODO - change segments to whatever the item's power value is
+			
+			power_meter.begin(segments)
+			_is_swinging = true
 
 
-func _physics_process(delta: float) -> void:
-	var direction: Vector3 = _get_movement()
-	linear_damp = damping
-	apply_force(speed * direction)
+func _release_item(item: RigidBody3D) -> void:
+	item.reparent(ItemManager)
+	item.owner = ItemManager
+	item.remove_from_group(IN_HAND_GROUP)
+	item.global_position.y = 0
+
+
+func _physics_process(_delta: float) -> void:
+	if (!_is_swinging):
+		var direction: Vector3 = _get_movement()
+		linear_damp = damping
+		apply_force(speed * direction)
 	
 
 func _get_movement() -> Vector3:
 	var direction = Vector3.ZERO
 
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("right"):
 		direction.x += 1
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("left"):
 		direction.x -= 1
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("down"):
 		direction.z += 1
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("up"):
 		direction.z -= 1
 		
 	direction = direction.normalized()
