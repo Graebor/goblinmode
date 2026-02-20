@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://blhndl3o3l1n1"
-path="res://.godot/imported/A_Goblin_Run_EmptyHand.fbx-7a065029e9685508a8bc2ab8f4034368.scn"
+uid="uid://wsmrapboqudl"
+path="res://.godot/imported/Goblin_Run_EmptyHand_1.fbx-dc243ecb42374946373e8d614b518f79.scn"
 
 [deps]
 
-source_file="res://player/goblin/A_Goblin_Run_EmptyHand.fbx"
-dest_files=["res://.godot/imported/A_Goblin_Run_EmptyHand.fbx-7a065029e9685508a8bc2ab8f4034368.scn"]
+source_file="res://player/goblin/Goblin_Run_EmptyHand_1.fbx"
+dest_files=["res://.godot/imported/Goblin_Run_EmptyHand_1.fbx-dc243ecb42374946373e8d614b518f79.scn"]
 
 [params]
 
