@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://by41tpitgmpsh"]
+
+[ext_resource type="Script" uid="uid://by7erw5jgtd55" path="res://prototypes/player.gd" id="1_v25gn"]
+[ext_resource type="PackedScene" uid="uid://cs4ua2hrm6k3g" path="res://obstacles/windmill.tscn" id="2_14uhh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m7226"]
+albedo_color = Color(0, 0.5882353, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_v25gn"]
+material = SubResource("StandardMaterial3D_m7226")
+size = Vector3(10, 1, 10)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_m7226"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_v25gn"]
+radial_segments = 16
+rings = 8
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_m7226"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v25gn"]
+
+[node name="PhysicsTest" type="Node3D" unique_id=1772512636]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1012718277]
+mesh = SubResource("BoxMesh_v25gn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1664451688]
+transform = Transform3D(0.9787301, -0.13315399, 0.15606868, -0.05913648, 0.5453413, 0.8361254, -0.1964441, -0.8275704, 0.5258677, 0, 4.054109, 0)
+shadow_enabled = true
+
+[node name="Ball" type="RigidBody3D" parent="." unique_id=1284733956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29579985, 1, 0.3246106)
+axis_lock_linear_y = true
+linear_damp = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball" unique_id=1014985516]
+shape = SubResource("SphereShape3D_m7226")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ball" unique_id=1208776679]
+mesh = SubResource("SphereMesh_v25gn")
+
+[node name="Ball2" type="RigidBody3D" parent="." unique_id=581774420]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4350793, 1, 1.0724888)
+axis_lock_linear_y = true
+linear_damp = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball2" unique_id=1464239274]
+shape = SubResource("SphereShape3D_m7226")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ball2" unique_id=1745493823]
+mesh = SubResource("SphereMesh_v25gn")
+
+[node name="Ball3" type="RigidBody3D" parent="." unique_id=439700091]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3586917, 1, -1.4886477)
+axis_lock_linear_y = true
+linear_damp = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball3" unique_id=1771309466]
+shape = SubResource("SphereShape3D_m7226")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ball3" unique_id=1232993985]
+mesh = SubResource("SphereMesh_v25gn")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=81375495]
+transform = Transform3D(1, 0, 0, 0, 0.3620639, 0.9321533, 0, -0.9321533, 0.3620639, 0, 6.5757246, 3.7384214)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=976561534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+contact_monitor = true
+max_contacts_reported = 1
+linear_damp = 5.0
+script = ExtResource("1_v25gn")
+move_force = 30.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=958799605]
+mesh = SubResource("CapsuleMesh_m7226")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=813775779]
+shape = SubResource("CapsuleShape3D_v25gn")
+
+[node name="Windmill" parent="." unique_id=619383591 instance=ExtResource("2_14uhh")]
+transform = Transform3D(-0.26356998, 0, -0.96464026, 0, 1, 0, 0.96464026, 0, -0.26356998, -1.955472, 3.4280887, 0.13143373)
+
+[connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_on_body_entered"]

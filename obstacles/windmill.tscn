@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cs4ua2hrm6k3g"]
+
+[ext_resource type="Script" uid="uid://d010fr3gfimnn" path="res://obstacles/rotate_local.gd" id="1_tp0eb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v25gn"]
+size = Vector3(3, 1, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ea71n"]
+size = Vector3(3, 1, 0.2)
+
+[node name="Windmill" type="AnimatableBody3D" unique_id=619383591]
+transform = Transform3D(-0.26357, 0, -0.96464026, 0, 1, 0, 0.96464026, 0, -0.26357, 0, 0, 0)
+script = ExtResource("1_tp0eb")
+axis = Vector3(0, 0, 1)
+force = 1.0
+
+[node name="Blade" type="CollisionShape3D" parent="." unique_id=826250013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+shape = SubResource("BoxShape3D_v25gn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blade" unique_id=1411894203]
+mesh = SubResource("BoxMesh_ea71n")
+
+[node name="Blade2" type="CollisionShape3D" parent="." unique_id=604150551]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+shape = SubResource("BoxShape3D_v25gn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blade2" unique_id=2104167336]
+mesh = SubResource("BoxMesh_ea71n")
+
+[node name="Blade3" type="CollisionShape3D" parent="." unique_id=491017184]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 8.742278e-08, 2, 0)
+shape = SubResource("BoxShape3D_v25gn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blade3" unique_id=1354668318]
+mesh = SubResource("BoxMesh_ea71n")
+
+[node name="Blade4" type="CollisionShape3D" parent="." unique_id=2139297296]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -8.742278e-08, -2, 0)
+shape = SubResource("BoxShape3D_v25gn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blade4" unique_id=187784529]
+mesh = SubResource("BoxMesh_ea71n")
