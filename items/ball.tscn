@@ -3,11 +3,12 @@
 [ext_resource type="Script" uid="uid://bust0xh1gt5dy" path="res://items/item.gd" id="1_7hnrh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tab4e"]
+albedo_color = Color(0.82606, 0.82606006, 0.82606, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tab4e"]
 
 [node name="Ball" type="RigidBody3D" unique_id=1772857852 groups=["Ball", "Item"]]
-collision_layer = 4
+collision_layer = 8
 axis_lock_linear_y = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true

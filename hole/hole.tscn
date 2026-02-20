@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://opmn5mrir4jc"]
+
+[ext_resource type="Script" uid="uid://dmd7xckhl63fh" path="res://hole/hole_controller.gd" id="1_unfpl"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5dei8"]
+height = 1.0
+radius = 0.125
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5dei8"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_unfpl"]
+albedo_color = Color(0.5330367, 0.5330367, 0.5330367, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_17tg5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n84m5"]
+albedo_color = Color(0.89263856, 0.24848276, 0.2298491, 1)
+
+[node name="Hole" type="Node3D" unique_id=1199113028]
+script = ExtResource("1_unfpl")
+
+[node name="Pivot" type="Node3D" parent="." unique_id=130444189]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="Area3D" type="Area3D" parent="Pivot" unique_id=1911681206]
+unique_name_in_owner = true
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/Area3D" unique_id=1651021198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_5dei8")
+
+[node name="HoleCSGCylinder3D" type="CSGCylinder3D" parent="Pivot" unique_id=597930674]
+radius = 0.55
+height = 0.05
+sides = 20
+material = SubResource("StandardMaterial3D_5dei8")
+
+[node name="HoleCSGTorus3D" type="CSGTorus3D" parent="Pivot" unique_id=257258642]
+outer_radius = 0.6
+sides = 20
+material = SubResource("StandardMaterial3D_unfpl")
+
+[node name="PoleCSGCylinder3D" type="CSGCylinder3D" parent="Pivot" unique_id=490298313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+radius = 0.05
+material = SubResource("StandardMaterial3D_17tg5")
+
+[node name="FlagCSGBox3D" type="CSGBox3D" parent="Pivot" unique_id=1331735393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38490653, 1.6878464, 0)
+size = Vector3(0.75, 0.5, 0.01)
+material = SubResource("StandardMaterial3D_n84m5")
