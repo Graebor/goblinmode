@@ -2,6 +2,7 @@ class_name Item
 extends RigidBody3D
 
 @export var power_segments: int = 3
+@export var move_speed_multiplier: float = 1.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

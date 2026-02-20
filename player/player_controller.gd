@@ -16,6 +16,8 @@ var _is_swinging: bool = false
 var _last_move_direction: Vector3
 var _swinging_item_has_layer_3: bool
 var _swinging_item_has_layer_4: bool
+var _equipped_move_speed_multiplier: float = 1.0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -33,6 +35,7 @@ func _process(_delta: float) -> void:
 		var current_item: RigidBody3D = inventory.get_child(0)
 		if current_item != null:
 			_release_item(current_item)
+			_equipped_move_speed_multiplier = 1.0
 		
 		var item: Item = _get_closest_item(current_item)
 		if item != null:
@@ -40,6 +43,7 @@ func _process(_delta: float) -> void:
 			item.reparent(inventory)
 			item.add_to_group(IN_HAND_GROUP)
 			item.global_position = inventory.global_position
+			_equipped_move_speed_multiplier = item.move_speed_multiplier
 	
 	if (_is_swinging):
 		if (_last_move_direction.length() > 0.1):
@@ -102,7 +106,7 @@ func _physics_process(_delta: float) -> void:
 	if (!_is_swinging):
 		var direction: Vector3 = _get_movement()
 		linear_damp = damping
-		apply_force(speed * direction)
+		apply_force(speed * direction * _equipped_move_speed_multiplier)
 	
 
 func _get_movement() -> Vector3:
