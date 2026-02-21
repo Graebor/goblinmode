@@ -22,7 +22,9 @@ func _ready() -> void:
 
 func player_joined(context: PlayerContext) -> void:
 	_context = context
-	name_label.text = "PLAYER " + str(context.device_id)
+	name_label.text = context.personality.title
+	name_label.modulate = context.personality.color
+	context.personality.voice_selected.play3D(position)
 	notready_root.visible = true
 	ready_root.visible = false
 	
@@ -50,6 +52,7 @@ func _handle_player_input() -> void:
 		ready_root.visible = true
 		notready_root.visible = false
 		_blocked_from_starting = true;
+		_context.personality.voice_swing.play3D(position)
 		
 		var tween: Tween = get_tree().create_tween().set_trans(Tween.TRANS_QUINT)
 		tween.set_ease(Tween.EASE_OUT)
