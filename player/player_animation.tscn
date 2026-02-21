@@ -20,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://bcqybf7ld34tm" path="res://player/goblin/Goblin_Swing_FollowThrough.fbx" id="9_kkpur"]
 [ext_resource type="Resource" uid="uid://bp3uq62wafccv" path="res://audio/sfx_swing_miss.tres" id="10_f2pqm"]
 [ext_resource type="Resource" uid="uid://wjihx8x4kue4" path="res://audio/sfx_swing_windup.tres" id="11_sxqyg"]
+[ext_resource type="PackedScene" uid="uid://bblwwnjwypdaw" path="res://player/goblin/Goblin_Starfish.fbx" id="21_jk1jc"]
+[ext_resource type="PackedScene" uid="uid://dp1pgeq6n7hbo" path="res://player/goblin/Goblin_FacePlant.fbx" id="22_jmglk"]
 
 [sub_resource type="Animation" id="Animation_1wvki"]
 length = 0.001
@@ -331,12 +333,15 @@ _data = {
 &"RESET": SubResource("Animation_1wvki")
 }
 
-[node name="PlayerAnimation" type="Node3D" unique_id=696991604 node_paths=PackedStringArray("animation_player_main", "root", "held_item_parent")]
+[node name="PlayerAnimation" type="Node3D" unique_id=696991604 node_paths=PackedStringArray("animation_player_main", "root", "root2", "held_item_parent", "faceplant", "starfish")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 script = ExtResource("1_fp5y0")
 animation_player_main = NodePath("TiltBack/Root/AnimationPlayer")
 root = NodePath("TiltBack/Root")
+root2 = NodePath("Untilted/Root")
 held_item_parent = NodePath("TiltBack/Root/HeldItemParent")
+faceplant = NodePath("Untilted/Root/Faceplant")
+starfish = NodePath("TiltBack/Root/Starfish")
 sfx_footstep = ExtResource("2_kr8ch")
 sfx_grab_item = ExtResource("3_hnvcj")
 sfx_start_moving = ExtResource("4_jk1jc")
@@ -401,3 +406,17 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 visible = false
 
 [node name="Goblin_Swing_FollowThrough" parent="TiltBack/Root/SwingFollowThrough" unique_id=588665543 instance=ExtResource("9_kkpur")]
+
+[node name="Starfish" type="Node3D" parent="TiltBack/Root" unique_id=750659736]
+
+[node name="Goblin_Starfish" parent="TiltBack/Root/Starfish" unique_id=892826247 instance=ExtResource("21_jk1jc")]
+
+[node name="Untilted" type="Node3D" parent="." unique_id=1983287511]
+
+[node name="Root" type="Node3D" parent="Untilted" unique_id=1718592313]
+
+[node name="Faceplant" type="Node3D" parent="Untilted/Root" unique_id=1437251980]
+transform = Transform3D(1, 0, 0, 0, 0.6427876, 0.7660444, 0, -0.7660444, 0.6427876, 0, 0, 0)
+
+[node name="Goblin_FacePlant" parent="Untilted/Root/Faceplant" unique_id=212508169 instance=ExtResource("22_jmglk")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0.08522867, -0.012965694)

@@ -10,6 +10,12 @@ signal swing_released
 signal swing_ended
 signal grabbed_item
 signal dropped_item
+@warning_ignore("unused_signal")
+signal was_grabbed
+@warning_ignore("unused_signal")
+signal was_locked
+@warning_ignore("unused_signal")
+signal was_released
 
 const IN_HAND_GROUP: String = "InHand"
 const SINKING_GROUP: String = "Sinking"
@@ -24,9 +30,13 @@ const ITEM_GROUP: String = "Item"
 @export var aim_ring: Node3D
 @onready var swing_spot: Node3D = %SwingSpot
 @export var delay_after_swing: float = 0.4
+@export var power_segments_when_swung: int = 6
+@export var speed_multiplier_when_held: float = 0.2
 
 var player_context: PlayerContext
 var inventory: Node3D
+var _is_grabbed: bool = false
+var _is_locked: bool = false
 var _is_moving: bool = false
 var _is_swinging: bool = false
 var _is_animation_rotation_locked: bool = false
@@ -51,20 +61,24 @@ func _process(_delta: float) -> void:
 	_refresh_is_moving()
 	
 	if PlayerManager.is_action_just_pressed("pickup", player_context):
-		var current_item: RigidBody3D = null
-		if inventory.get_child_count() > 0:
-			current_item = inventory.get_child(0)
+		var current_item: RigidBody3D = get_held_body()
+		if (current_item != null):
 			_release_item(current_item)
 			_equipped_move_speed_multiplier = 1.0
 			dropped_item.emit()
 		
-		var item: Item = _get_closest_item(current_item)
-		if item != null:
-			item.reparent(inventory)
-			item.add_to_group(IN_HAND_GROUP)
-			item.global_position = inventory.global_position
-			item.freeze = true
-			_equipped_move_speed_multiplier = item.move_speed_multiplier
+		var target: RigidBody3D = _get_closest_swing_target(current_item)
+		if (target != null):
+			target.reparent(inventory)
+			target.add_to_group(IN_HAND_GROUP)
+			target.global_position = inventory.global_position
+			target.freeze = true
+			if (target is Item):
+				_equipped_move_speed_multiplier = target.move_speed_multiplier
+			elif (target is PlayerController):
+				_equipped_move_speed_multiplier = speed_multiplier_when_held
+				target._is_grabbed = true
+				target.was_grabbed.emit()
 			grabbed_item.emit()
 	
 	if (_is_swinging):
@@ -92,34 +106,47 @@ func _refresh_is_moving() -> void:
 		movement_stopped.emit()
 
 func _release_item(body: RigidBody3D) -> void:
-	body.reparent(ItemManager)
-	body.owner = ItemManager
+	if (body is Item):
+		body.reparent(ItemManager)
+		body.owner = ItemManager
+		var item: Item = body as Item
+		item.last_player = player_context
+	elif (body is PlayerController):
+		body.reparent(PlayerManager)
+		body.rotation = Vector3.ZERO
+		body._is_grabbed = false
+		body._is_locked = false
+		body.was_released.emit()
 	body.remove_from_group(IN_HAND_GROUP)
 	body.global_position.y = 0
 	body.freeze = false
-	var item: Item = body as Item
-	item.last_player = player_context
 
 
 func _begin_swing() -> void:
-	var item: Item = _get_closest_item(null)
-	if item != null:
-		item.reparent(swing_spot)
-		item.add_to_group(IN_HAND_GROUP)
-		item.global_position = swing_spot.global_position
-		_swinging_item_has_layer_3 = item.get_collision_layer_value(3)
-		_swinging_item_has_layer_4 = item.get_collision_layer_value(4)
-		item.set_collision_layer_value(3, false)
-		item.set_collision_layer_value(4, false)
+	var target: RigidBody3D = _get_closest_swing_target(null)
+	if target != null:
+		target.reparent(swing_spot)
+		target.add_to_group(IN_HAND_GROUP)
+		target.global_position = swing_spot.global_position
+		if (target is Item):
+			_swinging_item_has_layer_3 = target.get_collision_layer_value(3)
+			_swinging_item_has_layer_4 = target.get_collision_layer_value(4)
+			target.set_collision_layer_value(3, false)
+			target.set_collision_layer_value(4, false)
+		elif (target is PlayerController):
+			target._is_locked = true
+			target.set_collision_layer_value(2, false)
+			target.was_locked.emit()
 	else:
 		swing_missed.emit()
 		return
 
 	var segments: int = 2
-	if (inventory.get_child_count() > 0):
-		var held: Item = inventory.get_child(0)
-		if (held != null):
-			segments = held.power_segments
+	var held: RigidBody3D = get_held_body()
+	if (held != null && held is Item):
+		segments = held.power_segments
+	if (held != null && held is PlayerController):
+		segments = power_segments_when_swung
 	power_meter.begin(segments)
 	_is_swinging = true
 	swing_began.emit()
@@ -138,12 +165,19 @@ func _finish_swing() -> void:
 		_release_item(locked)
 		var power: float = swing_force_per_segment * pow(result, 1.125)
 		
-		if is_holding_item():
+		if !is_holding_anything():
 			power *= swing_modifier_empty_handed
-			
+		
+		if (locked is PlayerController):
+			power *= locked.mass
+
 		locked.apply_central_force(_last_move_direction * power)
-		locked.set_collision_layer_value(3, _swinging_item_has_layer_3)
-		locked.set_collision_layer_value(4, _swinging_item_has_layer_4)
+		
+		if (locked is Item):
+			locked.set_collision_layer_value(3, _swinging_item_has_layer_3)
+			locked.set_collision_layer_value(4, _swinging_item_has_layer_4)
+		elif (locked is PlayerController):
+			locked.set_collision_layer_value(2, true)
 	swing_released.emit()
 	await get_tree().create_timer(0.5).timeout
 	_is_swinging = false
@@ -151,7 +185,7 @@ func _finish_swing() -> void:
 	swing_ended.emit()
 
 func _physics_process(_delta: float) -> void:
-	if (!_is_swinging):
+	if (!_is_swinging && !_is_grabbed && !_is_locked):
 		var direction: Vector3 = _get_movement()
 		linear_damp = damping
 		apply_force(speed * direction * _equipped_move_speed_multiplier)
@@ -185,7 +219,7 @@ func _handle_deadzone(value: float) -> float:
 		return value
 	return 0.0
 
-func _get_closest_item(previous: Node3D) -> Item:
+func _get_closest_swing_target(previous: Node3D) -> Item:
 	var items: Array[Node] = get_tree().get_nodes_in_group(ITEM_GROUP)
 	var closest: Node3D = null
 	for item: Node in items:
@@ -195,9 +229,25 @@ func _get_closest_item(previous: Node3D) -> Item:
 					closest = item
 				elif global_position.distance_to(closest.global_position) > global_position.distance_to(item.global_position):
 					closest = item
-				
+	for player: PlayerController in PlayerManager.get_children():
+		if not player.is_in_group(IN_HAND_GROUP) and player != self and player != previous:
+			if global_position.distance_to(player.global_position) < pickup_range:
+				if closest == null:
+					closest = player
+				elif global_position.distance_to(player.global_position) > global_position.distance_to(closest.global_position):
+					closest = player
 	return closest
 
 
-func is_holding_item() -> bool:
+func is_holding_anything() -> bool:
 	return inventory.get_child_count() > 0
+
+func get_held_item() -> Item:
+	if (is_holding_anything()):
+		return inventory.get_child(0) as Item
+	return null
+
+func get_held_body() -> RigidBody3D:
+	if (is_holding_anything()):
+		return inventory.get_child(0) as RigidBody3D
+	return null
