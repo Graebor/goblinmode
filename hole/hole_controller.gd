@@ -16,10 +16,16 @@ func _physics_process(delta: float) -> void:
 	_sink_balls(delta)
 
 func _start_sink_ball(ball: RigidBody3D) -> void:
+	var item: Item = ball as Item
+	if item.last_player == null:
+		return
+	
 	ball.add_to_group("Sinking")
 	ball.set_collision_layer_value(3, false) # Item
 	ball.set_collision_layer_value(4, false) # Ball
 	sinking_balls.push_back(ball)
+	
+	HoleManager.ball_sinking.emit(item.last_player)
 	
 
 func _sink_balls(delta: float) -> void:

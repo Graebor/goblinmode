@@ -90,12 +90,14 @@ func _refresh_is_moving() -> void:
 		_is_moving = false
 		movement_stopped.emit()
 
-func _release_item(item: RigidBody3D) -> void:
-	item.reparent(ItemManager)
-	item.owner = ItemManager
-	item.remove_from_group(IN_HAND_GROUP)
-	item.global_position.y = 0
-	item.freeze = false
+func _release_item(body: RigidBody3D) -> void:
+	body.reparent(ItemManager)
+	body.owner = ItemManager
+	body.remove_from_group(IN_HAND_GROUP)
+	body.global_position.y = 0
+	body.freeze = false
+	var item: Item = body as Item
+	item.last_player = player_context
 
 
 func _begin_swing() -> void:

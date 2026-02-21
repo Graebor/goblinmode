@@ -9,8 +9,9 @@ albedo_color = Color(0.20620483, 0.7107474, 7.70092e-07, 1)
 ambient_light_source = 2
 ambient_light_color = Color(0.41616848, 0.65643466, 0.7564457, 1)
 
-[node name="ScoreScreen" type="Node3D" unique_id=1518456137]
+[node name="ScoreScreen" type="Node3D" unique_id=1518456137 node_paths=PackedStringArray("label")]
 script = ExtResource("1_o3qiw")
+label = NodePath("Label3D")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=489335778]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7840016, 3.1520722)
