@@ -6,6 +6,7 @@ class_name Game
 @export var score_screen_scene: PackedScene
 @export var levels: Array[PackedScene]
 @export var game_camera: Camera3D
+@export var countdown: Countdown
 
 var _scores: Dictionary[PlayerContext, int]
 var _active_level_index: int = -1
@@ -54,6 +55,8 @@ func _begin_level(index: int) -> void:
 		
 		for context: PlayerContext in PlayerManager.players:
 			PlayerManager.spawn_player(context)
+		
+		await countdown.run()
 		
 		GameManager.notify_level_started()
 	else:
