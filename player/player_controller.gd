@@ -16,13 +16,14 @@ signal was_grabbed
 signal was_locked
 @warning_ignore("unused_signal")
 signal was_released
+signal stun_began
+signal stun_ended
 
 const IN_HAND_GROUP: String = "InHand"
 const SINKING_GROUP: String = "Sinking"
 const ITEM_GROUP: String = "Item"
 
 @export var speed: float = 1.0
-@export var damping: float = 2.0
 @export var pickup_range: float = 1.5
 @export var power_meter: PowerMeter
 @export var swing_force_per_segment: float = 10.0
@@ -32,6 +33,8 @@ const ITEM_GROUP: String = "Item"
 @export var delay_after_swing: float = 0.4
 @export var power_segments_when_swung: int = 6
 @export var speed_multiplier_when_held: float = 0.2
+@export var stun_stars: Node3D
+@export var stun_duration_per_power_segment: float = 0.25
 
 var player_context: PlayerContext
 var inventory: Node3D
@@ -44,10 +47,12 @@ var _last_move_direction: Vector3
 var _swinging_item_has_layer_3: bool
 var _swinging_item_has_layer_4: bool
 var _equipped_move_speed_multiplier: float = 1.0
+var _remaining_stun: float = 0.0
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	stun_stars.visible = false
 	inventory = $PlayerAnimation.held_item_parent
 	power_meter.visible = false
 	aim_ring.visible = false
@@ -55,19 +60,33 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if (_remaining_stun > 0):
+		_remaining_stun -= _delta
+		stun_stars.rotation_degrees.y += _delta * 260
+		if (_remaining_stun <= 0):
+			stun_ended.emit()
+			stun_stars.visible = false
+	
 	var direction: Vector3 = _get_movement()
 	if (direction.length() > 0.1):
 		_last_move_direction = direction.normalized()
 	_refresh_is_moving()
 	
-	if PlayerManager.is_action_just_pressed("pickup", player_context):
-		var current_item: RigidBody3D = get_held_body()
+	var pickup_input: bool = PlayerManager.is_action_just_pressed("pickup", player_context)
+	var struggle_out: bool = false
+	var current_item: RigidBody3D = get_held_body()
+	var held: PlayerController = current_item as PlayerController
+	if (held != null):
+		struggle_out = !held.is_stunned()
+	
+	if pickup_input or struggle_out:
 		if (current_item != null):
 			_release_item(current_item)
 			_equipped_move_speed_multiplier = 1.0
 			dropped_item.emit()
-		
-		var target: RigidBody3D = _get_closest_swing_target(current_item)
+	
+	if pickup_input:
+		var target: RigidBody3D = _get_closest_swing_target(current_item, true)
 		if (target != null):
 			target.reparent(inventory)
 			target.add_to_group(IN_HAND_GROUP)
@@ -97,7 +116,7 @@ func _process(_delta: float) -> void:
 
 
 func _refresh_is_moving() -> void:
-	var new_is_moving: bool = (_get_movement().length() > 0.1 && !_is_swinging)
+	var new_is_moving: bool = (_get_movement().length() > 0.1 && !_is_swinging && !_is_locked && !_is_grabbed && !is_stunned())
 	if (!_is_moving && new_is_moving):
 		_is_moving = true
 		movement_started.emit()
@@ -123,7 +142,7 @@ func _release_item(body: RigidBody3D) -> void:
 
 
 func _begin_swing() -> void:
-	var target: RigidBody3D = _get_closest_swing_target(null)
+	var target: RigidBody3D = _get_closest_swing_target(null, false)
 	if target != null:
 		target.reparent(swing_spot)
 		target.add_to_group(IN_HAND_GROUP)
@@ -178,6 +197,7 @@ func _finish_swing() -> void:
 			locked.set_collision_layer_value(4, _swinging_item_has_layer_4)
 		elif (locked is PlayerController):
 			locked.set_collision_layer_value(2, true)
+			locked.stun(result * stun_duration_per_power_segment)
 	swing_released.emit()
 	await get_tree().create_timer(0.5).timeout
 	_is_swinging = false
@@ -185,9 +205,8 @@ func _finish_swing() -> void:
 	swing_ended.emit()
 
 func _physics_process(_delta: float) -> void:
-	if (!_is_swinging && !_is_grabbed && !_is_locked):
+	if (!_is_swinging && !_is_grabbed && !_is_locked && !is_stunned()):
 		var direction: Vector3 = _get_movement()
-		linear_damp = damping
 		apply_force(speed * direction * _equipped_move_speed_multiplier)
 	
 
@@ -219,7 +238,7 @@ func _handle_deadzone(value: float) -> float:
 		return value
 	return 0.0
 
-func _get_closest_swing_target(previous: Node3D) -> Item:
+func _get_closest_swing_target(previous: Node3D, players_must_be_stunned: bool) -> Item:
 	var items: Array[Node] = get_tree().get_nodes_in_group(ITEM_GROUP)
 	var closest: Node3D = null
 	for item: Node in items:
@@ -230,7 +249,10 @@ func _get_closest_swing_target(previous: Node3D) -> Item:
 				elif global_position.distance_to(closest.global_position) > global_position.distance_to(item.global_position):
 					closest = item
 	for player: PlayerController in PlayerManager.get_children():
-		if not player.is_in_group(IN_HAND_GROUP) and player != self and player != previous:
+		var stun_is_valid: bool = true
+		if (players_must_be_stunned):
+			stun_is_valid = player.is_stunned()
+		if not player.is_in_group(IN_HAND_GROUP) and stun_is_valid and player != self and player != previous:
 			if global_position.distance_to(player.global_position) < pickup_range:
 				if closest == null:
 					closest = player
@@ -251,3 +273,11 @@ func get_held_body() -> RigidBody3D:
 	if (is_holding_anything()):
 		return inventory.get_child(0) as RigidBody3D
 	return null
+
+func stun(duration: float) -> void:
+	stun_stars.visible = true
+	_remaining_stun = max(_remaining_stun, duration)
+	stun_began.emit()
+
+func is_stunned() -> bool:
+	return _remaining_stun > 0
