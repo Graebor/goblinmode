@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Personality" format=3 uid="uid://dory5x814cj33"]
+
+[ext_resource type="Script" uid="uid://cyhxbst80otkx" path="res://player/personality.gd" id="1_s2nn6"]
+[ext_resource type="Resource" uid="uid://bqg1ffrk1h4t1" path="res://audio/audio_assets/VO/Dan/voice_dan_gamestart.tres" id="2_hqn61"]
+[ext_resource type="Resource" uid="uid://d2gepepcuarjj" path="res://audio/audio_assets/VO/Dan/voice_dan_got_item.tres" id="3_jkkcb"]
+[ext_resource type="Resource" uid="uid://bmcqp3gewv33" path="res://audio/audio_assets/VO/Dan/voice_dan_hit.tres" id="4_lcjh0"]
+[ext_resource type="Resource" uid="uid://lfaqgt242mj5" path="res://audio/audio_assets/VO/Dan/voice_dan_selected.tres" id="5_3hb47"]
+[ext_resource type="Resource" uid="uid://cmr8qgyq0leus" path="res://audio/audio_assets/VO/Dan/voice_dan_swing.tres" id="6_q0bgp"]
+[ext_resource type="Resource" uid="uid://dmr813mcoahft" path="res://audio/audio_assets/VO/Dan/voice_dan_victory.tres" id="7_l6jjy"]
+
+[resource]
+script = ExtResource("1_s2nn6")
+title = "Gobdan"
+color = Color(0, 1, 0.3833332, 1)
+voice_selected = ExtResource("5_3hb47")
+voice_game_start = ExtResource("2_hqn61")
+voice_hit = ExtResource("4_lcjh0")
+voice_got_item = ExtResource("3_jkkcb")
+voice_swing = ExtResource("6_q0bgp")
+voice_victory = ExtResource("7_l6jjy")
+metadata/_custom_type_script = "uid://cyhxbst80otkx"

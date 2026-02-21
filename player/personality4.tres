@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Personality" format=3 uid="uid://2aviyg5t2b24"]
+
+[ext_resource type="Script" uid="uid://cyhxbst80otkx" path="res://player/personality.gd" id="1_os5y5"]
+[ext_resource type="Resource" uid="uid://e7f5cko738dg" path="res://audio/audio_assets/VO/June/voice_june_gamestart.tres" id="2_kx0o4"]
+[ext_resource type="Resource" uid="uid://bty6s1p6i6b3e" path="res://audio/audio_assets/VO/June/voice_june_got_item.tres" id="3_vnyt2"]
+[ext_resource type="Resource" uid="uid://dy064sp2fa8f2" path="res://audio/audio_assets/VO/June/voice_june_hit.tres" id="4_jwa2t"]
+[ext_resource type="Resource" uid="uid://c68ivtm84t0be" path="res://audio/audio_assets/VO/June/voice_june_selected.tres" id="5_kil0u"]
+[ext_resource type="Resource" uid="uid://bsocwq100o5i1" path="res://audio/audio_assets/VO/June/voice_june_swing.tres" id="6_ii3mj"]
+[ext_resource type="Resource" uid="uid://dd0q2jwa0uwvf" path="res://audio/audio_assets/VO/June/voice_june_victory.tres" id="7_iwxk6"]
+
+[resource]
+script = ExtResource("1_os5y5")
+title = "Goblune"
+color = Color(1, 0.25, 0, 1)
+voice_selected = ExtResource("5_kil0u")
+voice_game_start = ExtResource("2_kx0o4")
+voice_hit = ExtResource("4_jwa2t")
+voice_got_item = ExtResource("3_vnyt2")
+voice_swing = ExtResource("6_ii3mj")
+voice_victory = ExtResource("7_iwxk6")
+metadata/_custom_type_script = "uid://cyhxbst80otkx"

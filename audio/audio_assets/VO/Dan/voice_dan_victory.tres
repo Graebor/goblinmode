@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AudioCollectionData" format=3 uid="uid://dmr813mcoahft"]
+
+[ext_resource type="AudioStream" uid="uid://yeeqa041v0dl" path="res://audio/audio_assets/VO/Dan/vo_dan_win_1.ogg" id="1_3gphi"]
+[ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="1_w4cy2"]
+
+[resource]
+script = ExtResource("1_w4cy2")
+clips = Array[AudioStream]([ExtResource("1_3gphi")])
+metadata/_custom_type_script = "uid://b1qny5ew5yveu"
