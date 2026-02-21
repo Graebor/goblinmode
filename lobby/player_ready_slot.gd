@@ -25,6 +25,12 @@ func player_joined(context: PlayerContext) -> void:
 	name_label.text = "PLAYER " + str(context.device_id)
 	notready_root.visible = true
 	ready_root.visible = false
+	
+	var tween: Tween = get_tree().create_tween().set_trans(Tween.TRANS_QUINT)
+	tween.set_ease(Tween.EASE_OUT)
+	notready_root.scale = Vector3(0.9, 1.1, 0.9)
+	tween.tween_property(notready_root, "scale", Vector3.ONE, 0.3)
+	
 	await get_tree().create_timer(0.1).timeout
 	_has_joined = true
 
@@ -44,5 +50,12 @@ func _handle_player_input() -> void:
 		ready_root.visible = true
 		notready_root.visible = false
 		_blocked_from_starting = true;
+		
+		var tween: Tween = get_tree().create_tween().set_trans(Tween.TRANS_QUINT)
+		tween.set_ease(Tween.EASE_OUT)
+		tween.tween_property(ready_root, "scale", Vector3(0.9, 1.1, 0.9), 0.1)
+		tween.set_ease(Tween.EASE_IN)
+		tween.tween_property(ready_root, "scale", Vector3.ONE, 0.1)
+		
 		await get_tree().create_timer(1.0).timeout
 		_blocked_from_starting = false
