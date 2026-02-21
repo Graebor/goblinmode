@@ -23,6 +23,7 @@ const ITEM_GROUP: String = "Item"
 @onready var swing_spot: Node3D = %SwingSpot
 @export var delay_after_swing: float = 0.4
 
+var player_context: PlayerContext
 var inventory: Node3D
 var _is_moving: bool = false
 var _is_swinging: bool = false
@@ -42,12 +43,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	var input: Vector3 = _get_movement()
-	if (input.length() > 0.1):
-		_last_move_direction = input
+	var direction: Vector3 = _get_movement()
+	if (direction.length() > 0.1):
+		_last_move_direction = direction
 	_refresh_is_moving()
 	
-	if Input.is_action_just_pressed("pickup"):
+	if PlayerManager.is_action_just_pressed("pickup", player_context):
 		var current_item: RigidBody3D = inventory.get_child(0)
 		if current_item != null:
 			_release_item(current_item)
@@ -56,7 +57,6 @@ func _process(_delta: float) -> void:
 		
 		var item: Item = _get_closest_item(current_item)
 		if item != null:
-			print(item.name)
 			item.reparent(inventory)
 			item.add_to_group(IN_HAND_GROUP)
 			item.global_position = inventory.global_position
@@ -72,10 +72,10 @@ func _process(_delta: float) -> void:
 			else:
 				aim_ring.visible = false
 		
-		if (!Input.is_action_pressed("swing") && !_is_animation_rotation_locked):
+		if (!PlayerManager.is_action_pressed("swing", player_context) && !_is_animation_rotation_locked):
 			_finish_swing()
 	else:
-		if Input.is_action_just_pressed("swing"):
+		if PlayerManager.is_action_just_pressed("swing", player_context):
 			_begin_swing()
 
 
@@ -99,7 +99,6 @@ func _release_item(item: RigidBody3D) -> void:
 func _begin_swing() -> void:
 	var item: Item = _get_closest_item(null)
 	if item != null:
-		print(item.name)
 		item.reparent(swing_spot)
 		item.add_to_group(IN_HAND_GROUP)
 		item.global_position = swing_spot.global_position
@@ -154,25 +153,35 @@ func _physics_process(_delta: float) -> void:
 func _get_movement() -> Vector3:
 	var direction = Vector3.ZERO
 
-	if Input.is_action_pressed("right"):
+	if PlayerManager.is_action_pressed("right", player_context):
 		direction.x += 1
-	if Input.is_action_pressed("left"):
+	if PlayerManager.is_action_pressed("left", player_context):
 		direction.x -= 1
-	if Input.is_action_pressed("down"):
+	if PlayerManager.is_action_pressed("down", player_context):
 		direction.z += 1
-	if Input.is_action_pressed("up"):
+	if PlayerManager.is_action_pressed("up", player_context):
 		direction.z -= 1
-		
+	
 	direction = direction.normalized()
+	
+	if player_context.is_keyboard_player_1 == false and player_context.is_keyboard_player_2 == false:
+		direction.x = _handle_deadzone(Input.get_joy_axis(player_context.device_id, JOY_AXIS_LEFT_X))
+		direction.z = _handle_deadzone(Input.get_joy_axis(player_context.device_id, JOY_AXIS_LEFT_Y))
 
 	return direction
 
+func _handle_deadzone(value: float) -> float:
+	var deadzone: float = 0.2
+	if value > deadzone:
+		return value
+	if value < -deadzone:
+		return value
+	return 0.0
 
 func _get_closest_item(previous: Node3D) -> Item:
 	var items: Array[Node] = get_tree().get_nodes_in_group(ITEM_GROUP)
 	var closest: Node3D = null
 	for item: Node in items:
-		print("item")
 		if not item.is_in_group(IN_HAND_GROUP) and item is Item and item != previous:
 			if global_position.distance_to(item.global_position) < pickup_range:
 				if closest == null:

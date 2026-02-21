@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://coecw7ejymxh6"]
 
-[ext_resource type="PackedScene" uid="uid://cnyhev1rj0eq1" path="res://player/player.tscn" id="1_4rr7c"]
 [ext_resource type="PackedScene" uid="uid://b5lgxsfykvq31" path="res://items/ball.tscn" id="2_bpbnc"]
 [ext_resource type="Script" uid="uid://dcncvtksw1tn0" path="res://camera/registered_camera.gd" id="2_rsilw"]
 [ext_resource type="PackedScene" uid="uid://bj485t2ul33ix" path="res://items/club.tscn" id="3_rsilw"]
@@ -14,14 +13,6 @@ ambient_light_source = 2
 ambient_light_color = Color(0.41616848, 0.65643466, 0.7564457, 1)
 
 [node name="TestHole" type="Node3D" unique_id=542123667]
-
-[node name="Player" parent="." unique_id=1295117305 instance=ExtResource("1_4rr7c")]
-axis_lock_linear_y = true
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-axis_lock_angular_z = true
-mass = 25.0
-speed = 500.0
 
 [node name="Ground" type="CSGBox3D" parent="." unique_id=70624706]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)

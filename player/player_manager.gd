@@ -1,5 +1,7 @@
 extends Node
 
+var player_scene: PackedScene = preload("res://player/player.tscn")
+
 var players: Array[PlayerContext] = []
 
 var round_order: Dictionary[PlayerContext, int] = {}
@@ -16,5 +18,103 @@ func _on_ball_sunk(player_context: PlayerContext) -> void:
 	
 func _on_new_round() -> void:
 	round_order_index = 0
-	for player_context in round_order.keys():
-		round_order[player_context] = -1
+	round_order.clear()
+
+
+func _is_new_player(new_context: PlayerContext) -> bool:
+	for context: PlayerContext in players:
+		if context.is_keyboard_player_1 and new_context.is_keyboard_player_1:
+			return false
+		elif context.is_keyboard_player_2 and new_context.is_keyboard_player_2:
+			return false
+		elif new_context.is_keyboard_player_1 == false and new_context.is_keyboard_player_2 == false:
+			if new_context.device_id != -1 and new_context.device_id == context.device_id:
+				return false
+	return true
+
+
+func add_player(player_context: PlayerContext) -> void:
+	players.push_back(player_context)
+	var player_instance: PlayerController = player_scene.instantiate()
+	add_child(player_instance)
+	player_instance.player_context = player_context
+	player_instance.name = "Player %s" % [players.size()]
+
+
+func is_action_pressed(action: String, player_context: PlayerContext) -> bool:
+	if player_context.is_keyboard_player_1:
+		return Input.is_action_pressed("p1_" + action)
+	
+	if player_context.is_keyboard_player_2:
+		return Input.is_action_pressed("p2_" + action) 
+
+	if Input.is_action_pressed(action):
+		for event: InputEvent in InputMap.action_get_events(action):
+			if event is InputEventJoypadButton:
+				var joypad_event: InputEventJoypadButton = event as InputEventJoypadButton
+				return Input.is_joy_button_pressed(player_context.device_id, joypad_event.button_index)
+	
+	return false
+
+
+func is_action_just_pressed(action: String, player_context: PlayerContext) -> bool:
+	if player_context.is_keyboard_player_1:
+		return Input.is_action_just_pressed("p1_" + action)
+	
+	if player_context.is_keyboard_player_2:
+		return Input.is_action_just_pressed("p2_" + action) 
+	
+	if Input.is_action_just_pressed(action):
+		for event: InputEvent in InputMap.action_get_events(action):
+			if event is InputEventJoypadButton:
+				var joypad_event: InputEventJoypadButton = event as InputEventJoypadButton
+				return Input.is_joy_button_pressed(player_context.device_id, joypad_event.button_index)
+	
+	return false
+		
+
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("p1_swing"):
+		var player_context: PlayerContext = PlayerContext.new()
+		player_context.is_keyboard_player_1 = true
+		if _is_new_player(player_context):
+			add_player(player_context)
+		return
+	
+	if Input.is_action_just_pressed("p2_swing"):
+		var player_context: PlayerContext = PlayerContext.new()
+		player_context.is_keyboard_player_2 = true
+		if _is_new_player(player_context):
+			add_player(player_context)
+		return
+	
+	
+	if Input.is_action_just_pressed("swing"):
+		for event: InputEvent in InputMap.action_get_events("swing"):
+			if event is InputEventJoypadButton:
+				var joypad_event: InputEventJoypadButton = event as InputEventJoypadButton
+				if Input.is_joy_button_pressed(0, joypad_event.button_index):
+					var player_context: PlayerContext = PlayerContext.new()
+					player_context.device_id = 0
+					if _is_new_player(player_context):
+						add_player(player_context)
+					return
+				elif Input.is_joy_button_pressed(1, joypad_event.button_index):
+					var player_context: PlayerContext = PlayerContext.new()
+					player_context.device_id = 1
+					if _is_new_player(player_context):
+						add_player(player_context)
+					return
+				elif Input.is_joy_button_pressed(2, joypad_event.button_index):
+					var player_context: PlayerContext = PlayerContext.new()
+					player_context.device_id = 2
+					if _is_new_player(player_context):
+						add_player(player_context)
+					return
+				elif Input.is_joy_button_pressed(3, joypad_event.button_index):
+					var player_context: PlayerContext = PlayerContext.new()
+					player_context.device_id = 3
+					if _is_new_player(player_context):
+						add_player(player_context)
+					return

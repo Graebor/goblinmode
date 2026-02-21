@@ -23,7 +23,13 @@ shading_mode = 0
 [node name="Player" type="RigidBody3D" unique_id=1295117305 node_paths=PackedStringArray("power_meter", "aim_ring")]
 collision_layer = 2
 collision_mask = 3
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+mass = 25.0
 script = ExtResource("1_oul6g")
+speed = 500.0
 power_meter = NodePath("PowerMeterOffset/PowerMeter")
 swing_force_per_segment = 200.0
 aim_ring = NodePath("AimRing")
