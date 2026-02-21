@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://biqosumxb5wcr"
-path="res://.godot/imported/Dagger.fbx-82b90413bb9afd2ff39b6eadba51c0de.scn"
+uid="uid://cotccl0n7gutm"
+path="res://.godot/imported/Board.fbx-15521a3bffd418b1707400d833de707a.scn"
 
 [deps]
 
-source_file="res://items/Dagger.fbx"
-dest_files=["res://.godot/imported/Dagger.fbx-82b90413bb9afd2ff39b6eadba51c0de.scn"]
+source_file="res://items/models/Board.fbx"
+dest_files=["res://.godot/imported/Board.fbx-15521a3bffd418b1707400d833de707a.scn"]
 
 [params]
 

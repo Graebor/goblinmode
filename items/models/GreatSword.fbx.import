@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://8fpmt25vcvsa"
-path="res://.godot/imported/Bat.fbx-7d66af248cd1c07995d3c8ad37a8aee1.scn"
+uid="uid://hwc076dgcfni"
+path="res://.godot/imported/GreatSword.fbx-d6a486e897da9c4d3776ceb76d907022.scn"
 
 [deps]
 
-source_file="res://items/Bat.fbx"
-dest_files=["res://.godot/imported/Bat.fbx-7d66af248cd1c07995d3c8ad37a8aee1.scn"]
+source_file="res://items/models/GreatSword.fbx"
+dest_files=["res://.godot/imported/GreatSword.fbx-d6a486e897da9c4d3776ceb76d907022.scn"]
 
 [params]
 

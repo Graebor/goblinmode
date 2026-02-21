@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bod8vk2aol5ik"]
+
+[ext_resource type="Script" uid="uid://bust0xh1gt5dy" path="res://items/item.gd" id="1_q1edq"]
+[ext_resource type="PackedScene" uid="uid://cotccl0n7gutm" path="res://items/models/Board.fbx" id="2_q1edq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kb7cm"]
+size = Vector3(0.7210022, 0.2, 2.5729322)
+
+[node name="Board" type="RigidBody3D" unique_id=1772857852 groups=["Item"]]
+collision_layer = 4
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+linear_damp = 10.0
+script = ExtResource("1_q1edq")
+power_segments = 4
+move_speed_multiplier = 0.9
+
+[node name="Board" parent="." unique_id=896130651 instance=ExtResource("2_q1edq")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 4, 0, -0.3799505, -0.24482526)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1539824022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019248366, -0.4370554, 0.55708826)
+shape = SubResource("BoxShape3D_kb7cm")

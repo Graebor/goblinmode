@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://beuhof4d84i5o"]
+
+[ext_resource type="Script" uid="uid://bust0xh1gt5dy" path="res://items/item.gd" id="1_8ylpe"]
+[ext_resource type="PackedScene" uid="uid://8fpmt25vcvsa" path="res://items/models/Bat.fbx" id="2_8ylpe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kb7cm"]
+size = Vector3(0.8537353, 0.59833986, 3.084402)
+
+[node name="Bat" type="RigidBody3D" unique_id=1772857852 groups=["Item"]]
+collision_layer = 4
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+linear_damp = 10.0
+script = ExtResource("1_8ylpe")
+power_segments = 4
+move_speed_multiplier = 0.9
+
+[node name="Bat" parent="." unique_id=1251447257 instance=ExtResource("2_8ylpe")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 5, 0.0005123317, -0.42897615, -0.19274658)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1539824022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.030423075, -0.37489727, 0.9334209)
+shape = SubResource("BoxShape3D_kb7cm")

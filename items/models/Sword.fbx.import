@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dyxkh0j3bumns"
-path="res://.godot/imported/Club.fbx-2072888edf51e28f2baa29a4c4d057b7.scn"
+uid="uid://cr3lco7f041td"
+path="res://.godot/imported/Sword.fbx-89d2d6b7293443ac9605ea8206ea9de7.scn"
 
 [deps]
 
-source_file="res://items/Club.fbx"
-dest_files=["res://.godot/imported/Club.fbx-2072888edf51e28f2baa29a4c4d057b7.scn"]
+source_file="res://items/models/Sword.fbx"
+dest_files=["res://.godot/imported/Sword.fbx-89d2d6b7293443ac9605ea8206ea9de7.scn"]
 
 [params]
 

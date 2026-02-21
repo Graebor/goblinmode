@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dcmqb318stod3"]
+
+[ext_resource type="Script" uid="uid://bust0xh1gt5dy" path="res://items/item.gd" id="1_wdxk5"]
+[ext_resource type="PackedScene" uid="uid://biqosumxb5wcr" path="res://items/models/Dagger.fbx" id="2_wdxk5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kb7cm"]
+size = Vector3(0.8868286, 0.360083, 1.742178)
+
+[node name="Dagger" type="RigidBody3D" unique_id=1772857852 groups=["Item"]]
+collision_layer = 4
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+linear_damp = 10.0
+script = ExtResource("1_wdxk5")
+power_segments = 4
+move_speed_multiplier = 0.9
+
+[node name="Dagger" parent="." unique_id=1145686365 instance=ExtResource("2_wdxk5")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 5, 0, -0.4533843, -0.17038299)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1539824022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017461985, -0.43079323, 0.31510913)
+shape = SubResource("BoxShape3D_kb7cm")

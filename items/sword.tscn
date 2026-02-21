@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://doexcqrefi22f"]
+
+[ext_resource type="Script" uid="uid://bust0xh1gt5dy" path="res://items/item.gd" id="1_r0thv"]
+[ext_resource type="PackedScene" uid="uid://cr3lco7f041td" path="res://items/models/Sword.fbx" id="2_r0thv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kb7cm"]
+size = Vector3(0.8537353, 0.2, 2.6005669)
+
+[node name="Sword" type="RigidBody3D" unique_id=1772857852 groups=["Item"]]
+collision_layer = 4
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+linear_damp = 10.0
+script = ExtResource("1_r0thv")
+power_segments = 4
+move_speed_multiplier = 0.9
+
+[node name="Sword" parent="." unique_id=1329265693 instance=ExtResource("2_r0thv")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 5, 0, -0.4765051, -0.32666856)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1539824022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0035200715, -0.4370554, 0.5796282)
+shape = SubResource("BoxShape3D_kb7cm")

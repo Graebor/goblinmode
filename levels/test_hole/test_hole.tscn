@@ -4,6 +4,12 @@
 [ext_resource type="Script" uid="uid://dcncvtksw1tn0" path="res://camera/registered_camera.gd" id="2_rsilw"]
 [ext_resource type="PackedScene" uid="uid://bj485t2ul33ix" path="res://items/club.tscn" id="3_rsilw"]
 [ext_resource type="PackedScene" uid="uid://opmn5mrir4jc" path="res://hole/hole.tscn" id="4_rsilw"]
+[ext_resource type="PackedScene" uid="uid://beuhof4d84i5o" path="res://items/bat.tscn" id="5_k8drq"]
+[ext_resource type="PackedScene" uid="uid://bux7t5cejmnv8" path="res://items/great_sword.tscn" id="6_v2a4s"]
+[ext_resource type="PackedScene" uid="uid://dcmqb318stod3" path="res://items/dagger.tscn" id="7_o6wue"]
+[ext_resource type="PackedScene" uid="uid://bod8vk2aol5ik" path="res://items/board.tscn" id="8_6i50c"]
+[ext_resource type="PackedScene" uid="uid://doexcqrefi22f" path="res://items/sword.tscn" id="9_o6wue"]
+[ext_resource type="PackedScene" uid="uid://bonuuylcb7ta" path="res://items/umbrella.tscn" id="10_6i50c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rr7c"]
 albedo_color = Color(0.20620483, 0.7107474, 7.70092e-07, 1)
@@ -57,3 +63,21 @@ use_collision = true
 collision_layer = 9
 collision_mask = 9
 size = Vector3(40, 1, 1)
+
+[node name="Bat" parent="." unique_id=2030069886 instance=ExtResource("5_k8drq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8396182, 0, -4.858269)
+
+[node name="GreatSword" parent="." unique_id=699654479 instance=ExtResource("6_v2a4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1080604, 0, 4.695303)
+
+[node name="Dagger" parent="." unique_id=2030972932 instance=ExtResource("7_o6wue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.562399, 0, 11.432042)
+
+[node name="Board" parent="." unique_id=79426484 instance=ExtResource("8_6i50c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.17501, 0, 6.8631473)
+
+[node name="Sword" parent="." unique_id=129852815 instance=ExtResource("9_o6wue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3210287, 0, 6.976531)
+
+[node name="Umbrella" parent="." unique_id=1856805251 instance=ExtResource("10_6i50c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.09528, 0, 0.7198868)

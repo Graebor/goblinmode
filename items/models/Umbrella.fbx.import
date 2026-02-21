@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://djboajmgmeemb"
-path="res://.godot/imported/Umbrella.fbx-0f03f356a05099ba364f682593a4a6b0.scn"
+path="res://.godot/imported/Umbrella.fbx-c887ac1562dd62710af461ebe241292d.scn"
 
 [deps]
 
-source_file="res://items/Umbrella.fbx"
-dest_files=["res://.godot/imported/Umbrella.fbx-0f03f356a05099ba364f682593a4a6b0.scn"]
+source_file="res://items/models/Umbrella.fbx"
+dest_files=["res://.godot/imported/Umbrella.fbx-c887ac1562dd62710af461ebe241292d.scn"]
 
 [params]
 

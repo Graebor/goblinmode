@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://bj485t2ul33ix"]
 
 [ext_resource type="Script" uid="uid://bust0xh1gt5dy" path="res://items/item.gd" id="1_8oco2"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kb7cm"]
-albedo_color = Color(0.8214051, 0.37576118, 0.25959018, 1)
+[ext_resource type="PackedScene" uid="uid://dyxkh0j3bumns" path="res://items/models/Club.fbx" id="2_puy3q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kb7cm"]
-size = Vector3(0.2, 0.2, 1)
+size = Vector3(0.8537353, 0.2, 2.48629)
 
 [node name="Club" type="RigidBody3D" unique_id=1772857852 groups=["Item"]]
 collision_layer = 4
@@ -19,11 +17,9 @@ script = ExtResource("1_8oco2")
 power_segments = 4
 move_speed_multiplier = 0.9
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1781506810]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4370554, 0)
-size = Vector3(0.2, 0.2, 1)
-material = SubResource("StandardMaterial3D_kb7cm")
+[node name="Club" parent="." unique_id=2069157156 instance=ExtResource("2_puy3q")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 5, 0.009966314, -0.4289761, -0.2956882)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1539824022]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4370554, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3169014, -0.4370554, 0.5224898)
 shape = SubResource("BoxShape3D_kb7cm")

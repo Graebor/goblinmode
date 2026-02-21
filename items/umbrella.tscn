@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bonuuylcb7ta"]
+
+[ext_resource type="Script" uid="uid://bust0xh1gt5dy" path="res://items/item.gd" id="1_jvvpi"]
+[ext_resource type="PackedScene" uid="uid://djboajmgmeemb" path="res://items/models/Umbrella.fbx" id="2_1axim"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kb7cm"]
+size = Vector3(0.55767214, 0.2, 2.5920315)
+
+[node name="Umbrella" type="RigidBody3D" unique_id=1772857852 groups=["Item"]]
+collision_layer = 4
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+linear_damp = 10.0
+script = ExtResource("1_jvvpi")
+power_segments = 4
+move_speed_multiplier = 0.9
+
+[node name="Umbrella" parent="." unique_id=1631427299 instance=ExtResource("2_1axim")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 3.5, 0.00950551, -0.4060613, -0.2564355)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1539824022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022336245, -0.4370554, 0.75258756)
+shape = SubResource("BoxShape3D_kb7cm")
