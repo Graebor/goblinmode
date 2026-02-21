@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://b4l6uofhhpf7k"]
+
+[ext_resource type="Script" uid="uid://cacqyi0ixcphn" path="res://score_screen/score_panel.gd" id="1_5m6p7"]
+[ext_resource type="PackedScene" uid="uid://cotccl0n7gutm" path="res://items/models/Board.fbx" id="2_wgnoo"]
+[ext_resource type="PackedScene" uid="uid://djboajmgmeemb" path="res://items/models/Umbrella.fbx" id="3_b6vgk"]
+
+[sub_resource type="Curve" id="Curve_5m6p7"]
+_limits = [0.0, 1024.0, 0.0, 2.0]
+_data = [Vector2(0.85838145, 1024), 0.0, -3194.9314, 0, 0, Vector2(1.7427745, 58.990112), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="ScorePanel" type="Node3D" unique_id=1824850265 node_paths=PackedStringArray("score_label", "name_label", "trophies")]
+script = ExtResource("1_5m6p7")
+score_label = NodePath("Score")
+name_label = NodePath("Name")
+trophies = [NodePath("Offset/Gold"), NodePath("Offset/Silver"), NodePath("Offset/Bronze"), NodePath("Offset/Tin")]
+speed_curve = SubResource("Curve_5m6p7")
+
+[node name="Board" parent="." unique_id=180270155 instance=ExtResource("2_wgnoo")]
+transform = Transform3D(0, -1.7484555e-07, 4, -4, -1.7484555e-07, 0, 1.7484555e-07, -4, -1.7484554e-07, -0.7693632, -9.9261674e-23, 3.3629934e-08)
+
+[node name="Name" type="Label3D" parent="." unique_id=888412764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.87055945, 0, 0.050742745)
+text = "Player 0"
+font_size = 40
+horizontal_alignment = 0
+
+[node name="Score" type="Label3D" parent="." unique_id=1241518029]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0048405, 0, 0.050742745)
+text = "0"
+font_size = 60
+horizontal_alignment = 2
+
+[node name="Offset" type="Node3D" parent="." unique_id=1579156264]
+transform = Transform3D(0.9328837, -0.3526004, 0.073490776, 0.36010802, 0.90906835, -0.20956352, 0.007084042, 0.22196305, 0.9750294, -1.029301, -0.09604402, 0.14927633)
+
+[node name="Gold" type="Node3D" parent="Offset" unique_id=70546922]
+
+[node name="Umbrella" parent="Offset/Gold" unique_id=528853210 instance=ExtResource("3_b6vgk")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Umbrella2" parent="Offset/Gold" unique_id=197456921 instance=ExtResource("3_b6vgk")]
+transform = Transform3D(0.18283609, 0, 0.30730188, -0.9831434, -4.371139e-08, 0.057149213, 4.2974563e-08, -1, -2.498071e-09, -0.10686545, 0.3286246, -2.8351684e-07)
+
+[node name="Silver" type="Node3D" parent="Offset" unique_id=1396536292]
+
+[node name="Umbrella" parent="Offset/Silver" unique_id=979758769 instance=ExtResource("3_b6vgk")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Umbrella2" parent="Offset/Silver" unique_id=782472777 instance=ExtResource("3_b6vgk")]
+transform = Transform3D(0.18283609, 0, 0.30730188, -0.9831434, -4.371139e-08, 0.057149213, 4.2974563e-08, -1, -2.498071e-09, -0.10686545, 0.3286246, -2.8351684e-07)
+
+[node name="Bronze" type="Node3D" parent="Offset" unique_id=1614742461]
+
+[node name="Umbrella" parent="Offset/Bronze" unique_id=548630634 instance=ExtResource("3_b6vgk")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Umbrella2" parent="Offset/Bronze" unique_id=1413595477 instance=ExtResource("3_b6vgk")]
+transform = Transform3D(0.18283609, 0, 0.30730188, -0.9831434, -4.371139e-08, 0.057149213, 4.2974563e-08, -1, -2.498071e-09, -0.10686545, 0.3286246, -2.8351684e-07)
+
+[node name="Tin" type="Node3D" parent="Offset" unique_id=1947132036]
+
+[node name="Umbrella" parent="Offset/Tin" unique_id=1536742119 instance=ExtResource("3_b6vgk")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Umbrella2" parent="Offset/Tin" unique_id=152587221 instance=ExtResource("3_b6vgk")]
+transform = Transform3D(0.18283609, 0, 0.30730188, -0.9831434, -4.371139e-08, 0.057149213, 4.2974563e-08, -1, -2.498071e-09, -0.10686545, 0.3286246, -2.8351684e-07)

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bffbrjcpft7lm" path="res://player/player_animation.tscn" id="2_yw30f"]
 [ext_resource type="ArrayMesh" uid="uid://dfcibv72s6f35" path="res://art/power_meter_arrow.obj" id="3_g1dw6"]
 [ext_resource type="PackedScene" uid="uid://58o2jxywidh2" path="res://player/effects/Stars.fbx" id="5_qjkh3"]
-[ext_resource type="Script" uid="uid://difksi0u4fmb2" path="res://player/physics_receiver.gd" id="6_g6k8r"]
+[ext_resource type="Script" path="res://player/physics_receiver.gd" id="6_g6k8r"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qjkh3"]
 bounce = 1.0

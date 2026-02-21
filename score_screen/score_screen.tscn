@@ -1,29 +1,71 @@
 [gd_scene format=3 uid="uid://ciw88088ol35e"]
 
 [ext_resource type="Script" uid="uid://cew8mriscc856" path="res://score_screen/score_screen.gd" id="1_o3qiw"]
+[ext_resource type="PackedScene" uid="uid://b4l6uofhhpf7k" path="res://score_screen/score_panel.tscn" id="2_h14rx"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jtv5c"]
-albedo_color = Color(0.20620483, 0.7107474, 7.70092e-07, 1)
+[sub_resource type="Gradient" id="Gradient_o3qiw"]
+colors = PackedColorArray(0, 0.21, 0.19950001, 1, 0, 0.4358082, 0.4479369, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_h14rx"]
+frequency = 0.0146
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jeygr"]
+width = 128
+height = 128
+noise = SubResource("FastNoiseLite_h14rx")
+color_ramp = SubResource("Gradient_o3qiw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwcxi"]
+albedo_texture = SubResource("NoiseTexture2D_jeygr")
 
 [sub_resource type="Environment" id="Environment_mnguq"]
 ambient_light_source = 2
 ambient_light_color = Color(0.41616848, 0.65643466, 0.7564457, 1)
 
-[node name="ScoreScreen" type="Node3D" unique_id=1518456137 node_paths=PackedStringArray("label")]
+[sub_resource type="SphereMesh" id="SphereMesh_h14rx"]
+radial_segments = 18
+rings = 9
+is_hemisphere = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h14rx"]
+shading_mode = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_h14rx"]
+material = SubResource("StandardMaterial3D_h14rx")
+size = Vector3(0.09, 1, 0.195)
+
+[node name="ScoreScreen" type="Node3D" unique_id=1518456137 node_paths=PackedStringArray("main_label", "rounds_label", "spin_bg", "clock_hand", "clock_root", "input_prompt", "score_panels")]
 script = ExtResource("1_o3qiw")
-label = NodePath("Label3D")
+time = 7.0
+main_label = NodePath("Label3D")
+rounds_label = NodePath("Label3D2")
+spin_bg = NodePath("BGroot/BG")
+clock_hand = NodePath("Clock/Hand")
+clock_root = NodePath("Clock")
+input_prompt = NodePath("InputPrompt")
+score_panels = [NodePath("ScorePanel1"), NodePath("ScorePanel2"), NodePath("ScorePanel3"), NodePath("ScorePanel4")]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=489335778]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7840016, 3.1520722)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
 [node name="Label3D" type="Label3D" parent="." unique_id=937373468]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0327616, 0)
-text = "SCORE SCREEN"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5364914, 0)
+text = "SCORES"
+font_size = 72
 
-[node name="Ground" type="CSGBox3D" parent="." unique_id=635079812]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+[node name="Label3D2" type="Label3D" parent="." unique_id=1598115693]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2307479, 0)
+text = "after 0/0 holes"
+font_size = 40
+
+[node name="BGroot" type="Node3D" parent="." unique_id=2039462650]
+transform = Transform3D(1, 0, 0, 0, 0.355319, -0.93474513, 0, 0.93474513, 0.355319, 0, 0, -32.21895)
+
+[node name="BG" type="CSGBox3D" parent="BGroot" unique_id=635079812]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 size = Vector3(80, 1, 80)
-material = SubResource("StandardMaterial3D_jtv5c")
+material = SubResource("StandardMaterial3D_nwcxi")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1530455383]
 transform = Transform3D(0.70710677, 0.5416752, -0.45451948, 0, 0.64278764, 0.76604444, 0.70710677, -0.5416752, 0.45451948, 0, 0, 0)
@@ -31,3 +73,41 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=451217081]
 environment = SubResource("Environment_mnguq")
+
+[node name="ScorePanel1" parent="." unique_id=1824850265 instance=ExtResource("2_h14rx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53764343, 0)
+
+[node name="ScorePanel2" parent="." unique_id=223370611 instance=ExtResource("2_h14rx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06235659, 0)
+
+[node name="ScorePanel3" parent="." unique_id=1613691578 instance=ExtResource("2_h14rx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6623566, 0)
+
+[node name="ScorePanel4" parent="." unique_id=1755072946 instance=ExtResource("2_h14rx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2623565, 0)
+
+[node name="Clock" type="Node3D" parent="." unique_id=456175333]
+transform = Transform3D(0.245, 0, 0, 0, 0.245, 0, 0, 0, 0.245, 3.486889, -1.7883866, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Clock" unique_id=1725587083]
+transform = Transform3D(1.711897, 0, 0, 0, -3.9021622e-10, -1.711897, 0, 0.008927107, -7.4829394e-08, 0, 0, 0)
+mesh = SubResource("SphereMesh_h14rx")
+
+[node name="Hand" type="Node3D" parent="Clock" unique_id=856101976]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Clock/Hand" unique_id=105394912]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_h14rx")
+
+[node name="Hand2" type="Node3D" parent="Clock" unique_id=1174255326]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Clock/Hand2" unique_id=1643535120]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_h14rx")
+
+[node name="InputPrompt" type="Node3D" parent="." unique_id=342976742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2121396, -1.7875392, 0)
+
+[node name="Label3D3" type="Label3D" parent="InputPrompt" unique_id=343584618]
+text = "Press a button"
+font_size = 40
