@@ -51,8 +51,9 @@ func _process(_delta: float) -> void:
 	_refresh_is_moving()
 	
 	if PlayerManager.is_action_just_pressed("pickup", player_context):
-		var current_item: RigidBody3D = inventory.get_child(0)
-		if current_item != null:
+		var current_item: RigidBody3D = null
+		if inventory.get_child_count() > 0:
+			current_item = inventory.get_child(0)
 			_release_item(current_item)
 			_equipped_move_speed_multiplier = 1.0
 			dropped_item.emit()
