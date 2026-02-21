@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://2j1qe01t26us"]
+
+[ext_resource type="Script" uid="uid://bc7ngg1qtttqx" path="res://screen_fader/screen_fader.gd" id="1_jsbgb"]
+[ext_resource type="Shader" uid="uid://crnb41mx53rqk" path="res://screen_fader/battle_transition.gdshader" id="2_ncxo3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vfc73"]
+shader = ExtResource("2_ncxo3")
+shader_parameter/progress = 0.0
+shader_parameter/blur_strength = 0.5
+shader_parameter/samples = 20
+shader_parameter/blur_center = Vector2(0.5, 0.5)
+
+[node name="ScreenFader" type="Node2D" unique_id=1679452269 node_paths=PackedStringArray("fader", "battle_texture")]
+script = ExtResource("1_jsbgb")
+fader = NodePath("CanvasLayer/FadeToBlack")
+battle_texture = NodePath("CanvasLayer/BattleTransition")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1449515146]
+layer = 100
+
+[node name="FadeToBlack" type="ColorRect" parent="CanvasLayer" unique_id=150159491]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="BattleTransition" type="TextureRect" parent="CanvasLayer" unique_id=770891260]
+material = SubResource("ShaderMaterial_vfc73")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
