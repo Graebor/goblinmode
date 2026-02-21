@@ -5,6 +5,7 @@ signal movement_started
 signal movement_stopped
 signal swing_began
 signal swing_missed
+signal swing_impact
 signal swing_released
 signal grabbed_item
 signal dropped_item
@@ -15,7 +16,6 @@ const ITEM_GROUP: String = "Item"
 @export var speed: float = 1.0
 @export var damping: float = 2.0
 @export var pickup_range: float = 1.5
-@onready var inventory: Node3D = %Inventory
 @export var power_meter: PowerMeter
 @export var swing_force_per_segment: float = 10.0
 @export var swing_modifier_empty_handed: float = 0.5
@@ -23,6 +23,7 @@ const ITEM_GROUP: String = "Item"
 @onready var swing_spot: Node3D = %SwingSpot
 @export var delay_after_swing: float = 0.4
 
+var inventory: Node3D
 var _is_moving: bool = false
 var _is_swinging: bool = false
 var _is_animation_rotation_locked: bool = false
@@ -34,6 +35,7 @@ var _equipped_move_speed_multiplier: float = 1.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	inventory = $PlayerAnimation.held_item_parent
 	power_meter.visible = false
 	aim_ring.visible = false
 
@@ -58,6 +60,7 @@ func _process(_delta: float) -> void:
 			item.reparent(inventory)
 			item.add_to_group(IN_HAND_GROUP)
 			item.global_position = inventory.global_position
+			item.freeze = true
 			_equipped_move_speed_multiplier = item.move_speed_multiplier
 			grabbed_item.emit()
 	
@@ -68,7 +71,7 @@ func _process(_delta: float) -> void:
 		else:
 			aim_ring.visible = false
 		
-		if (!Input.is_action_pressed("swing")):
+		if (!Input.is_action_pressed("swing") && !_is_animation_rotation_locked):
 			_finish_swing()
 	else:
 		if Input.is_action_just_pressed("swing"):
@@ -89,6 +92,7 @@ func _release_item(item: RigidBody3D) -> void:
 	item.owner = ItemManager
 	item.remove_from_group(IN_HAND_GROUP)
 	item.global_position.y = 0
+	item.freeze = false
 
 
 func _begin_swing() -> void:
@@ -131,10 +135,11 @@ func _finish_swing() -> void:
 		locked.set_collision_layer_value(3, _swinging_item_has_layer_3)
 		locked.set_collision_layer_value(4, _swinging_item_has_layer_4)
 	aim_ring.visible = false
-	swing_released.emit()
+	swing_impact.emit()
 	await get_tree().create_timer(delay_after_swing).timeout
 	_is_swinging = false
 	_is_animation_rotation_locked = false
+	swing_released.emit()
 
 
 func _physics_process(_delta: float) -> void:
