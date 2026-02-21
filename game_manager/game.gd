@@ -43,9 +43,7 @@ func _begin_level(index: int) -> void:
 		add_child(_active_level)
 		
 		for context: PlayerContext in PlayerManager.players:
-			var player: PlayerController = player_scene.instantiate()
-			#TODO - set the playercontext
-			_active_level.add_child(player)
+			PlayerManager.spawn_player(context)
 		
 		GameManager.notify_level_started()
 	else:
@@ -74,6 +72,7 @@ func _on_finished_looking_at_scores() -> void:
 
 
 func _clear_active_level() -> void:
+	PlayerManager.clear_players()
 	if (_active_level != null):
 		_active_level.queue_free()
 		_active_level = null

@@ -1,5 +1,7 @@
 extends Node
 
+signal player_joined(context: PlayerContext)
+
 var player_scene: PackedScene = preload("res://player/player.tscn")
 
 var players: Array[PlayerContext] = []
@@ -36,11 +38,20 @@ func _is_new_player(new_context: PlayerContext) -> bool:
 
 func add_player(player_context: PlayerContext) -> void:
 	players.push_back(player_context)
+	player_joined.emit(player_context)
+
+
+func spawn_player(player_context: PlayerContext) -> PlayerController:
 	var player_instance: PlayerController = player_scene.instantiate()
 	add_child(player_instance)
 	player_instance.player_context = player_context
 	player_instance.name = "Player %s" % [players.size()]
+	return player_instance
 
+
+func clear_players() -> void:
+	for child: Node in get_children():
+		child.queue_free()
 
 func is_action_pressed(action: String, player_context: PlayerContext) -> bool:
 	if player_context.is_keyboard_player_1:
@@ -75,7 +86,7 @@ func is_action_just_pressed(action: String, player_context: PlayerContext) -> bo
 		
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("p1_swing"):
 		var player_context: PlayerContext = PlayerContext.new()
 		player_context.is_keyboard_player_1 = true
