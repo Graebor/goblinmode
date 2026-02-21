@@ -52,6 +52,8 @@ func _begin_level(index: int) -> void:
 
 
 func _on_round_finished() -> void:
+	_clear_active_level()
+	
 	print("adding scores together")
 	for player: PlayerContext in PlayerManager.round_order.keys():
 		if (!_scores.has(player)):
