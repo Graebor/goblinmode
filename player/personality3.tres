@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Personality" format=3 uid="uid://div1njs16arcs"]
+
+[ext_resource type="Script" uid="uid://cyhxbst80otkx" path="res://player/personality.gd" id="1_makdl"]
+[ext_resource type="Resource" uid="uid://dfoe4jme0bjnm" path="res://audio/audio_assets/VO/Graeme/voice_graeme_gamestart.tres" id="2_1ydjn"]
+[ext_resource type="Resource" uid="uid://6j50kdf6vh68" path="res://audio/audio_assets/VO/Graeme/voice_graeme_got_item.tres" id="3_k4o5g"]
+[ext_resource type="Resource" uid="uid://ddc43hl373q1h" path="res://audio/audio_assets/VO/Graeme/voice_graeme_hit.tres" id="4_5r0lm"]
+[ext_resource type="Resource" uid="uid://c3l8lxh5sennd" path="res://audio/audio_assets/VO/Graeme/voice_graeme_selected.tres" id="5_o7cfu"]
+[ext_resource type="Resource" uid="uid://8n65ltux0gvf" path="res://audio/audio_assets/VO/Graeme/voice_graeme_swing.tres" id="6_n8gxs"]
+[ext_resource type="Resource" uid="uid://btr1ku23uq5i" path="res://audio/audio_assets/VO/Graeme/voice_graeme_victory.tres" id="7_khrol"]
+
+[resource]
+script = ExtResource("1_makdl")
+title = "Gramblin"
+color = Color(0, 0.9166665, 1, 1)
+voice_selected = ExtResource("5_o7cfu")
+voice_game_start = ExtResource("2_1ydjn")
+voice_hit = ExtResource("4_5r0lm")
+voice_got_item = ExtResource("3_k4o5g")
+voice_swing = ExtResource("6_n8gxs")
+voice_victory = ExtResource("7_khrol")
+metadata/_custom_type_script = "uid://cyhxbst80otkx"

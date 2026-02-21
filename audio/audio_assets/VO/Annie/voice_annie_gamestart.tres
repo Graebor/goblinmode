@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AudioCollectionData" format=3 uid="uid://bh0c3m5vm4w10"]
+
+[ext_resource type="AudioStream" uid="uid://codfmxpdy7k2s" path="res://audio/audio_assets/VO/Annie/vo_annie_gameStart_1.ogg" id="1_1g41r"]
+[ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="1_i0iky"]
+
+[resource]
+script = ExtResource("1_i0iky")
+clips = Array[AudioStream]([ExtResource("1_1g41r")])
+metadata/_custom_type_script = "uid://b1qny5ew5yveu"

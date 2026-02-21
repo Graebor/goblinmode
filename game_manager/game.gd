@@ -5,6 +5,8 @@ class_name Game
 @export var lobby_scene: PackedScene
 @export var score_screen_scene: PackedScene
 @export var levels: Array[PackedScene]
+@export var game_camera: Camera3D
+@export var countdown: Countdown
 
 var _scores: Dictionary[PlayerContext, int]
 var _active_level_index: int = -1
@@ -28,6 +30,7 @@ func _move_to_lobby() -> void:
 	_active_level_index = -1
 	_lobby = lobby_scene.instantiate()
 	add_child(_lobby)
+	game_camera.current = false
 	_lobby.players_confirmed.connect(_on_players_confirmed)
 
 
@@ -48,9 +51,12 @@ func _begin_level(index: int) -> void:
 		_clear_active_level()
 		_active_level = levels[index].instantiate()
 		add_child(_active_level)
+		game_camera.current = true
 		
 		for context: PlayerContext in PlayerManager.players:
 			PlayerManager.spawn_player(context)
+		
+		await countdown.run()
 		
 		GameManager.notify_level_started()
 	else:
@@ -76,6 +82,7 @@ func _on_round_finished() -> void:
 	_score_screen = score_screen_scene.instantiate()
 	_score_screen.setup(_active_level_index + 1, levels.size())
 	add_child(_score_screen)
+	game_camera.current = false
 	_score_screen.finished_looking_at_scores.connect(_on_finished_looking_at_scores)
 	
 	ScreenFader.fade_from_black(0.2)

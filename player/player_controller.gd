@@ -42,12 +42,16 @@ var _is_grabbed: bool = false
 var _is_locked: bool = false
 var _is_moving: bool = false
 var _is_swinging: bool = false
+var _is_counting_down: bool = true
 var _is_animation_rotation_locked: bool = false
 var _last_move_direction: Vector3
 var _swinging_item_has_layer_3: bool
 var _swinging_item_has_layer_4: bool
 var _equipped_move_speed_multiplier: float = 1.0
 var _remaining_stun: float = 0.0
+var _original_linear_damp: float = 0.0
+var _original_angular_damp: float = 0.0
+var _sand_damp_mod: float = 3.0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -56,6 +60,9 @@ func _ready() -> void:
 	inventory = $PlayerAnimation.held_item_parent
 	power_meter.visible = false
 	aim_ring.visible = false
+	_original_linear_damp = linear_damp
+	_original_angular_damp = angular_damp
+	GameManager.level_started.connect(_on_level_started)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -81,7 +88,7 @@ func _process(_delta: float) -> void:
 		_last_move_direction = direction.normalized()
 	_refresh_is_moving()
 	
-	var is_blocked: bool = is_stunned() or _is_grabbed or _is_locked
+	var is_blocked: bool = is_stunned() or _is_grabbed or _is_locked or _is_counting_down
 	var pickup_input: bool = PlayerManager.is_action_just_pressed("pickup", player_context)
 	var struggle_out: bool = false
 	var current_item: RigidBody3D = get_held_body()
@@ -220,10 +227,16 @@ func _finish_swing() -> void:
 	swing_ended.emit()
 
 func _physics_process(_delta: float) -> void:
-	if (!_is_swinging && !_is_grabbed && !_is_locked && !is_stunned()):
+	if (!_is_swinging && !_is_grabbed && !_is_locked && !is_stunned() && !_is_counting_down):
 		var direction: Vector3 = _get_movement()
 		apply_force(speed * direction * _equipped_move_speed_multiplier)
 	
+	if is_in_group("Sand"):
+		angular_damp = _original_angular_damp * _sand_damp_mod
+		linear_damp = _original_linear_damp * _sand_damp_mod
+	else:
+		angular_damp = _original_angular_damp
+		linear_damp = _original_linear_damp
 
 func _get_movement() -> Vector3:
 	var direction = Vector3.ZERO
@@ -311,3 +324,6 @@ func drop_items() -> void:
 		var direction: Vector3 = Vector3(randf_range(-1.0, 1.0), 0, randf_range(-1.0, 1.0)).normalized()
 		var strength: float = randf_range(2.0, 10.0)
 		item.apply_impulse(direction * strength)
+
+func _on_level_started() -> void:
+	_is_counting_down = false

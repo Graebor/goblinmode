@@ -17,6 +17,11 @@ var is_locked: bool = false:
 				set_collision_layer_value(4, _collision_layer_4)
 var _collision_layer_3: bool
 var _collision_layer_4: bool
+var _original_linear_damp: float = 0.0
+var _original_angular_damp: float = 0.0
+var _sand_damp_mod: float = 2.0
+var _sand_damp_min: float = 4.0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,6 +39,13 @@ func _process(_delta: float) -> void:
 	if is_in_group("Sinking"):
 		linear_velocity = Vector3.ZERO
 		angular_velocity = Vector3.ZERO
+		
+	if is_in_group("Sand"):
+		angular_damp = max(_original_angular_damp * _sand_damp_mod, _sand_damp_min)
+		linear_damp = max(_original_linear_damp * _sand_damp_mod, _sand_damp_min)
+	else:
+		angular_damp = _original_angular_damp
+		linear_damp = _original_linear_damp
 
 
 func _setup() -> void:

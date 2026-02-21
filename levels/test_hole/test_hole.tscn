@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://mhwbx5wt4klx"]
 
 [ext_resource type="PackedScene" uid="uid://b5lgxsfykvq31" path="res://items/ball.tscn" id="2_bpbnc"]
-[ext_resource type="Script" uid="uid://dcncvtksw1tn0" path="res://camera/registered_camera.gd" id="2_rsilw"]
 [ext_resource type="PackedScene" uid="uid://bj485t2ul33ix" path="res://items/club.tscn" id="3_rsilw"]
 [ext_resource type="PackedScene" uid="uid://opmn5mrir4jc" path="res://hole/hole.tscn" id="4_rsilw"]
 [ext_resource type="PackedScene" uid="uid://beuhof4d84i5o" path="res://items/bat.tscn" id="5_k8drq"]
@@ -9,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dcmqb318stod3" path="res://items/dagger.tscn" id="7_o6wue"]
 [ext_resource type="PackedScene" uid="uid://bod8vk2aol5ik" path="res://items/board.tscn" id="8_6i50c"]
 [ext_resource type="PackedScene" uid="uid://doexcqrefi22f" path="res://items/sword.tscn" id="9_o6wue"]
+[ext_resource type="PackedScene" uid="uid://bjjgj1yr8lm8s" path="res://obstacles/sandtrap/sandtrap.tscn" id="10_2yvlk"]
 [ext_resource type="PackedScene" uid="uid://bonuuylcb7ta" path="res://items/umbrella.tscn" id="10_6i50c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rr7c"]
@@ -24,13 +24,6 @@ ambient_light_color = Color(0.41616848, 0.65643466, 0.7564457, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 size = Vector3(80, 1, 80)
 material = SubResource("StandardMaterial3D_4rr7c")
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1638719990]
-transform = Transform3D(1, 0, 0, 0, 0.34202012, 0.93969256, 0, -0.93969256, 0.34202012, 0, 80, 31.173)
-current = true
-fov = 20.0
-size = 25.51
-script = ExtResource("2_rsilw")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=649967273]
 transform = Transform3D(0.70710677, 0.5416752, -0.45451948, 0, 0.64278764, 0.76604444, 0.70710677, -0.5416752, 0.45451948, 0, 0, 0)
@@ -81,3 +74,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3210287, 0, 6.976531)
 
 [node name="Umbrella" parent="." unique_id=1856805251 instance=ExtResource("10_6i50c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.09528, 0, 0.7198868)
+
+[node name="Sandtrap" parent="." unique_id=1003796369 instance=ExtResource("10_2yvlk")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.119, -0.49, 0.124)
+polygon = PackedVector2Array(-2.4031048, -6.125749, -8.221796, 7.759487, 5.4756045, 5.6645765, 12.355175, -3.883881)

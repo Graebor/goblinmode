@@ -5,6 +5,7 @@ extends Node3D
 
 @export var sinking_speed: float = 0.5
 @export var min_distance_to_sink: float = 0.2
+
 var sinking_balls: Array[RigidBody3D] = []
 
 

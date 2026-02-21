@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AudioCollectionData" format=3 uid="uid://dy064sp2fa8f2"]
+
+[ext_resource type="AudioStream" uid="uid://dvn7y837rvash" path="res://audio/audio_assets/VO/June/vo_june_hit_1.ogg" id="1_pmvu0"]
+[ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="1_vkx6s"]
+[ext_resource type="AudioStream" uid="uid://bn48e7wvien05" path="res://audio/audio_assets/VO/June/vo_june_hit_2.ogg" id="2_7qtbh"]
+[ext_resource type="AudioStream" uid="uid://cja211c6wak76" path="res://audio/audio_assets/VO/June/vo_june_hit_3.ogg" id="3_nr6pj"]
+[ext_resource type="AudioStream" uid="uid://d23cr7x8inxue" path="res://audio/audio_assets/VO/June/vo_june_hit_4.ogg" id="4_d73pt"]
+[ext_resource type="AudioStream" uid="uid://bg8mnjv5gbesc" path="res://audio/audio_assets/VO/June/vo_june_hit_5.ogg" id="5_14kya"]
+[ext_resource type="AudioStream" uid="uid://c2d182m2qhgmo" path="res://audio/audio_assets/VO/June/vo_june_hit_6.ogg" id="6_u7tau"]
+[ext_resource type="AudioStream" uid="uid://ripl7lb0o73b" path="res://audio/audio_assets/VO/June/vo_june_hit_7.ogg" id="7_tvhgd"]
+
+[resource]
+script = ExtResource("1_vkx6s")
+clips = Array[AudioStream]([ExtResource("1_pmvu0"), ExtResource("2_7qtbh"), ExtResource("3_nr6pj"), ExtResource("4_d73pt"), ExtResource("5_14kya"), ExtResource("6_u7tau"), ExtResource("7_tvhgd")])
+metadata/_custom_type_script = "uid://b1qny5ew5yveu"

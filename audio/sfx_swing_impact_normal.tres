@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="AudioCollectionData" format=3 uid="uid://nin0umlo01es"]
 
-[ext_resource type="AudioStream" uid="uid://drsjmlwrgk5jp" path="res://audio/audio_assets/sfx_goblin_swing_hard_1.ogg" id="1_a6ny0"]
+[ext_resource type="AudioStream" uid="uid://drsjmlwrgk5jp" path="res://audio/audio_assets/Swings/sfx_goblin_swing_hard_1.ogg" id="1_a6ny0"]
 [ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="1_f8vbw"]
-[ext_resource type="AudioStream" uid="uid://dkhmhbbm0yt4s" path="res://audio/audio_assets/sfx_goblin_swing_hard_2.ogg" id="2_te7nk"]
-[ext_resource type="AudioStream" uid="uid://dtv6pwq3h8gj3" path="res://audio/audio_assets/sfx_goblin_swing_hard_3.ogg" id="3_sq3m3"]
-[ext_resource type="AudioStream" uid="uid://dtsvpbrxcogmw" path="res://audio/audio_assets/sfx_goblin_swing_hard_4.ogg" id="4_dldv5"]
-[ext_resource type="AudioStream" uid="uid://cjyrmjtkrl3cq" path="res://audio/audio_assets/sfx_goblin_swing_hard_5.ogg" id="5_uvm6f"]
-[ext_resource type="AudioStream" uid="uid://ctcub8o5dcaeg" path="res://audio/audio_assets/sfx_goblin_swing_hard_6.ogg" id="6_bqsd6"]
+[ext_resource type="AudioStream" uid="uid://dkhmhbbm0yt4s" path="res://audio/audio_assets/Swings/sfx_goblin_swing_hard_2.ogg" id="2_te7nk"]
+[ext_resource type="AudioStream" uid="uid://dtv6pwq3h8gj3" path="res://audio/audio_assets/Swings/sfx_goblin_swing_hard_3.ogg" id="3_sq3m3"]
+[ext_resource type="AudioStream" uid="uid://dtsvpbrxcogmw" path="res://audio/audio_assets/Swings/sfx_goblin_swing_hard_4.ogg" id="4_dldv5"]
+[ext_resource type="AudioStream" uid="uid://cjyrmjtkrl3cq" path="res://audio/audio_assets/Swings/sfx_goblin_swing_hard_5.ogg" id="5_uvm6f"]
+[ext_resource type="AudioStream" uid="uid://ctcub8o5dcaeg" path="res://audio/audio_assets/Swings/sfx_goblin_swing_hard_6.ogg" id="6_bqsd6"]
 
 [resource]
 script = ExtResource("1_f8vbw")
