@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b4l6uofhhpf7k"]
 
 [ext_resource type="Script" uid="uid://cacqyi0ixcphn" path="res://score_screen/score_panel.gd" id="1_5m6p7"]
-[ext_resource type="PackedScene" uid="uid://cotccl0n7gutm" path="res://items/models/Board.fbx" id="2_wgnoo"]
+[ext_resource type="PackedScene" uid="uid://dtk6w8m21pr5k" path="res://art/ui/PlacementBackdropRibbonAlt1.fbx" id="2_t405h"]
 [ext_resource type="PackedScene" uid="uid://bqjedtfpebbi1" path="res://art/ui/Crown.fbx" id="3_wgnoo"]
 [ext_resource type="PackedScene" uid="uid://dfiqut7yy5joo" path="res://art/ui/Trophy.fbx" id="4_b6vgk"]
 [ext_resource type="PackedScene" uid="uid://bnb1hoddqpmvx" path="res://art/ui/Medal.fbx" id="5_t405h"]
@@ -22,8 +22,8 @@ scaler = NodePath("Scaler")
 
 [node name="Scaler" type="Node3D" parent="." unique_id=1052570988]
 
-[node name="Board" parent="Scaler" unique_id=180270155 instance=ExtResource("2_wgnoo")]
-transform = Transform3D(0, -1.7484555e-07, 4, -4, -1.7484555e-07, 0, 1.7484555e-07, -4, -1.7484554e-07, -0.7693632, -9.9261674e-23, 3.3629934e-08)
+[node name="PlacementBackdropRibbonAlt1" parent="Scaler" unique_id=2123856702 instance=ExtResource("2_t405h")]
+transform = Transform3D(1.613003, 0, 0, 0, 1.4313725, 0, 0, 0, 1, 0, -0.0148293665, 0.023301184)
 
 [node name="Name" type="Label3D" parent="." unique_id=888412764]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.87055945, 0, 0.050742745)
