@@ -62,6 +62,7 @@ func _on_round_finished() -> void:
 			_scores[player] += PlayerManager.round_order[player]
 	
 	_score_screen = score_screen_scene.instantiate()
+	_score_screen.setup(_active_level_index + 1, levels.size())
 	add_child(_score_screen)
 	_score_screen.finished_looking_at_scores.connect(_on_finished_looking_at_scores)
 
