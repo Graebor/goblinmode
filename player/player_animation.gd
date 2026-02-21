@@ -15,6 +15,8 @@ func _ready() -> void:
 	player_controller.swing_impact.connect(_on_swing_impact)
 	player_controller.swing_released.connect(_on_swing_released)
 	player_controller.swing_ended.connect(_on_swing_ended)
+	player_controller.grabbed_item.connect(_on_grabbed_item)
+	player_controller.dropped_item.connect(_on_dropped_item)
 	_play(&"idle")
 
 
@@ -56,13 +58,20 @@ func _on_swing_ended() -> void:
 		_play(&"idle")
 
 func _on_grabbed_item() -> void:
+	_bump_tween()
 	if (_is_moving):
 		_play(&"walk_full")
 
 func _on_dropped_item() -> void:
+	_bump_tween()
 	if (_is_moving):
 		_play(&"walk_empty")
 
+func _bump_tween() -> void:
+	var tween: Tween = get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(root, "scale", Vector3(1.25, 0.75, 1.25), 0.05)
+	tween.set_ease(Tween.EASE_OUT)
+	tween.tween_property(root, "scale", Vector3.ONE, 0.05)
 
 func _play(animation: StringName) -> void:
 	animation_player_main.play(&"RESET")
