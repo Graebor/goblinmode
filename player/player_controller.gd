@@ -68,10 +68,11 @@ func _process(_delta: float) -> void:
 			stun_stars.visible = false
 	
 	var direction: Vector3 = _get_movement()
-	if (direction.length() > 0.1):
+	if (direction.length() > 0.1 && !is_stunned()):
 		_last_move_direction = direction.normalized()
 	_refresh_is_moving()
 	
+	var is_blocked: bool = is_stunned() or _is_grabbed or _is_locked
 	var pickup_input: bool = PlayerManager.is_action_just_pressed("pickup", player_context)
 	var struggle_out: bool = false
 	var current_item: RigidBody3D = get_held_body()
@@ -79,13 +80,13 @@ func _process(_delta: float) -> void:
 	if (held != null):
 		struggle_out = !held.is_stunned()
 	
-	if pickup_input or struggle_out:
+	if ((pickup_input and !is_blocked) or struggle_out):
 		if (current_item != null):
 			_release_item(current_item)
 			_equipped_move_speed_multiplier = 1.0
 			dropped_item.emit()
 	
-	if pickup_input:
+	if (pickup_input and !is_blocked):
 		var target: RigidBody3D = _get_closest_swing_target(current_item, true)
 		if (target != null):
 			if target is Item:
@@ -114,7 +115,7 @@ func _process(_delta: float) -> void:
 		if (!PlayerManager.is_action_pressed("swing", player_context) && !_is_animation_rotation_locked):
 			_finish_swing()
 	else:
-		if PlayerManager.is_action_just_pressed("swing", player_context):
+		if (!is_blocked && PlayerManager.is_action_just_pressed("swing", player_context)):
 			_begin_swing()
 
 
