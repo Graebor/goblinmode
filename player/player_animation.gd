@@ -68,3 +68,4 @@ func _play(animation: StringName) -> void:
 	animation_player_main.play(&"RESET")
 	animation_player_main.advance(0) #clear the existing keyframes first
 	animation_player_main.play(&"player_animations_main/" + animation)
+	animation_player_main.advance(0)
