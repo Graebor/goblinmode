@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cacqyi0ixcphn" path="res://score_screen/score_panel.gd" id="1_5m6p7"]
 [ext_resource type="PackedScene" uid="uid://cotccl0n7gutm" path="res://items/models/Board.fbx" id="2_wgnoo"]
 [ext_resource type="PackedScene" uid="uid://djboajmgmeemb" path="res://items/models/Umbrella.fbx" id="3_b6vgk"]
+[ext_resource type="PackedScene" uid="uid://bqjedtfpebbi1" path="res://art/ui/Crown.fbx" id="3_wgnoo"]
 
 [sub_resource type="Curve" id="Curve_5m6p7"]
 _limits = [0.0, 1024.0, 0.0, 2.0]
@@ -32,15 +33,11 @@ font_size = 60
 horizontal_alignment = 2
 
 [node name="Offset" type="Node3D" parent="." unique_id=1579156264]
-transform = Transform3D(0.9328837, -0.3526004, 0.073490776, 0.36010802, 0.90906835, -0.20956352, 0.007084042, 0.22196305, 0.9750294, -1.029301, -0.09604402, 0.14927633)
+transform = Transform3D(0.9328837, -0.3526004, 0.073490776, 0.36010802, 0.90906835, -0.20956352, 0.007084042, 0.22196305, 0.9750294, -1.0364724, -0.14070101, 0.15152349)
 
 [node name="Gold" type="Node3D" parent="Offset" unique_id=70546922]
 
-[node name="Umbrella" parent="Offset/Gold" unique_id=528853210 instance=ExtResource("3_b6vgk")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
-
-[node name="Umbrella2" parent="Offset/Gold" unique_id=197456921 instance=ExtResource("3_b6vgk")]
-transform = Transform3D(0.18283609, 0, 0.30730188, -0.9831434, -4.371139e-08, 0.057149213, 4.2974563e-08, -1, -2.498071e-09, -0.10686545, 0.3286246, -2.8351684e-07)
+[node name="Crown" parent="Offset/Gold" unique_id=811228294 instance=ExtResource("3_wgnoo")]
 
 [node name="Silver" type="Node3D" parent="Offset" unique_id=1396536292]
 
