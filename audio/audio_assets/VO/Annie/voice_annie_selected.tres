@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AudioCollectionData" format=3 uid="uid://ckjomqenwmn67"]
+
+[ext_resource type="AudioStream" uid="uid://gl5y73mam1sy" path="res://audio/audio_assets/VO/Annie/vo_annie_characterSelect_1.ogg" id="1_r458x"]
+[ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="1_ty43o"]
+[ext_resource type="AudioStream" uid="uid://bxdlhoa2mju3c" path="res://audio/audio_assets/VO/Annie/vo_annie_characterSelect_2.ogg" id="2_tvny8"]
+
+[resource]
+script = ExtResource("1_ty43o")
+clips = Array[AudioStream]([ExtResource("1_r458x"), ExtResource("2_tvny8")])
+metadata/_custom_type_script = "uid://b1qny5ew5yveu"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AudioCollectionData" format=3 uid="uid://c3l8lxh5sennd"]
+
+[ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="1_86qsy"]
+[ext_resource type="AudioStream" uid="uid://b0bpp0rccxv57" path="res://audio/audio_assets/VO/Graeme/vo_graeme_characterSelect_1.ogg" id="1_a1ah5"]
+[ext_resource type="AudioStream" uid="uid://bwtiu3t0nnqgn" path="res://audio/audio_assets/VO/Graeme/vo_graeme_characterSelect_2_use.ogg" id="2_tnuuf"]
+
+[resource]
+script = ExtResource("1_86qsy")
+clips = Array[AudioStream]([ExtResource("1_a1ah5"), ExtResource("2_tnuuf")])
+metadata/_custom_type_script = "uid://b1qny5ew5yveu"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AudioCollectionData" format=3 uid="uid://bsocwq100o5i1"]
+
+[ext_resource type="AudioStream" uid="uid://c74e2bvxs0e8l" path="res://audio/audio_assets/VO/June/vo_june_swing_1.ogg" id="1_bm4hu"]
+[ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="1_j3pmg"]
+[ext_resource type="AudioStream" uid="uid://bnfqne2qp6gr2" path="res://audio/audio_assets/VO/June/vo_june_swing_2.ogg" id="2_jik0t"]
+[ext_resource type="AudioStream" uid="uid://11figa1kujcs" path="res://audio/audio_assets/VO/June/vo_june_swing_3.ogg" id="3_6u8j2"]
+[ext_resource type="AudioStream" uid="uid://b3t1ekrp01fqt" path="res://audio/audio_assets/VO/June/vo_june_swing_4.ogg" id="4_lxxju"]
+[ext_resource type="AudioStream" uid="uid://dt4dmc0uvccbw" path="res://audio/audio_assets/VO/June/vo_june_swing_5.ogg" id="5_xq4eo"]
+
+[resource]
+script = ExtResource("1_j3pmg")
+clips = Array[AudioStream]([ExtResource("1_bm4hu"), ExtResource("2_jik0t"), ExtResource("3_6u8j2"), ExtResource("4_lxxju"), ExtResource("5_xq4eo")])
+metadata/_custom_type_script = "uid://b1qny5ew5yveu"

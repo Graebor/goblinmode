@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AudioCollectionData" format=3 uid="uid://cmr8qgyq0leus"]
+
+[ext_resource type="AudioStream" uid="uid://cky737njnb8ln" path="res://audio/audio_assets/VO/Dan/vo_dan_swing_1.ogg" id="1_fxemh"]
+[ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="1_p58vy"]
+[ext_resource type="AudioStream" uid="uid://qqika86i358w" path="res://audio/audio_assets/VO/Dan/vo_dan_swing_2.ogg" id="2_7nlsh"]
+[ext_resource type="AudioStream" uid="uid://d4mue2ib8tmnu" path="res://audio/audio_assets/VO/Dan/vo_dan_swing_3.ogg" id="3_f8cge"]
+
+[resource]
+script = ExtResource("1_p58vy")
+clips = Array[AudioStream]([ExtResource("1_fxemh"), ExtResource("2_7nlsh"), ExtResource("3_f8cge")])
+metadata/_custom_type_script = "uid://b1qny5ew5yveu"

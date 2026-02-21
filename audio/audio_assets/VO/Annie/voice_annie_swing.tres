@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AudioCollectionData" format=3 uid="uid://dk7kjbu6efm58"]
+
+[ext_resource type="AudioStream" uid="uid://bjqajuiw3ipcw" path="res://audio/audio_assets/VO/Annie/vo_annie_raspberry_1.ogg" id="1_e3d4h"]
+[ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="4_xwcoj"]
+
+[resource]
+script = ExtResource("4_xwcoj")
+clips = Array[AudioStream]([ExtResource("1_e3d4h")])
+metadata/_custom_type_script = "uid://b1qny5ew5yveu"
