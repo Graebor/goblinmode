@@ -50,7 +50,7 @@ var _equipped_move_speed_multiplier: float = 1.0
 var _remaining_stun: float = 0.0
 var _original_linear_damp: float = 0.0
 var _original_angular_damp: float = 0.0
-var _sand_damp_mod: float = 2.0
+var _sand_damp_mod: float = 3.0
 
 
 # Called when the node enters the scene tree for the first time.

@@ -20,6 +20,7 @@ var _collision_layer_4: bool
 var _original_linear_damp: float = 0.0
 var _original_angular_damp: float = 0.0
 var _sand_damp_mod: float = 2.0
+var _sand_damp_min: float = 4.0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -40,8 +41,8 @@ func _process(_delta: float) -> void:
 		angular_velocity = Vector3.ZERO
 		
 	if is_in_group("Sand"):
-		angular_damp = _original_angular_damp * _sand_damp_mod
-		linear_damp = _original_linear_damp * _sand_damp_mod
+		angular_damp = max(_original_angular_damp * _sand_damp_mod, _sand_damp_min)
+		linear_damp = max(_original_linear_damp * _sand_damp_mod, _sand_damp_min)
 	else:
 		angular_damp = _original_angular_damp
 		linear_damp = _original_linear_damp
