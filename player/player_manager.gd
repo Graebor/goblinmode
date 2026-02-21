@@ -49,9 +49,13 @@ func spawn_player(player_context: PlayerContext) -> PlayerController:
 	return player_instance
 
 
-func clear_players() -> void:
+func clear_player_instances() -> void:
 	for child: Node in get_children():
 		child.queue_free()
+
+func clear_all_player_information() -> void:
+	clear_player_instances()
+	players.clear()
 
 func is_action_pressed(action: String, player_context: PlayerContext) -> bool:
 	if player_context.is_keyboard_player_1:

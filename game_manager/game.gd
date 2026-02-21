@@ -80,7 +80,7 @@ func _on_finished_looking_at_scores() -> void:
 
 
 func _clear_active_level() -> void:
-	PlayerManager.clear_players()
+	PlayerManager.clear_player_instances()
 	ItemManager.clear()
 	if (_active_level != null):
 		_active_level.queue_free()
