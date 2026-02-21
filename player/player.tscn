@@ -25,7 +25,7 @@ collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_oul6g")
 power_meter = NodePath("PowerMeterOffset/PowerMeter")
-swing_force_per_segment = 130.0
+swing_force_per_segment = 200.0
 aim_ring = NodePath("AimRing")
 
 [node name="PlayerAnimation" parent="." unique_id=696991604 node_paths=PackedStringArray("player_controller") instance=ExtResource("2_yw30f")]

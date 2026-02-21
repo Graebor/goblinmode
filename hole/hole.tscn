@@ -15,7 +15,10 @@ albedo_color = Color(0.5330367, 0.5330367, 0.5330367, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_17tg5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n84m5"]
-albedo_color = Color(0.89263856, 0.24848276, 0.2298491, 1)
+albedo_color = Color(0.967074, 0, 0.083485045, 1)
+metallic_specular = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1oe2"]
 
 [node name="Hole" type="Node3D" unique_id=1199113028]
 script = ExtResource("1_unfpl")
@@ -42,12 +45,20 @@ outer_radius = 0.6
 sides = 20
 material = SubResource("StandardMaterial3D_unfpl")
 
-[node name="PoleCSGCylinder3D" type="CSGCylinder3D" parent="Pivot" unique_id=490298313]
+[node name="FlagPivot" type="Node3D" parent="Pivot" unique_id=696346451]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0)
+
+[node name="PoleCSGCylinder3D" type="CSGCylinder3D" parent="Pivot/FlagPivot" unique_id=490298313]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 radius = 0.05
 material = SubResource("StandardMaterial3D_17tg5")
 
-[node name="FlagCSGBox3D" type="CSGBox3D" parent="Pivot" unique_id=1331735393]
+[node name="FlagCSGBox3D" type="CSGBox3D" parent="Pivot/FlagPivot" unique_id=1331735393]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38490653, 1.6878464, 0)
 size = Vector3(0.75, 0.5, 0.01)
 material = SubResource("StandardMaterial3D_n84m5")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Pivot/FlagPivot" unique_id=352115665]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.955, 0)
+radius = 0.1
+material = SubResource("StandardMaterial3D_t1oe2")

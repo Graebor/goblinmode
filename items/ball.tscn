@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bust0xh1gt5dy" path="res://items/item.gd" id="1_7hnrh"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7hnrh"]
+bounce = 0.75
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tab4e"]
 albedo_color = Color(0.82606, 0.82606006, 0.82606, 1)
 
@@ -14,6 +17,7 @@ axis_lock_linear_y = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
+physics_material_override = SubResource("PhysicsMaterial_7hnrh")
 linear_damp = 1.0
 script = ExtResource("1_7hnrh")
 power_segments = 2

@@ -18,6 +18,7 @@ const ITEM_GROUP: String = "Item"
 @onready var inventory: Node3D = %Inventory
 @export var power_meter: PowerMeter
 @export var swing_force_per_segment: float = 10.0
+@export var swing_modifier_empty_handed: float = 0.5
 @export var aim_ring: Node3D
 @onready var swing_spot: Node3D = %SwingSpot
 
@@ -115,7 +116,13 @@ func _finish_swing() -> void:
 	var locked: RigidBody3D = swing_spot.get_child(0)
 	if (locked != null):
 		_release_item(locked)
-		locked.apply_central_force(_last_move_direction * result * swing_force_per_segment)
+		var power: float = swing_force_per_segment * pow(result, 1.125)
+		
+		var held: Item = inventory.get_child(0)
+		if (held == null):
+			power *= swing_modifier_empty_handed
+			
+		locked.apply_central_force(_last_move_direction * power)
 		locked.set_collision_layer_value(3, _swinging_item_has_layer_3)
 		locked.set_collision_layer_value(4, _swinging_item_has_layer_4)
 	_is_swinging = false
