@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bjjgj1yr8lm8s"]
+
+[ext_resource type="Texture2D" uid="uid://cltaasxhlufyc" path="res://art/environment/T_Sand.png" id="1_2irt3"]
+[ext_resource type="Script" uid="uid://crljmbnxtvca5" path="res://obstacles/sandtrap/copy_polygon.gd" id="2_7drxf"]
+[ext_resource type="Script" uid="uid://c0en3xauqvjoe" path="res://obstacles/sandtrap/sandtrap.gd" id="2_yvqp8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u64xv"]
+albedo_color = Color(0.5370113, 0.5370113, 0.5370113, 1)
+albedo_texture = ExtResource("1_2irt3")
+uv1_scale = Vector3(2, 2, 2)
+
+[node name="Sandtrap" type="CSGPolygon3D" unique_id=1003796369 node_paths=PackedStringArray("area")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+polygon = PackedVector2Array(-0.8778696, -4.444204, -8.221796, 7.759487, 5.4756045, 5.6645765, 12.355175, -3.883881)
+material = SubResource("StandardMaterial3D_u64xv")
+script = ExtResource("2_yvqp8")
+area = NodePath("Area3D")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2066205696]
+collision_mask = 14
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Area3D" unique_id=1017199480 node_paths=PackedStringArray("poly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+polygon = PackedVector2Array(-0.4373417, -3.809571, -8.221796, 7.759487, 5.4756045, 5.6645765, 12.355175, -3.883881)
+script = ExtResource("2_7drxf")
+poly = NodePath("../..")

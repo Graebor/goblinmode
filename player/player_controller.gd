@@ -48,6 +48,9 @@ var _swinging_item_has_layer_3: bool
 var _swinging_item_has_layer_4: bool
 var _equipped_move_speed_multiplier: float = 1.0
 var _remaining_stun: float = 0.0
+var _original_linear_damp: float = 0.0
+var _original_angular_damp: float = 0.0
+var _sand_damp_mod: float = 2.0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -56,6 +59,8 @@ func _ready() -> void:
 	inventory = $PlayerAnimation.held_item_parent
 	power_meter.visible = false
 	aim_ring.visible = false
+	_original_linear_damp = linear_damp
+	_original_angular_damp = angular_damp
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -224,6 +229,12 @@ func _physics_process(_delta: float) -> void:
 		var direction: Vector3 = _get_movement()
 		apply_force(speed * direction * _equipped_move_speed_multiplier)
 	
+	if is_in_group("Sand"):
+		angular_damp = _original_angular_damp * _sand_damp_mod
+		linear_damp = _original_linear_damp * _sand_damp_mod
+	else:
+		angular_damp = _original_angular_damp
+		linear_damp = _original_linear_damp
 
 func _get_movement() -> Vector3:
 	var direction = Vector3.ZERO
