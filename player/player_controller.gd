@@ -118,8 +118,7 @@ func _finish_swing() -> void:
 		_release_item(locked)
 		var power: float = swing_force_per_segment * pow(result, 1.125)
 		
-		var held: Item = inventory.get_child(0)
-		if (held == null):
+		if is_holding_item():
 			power *= swing_modifier_empty_handed
 			
 		locked.apply_central_force(_last_move_direction * power)
