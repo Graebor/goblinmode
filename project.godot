@@ -11,11 +11,12 @@ config_version=5
 [application]
 
 config/name="goblinmode"
-run/main_scene="uid://mhwbx5wt4klx"
+run/main_scene="uid://debnicjts6qbm"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 
 [autoload]
 
+GameManager="*uid://vkyj3f7bkbc"
 ItemManager="*uid://kbtn3a8tswf3"
 CameraManager="*uid://4urfxx713ydk"
 PlayerManager="*uid://c2bceuntonsfk"

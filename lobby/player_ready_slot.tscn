@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://sr3r3ta2236u"]
+
+[ext_resource type="Script" uid="uid://bo5nxw2gjjbo3" path="res://lobby/player_ready_slot.gd" id="1_weivt"]
+[ext_resource type="PackedScene" uid="uid://4n7jvlo6n544" path="res://player/goblin/Goblin_Idle.fbx" id="2_4ru0x"]
+
+[node name="PlayerReadySlot" type="Node3D" unique_id=252882270 node_paths=PackedStringArray("name_label", "ready_root", "notready_root")]
+script = ExtResource("1_weivt")
+name_label = NodePath("NameLabel")
+ready_root = NodePath("Ready")
+notready_root = NodePath("NotReady")
+
+[node name="NameLabel" type="Label3D" parent="." unique_id=1915738922]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2732363, 0)
+text = "PLAYER 0"
+
+[node name="NotReady" type="Node3D" parent="." unique_id=513963458]
+
+[node name="PressToJoin" type="Label3D" parent="NotReady" unique_id=658311686]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.72469056, 0)
+text = "Press a button
+to join"
+
+[node name="Ready" type="Node3D" parent="." unique_id=1121105785]
+
+[node name="Goblin_Idle" parent="Ready" unique_id=225147497 instance=ExtResource("2_4ru0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5069928, 0)
+
+[node name="PressToJoin2" type="Label3D" parent="Ready" unique_id=1628935889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26225787, 0)
+text = "READY!
+Press a button to start"
