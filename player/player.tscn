@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxpgpa37ipadq" path="res://player/player_controller.gd" id="1_oul6g"]
 [ext_resource type="PackedScene" uid="uid://cc57wo0yynp10" path="res://player/power_meter/power_meter.tscn" id="2_rkbax"]
+[ext_resource type="PackedScene" uid="uid://bffbrjcpft7lm" path="res://player/player_animation.tscn" id="2_yw30f"]
 [ext_resource type="ArrayMesh" uid="uid://dfcibv72s6f35" path="res://art/power_meter_arrow.obj" id="3_g1dw6"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_oul6g"]
@@ -27,7 +28,11 @@ power_meter = NodePath("PowerMeterOffset/PowerMeter")
 swing_force_per_segment = 130.0
 aim_ring = NodePath("AimRing")
 
+[node name="PlayerAnimation" parent="." unique_id=696991604 node_paths=PackedStringArray("player_controller") instance=ExtResource("2_yw30f")]
+player_controller = NodePath("..")
+
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2050052044]
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=141657803]
 shape = SubResource("CylinderShape3D_oul6g")

@@ -1,0 +1,281 @@
+[gd_scene format=3 uid="uid://bffbrjcpft7lm"]
+
+[ext_resource type="Script" uid="uid://iq27sn06exgs" path="res://player/player_animation.gd" id="1_fp5y0"]
+[ext_resource type="AnimationLibrary" uid="uid://dpwj32b1hfcl" path="res://player/player_animations_main.tres" id="2_1wvki"]
+[ext_resource type="PackedScene" uid="uid://wsmrapboqudl" path="res://player/goblin/Goblin_Run_EmptyHand_1.fbx" id="2_t8nns"]
+[ext_resource type="PackedScene" uid="uid://dhpnm88bn616o" path="res://player/goblin/Goblin_Run_HeldItem_1.fbx" id="3_v3vk1"]
+[ext_resource type="PackedScene" uid="uid://tt8e8kwkmsdv" path="res://player/goblin/Goblin_Run_HeldItem_2.fbx" id="4_1wvki"]
+[ext_resource type="PackedScene" uid="uid://bnc8l8ghmmndv" path="res://player/goblin/Goblin_Run_EmptyHand_2.fbx" id="4_v0igm"]
+
+[sub_resource type="Animation" id="Animation_1wvki"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RunEmpty1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RunEmpty2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RunEmpty1")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+tracks/3/type = "position_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RunEmpty2")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RunEmpty1:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1.0000002)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RunEmpty2:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RunEmpty1:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("RunEmpty2:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("RunEmpty1:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("RunEmpty2:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("RunFull1:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("RunFull1:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("RunFull1:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("RunFull2:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("RunFull2:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("RunFull2:scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("RunFull2:rotation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Idle:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Idle:scale")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v0igm"]
+_data = {
+&"RESET": SubResource("Animation_1wvki")
+}
+
+[node name="PlayerAnimation" type="Node3D" unique_id=696991604 node_paths=PackedStringArray("animation_player_main", "root")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("1_fp5y0")
+animation_player_main = NodePath("TiltBack/Root/AnimationPlayer")
+root = NodePath("TiltBack/Root")
+
+[node name="TiltBack" type="Node3D" parent="." unique_id=310260365]
+transform = Transform3D(1, 0, 0, 0, 0.76604444, 0.6427876, 0, -0.6427876, 0.76604444, 0, 0, 0)
+
+[node name="Root" type="Node3D" parent="TiltBack" unique_id=1820473106]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TiltBack/Root" unique_id=1153112974]
+libraries/ = SubResource("AnimationLibrary_v0igm")
+libraries/player_animations_main = ExtResource("2_1wvki")
+
+[node name="Idle" type="Node3D" parent="TiltBack/Root" unique_id=2112905804]
+visible = false
+
+[node name="Goblin_Run_EmptyHand_1" parent="TiltBack/Root/Idle" unique_id=645647440 instance=ExtResource("2_t8nns")]
+
+[node name="RunEmpty1" type="Node3D" parent="TiltBack/Root" unique_id=582765117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000002, 0, 0, 0)
+visible = false
+
+[node name="Goblin_Run_EmptyHand_1" parent="TiltBack/Root/RunEmpty1" unique_id=134984189 instance=ExtResource("2_t8nns")]
+
+[node name="RunEmpty2" type="Node3D" parent="TiltBack/Root" unique_id=135656975]
+visible = false
+
+[node name="Goblin_Run_EmptyHand_2" parent="TiltBack/Root/RunEmpty2" unique_id=969140245 instance=ExtResource("4_v0igm")]
+
+[node name="RunFull1" type="Node3D" parent="TiltBack/Root" unique_id=1186441200]
+visible = false
+
+[node name="Goblin_Run_HeldItem_1" parent="TiltBack/Root/RunFull1" unique_id=857276852 instance=ExtResource("3_v3vk1")]
+
+[node name="RunFull2" type="Node3D" parent="TiltBack/Root" unique_id=1038893935]
+visible = false
+
+[node name="Goblin_Run_HeldItem_2" parent="TiltBack/Root/RunFull2" unique_id=1678655412 instance=ExtResource("4_1wvki")]
+
+[node name="SwingCharge" type="Node3D" parent="TiltBack/Root" unique_id=2042116787]
+
+[node name="SwingImpact" type="Node3D" parent="TiltBack/Root" unique_id=895101569]
+
+[node name="SwingFollowThrough" type="Node3D" parent="TiltBack/Root" unique_id=967145785]

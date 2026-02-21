@@ -1,4 +1,13 @@
 extends RigidBody3D
+class_name PlayerController
+
+signal movement_started
+signal movement_stopped
+signal swing_began
+signal swing_missed
+signal swing_released
+signal grabbed_item
+signal dropped_item
 
 const IN_HAND_GROUP: String = "InHand"
 const ITEM_GROUP: String = "Item"
@@ -12,6 +21,7 @@ const ITEM_GROUP: String = "Item"
 @export var aim_ring: Node3D
 @onready var swing_spot: Node3D = %SwingSpot
 
+var _is_moving: bool = false
 var _is_swinging: bool = false
 var _last_move_direction: Vector3
 var _swinging_item_has_layer_3: bool
@@ -30,12 +40,20 @@ func _process(_delta: float) -> void:
 	var input: Vector3 = _get_movement()
 	if (input.length() > 0.1):
 		_last_move_direction = input
+		if (!_is_moving):
+			_is_moving = true
+			movement_started.emit()
+	else:
+		if (_is_moving):
+			_is_moving = false
+			movement_stopped.emit()
 	
 	if Input.is_action_just_pressed("pickup"):
 		var current_item: RigidBody3D = inventory.get_child(0)
 		if current_item != null:
 			_release_item(current_item)
 			_equipped_move_speed_multiplier = 1.0
+			dropped_item.emit()
 		
 		var item: Item = _get_closest_item(current_item)
 		if item != null:
@@ -44,6 +62,7 @@ func _process(_delta: float) -> void:
 			item.add_to_group(IN_HAND_GROUP)
 			item.global_position = inventory.global_position
 			_equipped_move_speed_multiplier = item.move_speed_multiplier
+			grabbed_item.emit()
 	
 	if (_is_swinging):
 		if (_last_move_direction.length() > 0.1):
@@ -78,7 +97,7 @@ func _begin_swing() -> void:
 		item.set_collision_layer_value(3, false)
 		item.set_collision_layer_value(4, false)
 	else:
-		#whiff your swing
+		swing_missed.emit()
 		return
 
 	var segments: int = 2
@@ -88,6 +107,7 @@ func _begin_swing() -> void:
 			segments = held.power_segments
 	power_meter.begin(segments)
 	_is_swinging = true
+	swing_began.emit()
 
 
 func _finish_swing() -> void:
@@ -100,6 +120,7 @@ func _finish_swing() -> void:
 		locked.set_collision_layer_value(4, _swinging_item_has_layer_4)
 	_is_swinging = false
 	aim_ring.visible = false
+	swing_released.emit()
 
 
 func _physics_process(_delta: float) -> void:
@@ -139,3 +160,7 @@ func _get_closest_item(previous: Node3D) -> Item:
 					closest = item
 				
 	return closest
+
+
+func is_holding_item() -> bool:
+	return inventory.get_child_count() > 0
