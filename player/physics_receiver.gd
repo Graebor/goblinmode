@@ -1,7 +1,7 @@
 extends Area3D
 
 @export var velocity_threshold: float = 5.0
-@export var multiplier: float = 40.0
+@export var multiplier: float = 30.0
 
 var player: PlayerController
 var locked_item: RigidBody3D
@@ -33,6 +33,9 @@ func _on_body_entered(node: Node3D) -> void:
 		return
 	
 	var body: RigidBody3D = node as RigidBody3D
+	if not is_instance_valid(body):
+		return
+	
 	if locked_item != null and body == locked_item:
 		return
 	
