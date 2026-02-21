@@ -122,8 +122,12 @@ func _begin_swing() -> void:
 
 
 func _finish_swing() -> void:
-	_is_animation_rotation_locked = true
 	var result: int = power_meter.lock_in() + 1
+	_is_animation_rotation_locked = true
+	swing_impact.emit()
+	await get_tree().create_timer(delay_after_swing).timeout
+	
+	aim_ring.visible = false
 	var locked: RigidBody3D = swing_spot.get_child(0)
 	if (locked != null):
 		_release_item(locked)
@@ -135,9 +139,6 @@ func _finish_swing() -> void:
 		locked.apply_central_force(_last_move_direction * power)
 		locked.set_collision_layer_value(3, _swinging_item_has_layer_3)
 		locked.set_collision_layer_value(4, _swinging_item_has_layer_4)
-	aim_ring.visible = false
-	swing_impact.emit()
-	await get_tree().create_timer(delay_after_swing).timeout
 	_is_swinging = false
 	_is_animation_rotation_locked = false
 	swing_released.emit()
