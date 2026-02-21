@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cc57wo0yynp10" path="res://player/power_meter/power_meter.tscn" id="2_rkbax"]
 [ext_resource type="PackedScene" uid="uid://bffbrjcpft7lm" path="res://player/player_animation.tscn" id="2_yw30f"]
 [ext_resource type="ArrayMesh" uid="uid://dfcibv72s6f35" path="res://art/power_meter_arrow.obj" id="3_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://58o2jxywidh2" path="res://player/effects/Stars.fbx" id="5_qjkh3"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_oul6g"]
 height = 1.0
@@ -20,7 +21,7 @@ shading_mode = 0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g6k8r"]
 shading_mode = 0
 
-[node name="Player" type="RigidBody3D" unique_id=1295117305 node_paths=PackedStringArray("power_meter", "aim_ring")]
+[node name="Player" type="RigidBody3D" unique_id=1295117305 node_paths=PackedStringArray("power_meter", "aim_ring", "stun_stars")]
 collision_layer = 2
 collision_mask = 3
 axis_lock_linear_y = true
@@ -28,12 +29,17 @@ axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 mass = 25.0
+linear_damp = 2.0
 script = ExtResource("1_oul6g")
 speed = 500.0
 power_meter = NodePath("PowerMeterOffset/PowerMeter")
 swing_force_per_segment = 200.0
 aim_ring = NodePath("AimRing")
 delay_after_swing = 0.2
+power_segments_when_swung = 8
+speed_multiplier_when_held = 0.7
+stun_stars = NodePath("Stars")
+stun_duration_per_power_segment = 0.75
 
 [node name="PlayerAnimation" parent="." unique_id=696991604 node_paths=PackedStringArray("player_controller") instance=ExtResource("2_yw30f")]
 player_controller = NodePath("..")
@@ -64,3 +70,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_g6k8r")
 [node name="SwingSpot" type="Node3D" parent="AimRing" unique_id=1507639265]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.71590924)
+
+[node name="Stars" type="Node3D" parent="." unique_id=1239101897]
+
+[node name="Stars" parent="Stars" unique_id=1049913873 instance=ExtResource("5_qjkh3")]
+transform = Transform3D(2.71, 0, 0, 0, 2.71, 0, 0, 0, 2.71, 0, 1.3422674, 0)
