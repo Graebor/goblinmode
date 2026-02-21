@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="AudioCollectionData" format=3 uid="uid://cea3vfijppwjc"]
 
 [ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="1_aiojp"]
-[ext_resource type="AudioStream" uid="uid://dryh8a5jr5pqi" path="res://audio/audio_assets/sfx_goblin_footstep_grass_3.ogg" id="3_bngm0"]
-[ext_resource type="AudioStream" uid="uid://ceyfleps5q6q" path="res://audio/audio_assets/sfx_goblin_footstep_grass_4.ogg" id="4_hpb7v"]
+[ext_resource type="AudioStream" uid="uid://dryh8a5jr5pqi" path="res://audio/audio_assets/Footsteps/sfx_goblin_footstep_grass_3.ogg" id="3_bngm0"]
+[ext_resource type="AudioStream" uid="uid://ceyfleps5q6q" path="res://audio/audio_assets/Footsteps/sfx_goblin_footstep_grass_4.ogg" id="4_hpb7v"]
 
 [resource]
 script = ExtResource("1_aiojp")

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="AudioCollectionData" format=3 uid="uid://bdbst1n1hj6ww"]
 
 [ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="1_1rosy"]
-[ext_resource type="AudioStream" uid="uid://dykvl7yuxp3mb" path="res://audio/audio_assets/sfx_club_impact_crit_1_rough.ogg" id="1_6v6mu"]
+[ext_resource type="AudioStream" uid="uid://dykvl7yuxp3mb" path="res://audio/audio_assets/Impact/sfx_club_impact_crit_1_rough.ogg" id="1_6v6mu"]
 
 [resource]
 script = ExtResource("1_1rosy")
