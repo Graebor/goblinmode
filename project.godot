@@ -18,6 +18,8 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 
 ItemManager="*uid://kbtn3a8tswf3"
 CameraManager="*uid://4urfxx713ydk"
+PlayerManager="*uid://c2bceuntonsfk"
+HoleManager="*uid://dph6hfv1amgdd"
 
 [editor_plugins]
 

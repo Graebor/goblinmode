@@ -22,6 +22,8 @@ metallic_specular = 0.0
 
 [node name="Hole" type="Node3D" unique_id=1199113028]
 script = ExtResource("1_unfpl")
+sinking_speed = null
+min_distance_to_sink = null
 
 [node name="Pivot" type="Node3D" parent="." unique_id=130444189]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
