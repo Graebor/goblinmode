@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://bust0xh1gt5dy" path="res://items/item.gd" id="1_jvvpi"]
 [ext_resource type="PackedScene" uid="uid://djboajmgmeemb" path="res://items/models/Umbrella.fbx" id="2_1axim"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1axim"]
+bounce = 0.8
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_kb7cm"]
 size = Vector3(0.55767214, 0.2, 2.5920315)
 
@@ -12,10 +15,11 @@ axis_lock_linear_y = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
-linear_damp = 10.0
+physics_material_override = SubResource("PhysicsMaterial_1axim")
+linear_damp = 1.5
 script = ExtResource("1_jvvpi")
 power_segments = 4
-move_speed_multiplier = 0.9
+move_speed_multiplier = 0.7
 
 [node name="Umbrella" parent="." unique_id=1631427299 instance=ExtResource("2_1axim")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 3.5, 0.00950551, -0.4060613, -0.2564355)

@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://bust0xh1gt5dy" path="res://items/item.gd" id="1_q1edq"]
 [ext_resource type="PackedScene" uid="uid://cotccl0n7gutm" path="res://items/models/Board.fbx" id="2_q1edq"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q1edq"]
+bounce = 0.8
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_kb7cm"]
 size = Vector3(0.7210022, 0.2, 2.5729322)
 
@@ -12,12 +15,13 @@ axis_lock_linear_y = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
-linear_damp = 10.0
+physics_material_override = SubResource("PhysicsMaterial_q1edq")
+linear_damp = 1.0
 script = ExtResource("1_q1edq")
 power_segments = 4
-move_speed_multiplier = 0.9
+move_speed_multiplier = 0.6
 
-[node name="Board" parent="." unique_id=896130651 instance=ExtResource("2_q1edq")]
+[node name="Board" parent="." unique_id=276034077 instance=ExtResource("2_q1edq")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 4, 0, -0.3799505, -0.24482526)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1539824022]

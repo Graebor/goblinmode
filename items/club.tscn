@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://bust0xh1gt5dy" path="res://items/item.gd" id="1_8oco2"]
 [ext_resource type="PackedScene" uid="uid://dyxkh0j3bumns" path="res://items/models/Club.fbx" id="2_puy3q"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_puy3q"]
+bounce = 0.8
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_kb7cm"]
 size = Vector3(0.8537353, 0.2, 2.48629)
 
@@ -12,12 +15,13 @@ axis_lock_linear_y = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
-linear_damp = 10.0
+physics_material_override = SubResource("PhysicsMaterial_puy3q")
+linear_damp = 1.5
 script = ExtResource("1_8oco2")
-power_segments = 4
-move_speed_multiplier = 0.9
+power_segments = 5
+move_speed_multiplier = 0.8
 
-[node name="Club" parent="." unique_id=2069157156 instance=ExtResource("2_puy3q")]
+[node name="Club" parent="." unique_id=1650559930 instance=ExtResource("2_puy3q")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 5, 0.009966314, -0.4289761, -0.2956882)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1539824022]

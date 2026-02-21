@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://bust0xh1gt5dy" path="res://items/item.gd" id="1_w1uto"]
 [ext_resource type="PackedScene" uid="uid://hwc076dgcfni" path="res://items/models/GreatSword.fbx" id="2_w1uto"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w1uto"]
+bounce = 0.8
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_kb7cm"]
 size = Vector3(1.2985299, 0.39248046, 6.934676)
 
@@ -12,12 +15,13 @@ axis_lock_linear_y = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
-linear_damp = 10.0
+physics_material_override = SubResource("PhysicsMaterial_w1uto")
+linear_damp = 6.0
 script = ExtResource("1_w1uto")
-power_segments = 4
-move_speed_multiplier = 0.9
+power_segments = 10
+move_speed_multiplier = 0.2
 
-[node name="GreatSword" parent="." unique_id=1163342906 instance=ExtResource("2_w1uto")]
+[node name="GreatSword" parent="." unique_id=840597471 instance=ExtResource("2_w1uto")]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -4.36306e-05, -0.33688504, 0.0071122646)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1539824022]
