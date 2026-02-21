@@ -3,28 +3,42 @@
 [ext_resource type="Script" uid="uid://f5dm2jcxpa7m" path="res://lobby/lobby.gd" id="1_jtv5c"]
 [ext_resource type="PackedScene" uid="uid://sr3r3ta2236u" path="res://lobby/player_ready_slot.tscn" id="2_mnguq"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jtv5c"]
-albedo_color = Color(0.20620483, 0.7107474, 7.70092e-07, 1)
-
 [sub_resource type="Environment" id="Environment_mnguq"]
 ambient_light_source = 2
 ambient_light_color = Color(0.41616848, 0.65643466, 0.7564457, 1)
+
+[sub_resource type="Gradient" id="Gradient_mnguq"]
+colors = PackedColorArray(0, 0.21, 0.19950001, 1, 0, 0.4358082, 0.4479369, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_uj4ub"]
+frequency = 0.0146
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jeygr"]
+width = 128
+height = 128
+noise = SubResource("FastNoiseLite_uj4ub")
+color_ramp = SubResource("Gradient_mnguq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gi5k6"]
+albedo_texture = SubResource("NoiseTexture2D_jeygr")
 
 [node name="Lobby" type="Node3D" unique_id=1518456137 node_paths=PackedStringArray("slots")]
 script = ExtResource("1_jtv5c")
 slots = [NodePath("PlayerReadySlot0"), NodePath("PlayerReadySlot1"), NodePath("PlayerReadySlot2"), NodePath("PlayerReadySlot3")]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=489335778]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6770907, 3.1520722)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6770907, 9.157951)
+fov = 30.0
 
 [node name="Label3D" type="Label3D" parent="." unique_id=937373468]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0327616, 0)
-text = "LOBBY"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7683225, 0)
+text = "GAME NAME"
+font_size = 72
 
-[node name="Ground" type="CSGBox3D" parent="." unique_id=635079812]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-size = Vector3(80, 1, 80)
-material = SubResource("StandardMaterial3D_jtv5c")
+[node name="Label3D2" type="Label3D" parent="." unique_id=814534784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4432664, 0)
+text = "Press button to join"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1530455383]
 transform = Transform3D(0.70710677, 0.5416752, -0.45451948, 0, 0.64278764, 0.76604444, 0.70710677, -0.5416752, 0.45451948, 0, 0, 0)
@@ -34,16 +48,24 @@ shadow_enabled = true
 environment = SubResource("Environment_mnguq")
 
 [node name="PlayerReadySlot0" parent="." unique_id=252882270 instance=ExtResource("2_mnguq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -1.4365387, 0)
 
 [node name="PlayerReadySlot1" parent="." unique_id=1115427127 instance=ExtResource("2_mnguq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1.4365387, 0)
 index = 1
 
 [node name="PlayerReadySlot2" parent="." unique_id=569289037 instance=ExtResource("2_mnguq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1.4365387, 0)
 index = 2
 
 [node name="PlayerReadySlot3" parent="." unique_id=2107987909 instance=ExtResource("2_mnguq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -1.4365387, 0)
 index = 3
+
+[node name="BGroot" type="Node3D" parent="." unique_id=749770812]
+transform = Transform3D(1, 0, 0, 0, 0.355319, -0.93474513, 0, 0.93474513, 0.355319, 0, 0, -32.21895)
+
+[node name="BG" type="CSGBox3D" parent="BGroot" unique_id=689862207]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+size = Vector3(80, 1, 80)
+material = SubResource("StandardMaterial3D_gi5k6")
