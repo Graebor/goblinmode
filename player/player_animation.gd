@@ -3,6 +3,7 @@ extends Node3D
 @export var player_controller: PlayerController
 @export var animation_player_main: AnimationPlayer
 @export var root: Node3D
+@export var held_item_parent: Node3D
 
 var _is_moving: bool = false
 
@@ -11,6 +12,7 @@ func _ready() -> void:
 	player_controller.movement_stopped.connect(_on_movement_stopped)
 	player_controller.swing_began.connect(_on_swing_began)
 	player_controller.swing_missed.connect(_on_swing_missed)
+	player_controller.swing_impact.connect(_on_swing_impact)
 	player_controller.swing_released.connect(_on_swing_released)
 	_play(&"idle")
 
@@ -27,7 +29,8 @@ func _on_movement_started() -> void:
 
 func _on_movement_stopped() -> void:
 	_is_moving = false
-	_play(&"idle")
+	if (!player_controller._is_swinging):
+		_play(&"idle")
 
 func _on_swing_began() -> void:
 	_play(&"swing_start")
@@ -35,6 +38,9 @@ func _on_swing_began() -> void:
 func _on_swing_missed() -> void:
 	#_play(&"swing_finish")
 	pass
+
+func _on_swing_impact() -> void:
+	_play(&"swing_impact")
 
 func _on_swing_released() -> void:
 	_play(&"swing_finish")

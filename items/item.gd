@@ -15,6 +15,7 @@ func _process(_delta: float) -> void:
 	if is_in_group("InHand"):
 		linear_velocity = Vector3.ZERO
 		angular_velocity = Vector3.ZERO
+		position = Vector3.ZERO
 
 
 func _setup() -> void:

@@ -27,13 +27,10 @@ script = ExtResource("1_oul6g")
 power_meter = NodePath("PowerMeterOffset/PowerMeter")
 swing_force_per_segment = 200.0
 aim_ring = NodePath("AimRing")
-delay_after_swing = 0.35
+delay_after_swing = 0.2
 
 [node name="PlayerAnimation" parent="." unique_id=696991604 node_paths=PackedStringArray("player_controller") instance=ExtResource("2_yw30f")]
 player_controller = NodePath("..")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2050052044]
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=141657803]
 shape = SubResource("CylinderShape3D_oul6g")

@@ -27,6 +27,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(1, 1, 1), Vector3(1.02, 0.98, 1.02), Vector3(1, 1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HeldItemParent:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.50024146, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.18906128, 0.1847669, -0.027305491), Vector3(-0.19144785, 0.17437275, -0.027305465), Vector3(-0.18906128, 0.1847669, -0.027305491)]
+}
 
 [sub_resource type="Animation" id="Animation_wdc6i"]
 resource_name = "swing_finish"
@@ -70,6 +82,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_h6fem"]
 resource_name = "swing_impact"
+length = 0.6333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -85,34 +98,10 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SwingImpact:scale")
+tracks/1/path = NodePath("HeldItemParent:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.098985575, 0.16441672, 0.22649242, 0.33218887, 0.48653927),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(1, 1, 1), Vector3(1.2, 1.2, 1.2), Vector3(1, 1, 1), Vector3(1.115, 1.115, 1.115), Vector3(0.925, 0.925, 0.925), Vector3(1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SwingImpact:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.028521268),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.05374158, -0.35588804, -0.2966953), Vector3(0, 0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("HeldItemParent:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
