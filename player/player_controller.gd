@@ -88,6 +88,9 @@ func _process(_delta: float) -> void:
 	if pickup_input:
 		var target: RigidBody3D = _get_closest_swing_target(current_item, true)
 		if (target != null):
+			if target is Item:
+				var item: Item = target as Item
+				item.is_locked = true
 			target.reparent(inventory)
 			target.add_to_group(IN_HAND_GROUP)
 			target.global_position = inventory.global_position
@@ -139,6 +142,9 @@ func _release_item(body: RigidBody3D) -> void:
 	body.remove_from_group(IN_HAND_GROUP)
 	body.global_position.y = 0
 	body.freeze = false
+	if body is Item:
+		var item: Item = body as Item
+		item.is_locked = false
 
 
 func _begin_swing() -> void:
@@ -169,6 +175,9 @@ func _begin_swing() -> void:
 	power_meter.begin(segments)
 	_is_swinging = true
 	swing_began.emit()
+	if target is Item:
+		var item: Item = target as Item
+		item.is_locked = true
 
 
 func _finish_swing() -> void:
@@ -190,7 +199,7 @@ func _finish_swing() -> void:
 		if (locked is PlayerController):
 			power *= locked.mass
 
-		locked.apply_central_force(_last_move_direction * power)
+		locked.apply_force(_last_move_direction * power)
 		
 		if (locked is Item):
 			locked.set_collision_layer_value(3, _swinging_item_has_layer_3)
