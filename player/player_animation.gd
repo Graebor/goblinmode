@@ -34,6 +34,9 @@ func _ready() -> void:
 	player_controller.was_grabbed.connect(_on_was_grabbed)
 	player_controller.was_locked.connect(_on_was_locked)
 	player_controller.was_released.connect(_on_was_released)
+	player_controller.stun_began.connect(_on_stun_began)
+	GameManager.level_started.connect(_on_level_started)
+	HoleManager.ball_sunk.connect(_on_ball_sunk)
 	_play(&"idle")
 
 
@@ -48,6 +51,12 @@ func _process(_delta: float) -> void:
 	else:
 		animation_player_main.speed_scale = 1.0
 
+func _on_level_started() -> void:
+	player_controller.player_context.personality.voice_game_start.play3D(position)
+
+func _on_ball_sunk(player_context: PlayerContext) -> void:
+	if (player_context == player_controller.player_context):
+		player_controller.player_context.personality.voice_victory.play3D(position)
 
 func _on_movement_started() -> void:
 	if (!player_controller._is_grabbed && !player_controller._is_locked):
@@ -71,11 +80,19 @@ func _on_swing_began() -> void:
 
 func _on_swing_missed() -> void:
 	sfx_swing_miss.play3D(position)
-	#_play(&"swing_finish")
-	pass
+	_play(&"swing_finish")
+	await get_tree().create_timer(0.2).timeout
+	if (_is_moving):
+		if (player_controller.is_holding_anything()):
+			_play(&"walk_full")
+		else:
+			_play(&"walk_empty")
+	else:
+		_play(&"idle")
 
 func _on_swing_impact(power: int, highest: int) -> void:
 	_play(&"swing_impact")
+	player_controller.player_context.personality.voice_swing.play3D(position)
 	match power:
 		0, 1:
 			sfx_swing_impact_bad.play3D(position)
@@ -94,6 +111,7 @@ func _on_swing_ended() -> void:
 
 func _on_grabbed_item() -> void:
 	sfx_grab_item.play3D(position)
+	player_controller.player_context.personality.voice_got_item.play3D(position)
 	_bump_tween()
 	if (_is_moving):
 		_play(&"walk_full")
@@ -130,4 +148,9 @@ func _on_was_locked() -> void:
 
 func _on_was_released() -> void:
 	_play(&"RESET")
+	faceplant.visible = true
+
+func _on_stun_began() -> void:
+	_play(&"RESET")
+	player_controller.player_context.personality.voice_hit.play3D(position)
 	faceplant.visible = true

@@ -3,6 +3,12 @@ extends Node
 signal player_joined(context: PlayerContext)
 
 var player_scene: PackedScene = preload("res://player/player.tscn")
+var personalities: Array[Personality] = [
+	preload("res://player/personality1.tres"),
+	preload("res://player/personality2.tres"),
+	preload("res://player/personality3.tres"),
+	preload("res://player/personality4.tres")
+]
 
 var players: Array[PlayerContext] = []
 
@@ -37,6 +43,7 @@ func _is_new_player(new_context: PlayerContext) -> bool:
 
 
 func add_player(player_context: PlayerContext) -> void:
+	player_context.personality = personalities[wrapi(players.size(), 0, personalities.size())]
 	players.push_back(player_context)
 	player_joined.emit(player_context)
 
