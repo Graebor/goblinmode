@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d2bmrtbyslwcr"]
+
+[ext_resource type="Script" uid="uid://b0bjvk2b4l7nl" path="res://prototypes/multiplayer/input_controller.gd" id="1_ron18"]
+
+[node name="PlayerMulti" type="Node3D" unique_id=1736772248]
+script = ExtResource("1_ron18")
