@@ -43,6 +43,6 @@ func _sink_balls(delta: float) -> void:
 
 func _remove_ball(ball: RigidBody3D) -> void:
 	var item: Item = ball as Item
-	HoleManager.ball_sunk.emit(item.last_player)
 	ball.queue_free()
 	sinking_balls.erase(ball)
+	HoleManager.ball_sunk.emit(item.last_player)
