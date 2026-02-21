@@ -47,7 +47,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var direction: Vector3 = _get_movement()
 	if (direction.length() > 0.1):
-		_last_move_direction = direction
+		_last_move_direction = direction.normalized()
 	_refresh_is_moving()
 	
 	if PlayerManager.is_action_just_pressed("pickup", player_context):
