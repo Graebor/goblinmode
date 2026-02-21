@@ -63,4 +63,4 @@ surface_material_override/0 = SubResource("StandardMaterial3D_g6k8r")
 
 [node name="SwingSpot" type="Node3D" parent="AimRing" unique_id=1507639265]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7273333, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.71590924)
