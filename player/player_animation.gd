@@ -15,7 +15,7 @@ func _ready() -> void:
 	_play(&"idle")
 
 func _process(_delta: float) -> void:
-	if (_is_moving):
+	if (!player_controller._is_animation_rotation_locked):
 		root.rotation.y = Vector2(player_controller._last_move_direction.z, player_controller._last_move_direction.x).angle()
 
 func _on_movement_started() -> void:
@@ -30,13 +30,14 @@ func _on_movement_stopped() -> void:
 	_play(&"idle")
 
 func _on_swing_began() -> void:
-	pass
+	_play(&"swing_start")
 
 func _on_swing_missed() -> void:
+	#_play(&"swing_finish")
 	pass
 
 func _on_swing_released() -> void:
-	pass
+	_play(&"swing_finish")
 
 func _on_grabbed_item() -> void:
 	if (_is_moving):

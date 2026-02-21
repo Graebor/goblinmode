@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://bffbrjcpft7lm"]
 
 [ext_resource type="Script" uid="uid://iq27sn06exgs" path="res://player/player_animation.gd" id="1_fp5y0"]
-[ext_resource type="AnimationLibrary" uid="uid://dpwj32b1hfcl" path="res://player/player_animations_main.tres" id="2_1wvki"]
+[ext_resource type="AnimationLibrary" uid="uid://bi4ydbnwkt0lw" path="res://player/player_animations_main.tres" id="2_1wvki"]
 [ext_resource type="PackedScene" uid="uid://wsmrapboqudl" path="res://player/goblin/Goblin_Run_EmptyHand_1.fbx" id="2_t8nns"]
 [ext_resource type="PackedScene" uid="uid://dhpnm88bn616o" path="res://player/goblin/Goblin_Run_HeldItem_1.fbx" id="3_v3vk1"]
 [ext_resource type="PackedScene" uid="uid://tt8e8kwkmsdv" path="res://player/goblin/Goblin_Run_HeldItem_2.fbx" id="4_1wvki"]
 [ext_resource type="PackedScene" uid="uid://bnc8l8ghmmndv" path="res://player/goblin/Goblin_Run_EmptyHand_2.fbx" id="4_v0igm"]
+[ext_resource type="PackedScene" uid="uid://bxml4t71p4qf1" path="res://player/goblin/Goblin_Swing_WindUp.fbx" id="7_hlxye"]
+[ext_resource type="PackedScene" uid="uid://dmasr01w6lich" path="res://player/goblin/Goblin_Swing_Impact.fbx" id="8_faahg"]
+[ext_resource type="PackedScene" uid="uid://bcqybf7ld34tm" path="res://player/goblin/Goblin_Swing_FollowThrough.fbx" id="9_kkpur"]
 
 [sub_resource type="Animation" id="Animation_1wvki"]
 length = 0.001
@@ -227,6 +230,114 @@ tracks/18/keys = {
 "update": 0,
 "values": [Vector3(1, 1, 1)]
 }
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("SwingCharge:scale")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("SwingCharge:visible")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("SwingCharge:rotation")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("SwingImpact:visible")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("SwingImpact:scale")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("SwingImpact:rotation")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("SwingFollowThrough:visible")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("SwingFollowThrough:rotation")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("HeldItemParent:position")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v0igm"]
 _data = {
@@ -234,19 +345,22 @@ _data = {
 }
 
 [node name="PlayerAnimation" type="Node3D" unique_id=696991604 node_paths=PackedStringArray("animation_player_main", "root")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 script = ExtResource("1_fp5y0")
 animation_player_main = NodePath("TiltBack/Root/AnimationPlayer")
 root = NodePath("TiltBack/Root")
 
 [node name="TiltBack" type="Node3D" parent="." unique_id=310260365]
-transform = Transform3D(1, 0, 0, 0, 0.76604444, 0.6427876, 0, -0.6427876, 0.76604444, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.6427876, 0.7660444, 0, -0.7660444, 0.6427876, 0, 0, 0)
 
 [node name="Root" type="Node3D" parent="TiltBack" unique_id=1820473106]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TiltBack/Root" unique_id=1153112974]
 libraries/ = SubResource("AnimationLibrary_v0igm")
 libraries/player_animations_main = ExtResource("2_1wvki")
+
+[node name="HeldItemParent" type="Node3D" parent="TiltBack/Root" unique_id=527275505]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.9802322e-08, 0, -2.9802322e-08, 1.0000001, 0, 0, 0)
 
 [node name="Idle" type="Node3D" parent="TiltBack/Root" unique_id=2112905804]
 visible = false
@@ -275,7 +389,17 @@ visible = false
 [node name="Goblin_Run_HeldItem_2" parent="TiltBack/Root/RunFull2" unique_id=1678655412 instance=ExtResource("4_1wvki")]
 
 [node name="SwingCharge" type="Node3D" parent="TiltBack/Root" unique_id=2042116787]
+visible = false
+
+[node name="Goblin_Swing_WindUp" parent="TiltBack/Root/SwingCharge" unique_id=419002591 instance=ExtResource("7_hlxye")]
 
 [node name="SwingImpact" type="Node3D" parent="TiltBack/Root" unique_id=895101569]
+visible = false
+
+[node name="Goblin_Swing_Impact" parent="TiltBack/Root/SwingImpact" unique_id=1474052130 instance=ExtResource("8_faahg")]
 
 [node name="SwingFollowThrough" type="Node3D" parent="TiltBack/Root" unique_id=967145785]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+visible = false
+
+[node name="Goblin_Swing_FollowThrough" parent="TiltBack/Root/SwingFollowThrough" unique_id=588665543 instance=ExtResource("9_kkpur")]
