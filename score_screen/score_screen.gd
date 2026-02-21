@@ -39,12 +39,13 @@ func _ready() -> void:
 	finished_looking_at_scores.emit()
 
 func setup(finished_level: int, total_levels: int) -> void:
-	rounds_label.text = "after "+str(finished_level) + "/" + str(total_levels) + " holes"
+	_needs_input = true
 	if (finished_level >= total_levels):
 		main_label.text = "FINAL SCORES"
-		_needs_input = true
+		rounds_label.text = "after all " + str(total_levels) + " holes"
 	else:
 		main_label.text = "SCORES"
+		rounds_label.text = "after "+str(finished_level) + "/" + str(total_levels) + " holes"
 
 func _sort_by_score(a: PlayerContext, b: PlayerContext) -> bool:
 	return (GameManager.game.get_score(a) > GameManager.game.get_score(b))

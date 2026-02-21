@@ -37,7 +37,6 @@ size = Vector3(0.09, 1, 0.195)
 
 [node name="ScoreScreen" type="Node3D" unique_id=1518456137 node_paths=PackedStringArray("main_label", "rounds_label", "spin_bg", "clock_hand", "clock_root", "input_prompt", "score_panels")]
 script = ExtResource("1_o3qiw")
-time = 7.0
 main_label = NodePath("Label3D")
 rounds_label = NodePath("Label3D2")
 spin_bg = NodePath("BGroot/BG")
