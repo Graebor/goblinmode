@@ -65,11 +65,12 @@ func _process(_delta: float) -> void:
 			grabbed_item.emit()
 	
 	if (_is_swinging):
-		if (_last_move_direction.length() > 0.1):
-			aim_ring.visible = true
-			aim_ring.rotation.y = Vector2(_last_move_direction.z, _last_move_direction.x).angle()
-		else:
-			aim_ring.visible = false
+		if (!_is_animation_rotation_locked):
+			if (_last_move_direction.length() > 0.1):
+				aim_ring.visible = true
+				aim_ring.rotation.y = Vector2(_last_move_direction.z, _last_move_direction.x).angle()
+			else:
+				aim_ring.visible = false
 		
 		if (!Input.is_action_pressed("swing") && !_is_animation_rotation_locked):
 			_finish_swing()
