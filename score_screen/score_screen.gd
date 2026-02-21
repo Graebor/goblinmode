@@ -46,30 +46,37 @@ func setup(finished_level: int, total_levels: int) -> void:
 	else:
 		main_label.text = "SCORES"
 
+func _sort_by_score(a: PlayerContext, b: PlayerContext) -> bool:
+	return (GameManager.game.get_score(a) > GameManager.game.get_score(b))
+
 func _reveal_panels() -> void:
 	var i: int = 0
-	if (GameManager.game != null && GameManager.game._scores != null):
-		for context: PlayerContext in GameManager.game._scores.keys():
-			var score = GameManager.game._scores[context]
+	
+	var players: Array[PlayerContext]
+	players.append_array(PlayerManager.players)
+	players.sort_custom(_sort_by_score)
+	
+	for context: PlayerContext in players:
+		var score = GameManager.game.get_score(context)
 
-			await get_tree().create_timer(0.13).timeout
-			
-			var panel: ScorePanel = score_panels[i]
-			
-			panel.setup(i, score, context)
-			panel.visible = true
-			panel.rotation_degrees.x = -180
-			
-			var tween: Tween = get_tree().create_tween().set_parallel(true)
-			tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
-			tween.tween_property(panel, "rotation_degrees:x", 0, 0.5)
-			tween.set_trans(Tween.TRANS_QUAD)
-			tween.tween_property(panel, "scale", Vector3(1.2, 0.9, 0.9), 0.2)
-			tween.set_ease(Tween.EASE_IN)
-			tween.set_parallel(false)
-			tween.tween_property(panel, "scale", Vector3(1, 1, 1), 0.1)
-			
-			i += 1
+		await get_tree().create_timer(0.13).timeout
+		
+		var panel: ScorePanel = score_panels[i]
+		
+		panel.setup(i, score, context)
+		panel.visible = true
+		panel.rotation_degrees.x = -180
+		
+		var tween: Tween = get_tree().create_tween().set_parallel(true)
+		tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
+		tween.tween_property(panel, "rotation_degrees:x", 0, 0.5)
+		tween.set_trans(Tween.TRANS_QUAD)
+		tween.tween_property(panel, "scale", Vector3(1.2, 0.9, 0.9), 0.2)
+		tween.set_ease(Tween.EASE_IN)
+		tween.set_parallel(false)
+		tween.tween_property(panel, "scale", Vector3(1, 1, 1), 0.1)
+		
+		i += 1
 
 func _process(delta: float) -> void:
 	spin_bg.rotation_degrees.y += delta * 20
