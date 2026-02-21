@@ -12,6 +12,10 @@ var _active_level: Node
 var _lobby: Lobby
 var _score_screen: ScoreScreen
 
+func get_score(player: PlayerContext) -> int:
+	if (_scores.has(player)):
+		return _scores[player]
+	return 0
 
 func _ready() -> void:
 	GameManager.game = self
@@ -56,10 +60,11 @@ func _on_round_finished() -> void:
 	
 	print("adding scores together")
 	for player: PlayerContext in PlayerManager.round_order.keys():
+		var points: int = PlayerManager.players.size() - PlayerManager.round_order[player]
 		if (!_scores.has(player)):
-			_scores[player] = PlayerManager.round_order[player]
+			_scores[player] = points
 		else:
-			_scores[player] += PlayerManager.round_order[player]
+			_scores[player] += points
 	
 	_score_screen = score_screen_scene.instantiate()
 	_score_screen.setup(_active_level_index + 1, levels.size())
