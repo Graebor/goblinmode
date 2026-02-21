@@ -27,6 +27,7 @@ script = ExtResource("1_oul6g")
 power_meter = NodePath("PowerMeterOffset/PowerMeter")
 swing_force_per_segment = 200.0
 aim_ring = NodePath("AimRing")
+delay_after_swing = 0.35
 
 [node name="PlayerAnimation" parent="." unique_id=696991604 node_paths=PackedStringArray("player_controller") instance=ExtResource("2_yw30f")]
 player_controller = NodePath("..")

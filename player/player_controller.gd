@@ -21,9 +21,11 @@ const ITEM_GROUP: String = "Item"
 @export var swing_modifier_empty_handed: float = 0.5
 @export var aim_ring: Node3D
 @onready var swing_spot: Node3D = %SwingSpot
+@export var delay_after_swing: float = 0.4
 
 var _is_moving: bool = false
 var _is_swinging: bool = false
+var _is_animation_rotation_locked: bool = false
 var _last_move_direction: Vector3
 var _swinging_item_has_layer_3: bool
 var _swinging_item_has_layer_4: bool
@@ -41,13 +43,7 @@ func _process(_delta: float) -> void:
 	var input: Vector3 = _get_movement()
 	if (input.length() > 0.1):
 		_last_move_direction = input
-		if (!_is_moving):
-			_is_moving = true
-			movement_started.emit()
-	else:
-		if (_is_moving):
-			_is_moving = false
-			movement_stopped.emit()
+	_refresh_is_moving()
 	
 	if Input.is_action_just_pressed("pickup"):
 		var current_item: RigidBody3D = inventory.get_child(0)
@@ -78,6 +74,15 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed("swing"):
 			_begin_swing()
 
+
+func _refresh_is_moving() -> void:
+	var new_is_moving: bool = (_get_movement().length() > 0.1 && !_is_swinging)
+	if (!_is_moving && new_is_moving):
+		_is_moving = true
+		movement_started.emit()
+	elif (_is_moving && !new_is_moving):
+		_is_moving = false
+		movement_stopped.emit()
 
 func _release_item(item: RigidBody3D) -> void:
 	item.reparent(ItemManager)
@@ -112,6 +117,7 @@ func _begin_swing() -> void:
 
 
 func _finish_swing() -> void:
+	_is_animation_rotation_locked = true
 	var result: int = power_meter.lock_in() + 1
 	var locked: RigidBody3D = swing_spot.get_child(0)
 	if (locked != null):
@@ -124,9 +130,11 @@ func _finish_swing() -> void:
 		locked.apply_central_force(_last_move_direction * power)
 		locked.set_collision_layer_value(3, _swinging_item_has_layer_3)
 		locked.set_collision_layer_value(4, _swinging_item_has_layer_4)
-	_is_swinging = false
 	aim_ring.visible = false
 	swing_released.emit()
+	await get_tree().create_timer(delay_after_swing).timeout
+	_is_swinging = false
+	_is_animation_rotation_locked = false
 
 
 func _physics_process(_delta: float) -> void:
