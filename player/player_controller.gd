@@ -5,7 +5,7 @@ signal movement_started
 signal movement_stopped
 signal swing_began
 signal swing_missed
-signal swing_impact
+signal swing_impact(power: int, highest: int)
 signal swing_released
 signal swing_ended
 signal grabbed_item
@@ -128,7 +128,7 @@ func _begin_swing() -> void:
 func _finish_swing() -> void:
 	var result: int = power_meter.lock_in() + 1
 	_is_animation_rotation_locked = true
-	swing_impact.emit()
+	swing_impact.emit(result, power_meter._current_segments)
 	
 	await get_tree().create_timer(delay_after_swing).timeout
 	

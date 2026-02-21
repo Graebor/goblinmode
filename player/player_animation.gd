@@ -5,6 +5,17 @@ extends Node3D
 @export var root: Node3D
 @export var held_item_parent: Node3D
 
+@export var sfx_footstep: AudioCollectionData
+@export var sfx_grab_item: AudioCollectionData
+@export var sfx_start_moving: AudioCollectionData
+@export var sfx_stop_moving: AudioCollectionData
+@export var sfx_swing_followthrough: AudioCollectionData
+@export var sfx_swing_impact_bad: AudioCollectionData
+@export var sfx_swing_impact_normal: AudioCollectionData
+@export var sfx_swing_impact_good: AudioCollectionData
+@export var sfx_swing_miss: AudioCollectionData
+@export var sfx_swing_windup: AudioCollectionData
+
 var _is_moving: bool = false
 
 func _ready() -> void:
@@ -29,6 +40,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_movement_started() -> void:
+	sfx_start_moving.play3D(position)
 	_is_moving = true
 	if (player_controller.is_holding_item()):
 		_play(&"walk_full")
@@ -36,21 +48,32 @@ func _on_movement_started() -> void:
 		_play(&"walk_empty")
 
 func _on_movement_stopped() -> void:
+	sfx_stop_moving.play3D(position)
 	_is_moving = false
 	if (!player_controller._is_swinging):
 		_play(&"idle")
 
 func _on_swing_began() -> void:
+	sfx_swing_windup.play3D(position)
 	_play(&"swing_start")
 
 func _on_swing_missed() -> void:
+	sfx_swing_miss.play3D(position)
 	#_play(&"swing_finish")
 	pass
 
-func _on_swing_impact() -> void:
+func _on_swing_impact(power: int, highest: int) -> void:
 	_play(&"swing_impact")
+	match power:
+		0, 1:
+			sfx_swing_impact_bad.play3D(position)
+		highest:
+			sfx_swing_impact_good.play3D(position)
+		_:
+			sfx_swing_impact_normal.play3D(position)
 
 func _on_swing_released() -> void:
+	sfx_swing_followthrough.play3D(position)
 	_play(&"swing_finish")
 
 func _on_swing_ended() -> void:
@@ -58,6 +81,7 @@ func _on_swing_ended() -> void:
 		_play(&"idle")
 
 func _on_grabbed_item() -> void:
+	sfx_grab_item.play3D(position)
 	_bump_tween()
 	if (_is_moving):
 		_play(&"walk_full")
@@ -78,3 +102,6 @@ func _play(animation: StringName) -> void:
 	animation_player_main.advance(0) #clear the existing keyframes first
 	animation_player_main.play(&"player_animations_main/" + animation)
 	animation_player_main.advance(0)
+
+func _do_footstep() -> void:
+	sfx_footstep.play3D(position)

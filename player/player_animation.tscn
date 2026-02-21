@@ -2,14 +2,24 @@
 
 [ext_resource type="Script" uid="uid://iq27sn06exgs" path="res://player/player_animation.gd" id="1_fp5y0"]
 [ext_resource type="AnimationLibrary" uid="uid://bi4ydbnwkt0lw" path="res://player/player_animations_main.tres" id="2_1wvki"]
+[ext_resource type="Resource" uid="uid://cea3vfijppwjc" path="res://audio/sfx_footstep.tres" id="2_kr8ch"]
 [ext_resource type="PackedScene" uid="uid://wsmrapboqudl" path="res://player/goblin/Goblin_Run_EmptyHand_1.fbx" id="2_t8nns"]
 [ext_resource type="PackedScene" uid="uid://4n7jvlo6n544" path="res://player/goblin/Goblin_Idle.fbx" id="3_faahg"]
+[ext_resource type="Resource" uid="uid://bb64asjk6hhb8" path="res://audio/sfx_grab_item.tres" id="3_hnvcj"]
 [ext_resource type="PackedScene" uid="uid://dhpnm88bn616o" path="res://player/goblin/Goblin_Run_HeldItem_1.fbx" id="3_v3vk1"]
 [ext_resource type="PackedScene" uid="uid://tt8e8kwkmsdv" path="res://player/goblin/Goblin_Run_HeldItem_2.fbx" id="4_1wvki"]
+[ext_resource type="Resource" uid="uid://ckq6eak6qaw7o" path="res://audio/sfx_start_moving.tres" id="4_jk1jc"]
 [ext_resource type="PackedScene" uid="uid://bnc8l8ghmmndv" path="res://player/goblin/Goblin_Run_EmptyHand_2.fbx" id="4_v0igm"]
+[ext_resource type="Resource" uid="uid://w67y151wfn7d" path="res://audio/sfx_stop_moving.tres" id="5_jmglk"]
+[ext_resource type="Resource" uid="uid://cgmtnjdhppay7" path="res://audio/sfx_swing_followthrough.tres" id="6_pubcu"]
 [ext_resource type="PackedScene" uid="uid://bxml4t71p4qf1" path="res://player/goblin/Goblin_Swing_WindUp.fbx" id="7_hlxye"]
+[ext_resource type="Resource" uid="uid://d0er4fqed74cx" path="res://audio/sfx_swing_impact_bad.tres" id="7_mn3xa"]
 [ext_resource type="PackedScene" uid="uid://dmasr01w6lich" path="res://player/goblin/Goblin_Swing_Impact.fbx" id="8_faahg"]
+[ext_resource type="Resource" uid="uid://nin0umlo01es" path="res://audio/sfx_swing_impact_normal.tres" id="8_nggqp"]
+[ext_resource type="Resource" uid="uid://bdbst1n1hj6ww" path="res://audio/sfx_swing_impact_good.tres" id="9_k47re"]
 [ext_resource type="PackedScene" uid="uid://bcqybf7ld34tm" path="res://player/goblin/Goblin_Swing_FollowThrough.fbx" id="9_kkpur"]
+[ext_resource type="Resource" uid="uid://bp3uq62wafccv" path="res://audio/sfx_swing_miss.tres" id="10_f2pqm"]
+[ext_resource type="Resource" uid="uid://wjihx8x4kue4" path="res://audio/sfx_swing_windup.tres" id="11_sxqyg"]
 
 [sub_resource type="Animation" id="Animation_1wvki"]
 length = 0.001
@@ -327,6 +337,16 @@ script = ExtResource("1_fp5y0")
 animation_player_main = NodePath("TiltBack/Root/AnimationPlayer")
 root = NodePath("TiltBack/Root")
 held_item_parent = NodePath("TiltBack/Root/HeldItemParent")
+sfx_footstep = ExtResource("2_kr8ch")
+sfx_grab_item = ExtResource("3_hnvcj")
+sfx_start_moving = ExtResource("4_jk1jc")
+sfx_stop_moving = ExtResource("5_jmglk")
+sfx_swing_followthrough = ExtResource("6_pubcu")
+sfx_swing_impact_bad = ExtResource("7_mn3xa")
+sfx_swing_impact_normal = ExtResource("8_nggqp")
+sfx_swing_impact_good = ExtResource("9_k47re")
+sfx_swing_miss = ExtResource("10_f2pqm")
+sfx_swing_windup = ExtResource("11_sxqyg")
 
 [node name="TiltBack" type="Node3D" parent="." unique_id=310260365]
 transform = Transform3D(1, 0, 0, 0, 0.6427876, 0.7660444, 0, -0.7660444, 0.6427876, 0, 0, 0)
