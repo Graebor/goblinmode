@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://coecw7ejymxh6"]
+[gd_scene format=3 uid="uid://mhwbx5wt4klx"]
 
-[ext_resource type="PackedScene" uid="uid://cnyhev1rj0eq1" path="res://player/player.tscn" id="1_4rr7c"]
+[ext_resource type="PackedScene" uid="uid://bfsensfo38dwk" path="res://player/player.tscn" id="1_4rr7c"]
 [ext_resource type="PackedScene" uid="uid://b5lgxsfykvq31" path="res://items/ball.tscn" id="2_bpbnc"]
 [ext_resource type="Script" uid="uid://dcncvtksw1tn0" path="res://camera/registered_camera.gd" id="2_rsilw"]
 [ext_resource type="PackedScene" uid="uid://bj485t2ul33ix" path="res://items/club.tscn" id="3_rsilw"]
