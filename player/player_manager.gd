@@ -9,15 +9,14 @@ var round_order_index: int = 0
 
 func _ready() -> void:
 	HoleManager.ball_sunk.connect(_on_ball_sunk)
-	GameManager.level_started.connect(_on_level_started)
 	
 	
 func _on_ball_sunk(player_context: PlayerContext) -> void:
 	round_order_index += 1
 	round_order[player_context] = round_order_index
-
-
-func _on_level_started() -> void:
+	
+	
+func _on_new_round() -> void:
 	round_order_index = 0
 	round_order.clear()
 
