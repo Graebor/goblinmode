@@ -43,7 +43,6 @@ func _on_body_entered(node: Node3D) -> void:
 		return
 	
 	if body.linear_velocity.length() > velocity_threshold or body.angular_velocity.length() > velocity_threshold:
-		print(body.name)
 		var player_pos: Vector3 = player.global_position
 		var body_pos: Vector3 = body.global_position
 		player_pos.y = 0

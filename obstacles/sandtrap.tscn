@@ -10,7 +10,7 @@ albedo_texture = ExtResource("1_2irt3")
 uv1_scale = Vector3(2, 2, 2)
 
 [node name="Sandtrap" type="CSGPolygon3D" unique_id=1003796369 node_paths=PackedStringArray("area")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 polygon = PackedVector2Array(-0.8778696, -4.444204, -8.221796, 7.759487, 5.4756045, 5.6645765, 12.355175, -3.883881)
 material = SubResource("StandardMaterial3D_u64xv")
 script = ExtResource("2_yvqp8")

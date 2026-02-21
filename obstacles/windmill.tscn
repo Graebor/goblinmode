@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cs4ua2hrm6k3g"]
 
-[ext_resource type="Script" uid="uid://d010fr3gfimnn" path="res://obstacles/rotate_local.gd" id="1_tp0eb"]
+[ext_resource type="Script" uid="uid://d010fr3gfimnn" path="res://obstacles/windmill/rotate_local.gd" id="1_tp0eb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v25gn"]
 size = Vector3(3, 1, 0.2)

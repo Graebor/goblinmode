@@ -8,8 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://dcmqb318stod3" path="res://items/dagger.tscn" id="7_o6wue"]
 [ext_resource type="PackedScene" uid="uid://bod8vk2aol5ik" path="res://items/board.tscn" id="8_6i50c"]
 [ext_resource type="PackedScene" uid="uid://doexcqrefi22f" path="res://items/sword.tscn" id="9_o6wue"]
-[ext_resource type="PackedScene" uid="uid://bjjgj1yr8lm8s" path="res://obstacles/sandtrap/sandtrap.tscn" id="10_2yvlk"]
+[ext_resource type="PackedScene" uid="uid://bjjgj1yr8lm8s" path="res://obstacles/sandtrap.tscn" id="10_2yvlk"]
 [ext_resource type="PackedScene" uid="uid://bonuuylcb7ta" path="res://items/umbrella.tscn" id="10_6i50c"]
+[ext_resource type="PackedScene" uid="uid://b2e0ju6ian5g4" path="res://obstacles/bumper_round.tscn" id="11_2yvlk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rr7c"]
 albedo_color = Color(0.20620483, 0.7107474, 7.70092e-07, 1)
@@ -78,3 +79,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.09528, 0, 0.7198868)
 [node name="Sandtrap" parent="." unique_id=1003796369 instance=ExtResource("10_2yvlk")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.119, -0.49, 0.124)
 polygon = PackedVector2Array(-2.4031048, -6.125749, -8.221796, 7.759487, 5.4756045, 5.6645765, 12.355175, -3.883881)
+
+[node name="BumperRound" parent="." unique_id=1413217440 instance=ExtResource("11_2yvlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.639528, 1.9073486e-06, 8.898146)
