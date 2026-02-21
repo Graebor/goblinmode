@@ -10,13 +10,13 @@ var sinking_balls: Array[RigidBody3D] = []
 
 func _physics_process(delta: float) -> void:
 	for body: Node3D in area3d.get_overlapping_bodies():
-		if body.is_in_group("Ball") and not body.is_in_group("InHand"):
+		if body.is_in_group("Ball") and not body.is_in_group("InHand") and not body.is_in_group("Sinking"):
 			_start_sink_ball(body)
 
 	_sink_balls(delta)
 
 func _start_sink_ball(ball: RigidBody3D) -> void:
-	ball.add_to_group("InHand")
+	ball.add_to_group("Sinking")
 	ball.set_collision_layer_value(3, false) # Item
 	ball.set_collision_layer_value(4, false) # Ball
 	sinking_balls.push_back(ball)
@@ -37,7 +37,7 @@ func _sink_balls(delta: float) -> void:
 			ball_postion_2d.x, \
 			ball.global_position.y - (sinking_speed * 8.0 * delta), \
 			ball_postion_2d.y)
-		if ball_postion_2d == hole_position_2d and ball_postion_2d.y < 0.5:
+		if ball_postion_2d == hole_position_2d and ball_postion_2d.y > 0.5:
 			_remove_ball(ball)
 
 
@@ -45,3 +45,4 @@ func _remove_ball(ball: RigidBody3D) -> void:
 	var item: Item = ball as Item
 	HoleManager.ball_sunk.emit(item.last_player)
 	ball.queue_free()
+	sinking_balls.erase(ball)

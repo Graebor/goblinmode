@@ -12,13 +12,17 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if is_in_group("InHand"):
+	if is_in_group("InHand") and not is_in_group("Sinking"):
 		linear_velocity = Vector3.ZERO
 		angular_velocity = Vector3.ZERO
 		position = Vector3.ZERO
+
+	if is_in_group("Sinking"):
+		linear_velocity = Vector3.ZERO
+		angular_velocity = Vector3.ZERO
 
 
 func _setup() -> void:
 	if not is_in_group("InHand"):
 		self.reparent(ItemManager)
-		self.owner = ItemManager
+		#self.owner = ItemManager
