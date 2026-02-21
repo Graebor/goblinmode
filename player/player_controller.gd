@@ -287,7 +287,22 @@ func get_held_body() -> RigidBody3D:
 func stun(duration: float) -> void:
 	stun_stars.visible = true
 	_remaining_stun = max(_remaining_stun, duration)
+	drop_items()
 	stun_began.emit()
 
 func is_stunned() -> bool:
 	return _remaining_stun > 0
+
+
+func drop_items() -> void:
+	for item: RigidBody3D in inventory.get_children():
+		_release_item(item)
+		var direction: Vector3 = Vector3(randf_range(-1.0, 1.0), 0, randf_range(-1.0, 1.0)).normalized()
+		var strength: float = randf_range(5.0, 25.0)
+		item.apply_impulse(direction * strength)
+		
+	for item: RigidBody3D in swing_spot.get_children():
+		_release_item(item)
+		var direction: Vector3 = Vector3(randf_range(-1.0, 1.0), 0, randf_range(-1.0, 1.0)).normalized()
+		var strength: float = randf_range(1.0, 2.0)
+		item.apply_impulse(direction * strength)
