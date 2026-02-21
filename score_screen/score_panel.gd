@@ -5,6 +5,7 @@ class_name ScorePanel
 @export var name_label: Label3D
 @export var trophies: Array[Node3D]
 @export var speed_curve: Curve
+@export var scaler: Node3D
 
 var _rank: int = -1
 var _t: float = 0.0
@@ -16,6 +17,7 @@ func setup(rank: int, score: int, player: PlayerContext) -> void:
 		name_label.text = "Player "+str(player.device_id)
 	for i: int in range(trophies.size()):
 		trophies[i].visible = rank == i
+	scaler.scale.x = lerp(1.3, 0.95, rank / 4.0)
 	
 func _process(delta: float) -> void:
 	if (_rank != -1):

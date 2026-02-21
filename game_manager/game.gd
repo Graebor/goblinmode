@@ -24,6 +24,7 @@ func _ready() -> void:
 
 
 func _move_to_lobby() -> void:
+	ScreenFader.fade_from_black()
 	_active_level_index = -1
 	_lobby = lobby_scene.instantiate()
 	add_child(_lobby)
@@ -39,6 +40,8 @@ func _on_players_confirmed() -> void:
 
 
 func _begin_level(index: int) -> void:
+	ScreenFader.battle_transition(0.3)
+		
 	if (index < levels.size()):
 		print("starting level " + str(index))
 		_active_level_index = index
@@ -52,10 +55,14 @@ func _begin_level(index: int) -> void:
 		GameManager.notify_level_started()
 	else:
 		print("all levels done, going to lobby")
+		await ScreenFader.fade_to_black()
 		_move_to_lobby()
 
 
 func _on_round_finished() -> void:
+	await get_tree().create_timer(2).timeout
+	await ScreenFader.fade_to_black(0.2)
+	
 	_clear_active_level()
 	
 	print("adding scores together")
@@ -65,11 +72,13 @@ func _on_round_finished() -> void:
 			_scores[player] = points
 		else:
 			_scores[player] += points
-	
+
 	_score_screen = score_screen_scene.instantiate()
 	_score_screen.setup(_active_level_index + 1, levels.size())
 	add_child(_score_screen)
 	_score_screen.finished_looking_at_scores.connect(_on_finished_looking_at_scores)
+	
+	ScreenFader.fade_from_black(0.2)
 
 	
 func _on_finished_looking_at_scores() -> void:
@@ -80,7 +89,7 @@ func _on_finished_looking_at_scores() -> void:
 
 
 func _clear_active_level() -> void:
-	PlayerManager.clear_players()
+	PlayerManager.clear_player_instances()
 	ItemManager.clear()
 	if (_active_level != null):
 		_active_level.queue_free()
