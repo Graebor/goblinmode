@@ -4,9 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://bfsensfo38dwk" path="res://player/player.tscn" id="2_ru55a"]
 [ext_resource type="PackedScene" uid="uid://lq4g5wj76qus" path="res://lobby/lobby.tscn" id="3_gindo"]
 [ext_resource type="PackedScene" uid="uid://mhwbx5wt4klx" path="res://levels/test_hole/test_hole.tscn" id="4_hamdu"]
+[ext_resource type="PackedScene" uid="uid://ciw88088ol35e" path="res://score_screen/score_screen.tscn" id="4_ru55a"]
 
 [node name="Game" type="Node" unique_id=1732451267]
 script = ExtResource("1_50f3e")
 player_scene = ExtResource("2_ru55a")
 lobby_scene = ExtResource("3_gindo")
-levels = Array[PackedScene]([ExtResource("4_hamdu")])
+score_screen_scene = ExtResource("4_ru55a")
+levels = Array[PackedScene]([ExtResource("4_hamdu"), ExtResource("4_hamdu"), ExtResource("4_hamdu")])
