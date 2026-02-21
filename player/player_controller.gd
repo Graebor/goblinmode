@@ -60,6 +60,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if inventory.get_child_count() > 0:
+		if inventory.get_child(0) is Item:
+			var target: Item = inventory.get_child(0)
+			_equipped_move_speed_multiplier = target.move_speed_multiplier
+		else:
+			_equipped_move_speed_multiplier = speed_multiplier_when_held
+	else:
+		_equipped_move_speed_multiplier = 1.0
+	
 	if (_remaining_stun > 0):
 		_remaining_stun -= _delta
 		stun_stars.rotation_degrees.y += _delta * 260
@@ -83,7 +92,6 @@ func _process(_delta: float) -> void:
 	if ((pickup_input and !is_blocked) or struggle_out):
 		if (current_item != null):
 			_release_item(current_item)
-			_equipped_move_speed_multiplier = 1.0
 			dropped_item.emit()
 	
 	if (pickup_input and !is_blocked):
@@ -96,10 +104,7 @@ func _process(_delta: float) -> void:
 			target.add_to_group(IN_HAND_GROUP)
 			target.global_position = inventory.global_position
 			target.freeze = true
-			if (target is Item):
-				_equipped_move_speed_multiplier = target.move_speed_multiplier
-			elif (target is PlayerController):
-				_equipped_move_speed_multiplier = speed_multiplier_when_held
+			if (target is PlayerController):
 				target._is_grabbed = true
 				target.was_grabbed.emit()
 			grabbed_item.emit()
@@ -298,11 +303,11 @@ func drop_items() -> void:
 	for item: RigidBody3D in inventory.get_children():
 		_release_item(item)
 		var direction: Vector3 = Vector3(randf_range(-1.0, 1.0), 0, randf_range(-1.0, 1.0)).normalized()
-		var strength: float = randf_range(5.0, 25.0)
+		var strength: float = randf_range(2.0, 10.0)
 		item.apply_impulse(direction * strength)
 		
 	for item: RigidBody3D in swing_spot.get_children():
 		_release_item(item)
 		var direction: Vector3 = Vector3(randf_range(-1.0, 1.0), 0, randf_range(-1.0, 1.0)).normalized()
-		var strength: float = randf_range(1.0, 2.0)
+		var strength: float = randf_range(2.0, 10.0)
 		item.apply_impulse(direction * strength)

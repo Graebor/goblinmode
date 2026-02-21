@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 [autoload]
 
 AudioManager="*uid://dawest4tgdud8"
+ScreenFader="*uid://2j1qe01t26us"
 GameManager="*uid://vkyj3f7bkbc"
 ItemManager="*uid://kbtn3a8tswf3"
 CameraManager="*uid://4urfxx713ydk"
