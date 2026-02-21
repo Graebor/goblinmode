@@ -7,6 +7,7 @@ signal swing_began
 signal swing_missed
 signal swing_impact
 signal swing_released
+signal swing_ended
 signal grabbed_item
 signal dropped_item
 
@@ -124,6 +125,7 @@ func _finish_swing() -> void:
 	var result: int = power_meter.lock_in() + 1
 	_is_animation_rotation_locked = true
 	swing_impact.emit()
+	
 	await get_tree().create_timer(delay_after_swing).timeout
 	
 	aim_ring.visible = false
@@ -138,10 +140,11 @@ func _finish_swing() -> void:
 		locked.apply_central_force(_last_move_direction * power)
 		locked.set_collision_layer_value(3, _swinging_item_has_layer_3)
 		locked.set_collision_layer_value(4, _swinging_item_has_layer_4)
+	swing_released.emit()
+	await get_tree().create_timer(0.5).timeout
 	_is_swinging = false
 	_is_animation_rotation_locked = false
-	swing_released.emit()
-
+	swing_ended.emit()
 
 func _physics_process(_delta: float) -> void:
 	if (!_is_swinging):

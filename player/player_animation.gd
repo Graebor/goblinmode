@@ -14,11 +14,17 @@ func _ready() -> void:
 	player_controller.swing_missed.connect(_on_swing_missed)
 	player_controller.swing_impact.connect(_on_swing_impact)
 	player_controller.swing_released.connect(_on_swing_released)
+	player_controller.swing_ended.connect(_on_swing_ended)
 	_play(&"idle")
+
 
 func _process(_delta: float) -> void:
 	if (!player_controller._is_animation_rotation_locked):
+		animation_player_main.speed_scale = clamp(player_controller._equipped_move_speed_multiplier * 1.2, 0.5, 3.0)
 		root.rotation.y = Vector2(player_controller._last_move_direction.z, player_controller._last_move_direction.x).angle()
+	else:
+		animation_player_main.speed_scale = 1.0
+
 
 func _on_movement_started() -> void:
 	_is_moving = true
@@ -44,6 +50,10 @@ func _on_swing_impact() -> void:
 
 func _on_swing_released() -> void:
 	_play(&"swing_finish")
+
+func _on_swing_ended() -> void:
+	if (!_is_moving):
+		_play(&"idle")
 
 func _on_grabbed_item() -> void:
 	if (_is_moving):
