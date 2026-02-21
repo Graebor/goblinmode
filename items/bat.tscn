@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://beuhof4d84i5o"]
+[gd_scene format=3 uid="uid://gwxgj2lumrln"]
 
 [ext_resource type="Script" uid="uid://bust0xh1gt5dy" path="res://items/item.gd" id="1_8ylpe"]
 [ext_resource type="PackedScene" uid="uid://8fpmt25vcvsa" path="res://items/models/Bat.fbx" id="2_8ylpe"]
