@@ -20,8 +20,8 @@ physics_material_override = SubResource("PhysicsMaterial_r0thv")
 linear_damp = 2.0
 angular_damp = 2.0
 script = ExtResource("1_r0thv")
-power_segments = 5
-move_speed_multiplier = 0.5
+power_segments = 6
+move_speed_multiplier = 0.6
 sfx_pickup = ExtResource("2_d3ybf")
 
 [node name="Sword" parent="." unique_id=239492484 instance=ExtResource("2_r0thv")]

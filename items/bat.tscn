@@ -21,7 +21,7 @@ linear_damp = 1.5
 angular_damp = 1.5
 script = ExtResource("1_8ylpe")
 power_segments = 5
-move_speed_multiplier = 0.5
+move_speed_multiplier = 0.6
 sfx_pickup = ExtResource("2_2pp23")
 
 [node name="Bat" parent="." unique_id=22639950 instance=ExtResource("2_8ylpe")]

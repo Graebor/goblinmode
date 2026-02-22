@@ -21,7 +21,7 @@ linear_damp = 1.5
 angular_damp = 1.5
 script = ExtResource("1_8oco2")
 power_segments = 5
-move_speed_multiplier = 0.8
+move_speed_multiplier = 0.9
 sfx_pickup = ExtResource("2_2djhf")
 
 [node name="Club" parent="." unique_id=308092475 instance=ExtResource("2_puy3q")]

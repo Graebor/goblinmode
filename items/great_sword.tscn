@@ -21,7 +21,7 @@ linear_damp = 6.0
 angular_damp = 6.0
 script = ExtResource("1_w1uto")
 power_segments = 10
-move_speed_multiplier = 0.2
+move_speed_multiplier = 0.4
 sfx_pickup = ExtResource("2_7dfxk")
 
 [node name="GreatSword" parent="." unique_id=840597471 instance=ExtResource("2_w1uto")]

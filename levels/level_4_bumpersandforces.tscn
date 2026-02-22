@@ -36,29 +36,29 @@ albedo_texture = ExtResource("1_m3ocq")
 uv1_scale = Vector3(0.1, 0.1, 0.1)
 uv1_triplanar = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_raj2r"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xsjt3"]
 transparency = 1
 blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("11_vd2jn")
 uv1_scale = Vector3(3, 3, 3)
-uv1_offset = Vector3(-18.111012, 0, 0)
+uv1_offset = Vector3(-12.536642, 0, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e4f64"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_raj2r"]
 transparency = 1
 blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("12_xsjt3")
 uv1_scale = Vector3(3, 3, 3)
-uv1_offset = Vector3(18.111012, -18.111012, 0)
+uv1_offset = Vector3(12.536642, -12.536642, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pd6pk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e4f64"]
 transparency = 1
 blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("13_raj2r")
 uv1_scale = Vector3(3, 3, 3)
-uv1_offset = Vector3(18.111012, 18.111012, 0)
+uv1_offset = Vector3(12.536642, 12.536642, 0)
 
 [node name="Level4" type="Node3D" unique_id=1030056555]
 
@@ -117,11 +117,8 @@ transform = Transform3D(0.92730147, 0, 0.3743153, 0, 1, 0, -0.3743153, 0, 0.9273
 [node name="Club2" parent="Items" unique_id=1318050431 instance=ExtResource("5_vd2jn")]
 transform = Transform3D(-0.5900422, 0, -0.80737245, 0, 1, 0, 0.80737245, 0, -0.5900422, -20.615402, 0, 4.305793)
 
-[node name="GreatSword" parent="Items" unique_id=1126276417 instance=ExtResource("8_e4f64")]
-transform = Transform3D(-0.086721115, 0, 0.9962326, 0, 1, 0, -0.9962326, 0, -0.086721115, 7.020462, 0, -7.5877724)
-
 [node name="GreatSword2" parent="Items" unique_id=895161233 instance=ExtResource("8_e4f64")]
-transform = Transform3D(0.83155686, 0, 0.55543965, 0, 1, 0, -0.55543965, 0, 0.83155686, 6.027672, 0, 5.7440143)
+transform = Transform3D(-0.05721551, 0, 0.9983618, 0, 1, 0, -0.9983618, 0, -0.05721551, -14.465029, 0, -1.3159722)
 
 [node name="Balls" type="Node3D" parent="." unique_id=58076082]
 
@@ -171,7 +168,7 @@ radius = 1.5
 
 [node name="ForceZone" parent="Hazards" unique_id=1003796369 instance=ExtResource("7_vd2jn")]
 polygon = PackedVector2Array(-5.7807283, 4.8031483, -8.116415, 3.430385, -8.906778, -0.643021, -7.082863, -4.594833, -6.0493126, -2.2845433, -3.7390232, -1.615775, -0.9423561, -3.014108, 2.8878632, -6.8443255, 4.468586, -4.351644, 6.170906, -0.76461536, 5.988514, 4.281545, 3.3410215, 7.7396026, -1.2198533, 5.490404, -3.5315332, 4.4282823)
-material = SubResource("StandardMaterial3D_raj2r")
+material = SubResource("StandardMaterial3D_xsjt3")
 direction = 2
 
 [node name="BumperRound4" parent="Hazards" unique_id=595608655 instance=ExtResource("6_uqcia")]
@@ -185,13 +182,13 @@ radius = 2.5
 [node name="ForceZone2" parent="Hazards" unique_id=968617477 instance=ExtResource("7_vd2jn")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 18.508492, 0, -8.509651)
 polygon = PackedVector2Array(6.384493, 6.4797153, -7.656431, 6.6924562, -6.857934, 2.9161377, -4.608735, -1.5197821, -0.4232235, -4.7955713, 3.9734287, -6.355674, 6.449829, -6.767912)
-material = SubResource("StandardMaterial3D_e4f64")
+material = SubResource("StandardMaterial3D_raj2r")
 direction = 5
 
 [node name="ForceZone3" parent="Hazards" unique_id=235111977 instance=ExtResource("7_vd2jn")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 19.217628, 0, 11.70077)
 polygon = PackedVector2Array(5.553257, 3.633504, 5.365822, 10.443578, -1.2568169, 9.443935, -7.2546816, 6.3825245, -8.6291895, 2.196517, -9.378922, -2.0519695, -7.2546816, -3.4264803, -1.4442482, -3.6139145)
-material = SubResource("StandardMaterial3D_pd6pk")
+material = SubResource("StandardMaterial3D_e4f64")
 direction = 7
 
 [node name="Wall" parent="Hazards" unique_id=1738729037 instance=ExtResource("14_xsjt3")]

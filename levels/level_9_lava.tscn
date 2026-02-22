@@ -63,13 +63,13 @@ material = ExtResource("2_7n60m")
 [node name="Items" type="Node3D" parent="." unique_id=1142739868]
 
 [node name="Sword" parent="Items" unique_id=1772857852 instance=ExtResource("3_meb5x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4284077, 0, 0.6284981)
+transform = Transform3D(0.73056763, 0, -0.68284035, 0, 1, 0, 0.68284035, 0, 0.73056763, -3.5887394, 0, -0.4156617)
 
 [node name="Dagger" parent="Items" unique_id=1842078394 instance=ExtResource("4_7n60m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5426826, 0, 0.6856333)
+transform = Transform3D(0.83900315, 0, 0.54412663, 0, 1, 0, -0.54412663, 0, 0.83900315, 4.4591312, 0, 0.5776162)
 
 [node name="GreatSword" parent="Items" unique_id=897282830 instance=ExtResource("5_yavf0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3712696)
+transform = Transform3D(-0.9711675, 0, -0.23839796, 0, 1, 0, 0.23839796, 0, -0.9711675, 1.0801659, 0, 1.3651499)
 
 [node name="Balls" type="Node3D" parent="." unique_id=58076082]
 

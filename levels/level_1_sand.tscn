@@ -35,13 +35,13 @@ albedo_texture = ExtResource("1_vn7o3")
 uv1_scale = Vector3(0.1, 0.1, 0.1)
 uv1_triplanar = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7tifw"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hgp5e"]
 transparency = 1
 blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("10_iyebf")
 uv1_scale = Vector3(3, 3, 3)
-uv1_offset = Vector3(-17.542402, 17.542402, 0)
+uv1_offset = Vector3(-1.6369333, 1.6369333, 0)
 
 [node name="Level1Sand" type="Node3D" unique_id=1030056555]
 
@@ -92,19 +92,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.213129, 0, 10.28713)
 [node name="Items" type="Node3D" parent="." unique_id=1142739868]
 
 [node name="Dagger" parent="Items" unique_id=1548114906 instance=ExtResource("7_l53as")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.968957, 0, 11.10926)
+transform = Transform3D(0.8602174, 0, 0.5099275, 0, 1, 0, -0.5099275, 0, 0.8602174, -1.968957, 0, 11.10926)
 
 [node name="Sword" parent="Items" unique_id=2038367229 instance=ExtResource("8_3sk1a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.544631, 0, -8.488054)
+transform = Transform3D(0.75448054, 0, -0.6563224, 0, 1, 0, 0.6563224, 0, 0.75448054, -12.544631, 0, -8.488054)
 
 [node name="Club" parent="Items" unique_id=1750159718 instance=ExtResource("9_3sk1a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.644561, 0, -8.19667)
+transform = Transform3D(0.6764262, 0, 0.73651046, 0, 1, 0, -0.73651046, 0, 0.6764262, 12.644561, 0, -8.19667)
 
 [node name="Bat" parent="Items" unique_id=2045732010 instance=ExtResource("10_08mmt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.733482, 0, 1.8326935)
 
 [node name="Umbrella" parent="Items" unique_id=1382122154 instance=ExtResource("11_5ot28")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.783683, 0, 1.9282055)
+transform = Transform3D(0.6217904, 0, -0.7831837, 0, 1, 0, 0.7831837, 0, 0.6217904, 12.783683, 0, 1.9282055)
 
 [node name="Balls" type="Node3D" parent="." unique_id=58076082]
 
@@ -154,7 +154,7 @@ polygon = PackedVector2Array(-5.563862, 7.7089634, -3.9550343, 5.764964, -2.7484
 [node name="ForceZone" parent="Hazards" unique_id=1003796369 instance=ExtResource("9_hgp5e")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5.6578083, 0, 6.833457)
 polygon = PackedVector2Array(-0.73477936, 5.3394036, 0.44086838, 4.947521, 1.9594135, 5.437374, 2.7431812, 6.221141, 3.4289742, 7.8376565, 8.621422, 8.523452, 9.993011, 10.041997, 12.295322, 5.437374, 9.552143, 4.408683, 8.278526, 1.812458, 7.8866425, -0.68579435, 6.1721535, -1.2736177, 4.2617245, -1.2246323, 2.5472393, -0.29391193, 1.2736187, 0.9797077, -0.6368084, 3.282019)
-material = SubResource("StandardMaterial3D_7tifw")
+material = SubResource("StandardMaterial3D_hgp5e")
 direction = 1
 
 [node name="Hedge8" parent="Hazards" unique_id=1068411010 instance=ExtResource("5_n46q3")]
