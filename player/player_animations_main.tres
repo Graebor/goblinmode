@@ -79,6 +79,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(0.20405816, 0.35776374, 0.19295064), Vector3(0.18440175, 0.42307776, 0.020344771), Vector3(0.18440175, 0.42307776, -0.018606935)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HeldItemParent:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.43333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.0890468, 1.4957788, -1.4861875), Vector3(-1.4842043, -1.1024684, 1.1009548)]
+}
 
 [sub_resource type="Animation" id="Animation_h6fem"]
 resource_name = "swing_impact"
@@ -106,6 +118,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-0.0022480637, 0.20567122, 0.16312043)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HeldItemParent:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.039165135, 0, 0), Vector3(0.039165135, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_xxl6x"]
@@ -154,10 +178,22 @@ tracks/3/path = NodePath("HeldItemParent:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.068786584, 0.27011317),
+"times": PackedFloat32Array(0, 0.068786584, 0.26666668),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.3257503, 0.37819767, 0.1372658), Vector3(-0.25454992, 0.53919435, 0.069866784), Vector3(-0.21140769, 0.46964195, 0.02288095)]
+"values": [Vector3(-0.3164639, 0.35432392, -0.0009273812), Vector3(-0.255, 0.539, -0.13), Vector3(-0.21169327, 0.48629215, -0.106959954)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HeldItemParent:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.86639047, -1.9756391, 1.9629759), Vector3(-1.5707964, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_i0xtv"]
@@ -392,7 +428,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.30198988, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.17674167, 0.38049296, 0.13141055), Vector3(-0.15947132, 0.42612275, 0.11369788), Vector3(-0.1652281, 0.37902993, 0.13166435), Vector3(-0.1590805, 0.43034944, 0.111104965), Vector3(-0.17674167, 0.38049296, 0.13141055)]
+"values": [Vector3(-0.177, 0.38, 0.031), Vector3(-0.159, 0.426, 0.014), Vector3(-0.165, 0.379, 0.032), Vector3(-0.159, 0.43, 0.011), Vector3(-0.177, 0.38, 0.031)]
 }
 tracks/8/type = "method"
 tracks/8/imported = false
@@ -410,6 +446,18 @@ tracks/8/keys = {
 "args": [],
 "method": &"_do_footstep"
 }]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("HeldItemParent:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.092803, -1.5707964, 1.5707964), Vector3(-1.092803, -1.5707964, 1.5707964)]
 }
 
 [resource]

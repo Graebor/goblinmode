@@ -327,6 +327,18 @@ tracks/25/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("HeldItemParent:rotation")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.9802319e-08, 0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v0igm"]
 _data = {
@@ -364,7 +376,7 @@ libraries/ = SubResource("AnimationLibrary_v0igm")
 libraries/player_animations_main = ExtResource("2_1wvki")
 
 [node name="HeldItemParent" type="Node3D" parent="TiltBack/Root" unique_id=527275505]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.9802322e-08, 0, -2.9802322e-08, 1.0000001, 0, 0, 0)
+transform = Transform3D(0.99999994, 0, 0, 0, 1.0000001, 2.9802322e-08, 0, -2.9802322e-08, 1.0000001, 0, 0, 0)
 
 [node name="Idle" type="Node3D" parent="TiltBack/Root" unique_id=2112905804]
 visible = false

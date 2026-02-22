@@ -127,6 +127,7 @@ func _process(_delta: float) -> void:
 			target.reparent(inventory)
 			target.add_to_group(IN_HAND_GROUP)
 			target.global_position = inventory.global_position
+			target.rotation = Vector3.ZERO
 			target.freeze = true
 			if (target is PlayerController):
 				target._is_grabbed = true
