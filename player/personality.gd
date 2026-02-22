@@ -3,6 +3,7 @@ class_name Personality
 
 @export var title: String
 @export var color: Color
+@export var skin: Material
 
 @export var voice_selected: AudioCollectionData
 @export var voice_game_start: AudioCollectionData

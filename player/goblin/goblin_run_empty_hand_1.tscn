@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cbn88o2oo7yt4"]
+
+[ext_resource type="PackedScene" uid="uid://wsmrapboqudl" path="res://player/goblin/Goblin_Run_EmptyHand_1.fbx" id="1_63ipc"]
+[ext_resource type="Script" uid="uid://dxvxm3avff2ks" path="res://player/goblin/goblin_material_pointer.gd" id="2_y672l"]
+
+[node name="Goblin_Run_EmptyHand_1" unique_id=645647440 node_paths=PackedStringArray("overrides") instance=ExtResource("1_63ipc")]
+script = ExtResource("2_y672l")
+overrides = [NodePath("grp_Goblin_RunEmptyHand_1/Head"), NodePath("grp_Goblin_RunEmptyHand_1/Eyelid1"), NodePath("grp_Goblin_RunEmptyHand_1/Eyelid2"), NodePath("grp_Goblin_RunEmptyHand_1/Legs"), NodePath("grp_Goblin_RunEmptyHand_1/Body"), NodePath("grp_Goblin_RunEmptyHand_1/Ears"), NodePath("grp_Goblin_RunEmptyHand_1/Arms"), NodePath("grp_Goblin_RunEmptyHand_1/Hands")]
+indices = Array[int]([0, 0, 0, 0, 0, 0, 0, 0])

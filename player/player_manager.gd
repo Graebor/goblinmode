@@ -50,9 +50,9 @@ func add_player(player_context: PlayerContext) -> void:
 
 func spawn_player(player_context: PlayerContext) -> PlayerController:
 	var player_instance: PlayerController = player_scene.instantiate()
-	add_child(player_instance)
 	player_instance.player_context = player_context
 	player_instance.name = "Player %s" % [players.size()]
+	add_child(player_instance)
 	return player_instance
 
 

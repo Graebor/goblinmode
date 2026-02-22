@@ -8,6 +8,8 @@ extends Node3D
 @export var faceplant: Node3D
 @export var starfish: Node3D
 
+@export var pointers: Array[GoblinMaterialPointer]
+
 @export var sfx_footstep: AudioCollectionData
 @export var sfx_grab_item: AudioCollectionData
 @export var sfx_start_moving: AudioCollectionData
@@ -22,6 +24,9 @@ extends Node3D
 var _is_moving: bool = false
 
 func _ready() -> void:
+	for pointer: GoblinMaterialPointer in pointers:
+		pointer.set_override(player_controller.player_context.personality.skin)
+	
 	player_controller.movement_started.connect(_on_movement_started)
 	player_controller.movement_stopped.connect(_on_movement_stopped)
 	player_controller.swing_began.connect(_on_swing_began)
