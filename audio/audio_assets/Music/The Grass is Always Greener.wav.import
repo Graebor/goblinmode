@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://mnt26dycmvtb"
+path="res://.godot/imported/The Grass is Always Greener.wav-f14ba9878358024dee3ef948ad10b6d5.sample"
+
+[deps]
+
+source_file="res://audio/audio_assets/Music/The Grass is Always Greener.wav"
+dest_files=["res://.godot/imported/The Grass is Always Greener.wav-f14ba9878358024dee3ef948ad10b6d5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
