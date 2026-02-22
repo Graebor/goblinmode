@@ -3,12 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://cmy8srtirkq5w" path="res://art/environment/T_Grass.png" id="1_f13k6"]
 [ext_resource type="Material" uid="uid://cidx77nbsht47" path="res://obstacles/wall/rock.tres" id="2_au2ku"]
 [ext_resource type="PackedScene" uid="uid://opmn5mrir4jc" path="res://hole/hole.tscn" id="3_giy5p"]
+[ext_resource type="PackedScene" uid="uid://beuhof4d84i5o" path="res://items/bat.tscn" id="4_jixg7"]
 [ext_resource type="PackedScene" uid="uid://b5lgxsfykvq31" path="res://items/ball.tscn" id="5_jixg7"]
 [ext_resource type="PackedScene" uid="uid://bbvxjns3aym1k" path="res://obstacles/hedge.tscn" id="5_perwv"]
 [ext_resource type="PackedScene" uid="uid://dbreta3vfgdlk" path="res://obstacles/wall.tscn" id="6_6n45x"]
 [ext_resource type="PackedScene" uid="uid://o4y0ocmicixm" path="res://player/spawn.tscn" id="7_8stku"]
 [ext_resource type="PackedScene" uid="uid://dxsce6ivvi62q" path="res://obstacles/lava.tscn" id="7_au2ku"]
-[ext_resource type="PackedScene" uid="uid://bvgmxrf62jsja" path="res://obstacles/tube.tscn" id="8_giy5p"]
+[ext_resource type="PackedScene" uid="uid://df8htppmswbqi" path="res://obstacles/tube.tscn" id="8_giy5p"]
 [ext_resource type="PackedScene" uid="uid://b2e0ju6ian5g4" path="res://obstacles/bumper_round.tscn" id="9_160as"]
 
 [sub_resource type="Environment" id="Environment_wq1qo"]
@@ -93,6 +94,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.270111, 0, 0.29035354)
 
 [node name="Items" type="Node3D" parent="." unique_id=1142739868]
 
+[node name="Bat" parent="Items" unique_id=1772857852 instance=ExtResource("4_jixg7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.25474, 0, -12.393295)
+
+[node name="Bat2" parent="Items" unique_id=278180425 instance=ExtResource("4_jixg7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.548649, 0, 12.148368)
+
+[node name="Bat3" parent="Items" unique_id=978088875 instance=ExtResource("4_jixg7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0573845, 0, 4.5556374)
+
+[node name="Bat4" parent="Items" unique_id=1143934644 instance=ExtResource("4_jixg7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.106371, 0, -3.869843)
+
 [node name="Balls" type="Node3D" parent="." unique_id=58076082]
 
 [node name="Ball" parent="Balls" unique_id=252662598 instance=ExtResource("5_jixg7")]
@@ -143,11 +156,9 @@ polygon = PackedVector2Array(-3.228218, -5.7422204, -2.485443, -4.370946, -2.256
 
 [node name="Tube" parent="Hazards" unique_id=202651051 instance=ExtResource("8_giy5p")]
 curve = SubResource("Curve3D_160as")
-reset_curve = false
 
 [node name="Tube2" parent="Hazards" unique_id=655289754 instance=ExtResource("8_giy5p")]
 curve = SubResource("Curve3D_giy5p")
-reset_curve = false
 
 [node name="Wall4" parent="Hazards" unique_id=339405258 instance=ExtResource("6_6n45x")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -26.568481, 0.5, 15.5982685)

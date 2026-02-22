@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b5lgxsfykvq31" path="res://items/ball.tscn" id="7_o4udj"]
 [ext_resource type="PackedScene" uid="uid://dbreta3vfgdlk" path="res://obstacles/wall.tscn" id="8_adadb"]
 [ext_resource type="PackedScene" uid="uid://bbvxjns3aym1k" path="res://obstacles/hedge.tscn" id="9_a3nxd"]
-[ext_resource type="PackedScene" uid="uid://bvgmxrf62jsja" path="res://obstacles/tube.tscn" id="10_q217j"]
+[ext_resource type="PackedScene" uid="uid://df8htppmswbqi" path="res://obstacles/tube.tscn" id="10_q217j"]
 [ext_resource type="PackedScene" uid="uid://o4y0ocmicixm" path="res://player/spawn.tscn" id="11_gd855"]
 
 [sub_resource type="Environment" id="Environment_xe3s1"]
@@ -139,7 +139,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7826395, 0, 5.6601543)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.498418, 0, 9.835413)
 
 [node name="Board2" parent="Items" unique_id=2023289422 instance=ExtResource("6_lfubd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.78441, 0, -9.569691)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.61841, 0, -5.6014805)
 
 [node name="Club2" parent="Items" unique_id=787022897 instance=ExtResource("4_1j2nc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.580672, 0, 3.9269354)
@@ -166,7 +166,7 @@ polygon = PackedVector2Array(-1.6444807, 1.0785322, -0.3135252, -2.7479658, 1.10
 
 [node name="Wall2" parent="Hazards" unique_id=1068257934 instance=ExtResource("8_adadb")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -6.488411, 0.5, 15.472367)
-polygon = PackedVector2Array(-1.1453733, -0.22567749, -2.3099623, 3.9335604, -2.8090696, 8.009617, -1.8108511, 11.087452, -1.9772215, 15.662613, -4.056842, 20.071407, -3.2249937, 21.235994, -2.4763327, 18.823635, -0.7294531, 15.496244, -0.7294531, 10.505157, -1.6444845, 7.3441353, 0.26876545, -0.22567749)
+polygon = PackedVector2Array(-1.1453733, -0.22567749, -2.3099623, 3.9335604, -2.8090696, 8.009617, -1.8108511, 11.087452, -1.8516645, 13.65837, -3.2218466, 17.869173, -2.2192745, 18.270203, -1.3169594, 16.097961, -0.5149021, 13.558113, -0.7294531, 10.505157, -1.6444845, 7.3441353, 0.26876545, -0.22567749)
 
 [node name="Hedge" parent="Hazards" unique_id=1057598638 instance=ExtResource("9_a3nxd")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.1418104, -0.25, -0.6061697)
@@ -194,31 +194,24 @@ polygon = PackedVector2Array(0.086912155, -1.8338888, 1.9627953, -0.17445365, 3.
 
 [node name="Tube" parent="Hazards" unique_id=202651051 instance=ExtResource("10_q217j")]
 curve = SubResource("Curve3D_xe3s1")
-reset_curve = false
 
 [node name="Tube2" parent="Hazards" unique_id=1721934079 instance=ExtResource("10_q217j")]
 curve = SubResource("Curve3D_3j3le")
-reset_curve = false
 
 [node name="Tube3" parent="Hazards" unique_id=1509125609 instance=ExtResource("10_q217j")]
 curve = SubResource("Curve3D_qb1ds")
-reset_curve = false
 
 [node name="Tube4" parent="Hazards" unique_id=471322246 instance=ExtResource("10_q217j")]
 curve = SubResource("Curve3D_1j2nc")
-reset_curve = false
 
 [node name="Tube5" parent="Hazards" unique_id=230867660 instance=ExtResource("10_q217j")]
 curve = SubResource("Curve3D_imp6k")
-reset_curve = false
 
 [node name="Tube6" parent="Hazards" unique_id=1353366840 instance=ExtResource("10_q217j")]
 curve = SubResource("Curve3D_lfubd")
-reset_curve = false
 
 [node name="Tube7" parent="Hazards" unique_id=1867869839 instance=ExtResource("10_q217j")]
 curve = SubResource("Curve3D_o4udj")
-reset_curve = false
 
 [node name="Spawns" type="Node3D" parent="." unique_id=1590108862]
 
