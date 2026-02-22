@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dg7utpaatq1oq"]
+
+[resource]
+render_priority = -1
+cull_mode = 1
+albedo_color = Color(0, 0, 0, 1)
+grow = true
+grow_amount = 0.013
+stencil_flags = 2
