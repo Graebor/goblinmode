@@ -52,11 +52,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not is_instance_valid(_score_screen) and _active_level_index >= 0:
 		if Input.is_action_just_pressed("level_next") and _active_level_index < levels.size() - 1:
-			_begin_level(_active_level_index + 1)
-			pass
+			_on_round_finished(true)
 		if Input.is_action_just_pressed("level_prev"):
-			_begin_level(_active_level_index - 1)
-			pass
+			_active_level_index = max(-1, _active_level_index - 2)
+			_on_round_finished(true)
 	
 	if (_current_shake > 0):
 		_current_shake -= delta * 3
@@ -127,14 +126,15 @@ func _begin_level(index: int) -> void:
 		_move_to_lobby()
 
 
-func _on_round_finished() -> void:
+func _on_round_finished(instant: bool) -> void:
 	if (_round_finished):
 		return
 		
 	AudioManager.PlayMusic(music_scores)
 	
 	_round_finished = true
-	await get_tree().create_timer(2).timeout
+	if (!instant):
+		await get_tree().create_timer(2).timeout
 	await ScreenFader.fade_to_black(0.2)
 	
 	_clear_active_level()
