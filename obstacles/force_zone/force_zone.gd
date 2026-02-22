@@ -37,9 +37,6 @@ var speed = 0.1
 
 func _ready() -> void:
 	material.albedo_texture = direction_textures[direction]
-	if not Engine.is_editor_hint():
-		return
-		
 	var unique_material: Material = material.duplicate()
 	material = unique_material
 
