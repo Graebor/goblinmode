@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://mhwbx5wt4klx"]
 
+[ext_resource type="Texture2D" uid="uid://cmy8srtirkq5w" path="res://art/environment/T_Grass.png" id="1_ddqkf"]
 [ext_resource type="PackedScene" uid="uid://b5lgxsfykvq31" path="res://items/ball.tscn" id="2_bpbnc"]
 [ext_resource type="PackedScene" uid="uid://bj485t2ul33ix" path="res://items/club.tscn" id="3_rsilw"]
 [ext_resource type="PackedScene" uid="uid://opmn5mrir4jc" path="res://hole/hole.tscn" id="4_rsilw"]
@@ -10,11 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://doexcqrefi22f" path="res://items/sword.tscn" id="9_o6wue"]
 [ext_resource type="PackedScene" uid="uid://bonuuylcb7ta" path="res://items/umbrella.tscn" id="10_6i50c"]
 [ext_resource type="PackedScene" uid="uid://b2e0ju6ian5g4" path="res://obstacles/bumper_round.tscn" id="11_2yvlk"]
-[ext_resource type="PackedScene" path="res://obstacles/sandtrap.tscn" id="12_ddqkf"]
-[ext_resource type="PackedScene" path="res://obstacles/force_zone.tscn" id="12_u64xv"]
+[ext_resource type="PackedScene" uid="uid://bjjgj1yr8lm8s" path="res://obstacles/sandtrap.tscn" id="12_ddqkf"]
+[ext_resource type="PackedScene" uid="uid://ctr5y701uyn5k" path="res://obstacles/force_zone.tscn" id="12_u64xv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rr7c"]
 albedo_color = Color(0.20620483, 0.7107474, 7.70092e-07, 1)
+albedo_texture = ExtResource("1_ddqkf")
 
 [sub_resource type="Environment" id="Environment_rsilw"]
 ambient_light_source = 2
