@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b26i16odt18fl"]
+
+[resource]
+render_priority = -1
+cull_mode = 1
+rim_enabled = true
+grow = true
+grow_amount = 0.013
+stencil_flags = 2

@@ -7,4 +7,6 @@
 [resource]
 script = ExtResource("1_ty43o")
 clips = Array[AudioStream]([ExtResource("1_r458x"), ExtResource("2_tvny8")])
+min_volume = 0.35
+max_volume = 0.35
 metadata/_custom_type_script = "uid://b1qny5ew5yveu"

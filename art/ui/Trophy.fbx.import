@@ -37,7 +37,20 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"materials": {
+"M_GemsGreen": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art/ui/M_GemsGreen.tres",
+"use_external/path": "uid://c87hgkk8egwdv"
+},
+"M_Trophy": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art/ui/M_Trophy.tres",
+"use_external/path": "uid://es3wnmrlaani"
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

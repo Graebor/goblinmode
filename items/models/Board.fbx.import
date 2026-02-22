@@ -39,6 +39,11 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
+"M_Board": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://items/models/M_Board.tres",
+"use_external/path": "uid://tmg05bc0oir2"
+},
 "M_BoardDark": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://items/models/M_BoardDark.tres",

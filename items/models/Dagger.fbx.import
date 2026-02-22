@@ -37,7 +37,25 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"materials": {
+"M_BladeLight": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://items/models/M_BladeLight.tres",
+"use_external/path": "uid://do0wmvqhgt0hg"
+},
+"M_Club": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://items/models/M_Club.tres",
+"use_external/path": "uid://b2h002au3ij6s"
+},
+"M_DaggerHandle": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://items/models/M_DaggerHandle.tres",
+"use_external/path": "uid://cmc5ws5lamxdb"
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

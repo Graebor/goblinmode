@@ -1,7 +1,11 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://b87yigolp8l55"]
 
+[ext_resource type="Material" uid="uid://dg7utpaatq1oq" path="res://player/outlinetest.tres" id="1_nkq17"]
+
 [resource]
 resource_name = "M_BoardDark"
+render_priority = 1
+next_pass = ExtResource("1_nkq17")
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.76, 0.5444133, 0.19759999, 1)
 emission_enabled = true
