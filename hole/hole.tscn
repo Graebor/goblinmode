@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dmd7xckhl63fh" path="res://hole/hole_controller.gd" id="1_unfpl"]
 [ext_resource type="ArrayMesh" uid="uid://dq3d6l7giyf0k" path="res://art/blast.obj" id="2_17tg5"]
-[ext_resource type="Resource" path="res://audio/sfx_ball_in_hole.tres" id="2_t1oe2"]
+[ext_resource type="Resource" uid="uid://vjn246vnhx5y" path="res://audio/sfx_ball_in_hole.tres" id="2_t1oe2"]
 [ext_resource type="Script" uid="uid://ce3oqjpb4542a" path="res://hole/hole_animation_player.gd" id="3_n84m5"]
-[ext_resource type="Resource" path="res://audio/sfx_ball_hit_flag.tres" id="3_p5qig"]
+[ext_resource type="Resource" uid="uid://2vkbjnxy5uq2" path="res://audio/sfx_ball_hit_flag.tres" id="3_p5qig"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_5dei8"]
 height = 1.0
@@ -311,8 +311,9 @@ cast_shadow = 0
 mesh = ExtResource("2_17tg5")
 surface_material_override/0 = SubResource("StandardMaterial3D_nbdkw")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot/BlastFX" unique_id=1149818488 node_paths=PackedStringArray("mesh")]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot/BlastFX" unique_id=1149818488 node_paths=PackedStringArray("mesh", "parent_hole")]
 libraries/ = SubResource("AnimationLibrary_t1oe2")
 libraries/blast = SubResource("AnimationLibrary_n84m5")
 script = ExtResource("3_n84m5")
 mesh = NodePath("../Mesh")
+parent_hole = NodePath("../../..")

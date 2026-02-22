@@ -1,7 +1,7 @@
 extends Node
 
 
-signal ball_sunk(player_context: PlayerContext)
+signal ball_sunk(player_context: PlayerContext, hole: Hole)
 signal ball_sinking(player_context: PlayerContext)
 signal round_finished
 
@@ -11,7 +11,7 @@ func _ready() -> void:
 	ball_sunk.connect(_on_ball_sunk)
 
 
-func _on_ball_sunk(_player_context: PlayerContext) -> void:
+func _on_ball_sunk(_player_context: PlayerContext, _hole: Hole) -> void:
 	var hole_count: int = get_tree().get_nodes_in_group("Hole").size()
 	
 	var balls: Array[Node] = get_tree().get_nodes_in_group("Ball")
