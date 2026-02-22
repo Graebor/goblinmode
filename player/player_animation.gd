@@ -21,6 +21,7 @@ extends Node3D
 @export var sfx_swing_impact_good: AudioCollectionData
 @export var sfx_swing_miss: AudioCollectionData
 @export var sfx_swing_windup: AudioCollectionData
+@export var sfx_drop: AudioCollectionData
 
 var _is_moving: bool = false
 var _last_power: int
@@ -132,6 +133,7 @@ func _on_grabbed_item() -> void:
 
 func _on_dropped_item() -> void:
 	_bump_tween()
+	sfx_drop.play3D(position)
 	if (_is_moving):
 		_play(&"walk_empty")
 
