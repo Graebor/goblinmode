@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cacqyi0ixcphn" path="res://score_screen/score_panel.gd" id="1_5m6p7"]
 [ext_resource type="PackedScene" uid="uid://dtk6w8m21pr5k" path="res://art/ui/PlacementBackdropRibbonAlt1.fbx" id="2_t405h"]
+[ext_resource type="FontFile" uid="uid://c0757uh3dawbu" path="res://art/ui/LondrinaSolid-Regular.ttf" id="3_bcbtt"]
 [ext_resource type="PackedScene" uid="uid://bqjedtfpebbi1" path="res://art/ui/Crown.fbx" id="3_wgnoo"]
 [ext_resource type="PackedScene" uid="uid://dfiqut7yy5joo" path="res://art/ui/Trophy.fbx" id="4_b6vgk"]
+[ext_resource type="FontFile" uid="uid://cvs578s1b2d8i" path="res://art/ui/LondrinaSolid-Black.ttf" id="4_jvw72"]
 [ext_resource type="PackedScene" uid="uid://bnb1hoddqpmvx" path="res://art/ui/Medal.fbx" id="5_t405h"]
 [ext_resource type="PackedScene" uid="uid://df6ptt15yroo8" path="res://art/ui/Ribbon.fbx" id="6_t405h"]
 
@@ -23,17 +25,19 @@ scaler = NodePath("Scaler")
 [node name="Scaler" type="Node3D" parent="." unique_id=1052570988]
 
 [node name="PlacementBackdropRibbonAlt1" parent="Scaler" unique_id=2123856702 instance=ExtResource("2_t405h")]
-transform = Transform3D(1.613003, 0, 0, 0, 1.4313725, 0, 0, 0, 1, 0, -0.0148293665, 0.023301184)
+transform = Transform3D(1.613003, 0, 0, 0, 1.4313725, 0, 0, 0, 1, 0, -0.007414668, 0.023301184)
 
 [node name="Name" type="Label3D" parent="." unique_id=888412764]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.87055945, 0, 0.050742745)
 text = "Player 0"
+font = ExtResource("3_bcbtt")
 font_size = 40
 horizontal_alignment = 0
 
 [node name="Score" type="Label3D" parent="." unique_id=1241518029]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0048405, 0, 0.050742745)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0901095, 0, 0.050742745)
 text = "0"
+font = ExtResource("4_jvw72")
 font_size = 60
 horizontal_alignment = 2
 

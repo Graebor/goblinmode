@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://mhwbx5wt4klx"]
 
+[ext_resource type="Texture2D" uid="uid://cmy8srtirkq5w" path="res://art/environment/T_Grass.png" id="1_ddqkf"]
 [ext_resource type="PackedScene" uid="uid://b5lgxsfykvq31" path="res://items/ball.tscn" id="2_bpbnc"]
 [ext_resource type="PackedScene" uid="uid://bj485t2ul33ix" path="res://items/club.tscn" id="3_rsilw"]
 [ext_resource type="PackedScene" uid="uid://opmn5mrir4jc" path="res://hole/hole.tscn" id="4_rsilw"]
@@ -8,13 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://dcmqb318stod3" path="res://items/dagger.tscn" id="7_o6wue"]
 [ext_resource type="PackedScene" uid="uid://bod8vk2aol5ik" path="res://items/board.tscn" id="8_6i50c"]
 [ext_resource type="PackedScene" uid="uid://doexcqrefi22f" path="res://items/sword.tscn" id="9_o6wue"]
-[ext_resource type="PackedScene" uid="uid://bjjgj1yr8lm8s" path="res://obstacles/sandtrap.tscn" id="10_2yvlk"]
 [ext_resource type="PackedScene" uid="uid://bonuuylcb7ta" path="res://items/umbrella.tscn" id="10_6i50c"]
 [ext_resource type="PackedScene" uid="uid://b2e0ju6ian5g4" path="res://obstacles/bumper_round.tscn" id="11_2yvlk"]
+[ext_resource type="PackedScene" uid="uid://bjjgj1yr8lm8s" path="res://obstacles/sandtrap.tscn" id="12_ddqkf"]
 [ext_resource type="PackedScene" uid="uid://ctr5y701uyn5k" path="res://obstacles/force_zone.tscn" id="12_u64xv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rr7c"]
-albedo_color = Color(0.20620483, 0.7107474, 7.70092e-07, 1)
+albedo_texture = ExtResource("1_ddqkf")
 
 [sub_resource type="Environment" id="Environment_rsilw"]
 ambient_light_source = 2
@@ -59,7 +60,7 @@ collision_layer = 9
 collision_mask = 9
 size = Vector3(40, 1, 1)
 
-[node name="Bat" parent="." unique_id=2030069886 instance=ExtResource("5_k8drq")]
+[node name="Bat" parent="." unique_id=703776502 instance=ExtResource("5_k8drq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8396182, 0, -4.858269)
 
 [node name="GreatSword" parent="." unique_id=699654479 instance=ExtResource("6_v2a4s")]
@@ -68,18 +69,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1080604, 0, 4.695303)
 [node name="Dagger" parent="." unique_id=2030972932 instance=ExtResource("7_o6wue")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.562399, 0, 11.432042)
 
-[node name="Board" parent="." unique_id=79426484 instance=ExtResource("8_6i50c")]
+[node name="Board" parent="." unique_id=1424884512 instance=ExtResource("8_6i50c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.17501, 0, 6.8631473)
 
 [node name="Sword" parent="." unique_id=129852815 instance=ExtResource("9_o6wue")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3210287, 0, 6.976531)
 
-[node name="Umbrella" parent="." unique_id=1856805251 instance=ExtResource("10_6i50c")]
+[node name="Umbrella" parent="." unique_id=892405005 instance=ExtResource("10_6i50c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.09528, 0, 0.7198868)
-
-[node name="Sandtrap" parent="." unique_id=1003796369 instance=ExtResource("10_2yvlk")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.119, -0.49, 0.124)
-polygon = PackedVector2Array(-2.4031048, -6.125749, -8.221796, 7.759487, 5.4756045, 5.6645765, 12.355175, -3.883881)
 
 [node name="BumperRound" parent="." unique_id=1413217440 instance=ExtResource("11_2yvlk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.639528, 1.9073486e-06, 8.898146)
@@ -87,3 +84,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.639528, 1.9073486e-06, 8.8
 [node name="ForceZone" parent="." unique_id=608486138 instance=ExtResource("12_u64xv")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.904728, 0.7263429, 11.600908)
 direction = 1
+
+[node name="Sandtrap" parent="." unique_id=1003796369 instance=ExtResource("12_ddqkf")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.4800496, -0.49, -5.3408914)

@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bxm7k2j4k67a1"]
+
+[resource]
+resource_name = "M_Umbrella"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.68, 0.12240001, 0.12240001, 1)
+emission_enabled = true

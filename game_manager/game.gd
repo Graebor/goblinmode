@@ -1,6 +1,7 @@
 extends Node
 class_name Game
 
+@export var title_scene: PackedScene
 @export var player_scene: PackedScene
 @export var lobby_scene: PackedScene
 @export var score_screen_scene: PackedScene
@@ -8,11 +9,13 @@ class_name Game
 @export var game_camera: Camera3D
 @export var countdown: Countdown
 
+var _title: Node
 var _scores: Dictionary[PlayerContext, int]
 var _active_level_index: int = -1
 var _active_level: Node
 var _lobby: Lobby
 var _score_screen: ScoreScreen
+var _round_finished: bool
 
 func get_score(player: PlayerContext) -> int:
 	if (_scores.has(player)):
@@ -21,9 +24,19 @@ func get_score(player: PlayerContext) -> int:
 
 func _ready() -> void:
 	GameManager.game = self
-	_move_to_lobby()
+	_title = title_scene.instantiate()
+	add_child(_title)
+	game_camera.current = false
 	HoleManager.round_finished.connect(_on_round_finished)
 
+func _process(_delta: float) -> void:
+	if (_title != null):
+		if (Input.is_action_just_pressed("swing")):
+			_title.queue_free()
+			_title = null
+			ScreenFader.battle_transition()
+			await get_tree().process_frame
+			_move_to_lobby()
 
 func _move_to_lobby() -> void:
 	ScreenFader.fade_from_black()
@@ -52,6 +65,7 @@ func _begin_level(index: int) -> void:
 		_active_level = levels[index].instantiate()
 		add_child(_active_level)
 		game_camera.current = true
+		_round_finished = false
 		
 		for context: PlayerContext in PlayerManager.players:
 			PlayerManager.spawn_player(context)
@@ -66,6 +80,10 @@ func _begin_level(index: int) -> void:
 
 
 func _on_round_finished() -> void:
+	if (_round_finished):
+		return
+	
+	_round_finished = true
 	await get_tree().create_timer(2).timeout
 	await ScreenFader.fade_to_black(0.2)
 	

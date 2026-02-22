@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b4t4ab63momtu"]
+
+[ext_resource type="FontFile" uid="uid://cvs578s1b2d8i" path="res://art/ui/LondrinaSolid-Black.ttf" id="2_xfusw"]
+[ext_resource type="Script" uid="uid://bugaqipx23k8v" path="res://prototypes/scale_wobble_3d.gd" id="3_mc0en"]
+[ext_resource type="Texture2D" uid="uid://5g2j37vbq0af" path="res://art/ui/TitleScreen.png" id="4_vbjqi"]
+
+[sub_resource type="Environment" id="Environment_mnguq"]
+ambient_light_source = 2
+ambient_light_color = Color(0.41616848, 0.65643466, 0.7564457, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_gi5k6"]
+size = Vector2(19.2, 10.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dk04u"]
+shading_mode = 0
+albedo_texture = ExtResource("4_vbjqi")
+
+[node name="TitleScreen" type="Node3D" unique_id=1518456137]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=489335778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6770907, 9.157951)
+fov = 30.0
+
+[node name="Label3D2" type="Label3D" parent="." unique_id=814534784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.47198, 0.408996, 0)
+text = "Press SWING to play"
+font = ExtResource("2_xfusw")
+font_size = 42
+script = ExtResource("3_mc0en")
+min_scale = Vector3(0.9, 1.1, 0.9)
+max_scale = Vector3(1.1, 0.9, 1.1)
+speed = 12.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1530455383]
+transform = Transform3D(0.70710677, 0.5416752, -0.45451948, 0, 0.64278764, 0.76604444, 0.70710677, -0.5416752, 0.45451948, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=451217081]
+environment = SubResource("Environment_mnguq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1477507168]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.677, -10.446013)
+mesh = SubResource("QuadMesh_gi5k6")
+surface_material_override/0 = SubResource("StandardMaterial3D_dk04u")
+script = ExtResource("3_mc0en")
+min_scale = Vector3(1.005, 0.995, 1.005)
+max_scale = Vector3(0.995, 1.005, 0.995)
+speed = 2.2

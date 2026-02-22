@@ -35,6 +35,8 @@ const ITEM_GROUP: String = "Item"
 @export var speed_multiplier_when_held: float = 0.2
 @export var stun_stars: Node3D
 @export var stun_duration_per_power_segment: float = 0.25
+@export var personality_tint: Array[MeshInstance3D]
+@export var pickup_preview: Node3D
 
 var player_context: PlayerContext
 var inventory: Node3D
@@ -56,6 +58,10 @@ var _sand_damp_mod: float = 3.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	for mesh: MeshInstance3D in personality_tint:
+		var mat: StandardMaterial3D = mesh.get_surface_override_material(0).duplicate()
+		mat.albedo_color = player_context.personality.color
+		mesh.set_surface_override_material(0, mat)
 	stun_stars.visible = false
 	inventory = $PlayerAnimation.held_item_parent
 	power_meter.visible = false
@@ -95,6 +101,14 @@ func _process(_delta: float) -> void:
 	var held: PlayerController = current_item as PlayerController
 	if (held != null):
 		struggle_out = !held.is_stunned()
+	
+	var nearby: Node3D = _get_closest_swing_target(current_item, true)
+	if (is_blocked):
+		nearby = null
+	pickup_preview.visible = nearby != null
+	if (nearby != null):
+		pickup_preview.global_position.x = nearby.global_position.x
+		pickup_preview.global_position.z = nearby.global_position.z
 	
 	if ((pickup_input and !is_blocked) or struggle_out):
 		if (current_item != null):
