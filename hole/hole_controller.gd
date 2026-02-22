@@ -8,6 +8,8 @@ extends Node3D
 @export var sinking_threshold: float = 10.0
 @export var idle_animation: AnimationPlayer
 @export var extra_flag_pivot: Node3D
+@export var sfx_ball_in_hole: AudioCollectionData
+@export var sfx_ball_hit_flag: AudioCollectionData
 
 var sinking_balls: Array[RigidBody3D] = []
 
@@ -42,6 +44,7 @@ func _do_bounce_tween(power: float) -> void:
 	_bounce_tween.set_ease(Tween.EASE_IN)
 	_bounce_tween.tween_property(extra_flag_pivot, "scale", Vector3.ONE, 0.1)
 	_bounce_tween.tween_callback(_on_tween_complete)
+	sfx_ball_hit_flag.play3D(position)
 
 func _on_tween_complete() -> void:
 	_bounce_power = 0
@@ -89,4 +92,5 @@ func _remove_ball(ball: RigidBody3D) -> void:
 	var item: Item = ball as Item
 	ball.queue_free()
 	sinking_balls.erase(ball)
+	sfx_ball_in_hole.play3D(position)
 	HoleManager.ball_sunk.emit(item.last_player)

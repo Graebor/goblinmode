@@ -22,6 +22,7 @@ extends Node3D
 @export var sfx_swing_miss: AudioCollectionData
 @export var sfx_swing_windup: AudioCollectionData
 @export var sfx_drop: AudioCollectionData
+@export var sfx_stunned: AudioCollectionData
 
 var _is_moving: bool = false
 var _last_power: int
@@ -168,6 +169,7 @@ func _on_was_released() -> void:
 
 func _on_stun_began() -> void:
 	_play(&"RESET")
+	sfx_stunned.play3D(position)
 	GameManager.game.screenshake(0.5)
 	player_controller.player_context.personality.voice_hit.play3D(position)
 	faceplant.visible = true
