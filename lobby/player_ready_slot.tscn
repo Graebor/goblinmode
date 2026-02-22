@@ -8,11 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://cinoanxg0qfmq" path="res://player/goblin/goblin_swing_wind_up.tscn" id="3_qsvp1"]
 [ext_resource type="PackedScene" uid="uid://dyxkh0j3bumns" path="res://items/models/Club.fbx" id="4_e4dg6"]
 
-[node name="PlayerReadySlot" type="Node3D" unique_id=252882270 node_paths=PackedStringArray("name_label", "ready_root", "notready_root", "pointers")]
+[node name="PlayerReadySlot" type="Node3D" unique_id=252882270 node_paths=PackedStringArray("name_label", "ready_root", "notready_root", "allready_root", "pointers")]
 script = ExtResource("1_weivt")
 name_label = NodePath("Wobble/NameLabel")
 ready_root = NodePath("Wobble/Ready")
 notready_root = NodePath("Wobble/NotReady")
+allready_root = NodePath("Wobble/Ready/SwingToStart")
 pointers = [NodePath("Wobble/NotReady/Goblin_Idle2"), NodePath("Wobble/Ready/Goblin_Swing_WindUp2")]
 
 [node name="Wobble" type="Node3D" parent="." unique_id=758241052]
@@ -41,8 +42,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5134847, 0)
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.49678275, 0)
 
 [node name="PressToJoin2" type="Label3D" parent="Wobble/Ready" unique_id=1628935889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34155983, 0)
+text = "READY!"
+font = ExtResource("3_57ajh")
+
+[node name="SwingToStart" type="Label3D" parent="Wobble/Ready" unique_id=798086020]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26225787, 0)
-text = "READY!
+text = "
 Press SWING to start"
 font = ExtResource("3_57ajh")
 
