@@ -121,6 +121,7 @@ func _process(_delta: float) -> void:
 			if target is Item:
 				var item: Item = target as Item
 				item.is_locked = true
+				item.last_player = player_context
 			target.reparent(inventory)
 			target.add_to_group(IN_HAND_GROUP)
 			target.global_position = inventory.global_position
