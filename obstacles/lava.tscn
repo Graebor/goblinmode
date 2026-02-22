@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dxsce6ivvi62q"]
+
+[ext_resource type="Texture2D" uid="uid://cltaasxhlufyc" path="res://art/environment/T_Sand.png" id="1_0yup4"]
+[ext_resource type="Texture2D" uid="uid://baqwxe8ng6oqn" path="res://art/environment/T_StonePath.png" id="2_7gbkr"]
+[ext_resource type="Script" uid="uid://cykd816fxvjtq" path="res://obstacles/lava/lava.gd" id="3_0yup4"]
+[ext_resource type="Script" uid="uid://crljmbnxtvca5" path="res://obstacles/sandtrap/copy_polygon.gd" id="4_7gbkr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vki6i"]
+albedo_color = Color(0.8641593, 0.28633174, 0, 1)
+albedo_texture = ExtResource("1_0yup4")
+emission_enabled = true
+emission = Color(0.70584995, 0.21423104, 0.19862393, 1)
+emission_operator = 1
+emission_on_uv2 = true
+emission_texture = ExtResource("2_7gbkr")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_offset = Vector3(0, 1.6573453, 0)
+uv1_triplanar = true
+uv2_scale = Vector3(0.125, 0.125, 0.125)
+uv2_offset = Vector3(0, 0.49720356, 0)
+uv2_triplanar = true
+
+[node name="Lava" type="CSGPolygon3D" unique_id=761124046 node_paths=PackedStringArray("area")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.25, 0)
+layers = 16
+use_collision = true
+collision_layer = 0
+collision_mask = 14
+material = SubResource("StandardMaterial3D_vki6i")
+script = ExtResource("3_0yup4")
+area = NodePath("Area3D")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1080770269]
+collision_mask = 14
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Area3D" unique_id=1569475493 node_paths=PackedStringArray("poly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+depth = 2.0
+polygon = PackedVector2Array(-0.4373417, -3.809571, -8.221796, 7.759487, 5.4756045, 5.6645765, 12.355175, -3.883881)
+script = ExtResource("4_7gbkr")
+poly = NodePath("../..")

@@ -38,6 +38,7 @@ Item=""
 Ball=""
 Spawn=""
 Hole=""
+Player=""
 
 [input]
 

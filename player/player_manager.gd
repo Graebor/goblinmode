@@ -28,6 +28,10 @@ func _on_ball_sink(player_context: PlayerContext) -> void:
 		round_order[player_context] = round_order_index
 
 
+func on_player_removed(player_context: PlayerContext, remaining: int) -> void:
+	round_order[player_context] = remaining
+
+
 func _on_level_started() -> void:
 	round_order_index = 0
 	round_order.clear()
