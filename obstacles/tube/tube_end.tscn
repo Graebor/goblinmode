@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://br7sxd7fddfmy"]
 
 [ext_resource type="PackedScene" uid="uid://b651x15s7f7cq" path="res://obstacles/tube/PipeEnd.fbx" id="1_7mgo0"]
+[ext_resource type="PackedScene" uid="uid://dbtrsmqfwt37w" path="res://fx/small_blast_fx.tscn" id="2_eibf8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nhua6"]
 albedo_color = Color(0.89755434, 0.380907, 0.077063315, 1)
@@ -25,3 +26,6 @@ visible = false
 radius = 0.4
 sides = 20
 material = SubResource("StandardMaterial3D_2cj1c")
+
+[node name="SmallBlastFX" parent="." unique_id=1532882044 instance=ExtResource("2_eibf8")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)

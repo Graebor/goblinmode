@@ -12,6 +12,9 @@ extends Path3D
 @onready var sfx_enter: AudioCollectionData = preload("res://audio/sfx_tube_enter.tres")
 @onready var sfx_exit: AudioCollectionData = preload("res://audio/sfx_tube_exit.tres")
 
+var cap_start: Node3D
+var cap_end: Node3D
+
 var balls_forward: Dictionary[Node3D, float] = {}
 var balls_backward: Dictionary[Node3D, float] = {}
 var speed: float = 10.0
@@ -43,6 +46,7 @@ func _on_entry_entered(node: Node3D) -> void:
 			node.visible = false
 			node.add_to_group(TUBING_GROUP)
 			sfx_enter.play3D(node.global_position)
+			cap_start.get_node("SmallBlastFX").blast(Color.WHITE)
 
 
 func _on_exit_entered(node: Node3D) -> void:
@@ -52,6 +56,7 @@ func _on_exit_entered(node: Node3D) -> void:
 			node.visible = false
 			node.add_to_group(TUBING_GROUP)
 			sfx_enter.play3D(node.global_position)
+			cap_end.get_node("SmallBlastFX").blast(Color.WHITE)
 
 
 func _process(delta: float) -> void:
@@ -62,12 +67,14 @@ func _process(delta: float) -> void:
 		balls_forward[ball] -= speed * delta
 		if balls_forward[ball] <= 0.0:
 			balls_forward.erase(ball)
+			cap_end.get_node("SmallBlastFX").blast(Color.WHITE)
 			_spawn(ball, exit, curve.get_point_position(curve.point_count - 2))
 		
 	for ball: Node3D in balls_backward.keys():
 		balls_backward[ball] -= speed * delta
 		if balls_backward[ball] <= 0.0:
 			balls_backward.erase(ball)
+			cap_start.get_node("SmallBlastFX").blast(Color.WHITE)
 			_spawn(ball, entry, curve.get_point_position(1))
 
 func _spawn(ball: Node3D, area: Area3D, tube_position: Vector3) -> void:
@@ -108,11 +115,14 @@ func _regenerate() -> void:
 		if point == 0:
 			var cap: Node3D = end_scene.instantiate()
 			cap.look_at_from_position(current_pos.lerp(next_pos, 0.01), next_pos, Vector3.RIGHT)
+			cap.rotate(Vector3.UP, deg_to_rad(180))
 			segments.add_child(cap)
+			cap_start = cap
 		elif point == curve.point_count - 2:
 			var cap: Node3D = end_scene.instantiate()
 			cap.look_at_from_position(current_pos.lerp(next_pos, 0.99), next_pos, Vector3.RIGHT)
 			segments.add_child(cap)
+			cap_end = cap
 
 		var instance: Node3D = segment_scene.instantiate()
 		instance.get_child(0).scale.y = 3.7 * current_pos.distance_to(next_pos)
