@@ -1,8 +1,8 @@
-[gd_scene format=4 uid="uid://bhgr8qvn7nkun"]
+[gd_scene format=4 uid="uid://c5vicf7ow3xeu"]
 
 [ext_resource type="Script" uid="uid://bust0xh1gt5dy" path="res://items/item.gd" id="1_pljwg"]
 [ext_resource type="Resource" uid="uid://bopa8k8cw84pg" path="res://audio/audio_assets/Items/sfx_pickup_ball.tres" id="2_sxy44"]
-[ext_resource type="Material" uid="uid://cti68s4ikw53k" path="res://items/models/M_GolfBall.tres" id="3_18brd"]
+[ext_resource type="Material" uid="uid://sf0slcsuf2jj" path="res://items/models/M_GolfBall.tres" id="3_18brd"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7hnrh"]
 bounce = 0.9
@@ -44,6 +44,7 @@ power_segments = 4
 move_speed_multiplier = 0.8
 tint_with_owner = NodePath("Ball")
 sfx_pickup = ExtResource("2_sxy44")
+can_be_thrown = true
 
 [node name="Ball" type="MeshInstance3D" parent="." unique_id=53324163]
 transform = Transform3D(10.343, 0, 0, 0, 10.343, 0, 0, 0, 10.343, 0, 0, 0)
