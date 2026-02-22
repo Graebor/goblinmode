@@ -6,10 +6,16 @@ extends Node3D
 @export var sinking_speed: float = 0.5
 @export var min_distance_to_sink: float = 0.2
 @export var sinking_threshold: float = 10.0
+@export var idle_animation: AnimationPlayer
+@export var extra_flag_pivot: Node3D
 
 var sinking_balls: Array[RigidBody3D] = []
 
+var _bounce_power: float = 0
+var _bounce_tween: Tween
+
 func _ready() -> void:
+	idle_animation.play(&"flag/idlewave")
 	area3d.body_entered.connect(_on_body_entered)
 
 
@@ -17,9 +23,29 @@ func _on_body_entered(node: Node3D) -> void:
 	if node.is_in_group("Ball") and not node.is_in_group("InHand") and not node.is_in_group("Sinking"):
 		if node is RigidBody3D:
 			var body: RigidBody3D = node as RigidBody3D
-			if body.linear_velocity.length() < sinking_threshold:
+			var vel: float = body.linear_velocity.length()
+			
+			if (vel >= _bounce_power):
+				_do_bounce_tween(vel)
+			
+			if vel < sinking_threshold:
 				_start_sink_ball(body)
 
+func _do_bounce_tween(power: float) -> void:
+	_bounce_power = min(power / 2.0, 10.0)
+	#print(str(power) +" -> "+str(_bounce_power))
+	if (_bounce_tween != null):
+		_bounce_tween.kill()
+	_bounce_tween = get_tree().create_tween().set_trans(Tween.TRANS_QUAD)
+	_bounce_tween.set_ease(Tween.EASE_OUT)
+	_bounce_tween.tween_property(extra_flag_pivot, "scale", Vector3(1.3, 0.7, 1.3), 0.1)
+	_bounce_tween.set_ease(Tween.EASE_IN)
+	_bounce_tween.tween_property(extra_flag_pivot, "scale", Vector3.ONE, 0.1)
+	_bounce_tween.tween_callback(_on_tween_complete)
+
+func _on_tween_complete() -> void:
+	_bounce_power = 0
+	_bounce_tween = null
 
 func _physics_process(delta: float) -> void:
 	_sink_balls(delta)
