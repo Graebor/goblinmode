@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b85kcs32mqepg"]
+
+[ext_resource type="Material" uid="uid://dg7utpaatq1oq" path="res://player/outlinetest.tres" id="1_7262v"]
+
+[resource]
+resource_name = "M_RibbonRed"
+next_pass = ExtResource("1_7262v")
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.72, 0.18, 0.18, 1)
+emission_enabled = true
+emission = Color(0.92, 0.18154667, 0.12879999, 1)
+emission_energy_multiplier = 0.64

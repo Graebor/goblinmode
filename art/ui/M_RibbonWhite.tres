@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://1w3csog18q47"]
+
+[resource]
+resource_name = "M_RibbonWhite"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.81965536, 0.7606082, 0.7547807, 1)
+emission_enabled = true
+emission = Color(0.96, 0.96, 0.96, 1)
+emission_energy_multiplier = 0.72

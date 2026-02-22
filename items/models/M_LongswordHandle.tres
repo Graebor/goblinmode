@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://qo4q7gttegvi"]
+
+[ext_resource type="Material" uid="uid://bx4jdw46rkxg0" path="res://player/outlinebigger.tres" id="1_lug3d"]
+
+[resource]
+resource_name = "M_LongswordHandle"
+next_pass = ExtResource("1_lug3d")
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.7560017, 0.53289366, 0.27654976, 1)
+emission_enabled = true

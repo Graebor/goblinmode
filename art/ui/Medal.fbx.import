@@ -37,7 +37,30 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"materials": {
+"M_Crown": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art/ui/M_Crown.tres",
+"use_external/path": "uid://dibw8c3vqinla"
+},
+"M_GemsBlue": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art/ui/M_GemsBlue.tres",
+"use_external/path": "uid://dtnt0y50jfkw6"
+},
+"M_RibbonRed": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art/ui/M_RibbonRed.tres",
+"use_external/path": "uid://b85kcs32mqepg"
+},
+"M_RibbonWhite": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art/ui/M_RibbonWhite.tres",
+"use_external/path": "uid://1w3csog18q47"
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

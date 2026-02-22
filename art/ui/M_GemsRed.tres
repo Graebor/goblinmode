@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://yuka3iymgmw3"]
+
+[resource]
+resource_name = "M_GemsRed"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.6690714, 0.31114691, 0.3514716, 1)
+emission_enabled = true
+emission = Color(0.88, 0.11439999, 0.11439999, 1)
+emission_energy_multiplier = 0.72

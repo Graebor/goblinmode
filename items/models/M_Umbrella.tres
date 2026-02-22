@@ -1,7 +1,11 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://bxm7k2j4k67a1"]
 
+[ext_resource type="Material" uid="uid://bx4jdw46rkxg0" path="res://player/outlinebigger.tres" id="1_llbq7"]
+
 [resource]
 resource_name = "M_Umbrella"
+render_priority = 1
+next_pass = ExtResource("1_llbq7")
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.68, 0.12240001, 0.12240001, 1)
 emission_enabled = true
