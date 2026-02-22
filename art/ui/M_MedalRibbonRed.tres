@@ -1,10 +1,7 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://vy21tymaxow4"]
 
-[ext_resource type="Material" uid="uid://dg7utpaatq1oq" path="res://player/outlinetest.tres" id="1_g8r5f"]
-
 [resource]
 resource_name = "M_RibbonRed"
-next_pass = ExtResource("1_g8r5f")
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.72, 0.18, 0.18, 1)
 emission_enabled = true

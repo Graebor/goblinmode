@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bjjgj1yr8lm8s" path="res://obstacles/sandtrap.tscn" id="12_ddqkf"]
 [ext_resource type="PackedScene" uid="uid://ctr5y701uyn5k" path="res://obstacles/force_zone.tscn" id="12_u64xv"]
 [ext_resource type="Texture2D" uid="uid://dw0wmutg6qflk" path="res://art/environment/T_Arrows2.png" id="13_3bc6i"]
-[ext_resource type="PackedScene" uid="uid://bvgmxrf62jsja" path="res://obstacles/tube.tscn" id="14_w3huq"]
+[ext_resource type="PackedScene" uid="uid://df8htppmswbqi" path="res://obstacles/tube.tscn" id="14_w3huq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rr7c"]
 albedo_texture = ExtResource("1_ddqkf")
@@ -23,15 +23,15 @@ albedo_texture = ExtResource("1_ddqkf")
 ambient_light_source = 2
 ambient_light_color = Color(0.41616848, 0.65643466, 0.7564457, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_orq1i"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3bc6i"]
 transparency = 1
 blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("13_3bc6i")
 uv1_scale = Vector3(3, 3, 3)
-uv1_offset = Vector3(-204.38412, 204.38412, 0)
+uv1_offset = Vector3(-0.51596904, 0.51596904, 0)
 
-[sub_resource type="Curve3D" id="Curve3D_48itd"]
+[sub_resource type="Curve3D" id="Curve3D_orq1i"]
 
 [node name="TestHole" type="Node3D" unique_id=542123667]
 
@@ -92,10 +92,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.09528, 0, 0.7198868)
 
 [node name="BumperRound" parent="." unique_id=1413217440 instance=ExtResource("11_2yvlk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.639528, 1.9073486e-06, 8.898146)
+sfx_bounce = null
 
 [node name="ForceZone" parent="." unique_id=608486138 instance=ExtResource("12_u64xv")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.904728, 0.7263429, 11.600908)
-material = SubResource("StandardMaterial3D_orq1i")
+material = SubResource("StandardMaterial3D_3bc6i")
 direction = 1
 
 [node name="Sandtrap" parent="." unique_id=1003796369 instance=ExtResource("12_ddqkf")]
@@ -103,4 +104,5 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.48
 
 [node name="Tube" parent="." unique_id=202651051 instance=ExtResource("14_w3huq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27707702, 0, 12.631987)
-curve = SubResource("Curve3D_48itd")
+curve = SubResource("Curve3D_orq1i")
+reset_curve = false
