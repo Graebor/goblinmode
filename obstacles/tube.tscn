@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bvgmxrf62jsja"]
+
+[ext_resource type="Script" uid="uid://cw645qcq2qpgu" path="res://obstacles/tube/tube.gd" id="1_g3ayn"]
+
+[sub_resource type="Curve3D" id="Curve3D_oa0cm"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.209973, -0.065550864, -5.550395, 0, 0, 0, 0, 0, 0, 2.393903, 0.7417488, -2.242435, 0, 0, 0, 0, 0, 0, 2.8626475, 0.16299438, -1.50994, 0, 0, 0, 0, 0, 0, 5.470104, -0.016620398, -5.61372),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g3ayn"]
+
+[node name="Tube" type="Path3D" unique_id=202651051]
+curve = SubResource("Curve3D_oa0cm")
+debug_custom_color = Color(1, 1, 1, 1)
+script = ExtResource("1_g3ayn")
+
+[node name="Segments" type="Node3D" parent="." unique_id=945338792]
+
+[node name="EntryArea3D" type="Area3D" parent="." unique_id=360517529]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7684809, 1.0476937, -1.3900349)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EntryArea3D" unique_id=1523243718]
+shape = SubResource("SphereShape3D_g3ayn")
+
+[node name="ExitArea3D" type="Area3D" parent="." unique_id=1653072795]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.301741, 0.4495859, -0.35731715)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitArea3D" unique_id=1441876938]
+shape = SubResource("SphereShape3D_g3ayn")
