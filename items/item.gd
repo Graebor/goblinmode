@@ -37,6 +37,8 @@ func _ready() -> void:
 	call_deferred("_setup")
 	_collision_layer_3 = get_collision_layer_value(3)
 	_collision_layer_4 = get_collision_layer_value(4)
+	_original_linear_damp = linear_damp
+	_original_angular_damp = angular_damp
 
 
 func _process(_delta: float) -> void:
