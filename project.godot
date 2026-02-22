@@ -16,13 +16,13 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 
 [autoload]
 
-AudioManager="*uid://dawest4tgdud8"
-ScreenFader="*uid://2j1qe01t26us"
-GameManager="*uid://vkyj3f7bkbc"
 ItemManager="*uid://kbtn3a8tswf3"
 CameraManager="*uid://4urfxx713ydk"
 PlayerManager="*uid://c2bceuntonsfk"
 HoleManager="*uid://dph6hfv1amgdd"
+GameManager="*uid://vkyj3f7bkbc"
+AudioManager="*uid://dawest4tgdud8"
+ScreenFader="*uid://2j1qe01t26us"
 
 [editor_plugins]
 
