@@ -14,6 +14,7 @@
 [ext_resource type="FontFile" uid="uid://cvs578s1b2d8i" path="res://art/ui/LondrinaSolid-Black.ttf" id="7_w1imi"]
 [ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="8_1x5qb"]
 [ext_resource type="Resource" uid="uid://c201ya4aws6ry" path="res://audio/audio_assets/Cheers/sfx_confirmed_title.tres" id="8_fw0pt"]
+[ext_resource type="PackedScene" uid="uid://cgrjndo0e4oxe" path="res://levels/level_0_tube.tscn" id="8_pwsoa"]
 [ext_resource type="PackedScene" uid="uid://ctrqiys4oyx3l" path="res://levels/level_9_lava.tscn" id="9_6up75"]
 [ext_resource type="PackedScene" uid="uid://crmuvo122vlqk" path="res://levels/level_4_bumpersandforces.tscn" id="9_hedtl"]
 [ext_resource type="Resource" uid="uid://c1pdla363xorr" path="res://audio/sfx_count_3.tres" id="9_w1imi"]
@@ -32,7 +33,7 @@ title_scene = ExtResource("2_4p34t")
 player_scene = ExtResource("2_ru55a")
 lobby_scene = ExtResource("3_gindo")
 score_screen_scene = ExtResource("4_ru55a")
-levels = Array[PackedScene]([ExtResource("6_20o7g"), ExtResource("7_pwsoa"), ExtResource("6_rrbjt"), ExtResource("6_cib1v"), ExtResource("10_roxm6"), ExtResource("9_xnmst"), ExtResource("9_hedtl"), ExtResource("9_6up75")])
+levels = Array[PackedScene]([ExtResource("6_20o7g"), ExtResource("7_pwsoa"), ExtResource("8_pwsoa"), ExtResource("6_rrbjt"), ExtResource("6_cib1v"), ExtResource("10_roxm6"), ExtResource("9_xnmst"), ExtResource("9_hedtl"), ExtResource("9_6up75")])
 game_camera = NodePath("CamOffset/Shaker/Camera3D")
 countdown = NodePath("CamOffset/Shaker/Camera3D/Countdown")
 shaker = NodePath("CamOffset/Shaker")

@@ -105,7 +105,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.984443, 0, -8.771343)
 [node name="Hazards" type="Node3D" parent="." unique_id=309463524]
 
 [node name="Wall" parent="Hazards" unique_id=761124046 instance=ExtResource("7_h8grj")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -24, -0.25, 0)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -24, 0.5, 0)
 polygon = PackedVector2Array(-0.9685478, -6.063252, 11.157955, -0.33893925, -1.1945057, 4.782813)
 
 [node name="Wall2" parent="Hazards" unique_id=1579352410 instance=ExtResource("7_h8grj")]
