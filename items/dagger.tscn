@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dcmqb318stod3"]
 
 [ext_resource type="Script" uid="uid://bust0xh1gt5dy" path="res://items/item.gd" id="1_wdxk5"]
+[ext_resource type="Resource" uid="uid://cr0q7ogcgq30r" path="res://audio/audio_assets/Items/sfx_pickup_dagger.tres" id="2_u6xgh"]
 [ext_resource type="PackedScene" uid="uid://biqosumxb5wcr" path="res://items/models/Dagger.fbx" id="2_wdxk5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wdxk5"]
@@ -21,6 +22,7 @@ angular_damp = 1.0
 script = ExtResource("1_wdxk5")
 power_segments = 4
 move_speed_multiplier = 0.9
+sfx_pickup = ExtResource("2_u6xgh")
 
 [node name="Dagger" parent="." unique_id=2109906918 instance=ExtResource("2_wdxk5")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 5, 0, -0.4533843, -0.17038299)

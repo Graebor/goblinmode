@@ -4,6 +4,7 @@ extends RigidBody3D
 @export var power_segments: int = 3
 @export var move_speed_multiplier: float = 1.0
 @export var tint_with_owner: GeometryInstance3D
+@export var sfx_pickup: AudioCollectionData
 
 var last_player: PlayerContext:
 	set(value):

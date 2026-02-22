@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bod8vk2aol5ik"]
 
 [ext_resource type="Script" uid="uid://bust0xh1gt5dy" path="res://items/item.gd" id="1_q1edq"]
+[ext_resource type="Resource" uid="uid://dpq3rlxn8g552" path="res://audio/audio_assets/Items/sfx_pickup_plank.tres" id="2_kkp24"]
 [ext_resource type="PackedScene" uid="uid://cotccl0n7gutm" path="res://items/models/Board.fbx" id="2_q1edq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q1edq"]
@@ -21,6 +22,7 @@ angular_damp = 1.0
 script = ExtResource("1_q1edq")
 power_segments = 4
 move_speed_multiplier = 0.6
+sfx_pickup = ExtResource("2_kkp24")
 
 [node name="Board" parent="." unique_id=276034077 instance=ExtResource("2_q1edq")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 4, 0, -0.3799505, -0.24482526)

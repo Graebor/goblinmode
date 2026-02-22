@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bux7t5cejmnv8"]
 
 [ext_resource type="Script" uid="uid://bust0xh1gt5dy" path="res://items/item.gd" id="1_w1uto"]
+[ext_resource type="Resource" uid="uid://cje5hcbhfwfwt" path="res://audio/audio_assets/Items/sfx_pickup_longsword.tres" id="2_7dfxk"]
 [ext_resource type="PackedScene" uid="uid://hwc076dgcfni" path="res://items/models/GreatSword.fbx" id="2_w1uto"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w1uto"]
@@ -21,6 +22,7 @@ angular_damp = 6.0
 script = ExtResource("1_w1uto")
 power_segments = 10
 move_speed_multiplier = 0.2
+sfx_pickup = ExtResource("2_7dfxk")
 
 [node name="GreatSword" parent="." unique_id=840597471 instance=ExtResource("2_w1uto")]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -4.36306e-05, -0.33688504, 0.0071122646)

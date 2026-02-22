@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AudioCollectionData" format=3 uid="uid://bopa8k8cw84pg"]
+
+[ext_resource type="AudioStream" uid="uid://bk4frqervel6g" path="res://audio/audio_assets/Items/sfx_item_pickup_ball.ogg" id="1_ot8sh"]
+[ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="1_pvj31"]
+
+[resource]
+script = ExtResource("1_pvj31")
+clips = Array[AudioStream]([ExtResource("1_ot8sh")])
+metadata/_custom_type_script = "uid://b1qny5ew5yveu"

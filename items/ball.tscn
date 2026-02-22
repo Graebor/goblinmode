@@ -1,7 +1,8 @@
 [gd_scene format=4 uid="uid://b5lgxsfykvq31"]
 
 [ext_resource type="Script" uid="uid://bust0xh1gt5dy" path="res://items/item.gd" id="1_7hnrh"]
-[ext_resource type="Material" path="res://items/models/M_GolfBall.tres" id="2_qt1fk"]
+[ext_resource type="Material" uid="uid://sf0slcsuf2jj" path="res://items/models/M_GolfBall.tres" id="2_qt1fk"]
+[ext_resource type="Resource" uid="uid://bopa8k8cw84pg" path="res://audio/audio_assets/Items/sfx_pickup_ball.tres" id="2_vp5ra"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7hnrh"]
 bounce = 0.9
@@ -41,6 +42,7 @@ script = ExtResource("1_7hnrh")
 power_segments = 2
 move_speed_multiplier = 0.15
 tint_with_owner = NodePath("Ball")
+sfx_pickup = ExtResource("2_vp5ra")
 
 [node name="Ball" type="MeshInstance3D" parent="." unique_id=53324163]
 transform = Transform3D(6.895, 0, 0, 0, 6.895, 0, 0, 0, 6.895, 0, 0, 0)
