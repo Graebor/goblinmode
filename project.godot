@@ -153,6 +153,7 @@ p1_right={
 3d_physics/layer_2="Players"
 3d_physics/layer_3="Items"
 3d_physics/layer_4="Balls"
+3d_physics/layer_5="Hedge"
 
 [physics]
 

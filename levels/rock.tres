@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cidx77nbsht47"]
+
+[ext_resource type="Texture2D" uid="uid://baqwxe8ng6oqn" path="res://art/environment/T_StonePath.png" id="1_esod4"]
+
+[resource]
+albedo_color = Color(0.5931336, 0.59313357, 0.59313357, 1)
+albedo_texture = ExtResource("1_esod4")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true

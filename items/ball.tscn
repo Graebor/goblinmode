@@ -30,7 +30,7 @@ blend_shape_mode = 0
 
 [node name="Ball" type="RigidBody3D" unique_id=1772857852 node_paths=PackedStringArray("tint_with_owner") groups=["Ball", "Item"]]
 collision_layer = 8
-collision_mask = 13
+collision_mask = 29
 axis_lock_linear_y = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
