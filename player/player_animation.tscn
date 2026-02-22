@@ -3,25 +3,25 @@
 [ext_resource type="Script" uid="uid://iq27sn06exgs" path="res://player/player_animation.gd" id="1_fp5y0"]
 [ext_resource type="AnimationLibrary" uid="uid://bi4ydbnwkt0lw" path="res://player/player_animations_main.tres" id="2_1wvki"]
 [ext_resource type="Resource" uid="uid://cea3vfijppwjc" path="res://audio/sfx_footstep.tres" id="2_kr8ch"]
-[ext_resource type="PackedScene" uid="uid://4n7jvlo6n544" path="res://player/goblin/Goblin_Idle.fbx" id="3_faahg"]
 [ext_resource type="Resource" uid="uid://bb64asjk6hhb8" path="res://audio/sfx_grab_item.tres" id="3_hnvcj"]
-[ext_resource type="PackedScene" uid="uid://dhpnm88bn616o" path="res://player/goblin/Goblin_Run_HeldItem_1.fbx" id="3_v3vk1"]
-[ext_resource type="PackedScene" uid="uid://tt8e8kwkmsdv" path="res://player/goblin/Goblin_Run_HeldItem_2.fbx" id="4_1wvki"]
 [ext_resource type="Resource" uid="uid://ckq6eak6qaw7o" path="res://audio/sfx_start_moving.tres" id="4_jk1jc"]
 [ext_resource type="Resource" uid="uid://w67y151wfn7d" path="res://audio/sfx_stop_moving.tres" id="5_jmglk"]
 [ext_resource type="Resource" uid="uid://cgmtnjdhppay7" path="res://audio/sfx_swing_followthrough.tres" id="6_pubcu"]
-[ext_resource type="PackedScene" uid="uid://bxml4t71p4qf1" path="res://player/goblin/Goblin_Swing_WindUp.fbx" id="7_hlxye"]
 [ext_resource type="Resource" uid="uid://d0er4fqed74cx" path="res://audio/sfx_swing_impact_bad.tres" id="7_mn3xa"]
-[ext_resource type="PackedScene" uid="uid://dmasr01w6lich" path="res://player/goblin/Goblin_Swing_Impact.fbx" id="8_faahg"]
 [ext_resource type="Resource" uid="uid://nin0umlo01es" path="res://audio/sfx_swing_impact_normal.tres" id="8_nggqp"]
 [ext_resource type="Resource" uid="uid://bdbst1n1hj6ww" path="res://audio/sfx_swing_impact_good.tres" id="9_k47re"]
-[ext_resource type="PackedScene" uid="uid://bcqybf7ld34tm" path="res://player/goblin/Goblin_Swing_FollowThrough.fbx" id="9_kkpur"]
 [ext_resource type="Resource" uid="uid://bp3uq62wafccv" path="res://audio/sfx_swing_miss.tres" id="10_f2pqm"]
 [ext_resource type="Resource" uid="uid://wjihx8x4kue4" path="res://audio/sfx_swing_windup.tres" id="11_sxqyg"]
+[ext_resource type="PackedScene" uid="uid://der424geqfbky" path="res://player/goblin/goblin_idle.tscn" id="13_jk1jc"]
 [ext_resource type="PackedScene" uid="uid://cbn88o2oo7yt4" path="res://player/goblin/goblin_run_empty_hand_1.tscn" id="14_jk1jc"]
 [ext_resource type="PackedScene" uid="uid://tie1wl18etpv" path="res://player/goblin/goblin_run_empty_hand_2.tscn" id="15_jk1jc"]
-[ext_resource type="PackedScene" uid="uid://bblwwnjwypdaw" path="res://player/goblin/Goblin_Starfish.fbx" id="21_jk1jc"]
-[ext_resource type="PackedScene" uid="uid://dp1pgeq6n7hbo" path="res://player/goblin/Goblin_FacePlant.fbx" id="22_jmglk"]
+[ext_resource type="PackedScene" uid="uid://bg1pmovvp7o4v" path="res://player/goblin/goblin_run_held_item_1.tscn" id="16_jk1jc"]
+[ext_resource type="PackedScene" uid="uid://bqvom8ytosea5" path="res://player/goblin/goblin_run_held_item_2.tscn" id="17_jk1jc"]
+[ext_resource type="PackedScene" uid="uid://cinoanxg0qfmq" path="res://player/goblin/goblin_swing_wind_up.tscn" id="18_jk1jc"]
+[ext_resource type="PackedScene" uid="uid://tnhwfob31pkw" path="res://player/goblin/goblin_swing_impact.tscn" id="19_jk1jc"]
+[ext_resource type="PackedScene" uid="uid://bxf7pluf5sv6a" path="res://player/goblin/goblin_swing_follow_through.tscn" id="20_jk1jc"]
+[ext_resource type="PackedScene" uid="uid://074fwik0sbsi" path="res://player/goblin/goblin_starfish.tscn" id="21_jk1jc"]
+[ext_resource type="PackedScene" uid="uid://4xaulmj73xg1" path="res://player/goblin/goblin_face_plant.tscn" id="22_jk1jc"]
 
 [sub_resource type="Animation" id="Animation_1wvki"]
 length = 0.001
@@ -342,7 +342,7 @@ root2 = NodePath("Untilted/Root")
 held_item_parent = NodePath("TiltBack/Root/HeldItemParent")
 faceplant = NodePath("Untilted/Root/Faceplant")
 starfish = NodePath("TiltBack/Root/Starfish")
-pointers = [NodePath("TiltBack/Root/RunEmpty1/Goblin_Run_EmptyHand_2"), NodePath("TiltBack/Root/RunEmpty2/Goblin_Run_EmptyHand_3")]
+pointers = [NodePath("TiltBack/Root/RunEmpty1/Goblin_Run_EmptyHand_2"), NodePath("TiltBack/Root/RunEmpty2/Goblin_Run_EmptyHand_3"), NodePath("TiltBack/Root/Idle/Goblin_Idle2"), NodePath("TiltBack/Root/RunFull1/Goblin_Run_HeldItem_2"), NodePath("TiltBack/Root/RunFull2/Goblin_Run_HeldItem_3"), NodePath("TiltBack/Root/SwingCharge/Goblin_Swing_WindUp2"), NodePath("TiltBack/Root/SwingImpact/Goblin_Swing_Impact2"), NodePath("TiltBack/Root/SwingFollowThrough/Goblin_Swing_FollowThrough2"), NodePath("TiltBack/Root/Starfish/Goblin_Starfish2"), NodePath("Untilted/Root/Faceplant/Goblin_FacePlant2")]
 sfx_footstep = ExtResource("2_kr8ch")
 sfx_grab_item = ExtResource("3_hnvcj")
 sfx_start_moving = ExtResource("4_jk1jc")
@@ -369,7 +369,7 @@ transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.9802322e-08, 0, -2.9802322e-08,
 [node name="Idle" type="Node3D" parent="TiltBack/Root" unique_id=2112905804]
 visible = false
 
-[node name="Goblin_Idle" parent="TiltBack/Root/Idle" unique_id=225147497 instance=ExtResource("3_faahg")]
+[node name="Goblin_Idle2" parent="TiltBack/Root/Idle" unique_id=225147497 instance=ExtResource("13_jk1jc")]
 
 [node name="RunEmpty1" type="Node3D" parent="TiltBack/Root" unique_id=582765117]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000002, 0, 0, 0)
@@ -385,33 +385,33 @@ visible = false
 [node name="RunFull1" type="Node3D" parent="TiltBack/Root" unique_id=1186441200]
 visible = false
 
-[node name="Goblin_Run_HeldItem_1" parent="TiltBack/Root/RunFull1" unique_id=857276852 instance=ExtResource("3_v3vk1")]
+[node name="Goblin_Run_HeldItem_2" parent="TiltBack/Root/RunFull1" unique_id=857276852 instance=ExtResource("16_jk1jc")]
 
 [node name="RunFull2" type="Node3D" parent="TiltBack/Root" unique_id=1038893935]
 visible = false
 
-[node name="Goblin_Run_HeldItem_2" parent="TiltBack/Root/RunFull2" unique_id=1678655412 instance=ExtResource("4_1wvki")]
+[node name="Goblin_Run_HeldItem_3" parent="TiltBack/Root/RunFull2" unique_id=1678655412 instance=ExtResource("17_jk1jc")]
 
 [node name="SwingCharge" type="Node3D" parent="TiltBack/Root" unique_id=2042116787]
 visible = false
 
-[node name="Goblin_Swing_WindUp" parent="TiltBack/Root/SwingCharge" unique_id=419002591 instance=ExtResource("7_hlxye")]
+[node name="Goblin_Swing_WindUp2" parent="TiltBack/Root/SwingCharge" unique_id=419002591 instance=ExtResource("18_jk1jc")]
 
 [node name="SwingImpact" type="Node3D" parent="TiltBack/Root" unique_id=895101569]
 visible = false
 
-[node name="Goblin_Swing_Impact" parent="TiltBack/Root/SwingImpact" unique_id=1474052130 instance=ExtResource("8_faahg")]
+[node name="Goblin_Swing_Impact2" parent="TiltBack/Root/SwingImpact" unique_id=1474052130 instance=ExtResource("19_jk1jc")]
 
 [node name="SwingFollowThrough" type="Node3D" parent="TiltBack/Root" unique_id=967145785]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 visible = false
 
-[node name="Goblin_Swing_FollowThrough" parent="TiltBack/Root/SwingFollowThrough" unique_id=588665543 instance=ExtResource("9_kkpur")]
+[node name="Goblin_Swing_FollowThrough2" parent="TiltBack/Root/SwingFollowThrough" unique_id=588665543 instance=ExtResource("20_jk1jc")]
 
 [node name="Starfish" type="Node3D" parent="TiltBack/Root" unique_id=750659736]
 visible = false
 
-[node name="Goblin_Starfish" parent="TiltBack/Root/Starfish" unique_id=892826247 instance=ExtResource("21_jk1jc")]
+[node name="Goblin_Starfish2" parent="TiltBack/Root/Starfish" unique_id=892826247 instance=ExtResource("21_jk1jc")]
 
 [node name="Untilted" type="Node3D" parent="." unique_id=1983287511]
 
@@ -421,5 +421,5 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 0.6427876, 0.7660444, 0, -0.7660444, 0.6427876, 0, 0, 0)
 visible = false
 
-[node name="Goblin_FacePlant" parent="Untilted/Root/Faceplant" unique_id=212508169 instance=ExtResource("22_jmglk")]
+[node name="Goblin_FacePlant2" parent="Untilted/Root/Faceplant" unique_id=212508169 instance=ExtResource("22_jk1jc")]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0.08522867, -0.012965694)

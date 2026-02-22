@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://tnhwfob31pkw"]
+
+[ext_resource type="PackedScene" uid="uid://dmasr01w6lich" path="res://player/goblin/Goblin_Swing_Impact.fbx" id="1_ya5d0"]
+[ext_resource type="Script" uid="uid://dxvxm3avff2ks" path="res://player/goblin/goblin_material_pointer.gd" id="2_so6rl"]
+
+[node name="Goblin_Swing_Impact" unique_id=1474052130 node_paths=PackedStringArray("overrides") instance=ExtResource("1_ya5d0")]
+script = ExtResource("2_so6rl")
+overrides = [NodePath("grp_Goblin_Swing_Impact/Head"), NodePath("grp_Goblin_Swing_Impact/Eyelid1"), NodePath("grp_Goblin_Swing_Impact/Eyelid2"), NodePath("grp_Goblin_Swing_Impact/Legs"), NodePath("grp_Goblin_Swing_Impact/Body"), NodePath("grp_Goblin_Swing_Impact/Ears"), NodePath("grp_Goblin_Swing_Impact/Arms"), NodePath("grp_Goblin_Swing_Impact/Hands")]
+indices = Array[int]([0, 0, 0, 0, 0, 0, 0, 0])
