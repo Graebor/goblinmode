@@ -7,6 +7,7 @@ extends Path3D
 @onready var segments: Node3D = $Segments
 @onready var entry: Area3D = $EntryArea3D
 @onready var exit: Area3D = $ExitArea3D
+@export var reset_curve: bool = true
 
 var balls_forward: Dictionary[Node3D, float] = {}
 var balls_backward: Dictionary[Node3D, float] = {}
@@ -16,8 +17,10 @@ const TUBING_GROUP: String = "Tubing"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if Engine.is_editor_hint():
+	if Engine.is_editor_hint() and reset_curve:
 		curve = Curve3D.new()
+		reset_curve = false
+	
 	curve_changed.connect(_regenerate)
 	entry.body_entered.connect(_on_entry_entered)
 	exit.body_entered.connect(_on_exit_entered)
@@ -28,7 +31,7 @@ func _ready() -> void:
 	end_pos.y = 0
 	curve.set_point_position(0, start_pos)
 	curve.set_point_position(curve.point_count - 1, end_pos)
-
+	_regenerate()
 
 func _on_entry_entered(node: Node3D) -> void:
 	if node.is_in_group("Ball") and not node.is_in_group(TUBING_GROUP) and not node.is_in_group("InHand") and not node.is_in_group("Sinking"):
