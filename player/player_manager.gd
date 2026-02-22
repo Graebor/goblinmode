@@ -65,8 +65,8 @@ func spawn_player(player_context: PlayerContext, pos: Vector3) -> PlayerControll
 	var player_instance: PlayerController = player_scene.instantiate()
 	player_instance.player_context = player_context
 	player_instance.name = "Player %s" % [players.size()]
-	player_instance.global_position = pos
 	add_child(player_instance)
+	player_instance.global_position = pos
 	return player_instance
 
 

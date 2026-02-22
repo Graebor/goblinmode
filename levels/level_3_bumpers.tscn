@@ -80,13 +80,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.494738, 0, 7.6118507)
 [node name="Items" type="Node3D" parent="." unique_id=1142739868]
 
 [node name="Club" parent="Items" unique_id=1772857852 instance=ExtResource("6_svivd")]
-transform = Transform3D(0.76101774, 0, -0.6487311, 0, 1, 0, 0.6487311, 0, 0.76101774, -18.968706, 0, -9.666744)
+transform = Transform3D(0.76101774, 0, -0.6487311, 0, 1, 0, 0.6487311, 0, 0.76101774, -18.968706, 0, -9.123144)
 
 [node name="Club2" parent="Items" unique_id=1279834148 instance=ExtResource("6_svivd")]
 transform = Transform3D(0.847261, 0, 0.5311768, 0, 1, 0, -0.5311768, 0, 0.847261, -13.679356, 0, -11.308269)
 
 [node name="Bat" parent="Items" unique_id=584178804 instance=ExtResource("7_yafm2")]
-transform = Transform3D(0.7700792, 0, 0.63794833, 0, 1, 0, -0.63794833, 0, 0.7700792, -17.023201, 0, -11.977036)
+transform = Transform3D(0.7700792, 0, 0.63794833, 0, 1, 0, -0.63794833, 0, 0.7700792, -17.22705, 0, -11.365486)
 
 [node name="Bat2" parent="Items" unique_id=1456457679 instance=ExtResource("7_yafm2")]
 transform = Transform3D(0.5298304, 0, 0.84810364, 0, 1, 0, -0.84810364, 0, 0.5298304, -20.063053, 0, -4.073407)
@@ -100,23 +100,23 @@ transform = Transform3D(0.92706615, 0, 0.37489784, 0, 1, 0, -0.37489784, 0, 0.92
 [node name="Balls" type="Node3D" parent="." unique_id=58076082]
 
 [node name="Ball" parent="Balls" unique_id=1289526853 instance=ExtResource("9_t5hu4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.786007, 0, -5.8692427)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.92191, 0, -1.1806936)
 
 [node name="Ball2" parent="Balls" unique_id=2072227025 instance=ExtResource("9_t5hu4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.714562, 0, -5.7351065)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.005611, 0, -5.6671567)
 
 [node name="Ball3" parent="Balls" unique_id=530406940 instance=ExtResource("9_t5hu4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.228443, 0, -8.717714)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.879644, 0, -6.339464)
 
 [node name="Hazards" type="Node3D" parent="." unique_id=309463524]
 
 [node name="Hedge" parent="Hazards" unique_id=761124046 instance=ExtResource("10_eg35p")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -21.912346, -0.25, 12.33899)
-polygon = PackedVector2Array(-3.039177, 19.183086, 0.22285461, 17.055676, 2.6339226, 11.45349, 4.5485935, 6.3477, 5.612299, 1.738306, 9.3707285, -2.2328644, 13.058246, -3.1547432, -3.1810055, -3.2965689)
+polygon = PackedVector2Array(-3.039177, 19.183086, 0.22285461, 17.055676, 2.6339226, 11.45349, 4.5485935, 6.3477, 7.201172, 1.500967, 11.549971, -1.7606325, 16.034672, -3.3914328, -3.1810055, -3.2965689)
 
 [node name="Hedge2" parent="Hazards" unique_id=578631218 instance=ExtResource("10_eg35p")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -9.7860985, -0.25, -11.91351)
-polygon = PackedVector2Array(-4.3156214, 3.2984095, -1.9045534, -0.24727821, -0.27353764, -5.3530684, 0.8137913, -10.243134, 3.083036, -14.710707, 5.9195895, -15.065276, 8.614319, -12.228722, 10.245335, -7.9029765, 11.639972, -3.0129137, 13.980127, 1.6673927, 18.518604, 2.8729267, 21.071503, 3.2274952)
+polygon = PackedVector2Array(-4.3156214, 3.2984095, -1.9045534, -0.24727821, -0.27353764, -5.3530684, 0.9865761, -9.365385, 3.1609726, -11.879536, 5.403324, -12.559034, 8.121323, -10.316686, 9.412373, -6.0358353, 11.043171, -1.4831867, 13.980127, 1.6673927, 18.518604, 2.8729267, 21.071503, 3.2274952)
 
 [node name="Hedge3" parent="Hazards" unique_id=1329697234 instance=ExtResource("10_eg35p")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 21.699608, -0.25, -11.275285)
@@ -124,7 +124,7 @@ polygon = PackedVector2Array(-10.201463, 3.6529799, -6.3012056, 2.3056183, -2.75
 
 [node name="Hedge4" parent="Hazards" unique_id=1680404039 instance=ExtResource("10_eg35p")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 10.353409, -0.25, 14.040919)
-polygon = PackedVector2Array(-11.974309, -1.5237265, -7.2230844, 0.17820358, -3.606485, 3.652976, -2.8736997, 6.5634084, -1.6681633, 9.612705, -0.8881149, 14.080277, 1.2392998, 15.711296, 3.083065, 13.371139, 2.8703194, 10.392757, 2.988494, 6.6313543, 3.6267195, 2.3765287, 4.19403, 0.036376, 6.88875, -1.665554)
+polygon = PackedVector2Array(-11.974309, -1.5237265, -7.2230844, 0.17820358, -3.606485, 3.652976, -1.8256836, 6.532445, -0.67053604, 9.114544, 0.4846115, 13.667194, 2.251316, 14.210794, 3.8141632, 12.919745, 2.8703194, 10.392757, 2.988494, 6.6313543, 3.6267195, 2.3765287, 4.19403, 0.036376, 6.88875, -1.665554)
 
 [node name="Sandtrap" parent="Hazards" unique_id=1003796369 instance=ExtResource("11_67vg4")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 13.86855, -0.48, 2.0557175)
@@ -135,27 +135,27 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -18.
 polygon = PackedVector2Array(8.206671, -1.3601079, 4.8020325, 1.4973564, 1.8229733, 1.4973564, -0.54811287, 0.8893862, -1.8856506, -1.4209046, -2.3112316, -4.095978, -2.432825, -7.865398, -6.141449, -4.8255434, -6.9318123, -1.785687, -6.8710136, 6.117938, 7.8418865, 6.0571413)
 
 [node name="BumperRound" parent="Hazards" unique_id=902257337 instance=ExtResource("7_ofchu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.629868, 0, 5.3185244)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.697815, 0, 4.4351754)
 
 [node name="BumperRound2" parent="Hazards" unique_id=114101328 instance=ExtResource("7_ofchu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.655289, 0, -8.877037)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.780983, 0, -9.692436)
 
 [node name="BumperRound4" parent="Hazards" unique_id=1856876109 instance=ExtResource("7_ofchu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7656326, 0, 9.857016)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1348305, 0, 8.633917)
 
 [node name="BumperRound6" parent="Hazards" unique_id=1519129518 instance=ExtResource("7_ofchu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6803093, 0, 0.42547846)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.612362, 0, -0.86557055)
 
 [node name="Spawns" type="Node3D" parent="." unique_id=1590108862]
 
 [node name="Spawn" parent="Spawns" unique_id=1097262877 instance=ExtResource("12_mqvtj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.329468, 0, -10.007635)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.44612, 0, -10.890985)
 
 [node name="Spawn2" parent="Spawns" unique_id=1554877121 instance=ExtResource("12_mqvtj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.636402, 0, -6.6295204)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3159, 0, -7.3090196)
 
 [node name="Spawn3" parent="Spawns" unique_id=421355167 instance=ExtResource("12_mqvtj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.507206, 0, -13.17671)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.109707, 0, -13.38056)
 
 [node name="Spawn4" parent="Spawns" unique_id=108946388 instance=ExtResource("12_mqvtj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.375425, 0, -12.998202)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.404873, 0, -12.930252)

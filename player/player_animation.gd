@@ -64,7 +64,7 @@ func _process(_delta: float) -> void:
 func _on_level_started() -> void:
 	player_controller.player_context.personality.voice_game_start.play3D(position)
 
-func _on_ball_sunk(player_context: PlayerContext) -> void:
+func _on_ball_sunk(player_context: PlayerContext, _hole: Hole) -> void:
 	if (player_context == player_controller.player_context):
 		player_controller.player_context.personality.voice_victory.play3D(position)
 

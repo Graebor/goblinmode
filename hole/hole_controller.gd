@@ -93,4 +93,4 @@ func _remove_ball(ball: RigidBody3D) -> void:
 	ball.queue_free()
 	sinking_balls.erase(ball)
 	sfx_ball_in_hole.play3D(position)
-	HoleManager.ball_sunk.emit(item.last_player)
+	HoleManager.ball_sunk.emit(item.last_player, self)
