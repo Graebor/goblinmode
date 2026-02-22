@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://58o2jxywidh2" path="res://player/effects/Stars.fbx" id="5_qjkh3"]
 [ext_resource type="Script" uid="uid://difksi0u4fmb2" path="res://player/physics_receiver.gd" id="6_g6k8r"]
 [ext_resource type="ArrayMesh" uid="uid://c0ln4v5luamda" path="res://art/ui/ring.obj" id="7_boad6"]
+[ext_resource type="Script" uid="uid://bugaqipx23k8v" path="res://prototypes/scale_wobble_3d.gd" id="8_rgyib"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qjkh3"]
 bounce = 1.0
@@ -106,3 +107,8 @@ transform = Transform3D(2.131124, 0, 0, 0, 1, 0, 0, 0, 2.131124, 0, 0, 0)
 cast_shadow = 0
 mesh = ExtResource("7_boad6")
 surface_material_override/0 = SubResource("StandardMaterial3D_rgyib")
+script = ExtResource("8_rgyib")
+min_scale = Vector3(2, 1, 2)
+max_scale = Vector3(2.3, 1, 2.3)
+speed = 16.0
+randomize_start = true
