@@ -33,6 +33,7 @@ enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
 Item=""
 Ball=""
 Spawn=""
+Hole=""
 
 [input]
 

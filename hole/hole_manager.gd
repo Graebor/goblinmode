@@ -12,13 +12,19 @@ func _ready() -> void:
 
 
 func _on_ball_sunk(_player_context: PlayerContext) -> void:
+	var hole_count: int = get_tree().get_nodes_in_group("Hole").size()
+	
 	var balls: Array[Node] = get_tree().get_nodes_in_group("Ball")
 	var remaining: int = 0
 	for ball: Node in balls:
 		if not ball.is_queued_for_deletion():
 			remaining += 1
 	
-	if PlayerManager.round_order.keys().size() >= PlayerManager.players.size() - 1 \
-	or remaining == 0:
+	if PlayerManager.round_order.keys().size() >= PlayerManager.players.size() - 1:
+		# all but 1 player finished
 		round_finished.emit()
-		pass
+		return
+	if remaining == 0 and hole_count > 0:
+		# all balls are gone but only if the course has a hole
+		round_finished.emit()
+		return
