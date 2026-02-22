@@ -1,3 +1,4 @@
+@tool
 extends CSGPolygon3D
 
 enum Direction {
@@ -12,7 +13,10 @@ enum Direction {
 }
 
 @export var area: Area3D
-@export var direction: Direction = Direction.North
+@export var direction: Direction = Direction.North:
+	set(value):
+		direction = value
+		material.albedo_texture = direction_textures[direction]
 @export var power: float = 2.0
 
 var direction_vectors: Array[Vector2] = [
@@ -32,14 +36,19 @@ var time = 0.0
 var speed = 0.1
 
 func _ready() -> void:
-	pass
+	material.albedo_texture = direction_textures[direction]
+	if not Engine.is_editor_hint():
+		return
+		
+	var unique_material: Material = material.duplicate()
+	material = unique_material
 
 
 func _process(delta: float) -> void:
 	time += delta
 	material.uv1_offset.x = direction_vectors[direction].x * time * speed
 	material.uv1_offset.y = direction_vectors[direction].y * time * speed
-	material.albedo_texture = direction_textures[direction]
+	
 	
 
 # Called when the node enters the scene tree for the first time.

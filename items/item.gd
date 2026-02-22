@@ -58,6 +58,13 @@ func _process(_delta: float) -> void:
 	else:
 		angular_damp = _original_angular_damp
 		linear_damp = _original_linear_damp
+		
+	if is_in_group("Tubing"):
+		set_collision_layer_value(3, false)
+		set_collision_layer_value(4, false)
+	else:
+		set_collision_layer_value(3, _collision_layer_3)
+		set_collision_layer_value(4, _collision_layer_4)
 
 
 func _setup() -> void:
