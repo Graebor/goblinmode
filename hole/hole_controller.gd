@@ -81,7 +81,7 @@ func _sink_balls(delta: float) -> void:
 			ball_postion_2d.x, \
 			ball.global_position.y - (sinking_speed * 8.0 * delta), \
 			ball_postion_2d.y)
-		if ball_postion_2d == hole_position_2d and ball_postion_2d.y > 0.5:
+		if ball_postion_2d == hole_position_2d and ball.global_position.y < 0.5:
 			_remove_ball(ball)
 
 
