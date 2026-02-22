@@ -1,7 +1,11 @@
 [gd_resource type="Resource" script_class="AudioCollectionData" format=3 uid="uid://c4kisu3xtxb1x"]
 
 [ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="1_2os6u"]
+[ext_resource type="AudioStream" uid="uid://c3fwvgaelqleq" path="res://audio/audio_assets/VO/Announcer/sfx_announcer_bell.ogg" id="1_p6xqk"]
 
 [resource]
 script = ExtResource("1_2os6u")
+clips = Array[AudioStream]([ExtResource("1_p6xqk")])
+min_volume = 0.5
+max_volume = 0.5
 metadata/_custom_type_script = "uid://b1qny5ew5yveu"
