@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bonuuylcb7ta" path="res://items/umbrella.tscn" id="10_6i50c"]
 [ext_resource type="PackedScene" uid="uid://b2e0ju6ian5g4" path="res://obstacles/bumper_round.tscn" id="11_2yvlk"]
 [ext_resource type="PackedScene" uid="uid://bjjgj1yr8lm8s" path="res://obstacles/sandtrap.tscn" id="12_ddqkf"]
-[ext_resource type="PackedScene" uid="uid://ctr5y701uyn5k" path="res://obstacles/force_zone.tscn" id="12_u64xv"]
+[ext_resource type="PackedScene" path="res://obstacles/force_zone.tscn" id="12_u64xv"]
 [ext_resource type="Texture2D" uid="uid://dw0wmutg6qflk" path="res://art/environment/T_Arrows2.png" id="13_3bc6i"]
 [ext_resource type="PackedScene" uid="uid://df8htppmswbqi" path="res://obstacles/tube.tscn" id="14_w3huq"]
 
@@ -29,7 +29,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("13_3bc6i")
 uv1_scale = Vector3(3, 3, 3)
-uv1_offset = Vector3(-0.51596904, 0.51596904, 0)
+uv1_offset = Vector3(-31.410948, 31.410948, 0)
 
 [sub_resource type="Curve3D" id="Curve3D_orq1i"]
 
@@ -105,4 +105,3 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.48
 [node name="Tube" parent="." unique_id=202651051 instance=ExtResource("14_w3huq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27707702, 0, 12.631987)
 curve = SubResource("Curve3D_orq1i")
-reset_curve = false

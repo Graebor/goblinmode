@@ -12,6 +12,7 @@ extends Node3D
 @export var sfx_ball_hit_flag: AudioCollectionData
 
 var sinking_balls: Array[RigidBody3D] = []
+var start_times: Array[float] = []
 
 var _bounce_power: float = 0
 var _bounce_tween: Tween
@@ -65,11 +66,13 @@ func _start_sink_ball(ball: RigidBody3D) -> void:
 	ball.set_collision_layer_value(3, false) # Item
 	ball.set_collision_layer_value(4, false) # Ball
 	sinking_balls.push_back(ball)
+	start_times.push_back(Time.get_ticks_msec() / 1000.0)
 	
 	HoleManager.ball_sinking.emit(item.last_player)
 	
 
 func _sink_balls(delta: float) -> void:
+	var i: int = 0
 	for ball: RigidBody3D in sinking_balls:
 		var ball_postion_2d := Vector2(ball.global_position.x, ball.global_position.z)
 		var hole_position_2d := Vector2(global_position.x, global_position.z)
@@ -86,11 +89,20 @@ func _sink_balls(delta: float) -> void:
 			ball_postion_2d.y)
 		if ball_postion_2d == hole_position_2d and ball.global_position.y < 0.5:
 			_remove_ball(ball)
+			return
+		elif (Time.get_ticks_msec() / 1000.0 > start_times[i] + 5.0):
+			print("ball timed out")
+			_remove_ball(ball)
+			return
+			
+		i += 1
 
 
 func _remove_ball(ball: RigidBody3D) -> void:
 	var item: Item = ball as Item
 	ball.queue_free()
-	sinking_balls.erase(ball)
+	var index: int = sinking_balls.find(ball)
+	sinking_balls.remove_at(index)
+	start_times.remove_at(index)
 	sfx_ball_in_hole.play3D(position)
 	HoleManager.ball_sunk.emit(item.last_player, self)
