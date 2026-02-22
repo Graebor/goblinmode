@@ -15,8 +15,13 @@ var active_music_player: AudioStreamPlayer
 var inactive_music_player: AudioStreamPlayer
 
 var fade: Tween
+var _current_music: AudioStream
 
-func PlayMusic(stream: AudioStream) -> void:
+func PlayMusic(stream: AudioStream, instant: bool = false) -> void:
+	if (_current_music == stream):
+		return
+	_current_music = stream
+	
 	if (active_music_player == null):
 		musicPlayer1.stream = stream
 		musicPlayer1.play()
@@ -25,8 +30,12 @@ func PlayMusic(stream: AudioStream) -> void:
 		active_music_player.volume_db = -80
 		if (fade != null):
 			fade.kill()
-		fade = get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-		fade.tween_property(active_music_player, "volume_db", 0, 1)
+		
+		if (instant):
+			active_music_player.volume_db = 0
+		else:
+			fade = get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+			fade.tween_property(active_music_player, "volume_db", 0, 1)
 	else:
 		if (active_music_player.stream != stream):
 			var old_active: AudioStreamPlayer = active_music_player
@@ -36,13 +45,22 @@ func PlayMusic(stream: AudioStream) -> void:
 			active_music_player.volume_db = -80
 			if (fade != null):
 				fade.kill()
-			fade = get_tree().create_tween().set_parallel().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
-			fade.tween_property(inactive_music_player, "volume_db", -80, 1)
-			fade.set_ease(Tween.EASE_OUT)
-			fade.tween_property(active_music_player, "volume_db", 0, 1)
+			
+			if (instant):
+				inactive_music_player.volume_db = -80
+				active_music_player.volume_db = 0
+			else:
+				fade = get_tree().create_tween().set_parallel().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+				fade.tween_property(inactive_music_player, "volume_db", -80, 1)
+				fade.set_ease(Tween.EASE_OUT)
+				fade.tween_property(active_music_player, "volume_db", 0, 1)
 			
 			active_music_player.stream = stream
-			active_music_player.play()
+			
+			if (instant):
+				active_music_player.play(0)
+			else:
+				active_music_player.play()
 		
 func SetMusicPitch(pitch: float) -> void:
 	musicPlayer1.pitch_scale = pitch
