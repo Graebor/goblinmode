@@ -2,11 +2,11 @@
 extends RigidBody3D
 
 @export var radius: float = 2.0
-@export var scaler: Node3D
 @export var tweener: Node3D
 
 var _tween: Tween
 
+@onready var scaler: Node3D = $Scaler
 @onready var collider: CollisionShape3D = $CollisionShape3D
 
 # Called when the node enters the scene tree for the first time.

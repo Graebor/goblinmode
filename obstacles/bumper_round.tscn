@@ -7,14 +7,13 @@
 height = 0.5
 radius = 2.0
 
-[node name="BumperRound" type="RigidBody3D" unique_id=902257337 node_paths=PackedStringArray("scaler", "tweener")]
+[node name="BumperRound" type="RigidBody3D" unique_id=902257337 node_paths=PackedStringArray("tweener")]
 collision_mask = 15
 freeze = true
 freeze_mode = 1
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_rsfqy")
-scaler = NodePath("Scaler")
 tweener = NodePath("Scaler/Tweener")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2057864351]
