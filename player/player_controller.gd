@@ -38,6 +38,7 @@ const TUBING_GROUP: String = "Tubing"
 @export var stun_duration_per_power_segment: float = 0.25
 @export var personality_tint: Array[MeshInstance3D]
 @export var pickup_preview: Node3D
+@export var throw_modifier: float = 0.3
 
 var player_context: PlayerContext
 var inventory: Node3D
@@ -197,6 +198,9 @@ func _begin_swing() -> void:
 			target.set_collision_layer_value(2, false)
 			target.was_locked.emit()
 	else:
+		var thrown: RigidBody3D = get_held_body()
+		if (thrown != null):
+			_throw(thrown)
 		swing_missed.emit()
 		return
 
@@ -213,6 +217,15 @@ func _begin_swing() -> void:
 		var item: Item = target as Item
 		item.is_locked = true
 
+
+func _throw(thrown: RigidBody3D) -> void:
+	if (thrown is Item):
+		if (thrown.can_be_thrown):
+			_release_item(thrown)
+			thrown.global_position = swing_spot.global_position
+			var segs: int = 2
+			var power: float = swing_force_per_segment * pow(segs, 1.125)
+			thrown.apply_force(_last_move_direction * power * throw_modifier)
 
 func _finish_swing() -> void:
 	var result: int = power_meter.lock_in() + 1

@@ -56,6 +56,7 @@ stun_stars = NodePath("Stars")
 stun_duration_per_power_segment = 0.75
 personality_tint = [NodePath("PickupPreview")]
 pickup_preview = NodePath("PickupPreview")
+throw_modifier = 0.6
 
 [node name="PlayerAnimation" parent="." unique_id=696991604 node_paths=PackedStringArray("player_controller") instance=ExtResource("2_yw30f")]
 player_controller = NodePath("..")
