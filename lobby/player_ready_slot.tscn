@@ -1,22 +1,23 @@
 [gd_scene format=3 uid="uid://sr3r3ta2236u"]
 
 [ext_resource type="Script" uid="uid://bo5nxw2gjjbo3" path="res://lobby/player_ready_slot.gd" id="1_weivt"]
-[ext_resource type="PackedScene" uid="uid://4n7jvlo6n544" path="res://player/goblin/Goblin_Idle.fbx" id="2_4ru0x"]
-[ext_resource type="PackedScene" uid="uid://bxml4t71p4qf1" path="res://player/goblin/Goblin_Swing_WindUp.fbx" id="3_4ru0x"]
+[ext_resource type="PackedScene" uid="uid://der424geqfbky" path="res://player/goblin/goblin_idle.tscn" id="2_e4dg6"]
+[ext_resource type="PackedScene" uid="uid://cinoanxg0qfmq" path="res://player/goblin/goblin_swing_wind_up.tscn" id="3_qsvp1"]
 [ext_resource type="PackedScene" uid="uid://dyxkh0j3bumns" path="res://items/models/Club.fbx" id="4_e4dg6"]
 
-[node name="PlayerReadySlot" type="Node3D" unique_id=252882270 node_paths=PackedStringArray("name_label", "ready_root", "notready_root")]
+[node name="PlayerReadySlot" type="Node3D" unique_id=252882270 node_paths=PackedStringArray("name_label", "ready_root", "notready_root", "pointers")]
 script = ExtResource("1_weivt")
 name_label = NodePath("NameLabel")
 ready_root = NodePath("Ready")
 notready_root = NodePath("NotReady")
+pointers = [NodePath("NotReady/Goblin_Idle2"), NodePath("Ready/Goblin_Swing_WindUp2")]
 
 [node name="NameLabel" type="Label3D" parent="." unique_id=1915738922]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9744619, 0)
 
 [node name="NotReady" type="Node3D" parent="." unique_id=513963458]
 
-[node name="Goblin_Idle" parent="NotReady" unique_id=225147497 instance=ExtResource("2_4ru0x")]
+[node name="Goblin_Idle2" parent="NotReady" unique_id=225147497 instance=ExtResource("2_e4dg6")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.5097374, 0)
 
 [node name="PressToJoin2" type="Label3D" parent="NotReady" unique_id=1307934600]
@@ -26,7 +27,7 @@ when ready"
 
 [node name="Ready" type="Node3D" parent="." unique_id=1121105785]
 
-[node name="Goblin_Swing_WindUp" parent="Ready" unique_id=419002591 instance=ExtResource("3_4ru0x")]
+[node name="Goblin_Swing_WindUp2" parent="Ready" unique_id=419002591 instance=ExtResource("3_qsvp1")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.49678275, 0)
 
 [node name="PressToJoin2" type="Label3D" parent="Ready" unique_id=1628935889]

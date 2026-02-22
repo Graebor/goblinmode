@@ -8,6 +8,7 @@ signal start_requested
 @export var name_label: Label3D
 @export var ready_root: Node3D
 @export var notready_root: Node3D
+@export var pointers: Array[GoblinMaterialPointer]
 
 var _context: PlayerContext
 var _has_joined: bool = false
@@ -27,6 +28,8 @@ func player_joined(context: PlayerContext) -> void:
 	context.personality.voice_selected.play3D(position)
 	notready_root.visible = true
 	ready_root.visible = false
+	for pointer: GoblinMaterialPointer in pointers:
+		pointer.set_override(context.personality.skin)
 	
 	var tween: Tween = get_tree().create_tween().set_trans(Tween.TRANS_QUINT)
 	tween.set_ease(Tween.EASE_OUT)

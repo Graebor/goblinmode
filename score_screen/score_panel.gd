@@ -14,7 +14,9 @@ func setup(rank: int, score: int, player: PlayerContext) -> void:
 	_rank = rank
 	score_label.text = str(score)
 	if (player != null):
-		name_label.text = "Player "+str(player.device_id)
+		name_label.text = player.personality.title
+		name_label.modulate = player.personality.color
+		score_label.modulate = player.personality.color
 	for i: int in range(trophies.size()):
 		trophies[i].visible = rank == i
 	scaler.scale.x = lerp(1.3, 0.95, rank / 4.0)

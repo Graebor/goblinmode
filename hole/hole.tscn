@@ -24,6 +24,10 @@ metallic_specular = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p5qig"]
 shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbdkw"]
+shading_mode = 0
 
 [sub_resource type="Animation" id="Animation_n84m5"]
 length = 0.001
@@ -166,7 +170,14 @@ cast_shadow = 0
 mesh = ExtResource("2_17tg5")
 surface_material_override/0 = SubResource("StandardMaterial3D_p5qig")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot/BlastFX" unique_id=1149818488]
+[node name="Mesh2" type="MeshInstance3D" parent="Pivot/BlastFX/Mesh" unique_id=1211591723]
+transform = Transform3D(0.883625, 0, 0, 0, 0.46855816, 0, 0, 0, 0.87502724, 0, 0.6234923, 1.3038922e-08)
+cast_shadow = 0
+mesh = ExtResource("2_17tg5")
+surface_material_override/0 = SubResource("StandardMaterial3D_nbdkw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot/BlastFX" unique_id=1149818488 node_paths=PackedStringArray("mesh")]
 libraries/ = SubResource("AnimationLibrary_t1oe2")
 libraries/blast = SubResource("AnimationLibrary_n84m5")
 script = ExtResource("3_n84m5")
+mesh = NodePath("../Mesh")

@@ -14,7 +14,7 @@ albedo_color = Color(0, 1, 0.38431373, 1)
 [resource]
 script = ExtResource("1_s2nn6")
 title = "Gobdan"
-color = Color(0, 1, 0.3833332, 1)
+color = Color(0, 0.8909982, 0.33892444, 1)
 skin = SubResource("StandardMaterial3D_hqn61")
 voice_selected = ExtResource("5_3hb47")
 voice_game_start = ExtResource("2_hqn61")

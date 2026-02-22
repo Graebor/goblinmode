@@ -14,7 +14,7 @@ albedo_color = Color(0, 0.91764706, 1, 1)
 [resource]
 script = ExtResource("1_makdl")
 title = "Gramblin"
-color = Color(0, 0.9166665, 1, 1)
+color = Color(1.2706519e-05, 0.88877296, 0.96868116, 1)
 skin = SubResource("StandardMaterial3D_1ydjn")
 voice_selected = ExtResource("5_o7cfu")
 voice_game_start = ExtResource("2_1ydjn")
