@@ -8,10 +8,14 @@
 [ext_resource type="Resource" uid="uid://dk7kjbu6efm58" path="res://audio/audio_assets/VO/Annie/voice_annie_swing.tres" id="6_57k2t"]
 [ext_resource type="Resource" uid="uid://c3msjxguwpjic" path="res://audio/audio_assets/VO/Annie/voice_annie_victory.tres" id="7_nfer1"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owwdq"]
+albedo_color = Color(1, 0.32941177, 0.93333334, 1)
+
 [resource]
 script = ExtResource("1_delom")
 title = "Goblannie"
 color = Color(1, 0.32999998, 0.93299973, 1)
+skin = SubResource("StandardMaterial3D_owwdq")
 voice_selected = ExtResource("5_0mc1k")
 voice_game_start = ExtResource("2_owwdq")
 voice_hit = ExtResource("4_agbp6")

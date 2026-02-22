@@ -8,10 +8,14 @@
 [ext_resource type="Resource" uid="uid://bsocwq100o5i1" path="res://audio/audio_assets/VO/June/voice_june_swing.tres" id="6_ii3mj"]
 [ext_resource type="Resource" uid="uid://dd0q2jwa0uwvf" path="res://audio/audio_assets/VO/June/voice_june_victory.tres" id="7_iwxk6"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kx0o4"]
+albedo_color = Color(1, 0.2509804, 0, 1)
+
 [resource]
 script = ExtResource("1_os5y5")
 title = "Goblune"
 color = Color(1, 0.25, 0, 1)
+skin = SubResource("StandardMaterial3D_kx0o4")
 voice_selected = ExtResource("5_kil0u")
 voice_game_start = ExtResource("2_kx0o4")
 voice_hit = ExtResource("4_jwa2t")

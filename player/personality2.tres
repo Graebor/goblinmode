@@ -8,10 +8,14 @@
 [ext_resource type="Resource" uid="uid://cmr8qgyq0leus" path="res://audio/audio_assets/VO/Dan/voice_dan_swing.tres" id="6_q0bgp"]
 [ext_resource type="Resource" uid="uid://dmr813mcoahft" path="res://audio/audio_assets/VO/Dan/voice_dan_victory.tres" id="7_l6jjy"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hqn61"]
+albedo_color = Color(0, 1, 0.38431373, 1)
+
 [resource]
 script = ExtResource("1_s2nn6")
 title = "Gobdan"
 color = Color(0, 1, 0.3833332, 1)
+skin = SubResource("StandardMaterial3D_hqn61")
 voice_selected = ExtResource("5_3hb47")
 voice_game_start = ExtResource("2_hqn61")
 voice_hit = ExtResource("4_lcjh0")

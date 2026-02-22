@@ -8,10 +8,14 @@
 [ext_resource type="Resource" uid="uid://8n65ltux0gvf" path="res://audio/audio_assets/VO/Graeme/voice_graeme_swing.tres" id="6_n8gxs"]
 [ext_resource type="Resource" uid="uid://btr1ku23uq5i" path="res://audio/audio_assets/VO/Graeme/voice_graeme_victory.tres" id="7_khrol"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ydjn"]
+albedo_color = Color(0, 0.91764706, 1, 1)
+
 [resource]
 script = ExtResource("1_makdl")
 title = "Gramblin"
 color = Color(0, 0.9166665, 1, 1)
+skin = SubResource("StandardMaterial3D_1ydjn")
 voice_selected = ExtResource("5_o7cfu")
 voice_game_start = ExtResource("2_1ydjn")
 voice_hit = ExtResource("4_5r0lm")
