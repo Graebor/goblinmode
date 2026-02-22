@@ -82,4 +82,4 @@ func _reveal_panels() -> void:
 func _process(delta: float) -> void:
 	spin_bg.rotation_degrees.y += delta * 20
 	_elapsed += delta / time
-	clock_hand.rotation_degrees.z = -360.0 * _elapsed
+	clock_hand.rotation_degrees.z = -720.0 * _elapsed

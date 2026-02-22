@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://c0757uh3dawbu" path="res://art/ui/LondrinaSolid-Regular.ttf" id="3_8bg1l"]
 [ext_resource type="Texture2D" uid="uid://dk7p054ceej3l" path="res://art/ui/LobbyBackground.png" id="3_nwcxi"]
 [ext_resource type="Script" uid="uid://bugaqipx23k8v" path="res://prototypes/scale_wobble_3d.gd" id="4_c5s3i"]
+[ext_resource type="PackedScene" uid="uid://nkrfk4jx2ntp" path="res://art/ui/Hourglass.fbx" id="6_k01ls"]
 
 [sub_resource type="Gradient" id="Gradient_o3qiw"]
 colors = PackedColorArray(0, 0.21, 0.19950001, 1, 0, 0.4358082, 0.4479369, 1)
@@ -26,18 +27,6 @@ albedo_texture = SubResource("NoiseTexture2D_jeygr")
 [sub_resource type="Environment" id="Environment_mnguq"]
 ambient_light_source = 2
 ambient_light_color = Color(0.41616848, 0.65643466, 0.7564457, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_h14rx"]
-radial_segments = 18
-rings = 9
-is_hemisphere = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h14rx"]
-shading_mode = 0
-
-[sub_resource type="BoxMesh" id="BoxMesh_h14rx"]
-material = SubResource("StandardMaterial3D_h14rx")
-size = Vector3(0.09, 1, 0.195)
 
 [sub_resource type="QuadMesh" id="QuadMesh_8bg1l"]
 size = Vector2(19.2, 10.8)
@@ -103,26 +92,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6623566, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2623565, 0)
 
 [node name="Clock" type="Node3D" parent="." unique_id=456175333]
-transform = Transform3D(0.245, 0, 0, 0, 0.245, 0, 0, 0, 0.245, 3.486889, -1.7883866, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Clock" unique_id=1725587083]
-transform = Transform3D(1.711897, 0, 0, 0, -3.9021622e-10, -1.711897, 0, 0.008927107, -7.4829394e-08, 0, 0, 0)
-mesh = SubResource("SphereMesh_h14rx")
+transform = Transform3D(0.245, 0, 0, 0, 0.245, 0, 0, 0, 0.245, 0, -1.8261178, 0)
 
 [node name="Hand" type="Node3D" parent="Clock" unique_id=856101976]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Clock/Hand" unique_id=105394912]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("BoxMesh_h14rx")
-
-[node name="Hand2" type="Node3D" parent="Clock" unique_id=1174255326]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Clock/Hand2" unique_id=1643535120]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("BoxMesh_h14rx")
+[node name="Hourglass" parent="Clock/Hand" unique_id=1500925034 instance=ExtResource("6_k01ls")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 
 [node name="InputPrompt" type="Node3D" parent="." unique_id=342976742]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2121396, -1.7875392, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8070589, 0)
 
 [node name="Label3D3" type="Label3D" parent="InputPrompt" unique_id=343584618]
 text = "Press SWING"
