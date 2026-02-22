@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://debnicjts6qbm"]
 
 [ext_resource type="Script" uid="uid://dfaosplukrc3o" path="res://game_manager/game.gd" id="1_50f3e"]
+[ext_resource type="PackedScene" uid="uid://b4t4ab63momtu" path="res://title_screen/title_screen.tscn" id="2_4p34t"]
 [ext_resource type="PackedScene" uid="uid://bfsensfo38dwk" path="res://player/player.tscn" id="2_ru55a"]
 [ext_resource type="PackedScene" uid="uid://lq4g5wj76qus" path="res://lobby/lobby.tscn" id="3_gindo"]
 [ext_resource type="PackedScene" uid="uid://mhwbx5wt4klx" path="res://levels/test_hole/test_hole.tscn" id="4_hamdu"]
@@ -16,6 +17,7 @@
 
 [node name="Game" type="Node3D" unique_id=1161680632 node_paths=PackedStringArray("game_camera", "countdown")]
 script = ExtResource("1_50f3e")
+title_scene = ExtResource("2_4p34t")
 player_scene = ExtResource("2_ru55a")
 lobby_scene = ExtResource("3_gindo")
 score_screen_scene = ExtResource("4_ru55a")
@@ -33,7 +35,6 @@ script = ExtResource("6_gindo")
 [node name="Countdown" type="Label3D" parent="Camera3D" unique_id=1440398021]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.3085387e-08, -2.9517756)
 pixel_size = 0.002
-text = "TEST"
 font = ExtResource("7_w1imi")
 font_size = 128
 script = ExtResource("7_hamdu")
