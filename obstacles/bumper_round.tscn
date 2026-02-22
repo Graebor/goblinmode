@@ -1,27 +1,29 @@
 [gd_scene format=3 uid="uid://b2e0ju6ian5g4"]
 
 [ext_resource type="Script" uid="uid://bnv14ovjjup8p" path="res://obstacles/bumper/bumper.gd" id="1_rsfqy"]
+[ext_resource type="PackedScene" uid="uid://bbx14a7shf0t2" path="res://obstacles/bumper/Bumper.fbx" id="2_4xufx"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ie743"]
 height = 0.5
 radius = 2.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ie743"]
-albedo_color = Color(0.42037678, 0.089276575, 0.616591, 1)
-
-[node name="BumperRound" type="RigidBody3D" unique_id=902257337]
+[node name="BumperRound" type="RigidBody3D" unique_id=902257337 node_paths=PackedStringArray("scaler", "tweener")]
 collision_mask = 15
 freeze = true
 freeze_mode = 1
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_rsfqy")
+scaler = NodePath("Scaler")
+tweener = NodePath("Scaler/Tweener")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2057864351]
 shape = SubResource("CylinderShape3D_ie743")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=2146735134]
-radius = 2.0
-height = 0.5
-sides = 20
-material = SubResource("StandardMaterial3D_ie743")
+[node name="Scaler" type="Node3D" parent="." unique_id=1373141867]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="Tweener" type="Node3D" parent="Scaler" unique_id=689735682]
+
+[node name="Bumper" parent="Scaler/Tweener" unique_id=1221295980 instance=ExtResource("2_4xufx")]
+transform = Transform3D(2.26, 0, 0, 0, 2.26, 0, 0, 0, 2.26, 0, 0, 0)
