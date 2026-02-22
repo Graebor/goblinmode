@@ -59,8 +59,9 @@ var _sand_damp_mod: float = 3.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for mesh: MeshInstance3D in personality_tint:
-		var mat: StandardMaterial3D = mesh.get_surface_override_material(0)
+		var mat: StandardMaterial3D = mesh.get_surface_override_material(0).duplicate()
 		mat.albedo_color = player_context.personality.color
+		mesh.set_surface_override_material(0, mat)
 	stun_stars.visible = false
 	inventory = $PlayerAnimation.held_item_parent
 	power_meter.visible = false
