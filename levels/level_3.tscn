@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cs1dbndlx8722"]
 
 [ext_resource type="Texture2D" uid="uid://cmy8srtirkq5w" path="res://art/environment/T_Grass.png" id="1_0unm6"]
-[ext_resource type="Material" path="res://levels/rock.tres" id="2_q42ux"]
+[ext_resource type="Material" uid="uid://cidx77nbsht47" path="res://levels/rock.tres" id="2_q42ux"]
 [ext_resource type="PackedScene" uid="uid://opmn5mrir4jc" path="res://hole/hole.tscn" id="3_wi0qq"]
 [ext_resource type="PackedScene" uid="uid://dcmqb318stod3" path="res://items/dagger.tscn" id="4_s3q8p"]
 [ext_resource type="PackedScene" uid="uid://doexcqrefi22f" path="res://items/sword.tscn" id="5_u4kh1"]
@@ -23,7 +23,7 @@ albedo_texture = ExtResource("1_0unm6")
 uv1_scale = Vector3(0.1, 0.1, 0.1)
 uv1_triplanar = true
 
-[node name="Level1" type="Node3D" unique_id=1030056555]
+[node name="Level3" type="Node3D" unique_id=1030056555]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=20630516]
 transform = Transform3D(0.70710677, 0.5416752, -0.45451948, 0, 0.64278764, 0.76604444, 0.70710677, -0.5416752, 0.45451948, 0, 0, 0)
