@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ciw88088ol35e" path="res://score_screen/score_screen.tscn" id="4_ru55a"]
 [ext_resource type="PackedScene" uid="uid://cs1dbndlx8722" path="res://levels/level_3_bumpers.tscn" id="6_cib1v"]
 [ext_resource type="Script" uid="uid://dcncvtksw1tn0" path="res://camera/registered_camera.gd" id="6_gindo"]
-[ext_resource type="PackedScene" uid="uid://dva7wnekils6i" path="res://levels/level_1_sand.tscn" id="6_rrbjt"]
+[ext_resource type="PackedScene" uid="uid://s3gtcb8b5rec" path="res://levels/level_1_sand.tscn" id="6_rrbjt"]
 [ext_resource type="Script" uid="uid://dhxsyayt3q656" path="res://game_manager/countdown.gd" id="7_hamdu"]
 [ext_resource type="FontFile" uid="uid://cvs578s1b2d8i" path="res://art/ui/LondrinaSolid-Black.ttf" id="7_w1imi"]
 [ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="8_1x5qb"]
@@ -16,9 +16,9 @@
 [ext_resource type="Resource" uid="uid://c1pdla363xorr" path="res://audio/sfx_count_3.tres" id="9_w1imi"]
 [ext_resource type="Resource" uid="uid://bmknt4hs5h3i" path="res://audio/sfx_count_2.tres" id="10_4p34t"]
 [ext_resource type="AudioStream" uid="uid://mnt26dycmvtb" path="res://audio/audio_assets/Music/The Grass is Always Greener.wav" id="10_6up75"]
-[ext_resource type="AudioStream" uid="uid://vuq2bt01nb3d" path="res://audio/audio_assets/Music/Green and Retired 3.wav" id="10_hedtl"]
-[ext_resource type="AudioStream" uid="uid://8w7f55na7ma1" path="res://audio/audio_assets/Music/Temp menu.wav" id="11_6up75"]
+[ext_resource type="AudioStream" uid="uid://cmhsusxtkoovc" path="res://audio/audio_assets/Music/Green and Retired Loop.wav" id="11_6up75"]
 [ext_resource type="Resource" uid="uid://cb7xfigfm37wk" path="res://audio/sfx_count_1.tres" id="11_rrbjt"]
+[ext_resource type="AudioStream" uid="uid://bfobv3f8s417j" path="res://audio/audio_assets/Music/Menu Loop.wav" id="12_7ugib"]
 [ext_resource type="Resource" uid="uid://c4kisu3xtxb1x" path="res://audio/sfx_count_go.tres" id="12_fw0pt"]
 
 [node name="Game" type="Node3D" unique_id=1161680632 node_paths=PackedStringArray("game_camera", "countdown", "shaker")]
@@ -35,9 +35,9 @@ shake_angle = 0.7
 shake_freq = 15.0
 sfx_confirm_title = ExtResource("8_fw0pt")
 music_main = ExtResource("10_6up75")
-music_title = ExtResource("10_hedtl")
-music_lobby = ExtResource("11_6up75")
-music_scores = ExtResource("11_6up75")
+music_title = ExtResource("11_6up75")
+music_lobby = ExtResource("12_7ugib")
+music_scores = ExtResource("12_7ugib")
 
 [node name="CamOffset" type="Node3D" parent="." unique_id=1936496776]
 transform = Transform3D(1, 0, 0, 0, 0.34202015, 0.9396926, 0, -0.9396926, 0.34202015, 0, 80, 30.4)
