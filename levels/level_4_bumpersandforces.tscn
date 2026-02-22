@@ -8,8 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bbvxjns3aym1k" path="res://obstacles/hedge.tscn" id="5_7bdfl"]
 [ext_resource type="PackedScene" uid="uid://bj485t2ul33ix" path="res://items/club.tscn" id="5_vd2jn"]
 [ext_resource type="PackedScene" uid="uid://b2e0ju6ian5g4" path="res://obstacles/bumper_round.tscn" id="6_uqcia"]
-[ext_resource type="PackedScene" uid="uid://bonuuylcb7ta" path="res://items/umbrella.tscn" id="6_xsjt3"]
-[ext_resource type="PackedScene" uid="uid://dcmqb318stod3" path="res://items/dagger.tscn" id="7_raj2r"]
 [ext_resource type="PackedScene" uid="uid://ctr5y701uyn5k" path="res://obstacles/force_zone.tscn" id="7_vd2jn"]
 [ext_resource type="PackedScene" uid="uid://bux7t5cejmnv8" path="res://items/great_sword.tscn" id="8_e4f64"]
 [ext_resource type="PackedScene" uid="uid://o4y0ocmicixm" path="res://player/spawn.tscn" id="8_xsjt3"]
@@ -72,22 +70,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.821638, 0, -0.18866348)
 [node name="Items" type="Node3D" parent="." unique_id=1142739868]
 
 [node name="Bat" parent="Items" unique_id=1772857852 instance=ExtResource("4_uqcia")]
-transform = Transform3D(0.75668705, 0, 0.6537773, 0, 1, 0, -0.6537773, 0, 0.75668705, -22.981312, 0, 1.0943456)
+transform = Transform3D(0.75668705, 0, 0.6537773, 0, 1, 0, -0.6537773, 0, 0.75668705, -22.023499, 0, -0.4764663)
 
 [node name="Club" parent="Items" unique_id=1533407938 instance=ExtResource("5_vd2jn")]
-transform = Transform3D(0.92730147, 0, 0.3743153, 0, 1, 0, -0.3743153, 0, 0.92730147, -22.130154, 0, -3.2830443)
-
-[node name="Umbrella" parent="Items" unique_id=127153632 instance=ExtResource("6_xsjt3")]
-transform = Transform3D(0.5839522, 0, -0.8117881, 0, 1, 0, 0.8117881, 0, 0.5839522, -18.968697, 0, -0.48637736)
-
-[node name="Dagger" parent="Items" unique_id=445163338 instance=ExtResource("7_raj2r")]
-transform = Transform3D(0.16282666, 0, -0.9866547, 0, 1, 0, 0.9866547, 0, 0.16282666, -19.759064, 0, 5.0461597)
+transform = Transform3D(0.92730147, 0, 0.3743153, 0, 1, 0, -0.3743153, 0, 0.92730147, -19.75478, 0, -3.0914817)
 
 [node name="Club2" parent="Items" unique_id=1318050431 instance=ExtResource("5_vd2jn")]
-transform = Transform3D(-0.5900422, 0, -0.80737245, 0, 1, 0, 0.80737245, 0, -0.5900422, -17.20559, 0, 3.7694182)
-
-[node name="Club3" parent="Items" unique_id=713936764 instance=ExtResource("5_vd2jn")]
-transform = Transform3D(0.78426766, 0, -0.6204226, 0, 1, 0, 0.6204226, 0, 0.78426766, -18.056744, 0, -4.1342044)
+transform = Transform3D(-0.5900422, 0, -0.80737245, 0, 1, 0, 0.80737245, 0, -0.5900422, -20.615402, 0, 4.305793)
 
 [node name="GreatSword" parent="Items" unique_id=1126276417 instance=ExtResource("8_e4f64")]
 transform = Transform3D(-0.086721115, 0, 0.9962326, 0, 1, 0, -0.9962326, 0, -0.086721115, 7.020462, 0, -7.5877724)
@@ -109,6 +98,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.242857, 0, -11.554264)
 [node name="Ball4" parent="Balls" unique_id=1610469948 instance=ExtResource("4_tv6r2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.12509, 0, 12.197164)
 
+[node name="Ball5" parent="Balls" unique_id=361682758 instance=ExtResource("4_tv6r2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.669943, 0, 8.704662)
+
+[node name="Ball6" parent="Balls" unique_id=1501613842 instance=ExtResource("4_tv6r2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.158356, 0, 5.31662)
+
+[node name="Ball7" parent="Balls" unique_id=1104061481 instance=ExtResource("4_tv6r2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.168005, 0, -5.5772395)
+
+[node name="Ball8" parent="Balls" unique_id=1271921440 instance=ExtResource("4_tv6r2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.75276, 0, -7.964422)
+
+[node name="Ball9" parent="Balls" unique_id=831236820 instance=ExtResource("4_tv6r2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.637474, 0, -5.0461607)
+
 [node name="Hazards" type="Node3D" parent="." unique_id=309463524]
 
 [node name="Hedge" parent="Hazards" unique_id=761124046 instance=ExtResource("5_7bdfl")]
@@ -119,13 +123,10 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.9
 polygon = PackedVector2Array(-13.7927265, -4.457286, -10.45978, -2.6135283, -8.261452, -0.41520214, -7.410486, 3.3432264, -6.3467827, 6.3925185, -5.921299, 9.158155, -3.9357147, 10.57643, -0.31911087, 8.874499, 3.2265778, 5.3997273, 7.4814034, 0.9321594, 9.183334, -0.41520214, 10.530693, -2.4007874, 15.42374, -4.457286)
 
 [node name="BumperRound" parent="Hazards" unique_id=902257337 instance=ExtResource("6_uqcia")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.700291, 0, 4.742173)
-
-[node name="BumperRound2" parent="Hazards" unique_id=148802914 instance=ExtResource("6_uqcia")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.253769, 0, -0.7903626)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.98394, 0, 1.6219645)
 
 [node name="BumperRound3" parent="Hazards" unique_id=180985760 instance=ExtResource("6_uqcia")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.27471, 0, -5.7149277)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.700193, 0, -4.580308)
 
 [node name="ForceZone" parent="Hazards" unique_id=1003796369 instance=ExtResource("7_vd2jn")]
 polygon = PackedVector2Array(-5.927717, 5.619081, -8.116415, 3.430385, -8.906778, -0.643021, -7.082863, -4.594833, -6.0493126, -2.2845433, -3.7390232, -1.615775, -0.9423561, -3.014108, 2.8878632, -6.8443255, 4.468586, -4.351644, 6.170906, -0.76461536, 5.988514, 4.281545, 3.0094604, 8.294154, -1.1855431, 5.9838634, -3.4350357, 4.58553)

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dtk6w8m21pr5k"
-path="res://.godot/imported/PlacementBackdropRibbonAlt1.fbx-faa1b65f1b2306c4b1c28b1a7bbd8454.scn"
+uid="uid://dl3fqjdferepx"
+path="res://.godot/imported/PlacementBackdropRibbonAlt1.fbx-d020146670231d0380d23221a845b427.scn"
 
 [deps]
 
-source_file="res://art/ui/PlacementBackdropRibbonAlt1.fbx"
-dest_files=["res://.godot/imported/PlacementBackdropRibbonAlt1.fbx-faa1b65f1b2306c4b1c28b1a7bbd8454.scn"]
+source_file="res://art/PlacementBackdropRibbonAlt1.fbx"
+dest_files=["res://.godot/imported/PlacementBackdropRibbonAlt1.fbx-d020146670231d0380d23221a845b427.scn"]
 
 [params]
 
