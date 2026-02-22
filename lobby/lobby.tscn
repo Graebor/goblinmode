@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://lq4g5wj76qus"]
 
 [ext_resource type="Script" uid="uid://f5dm2jcxpa7m" path="res://lobby/lobby.gd" id="1_jtv5c"]
+[ext_resource type="FontFile" uid="uid://cvs578s1b2d8i" path="res://art/ui/LondrinaSolid-Black.ttf" id="2_gi5k6"]
 [ext_resource type="PackedScene" uid="uid://sr3r3ta2236u" path="res://lobby/player_ready_slot.tscn" id="2_mnguq"]
+[ext_resource type="Texture2D" uid="uid://dk7p054ceej3l" path="res://art/ui/LobbyBackground.png" id="3_uj4ub"]
+[ext_resource type="Script" uid="uid://bugaqipx23k8v" path="res://prototypes/scale_wobble_3d.gd" id="5_dk04u"]
 
 [sub_resource type="Environment" id="Environment_mnguq"]
 ambient_light_source = 2
@@ -23,6 +26,13 @@ color_ramp = SubResource("Gradient_mnguq")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gi5k6"]
 albedo_texture = SubResource("NoiseTexture2D_jeygr")
 
+[sub_resource type="QuadMesh" id="QuadMesh_gi5k6"]
+size = Vector2(19.2, 10.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dk04u"]
+shading_mode = 0
+albedo_texture = ExtResource("3_uj4ub")
+
 [node name="Lobby" type="Node3D" unique_id=1518456137 node_paths=PackedStringArray("slots")]
 script = ExtResource("1_jtv5c")
 slots = [NodePath("PlayerReadySlot0"), NodePath("PlayerReadySlot1"), NodePath("PlayerReadySlot2"), NodePath("PlayerReadySlot3")]
@@ -31,14 +41,15 @@ slots = [NodePath("PlayerReadySlot0"), NodePath("PlayerReadySlot1"), NodePath("P
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6770907, 9.157951)
 fov = 30.0
 
-[node name="Label3D" type="Label3D" parent="." unique_id=937373468]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7683225, 0)
-text = "GAME NAME"
-font_size = 72
-
 [node name="Label3D2" type="Label3D" parent="." unique_id=814534784]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4432664, 0)
-text = "Press button to join"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.690823, 0)
+text = "Press SWING to join"
+font = ExtResource("2_gi5k6")
+font_size = 42
+script = ExtResource("5_dk04u")
+min_scale = Vector3(0.9, 1.1, 0.9)
+max_scale = Vector3(1.1, 0.9, 1.1)
+speed = 8.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1530455383]
 transform = Transform3D(0.70710677, 0.5416752, -0.45451948, 0, 0.64278764, 0.76604444, 0.70710677, -0.5416752, 0.45451948, 0, 0, 0)
@@ -69,3 +80,12 @@ transform = Transform3D(1, 0, 0, 0, 0.355319, -0.93474513, 0, 0.93474513, 0.3553
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 size = Vector3(80, 1, 80)
 material = SubResource("StandardMaterial3D_gi5k6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1477507168]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.677, -10.446013)
+mesh = SubResource("QuadMesh_gi5k6")
+surface_material_override/0 = SubResource("StandardMaterial3D_dk04u")
+script = ExtResource("5_dk04u")
+min_scale = Vector3(1.01, 0.99, 1.01)
+max_scale = Vector3(0.99, 1.01, 0.99)
+speed = 0.6
