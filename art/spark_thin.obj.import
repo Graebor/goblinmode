@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d21ck8yeb25ox"
+path="res://.godot/imported/spark_thin.obj-bfd9a0bc67a6562c70dc1450318fdf86.mesh"
+
+[deps]
+
+files=["res://.godot/imported/spark_thin.obj-bfd9a0bc67a6562c70dc1450318fdf86.mesh"]
+
+source_file="res://art/spark_thin.obj"
+dest_files=["res://.godot/imported/spark_thin.obj-bfd9a0bc67a6562c70dc1450318fdf86.mesh", "res://.godot/imported/spark_thin.obj-bfd9a0bc67a6562c70dc1450318fdf86.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
