@@ -52,10 +52,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not is_instance_valid(_score_screen) and _active_level_index >= 0:
 		if Input.is_action_just_pressed("level_next") and _active_level_index < levels.size() - 1:
-			_on_round_finished(true)
+			round_finish(true)
 		if Input.is_action_just_pressed("level_prev"):
 			_active_level_index = max(-1, _active_level_index - 2)
-			_on_round_finished(true)
+			round_finish(true)
 	
 	if (_current_shake > 0):
 		_current_shake -= delta * 3
@@ -126,7 +126,9 @@ func _begin_level(index: int) -> void:
 		_move_to_lobby()
 
 
-func _on_round_finished(instant: bool) -> void:
+func _on_round_finished() -> void:
+	round_finish(false)
+func round_finish(instant: bool) -> void:
 	if (_round_finished):
 		return
 		
