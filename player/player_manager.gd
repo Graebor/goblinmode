@@ -52,10 +52,11 @@ func add_player(player_context: PlayerContext) -> void:
 	player_joined.emit(player_context)
 
 
-func spawn_player(player_context: PlayerContext) -> PlayerController:
+func spawn_player(player_context: PlayerContext, pos: Vector3) -> PlayerController:
 	var player_instance: PlayerController = player_scene.instantiate()
 	player_instance.player_context = player_context
 	player_instance.name = "Player %s" % [players.size()]
+	player_instance.global_position = pos
 	add_child(player_instance)
 	return player_instance
 
