@@ -115,6 +115,7 @@ func _process(_delta: float) -> void:
 		if (current_item != null):
 			_release_item(current_item)
 			dropped_item.emit()
+			pickup_input = false
 	
 	if (pickup_input and !is_blocked):
 		var target: RigidBody3D = _get_closest_swing_target(current_item, true)
