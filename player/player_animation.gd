@@ -76,7 +76,7 @@ func _on_movement_stopped() -> void:
 	if (_is_moving):
 		sfx_stop_moving.play3D(position)
 		_is_moving = false
-		if (!player_controller._is_swinging):
+		if (!player_controller._is_swinging && !player_controller.is_stunned()):
 			_play(&"idle")
 
 func _on_swing_began() -> void:
