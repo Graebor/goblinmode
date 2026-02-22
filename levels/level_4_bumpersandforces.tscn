@@ -17,16 +17,17 @@
 
 [sub_resource type="Environment" id="Environment_jirdo"]
 ambient_light_source = 2
-ambient_light_color = Color(0.41616848, 0.65643466, 0.7564457, 1)
+ambient_light_color = Color(0.78200006, 0.8786, 0.92, 1)
 tonemap_mode = 2
-tonemap_exposure = 0.68
-tonemap_white = 2.25
+tonemap_exposure = 0.66
+tonemap_white = 2.14
 adjustment_enabled = true
-adjustment_contrast = 1.015
-adjustment_saturation = 1.34
+adjustment_brightness = 1.04
+adjustment_contrast = 1.15
+adjustment_saturation = 1.25
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_e4f64"]
-exposure_multiplier = 1.407
+exposure_multiplier = 1.771
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bt44k"]
 albedo_color = Color(0.17771304, 0.5520577, 0.43530717, 1)
@@ -34,29 +35,29 @@ albedo_texture = ExtResource("1_m3ocq")
 uv1_scale = Vector3(0.1, 0.1, 0.1)
 uv1_triplanar = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pd6pk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vd2jn"]
 transparency = 1
 blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("11_vd2jn")
 uv1_scale = Vector3(3, 3, 3)
-uv1_offset = Vector3(-40.072113, 0, 0)
+uv1_offset = Vector3(-73.50885, 0, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5hp3k"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xsjt3"]
 transparency = 1
 blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("12_xsjt3")
 uv1_scale = Vector3(3, 3, 3)
-uv1_offset = Vector3(40.072113, -40.072113, 0)
+uv1_offset = Vector3(73.50885, -73.50885, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k8bvf"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_raj2r"]
 transparency = 1
 blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("13_raj2r")
 uv1_scale = Vector3(3, 3, 3)
-uv1_offset = Vector3(40.072113, 40.072113, 0)
+uv1_offset = Vector3(73.50885, 73.50885, 0)
 
 [node name="Level4" type="Node3D" unique_id=1030056555]
 
@@ -167,7 +168,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.700193, 0, -4.580308)
 
 [node name="ForceZone" parent="Hazards" unique_id=1003796369 instance=ExtResource("7_vd2jn")]
 polygon = PackedVector2Array(-5.927717, 5.619081, -8.116415, 3.430385, -8.906778, -0.643021, -7.082863, -4.594833, -6.0493126, -2.2845433, -3.7390232, -1.615775, -0.9423561, -3.014108, 2.8878632, -6.8443255, 4.468586, -4.351644, 6.170906, -0.76461536, 5.988514, 4.281545, 3.0094604, 8.294154, -1.1855431, 5.9838634, -3.4350357, 4.58553)
-material = SubResource("StandardMaterial3D_pd6pk")
+material = SubResource("StandardMaterial3D_vd2jn")
 direction = 2
 
 [node name="BumperRound4" parent="Hazards" unique_id=595608655 instance=ExtResource("6_uqcia")]
@@ -179,13 +180,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.068592, 0, -10.637064)
 [node name="ForceZone2" parent="Hazards" unique_id=968617477 instance=ExtResource("7_vd2jn")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 18.508492, 0, -8.509651)
 polygon = PackedVector2Array(6.384493, 6.4797153, -7.656431, 6.6924562, -6.37998, 3.5722504, -4.5362225, -1.1789699, -0.4232235, -4.7955713, 3.9734287, -6.355674, 6.5263233, -6.639329)
-material = SubResource("StandardMaterial3D_5hp3k")
+material = SubResource("StandardMaterial3D_xsjt3")
 direction = 5
 
 [node name="ForceZone3" parent="Hazards" unique_id=235111977 instance=ExtResource("7_vd2jn")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 19.217628, 0, 11.70077)
 polygon = PackedVector2Array(5.6044407, 10.096319, 0.99505043, 9.74175, -3.9689121, 8.536218, -7.6564274, 5.5578384, -8.861963, 0.59387493, -9.287443, -3.235467, -6.9472904, -3.9446058, 5.888098, -4.157346)
-material = SubResource("StandardMaterial3D_k8bvf")
+material = SubResource("StandardMaterial3D_raj2r")
 direction = 7
 
 [node name="Spawns" type="Node3D" parent="." unique_id=1590108862]
