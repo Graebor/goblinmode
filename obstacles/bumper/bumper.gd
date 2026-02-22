@@ -3,6 +3,7 @@ extends RigidBody3D
 
 @export var radius: float = 2.0
 @export var tweener: Node3D
+@export var sfx_bounce: AudioCollectionData
 
 var _tween: Tween
 
@@ -38,6 +39,7 @@ func _on_body_entered(node: Node3D) -> void:
 	var direction: Vector3 = node_pos - self_pos
 	body.linear_velocity = (max(body.linear_velocity.length(), 4.0) * direction)
 	_do_tween(clamp(body.linear_velocity.length() / 4.0, 0.0, 1.0))
+	sfx_bounce.play3D(position)
 	if not body is PlayerController:
 		return
 		
