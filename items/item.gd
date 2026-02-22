@@ -3,8 +3,17 @@ extends RigidBody3D
 
 @export var power_segments: int = 3
 @export var move_speed_multiplier: float = 1.0
+@export var tint_with_owner: GeometryInstance3D
 
-var last_player: PlayerContext
+var last_player: PlayerContext:
+	set(value):
+		if last_player != value:
+			last_player = value
+			if (tint_with_owner != null):
+				var mat: StandardMaterial3D = tint_with_owner.material_override.duplicate()
+				mat.albedo_color = value.personality.color
+				tint_with_owner.material_override = mat
+			
 var is_locked: bool = false:
 	set(value):
 		if is_locked != value:

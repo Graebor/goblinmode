@@ -122,6 +122,7 @@ func _process(_delta: float) -> void:
 			if target is Item:
 				var item: Item = target as Item
 				item.is_locked = true
+				item.last_player = player_context
 			target.reparent(inventory)
 			target.add_to_group(IN_HAND_GROUP)
 			target.global_position = inventory.global_position
@@ -274,7 +275,7 @@ func _get_movement() -> Vector3:
 	return direction
 
 func _handle_deadzone(value: float) -> float:
-	var deadzone: float = 0.2
+	var deadzone: float = 0.5
 	if value > deadzone:
 		return value
 	if value < -deadzone:
