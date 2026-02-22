@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://074fwik0sbsi"]
+
+[ext_resource type="PackedScene" uid="uid://bblwwnjwypdaw" path="res://player/goblin/Goblin_Starfish.fbx" id="1_6qo4n"]
+[ext_resource type="Script" uid="uid://dxvxm3avff2ks" path="res://player/goblin/goblin_material_pointer.gd" id="2_weaf2"]
+
+[node name="Goblin_Starfish" unique_id=892826247 node_paths=PackedStringArray("overrides") instance=ExtResource("1_6qo4n")]
+script = ExtResource("2_weaf2")
+overrides = [NodePath("grp_Goblin_Starfish/Head"), NodePath("grp_Goblin_Starfish/Eyelid1"), NodePath("grp_Goblin_Starfish/Eyelid2"), NodePath("grp_Goblin_Starfish/Legs"), NodePath("grp_Goblin_Starfish/Body"), NodePath("grp_Goblin_Starfish/Ears"), NodePath("grp_Goblin_Starfish/Arms"), NodePath("grp_Goblin_Starfish/Hands")]
+indices = Array[int]([0, 0, 0, 0, 0, 0, 0, 0])
