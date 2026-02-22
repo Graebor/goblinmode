@@ -8,9 +8,19 @@
 [ext_resource type="PackedScene" uid="uid://bjjgj1yr8lm8s" path="res://obstacles/sandtrap.tscn" id="11_kgl2v"]
 [ext_resource type="PackedScene" uid="uid://o4y0ocmicixm" path="res://player/spawn.tscn" id="12_6dnjb"]
 
-[sub_resource type="Environment" id="Environment_jirdo"]
+[sub_resource type="Environment" id="Environment_qy7ye"]
 ambient_light_source = 2
-ambient_light_color = Color(0.41616848, 0.65643466, 0.7564457, 1)
+ambient_light_color = Color(0.78200006, 0.8786, 0.92, 1)
+tonemap_mode = 2
+tonemap_exposure = 0.66
+tonemap_white = 2.14
+adjustment_enabled = true
+adjustment_brightness = 1.04
+adjustment_contrast = 1.15
+adjustment_saturation = 1.25
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_mcme1"]
+exposure_multiplier = 1.771
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bt44k"]
 albedo_color = Color(0.17771304, 0.5520577, 0.43530717, 1)
@@ -24,8 +34,9 @@ uv1_triplanar = true
 transform = Transform3D(0.70710677, 0.5416752, -0.45451948, 0, 0.64278764, 0.76604444, 0.70710677, -0.5416752, 0.45451948, 0, 0, 0)
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1972146967]
-environment = SubResource("Environment_jirdo")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=761949965]
+environment = SubResource("Environment_qy7ye")
+camera_attributes = SubResource("CameraAttributesPractical_mcme1")
 
 [node name="Ground" type="Node3D" parent="." unique_id=772604053]
 
@@ -75,11 +86,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.837828, 0, 0.21862957)
 [node name="Hazards" type="Node3D" parent="." unique_id=309463524]
 
 [node name="Sandtrap" parent="Hazards" unique_id=1003796369 instance=ExtResource("11_kgl2v")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.48, 0)
 polygon = PackedVector2Array(-0.3520303, -15.609915, -0.49520352, 14.957891, 0.36384723, 15.029478, 0.72178406, -15.681501)
 
 [node name="Sandtrap2" parent="Hazards" unique_id=2144723705 instance=ExtResource("11_kgl2v")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.48, 0)
 polygon = PackedVector2Array(-24.83491, -8.379589, -18.177282, -8.308002, -14.597915, -6.947843, -13.022992, -0.14704202, -15.886489, 6.295821, -19.036331, 7.2264566, -25.049671, 7.0832815, -25.121258, 6.0810585, -19.322681, 6.2242336, -16.530773, 5.2220106, -14.096805, -0.0038673792, -15.600141, -6.16038, -18.53522, -7.3773665, -25.049671, -7.162605)
 
 [node name="Sandtrap3" parent="Hazards" unique_id=974658222 instance=ExtResource("11_kgl2v")]

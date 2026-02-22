@@ -40,7 +40,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("11_vd2jn")
 uv1_scale = Vector3(3, 3, 3)
-uv1_offset = Vector3(-3.317192, 0, 0)
+uv1_offset = Vector3(-22.906313, 0, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vd2jn"]
 transparency = 1
@@ -48,7 +48,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("12_xsjt3")
 uv1_scale = Vector3(3, 3, 3)
-uv1_offset = Vector3(3.317192, -3.317192, 0)
+uv1_offset = Vector3(22.906313, -22.906313, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xsjt3"]
 transparency = 1
@@ -56,7 +56,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("13_raj2r")
 uv1_scale = Vector3(3, 3, 3)
-uv1_offset = Vector3(3.317192, 3.317192, 0)
+uv1_offset = Vector3(22.906313, 22.906313, 0)
 
 [node name="Level4" type="Node3D" unique_id=1030056555]
 

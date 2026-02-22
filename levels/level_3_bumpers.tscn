@@ -8,12 +8,22 @@
 [ext_resource type="PackedScene" uid="uid://beuhof4d84i5o" path="res://items/bat.tscn" id="7_yafm2"]
 [ext_resource type="PackedScene" uid="uid://b5lgxsfykvq31" path="res://items/ball.tscn" id="9_t5hu4"]
 [ext_resource type="PackedScene" uid="uid://bbvxjns3aym1k" path="res://obstacles/hedge.tscn" id="10_eg35p"]
-[ext_resource type="PackedScene" path="res://obstacles/sandtrap.tscn" id="11_67vg4"]
+[ext_resource type="PackedScene" uid="uid://bjjgj1yr8lm8s" path="res://obstacles/sandtrap.tscn" id="11_67vg4"]
 [ext_resource type="PackedScene" uid="uid://o4y0ocmicixm" path="res://player/spawn.tscn" id="12_mqvtj"]
 
-[sub_resource type="Environment" id="Environment_jirdo"]
+[sub_resource type="Environment" id="Environment_oidmq"]
 ambient_light_source = 2
-ambient_light_color = Color(0.41616848, 0.65643466, 0.7564457, 1)
+ambient_light_color = Color(0.78200006, 0.8786, 0.92, 1)
+tonemap_mode = 2
+tonemap_exposure = 0.66
+tonemap_white = 2.14
+adjustment_enabled = true
+adjustment_brightness = 1.04
+adjustment_contrast = 1.15
+adjustment_saturation = 1.25
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_g72po"]
+exposure_multiplier = 1.771
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bt44k"]
 albedo_color = Color(0.17771304, 0.5520577, 0.43530717, 1)
@@ -27,8 +37,9 @@ uv1_triplanar = true
 transform = Transform3D(0.70710677, 0.5416752, -0.45451948, 0, 0.64278764, 0.76604444, 0.70710677, -0.5416752, 0.45451948, 0, 0, 0)
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1972146967]
-environment = SubResource("Environment_jirdo")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2073054383]
+environment = SubResource("Environment_oidmq")
+camera_attributes = SubResource("CameraAttributesPractical_g72po")
 
 [node name="Ground" type="Node3D" parent="." unique_id=772604053]
 

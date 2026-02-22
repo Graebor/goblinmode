@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dva7wnekils6i"]
+[gd_scene format=3 uid="uid://s3gtcb8b5rec"]
 
 [ext_resource type="PackedScene" uid="uid://opmn5mrir4jc" path="res://hole/hole.tscn" id="1_bt44k"]
 [ext_resource type="Texture2D" uid="uid://cmy8srtirkq5w" path="res://art/environment/T_Grass.png" id="1_vn7o3"]
@@ -13,9 +13,19 @@
 [ext_resource type="PackedScene" uid="uid://bonuuylcb7ta" path="res://items/umbrella.tscn" id="11_5ot28"]
 [ext_resource type="PackedScene" uid="uid://o4y0ocmicixm" path="res://player/spawn.tscn" id="12_aerfg"]
 
-[sub_resource type="Environment" id="Environment_jirdo"]
+[sub_resource type="Environment" id="Environment_wq1qo"]
 ambient_light_source = 2
-ambient_light_color = Color(0.41616848, 0.65643466, 0.7564457, 1)
+ambient_light_color = Color(0.78200006, 0.8786, 0.92, 1)
+tonemap_mode = 2
+tonemap_exposure = 0.66
+tonemap_white = 2.14
+adjustment_enabled = true
+adjustment_brightness = 1.04
+adjustment_contrast = 1.15
+adjustment_saturation = 1.25
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_uh08m"]
+exposure_multiplier = 1.771
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bt44k"]
 albedo_color = Color(0.17771304, 0.5520577, 0.43530717, 1)
@@ -29,8 +39,9 @@ uv1_triplanar = true
 transform = Transform3D(0.70710677, 0.5416752, -0.45451948, 0, 0.64278764, 0.76604444, 0.70710677, -0.5416752, 0.45451948, 0, 0, 0)
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1972146967]
-environment = SubResource("Environment_jirdo")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1853603493]
+environment = SubResource("Environment_wq1qo")
+camera_attributes = SubResource("CameraAttributesPractical_uh08m")
 
 [node name="Ground" type="Node3D" parent="." unique_id=772604053]
 
