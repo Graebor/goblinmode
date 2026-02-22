@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://o4y0ocmicixm"]
+
+[ext_resource type="Script" uid="uid://c826pad56nfnx" path="res://player/spawn_point.gd" id="1_035xn"]
+
+[node name="Spawn" type="CSGTorus3D" unique_id=1097262877 groups=["Spawn"]]
+script = ExtResource("1_035xn")

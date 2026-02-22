@@ -4,7 +4,7 @@
 
 [sub_resource type="Curve3D" id="Curve3D_oa0cm"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.1462657, 0, -5.5910993, 0, 0, 0, 0, 0, 0, 2.393903, 0.7417488, -2.242435, 0, 0, 0, 0, 0, 0, 2.8626475, 0.16299438, -1.50994, 0, 0, 0, 0, 0, 0, 5.425415, 0, -5.672568),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.3116622, 1.3305497, -3.9928882, 0, 0, 0, 0, 0, 0, 0.5703802, -1.9766331, -5.101247, 0, 0, 0, 0, 0, 0, 2.8626475, 0.16299438, -1.50994, 0, 0, 0, 0, 0, 0, 5.586376, 0.26688194, -5.3908243),
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
@@ -23,14 +23,14 @@ script = ExtResource("1_g3ayn")
 [node name="Segments" type="Node3D" parent="." unique_id=945338792]
 
 [node name="EntryArea3D" type="Area3D" parent="." unique_id=360517529]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1462657, 0, -5.5910993)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3116622, 1.3305497, -3.9928882)
 collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EntryArea3D" unique_id=1523243718]
 shape = SubResource("SphereShape3D_g3ayn")
 
 [node name="ExitArea3D" type="Area3D" parent="." unique_id=1653072795]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.425415, 0, -5.672568)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.586376, 0.26688194, -5.3908243)
 collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ExitArea3D" unique_id=1441876938]

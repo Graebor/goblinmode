@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bbvxjns3aym1k"]
+
+[ext_resource type="Material" uid="uid://5rfhoj78y5u4" path="res://obstacles/hedge/hedge.tres" id="1_gdjo8"]
+[ext_resource type="Script" uid="uid://crljmbnxtvca5" path="res://obstacles/sandtrap/copy_polygon.gd" id="1_iwain"]
+
+[sub_resource type="GDScript" id="GDScript_gdjo8"]
+script/source = "extends CSGPolygon3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+	var static_body: StaticBody3D = StaticBody3D.new()
+	add_child(static_body)
+	var collision: CollisionPolygon3D = CollisionPolygon3D.new()
+	static_body.add_child(collision)
+	collision.polygon = polygon
+"
+
+[node name="Hedge" type="CSGPolygon3D" unique_id=761124046]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+material = ExtResource("1_gdjo8")
+script = SubResource("GDScript_gdjo8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1631011583]
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="StaticBody3D" unique_id=1855263766 node_paths=PackedStringArray("poly")]
+script = ExtResource("1_iwain")
+poly = NodePath("../..")
