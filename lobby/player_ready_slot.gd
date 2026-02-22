@@ -1,6 +1,8 @@
 extends Node3D
 class_name PlayerReadySlot
 
+signal joined
+signal readied
 signal start_requested
 
 @export var index: int
@@ -8,6 +10,7 @@ signal start_requested
 @export var name_label: Label3D
 @export var ready_root: Node3D
 @export var notready_root: Node3D
+@export var allready_root: Node3D
 @export var pointers: Array[GoblinMaterialPointer]
 
 var _context: PlayerContext
@@ -19,6 +22,7 @@ var _blocked_from_starting: bool = false
 func _ready() -> void:
 	ready_root.visible = false
 	notready_root.visible = false
+	allready_root.visible = false
 
 
 func player_joined(context: PlayerContext) -> void:
@@ -38,6 +42,7 @@ func player_joined(context: PlayerContext) -> void:
 	
 	await get_tree().create_timer(0.1).timeout
 	_has_joined = true
+	joined.emit()
 
 
 func _process(_delta: float) -> void:
@@ -45,6 +50,9 @@ func _process(_delta: float) -> void:
 		if (PlayerManager.is_action_just_pressed("swing", _context)):
 			_handle_player_input()
 
+
+func set_all_ready(all_ready: bool) -> void:
+	allready_root.visible = all_ready
 
 func _handle_player_input() -> void:
 	if (_is_ready):
@@ -63,5 +71,7 @@ func _handle_player_input() -> void:
 		tween.set_ease(Tween.EASE_IN)
 		tween.tween_property(ready_root, "scale", Vector3.ONE, 0.1)
 		
-		await get_tree().create_timer(1.0).timeout
+		readied.emit()
+		
+		await get_tree().create_timer(0.1).timeout
 		_blocked_from_starting = false
