@@ -382,7 +382,7 @@ script = ExtResource("1_fp5y0")
 animation_player_main = NodePath("TiltBack/Root/AnimationPlayer")
 root = NodePath("TiltBack/Root")
 root2 = NodePath("Untilted/Root")
-held_item_parent = NodePath("TiltBack/Root/HeldItemParent")
+held_item_parent = NodePath("TiltBack/Root/HeldItemParent/ActualParent")
 faceplant = NodePath("Untilted/Root/Faceplant")
 starfish = NodePath("TiltBack/Root/Starfish")
 sparker = NodePath("TiltBack/Root/HeldItemParent/Spark/MeshInstance3D")
@@ -420,6 +420,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_jmglk")
 
 [node name="ParentFaceCamera" type="Node3D" parent="TiltBack/Root/HeldItemParent/Spark/MeshInstance3D" unique_id=1515065688]
 script = ExtResource("14_pubcu")
+
+[node name="ActualParent" type="Node3D" parent="TiltBack/Root/HeldItemParent" unique_id=1163734365]
 
 [node name="Idle" type="Node3D" parent="TiltBack/Root" unique_id=2112905804]
 visible = false
