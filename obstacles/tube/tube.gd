@@ -4,6 +4,7 @@ extends Path3D
 
 @onready var segment_scene: PackedScene = preload("res://obstacles/tube/tube_segment.tscn")
 @onready var corner_scene: PackedScene = preload("res://obstacles/tube/tube_corner.tscn")
+@onready var end_scene: PackedScene = preload("res://obstacles/tube/tube_end.tscn")
 @onready var segments: Node3D = $Segments
 @onready var entry: Area3D = $EntryArea3D
 @onready var exit: Area3D = $ExitArea3D
@@ -104,9 +105,18 @@ func _regenerate() -> void:
 		var current_pos: Vector3 = curve.get_point_position(point)
 		var next_pos: Vector3 = curve.get_point_position(point + 1)
 		
+		if point == 0:
+			var cap: Node3D = end_scene.instantiate()
+			cap.look_at_from_position(current_pos.lerp(next_pos, 0.01), next_pos, Vector3.RIGHT)
+			segments.add_child(cap)
+		elif point == curve.point_count - 2:
+			var cap: Node3D = end_scene.instantiate()
+			cap.look_at_from_position(current_pos.lerp(next_pos, 0.99), next_pos, Vector3.RIGHT)
+			segments.add_child(cap)
+
 		var instance: Node3D = segment_scene.instantiate()
-		instance.get_child(0).height = current_pos.distance_to(next_pos)
-		instance.get_child(1).height = current_pos.distance_to(next_pos) + 0.01
+		instance.get_child(0).scale.y = 3.7 * current_pos.distance_to(next_pos)
+		instance.get_child(1).scale.y = 3.7 * current_pos.distance_to(next_pos) + 0.01
 		instance.look_at_from_position(current_pos.lerp(next_pos, 0.5), next_pos, Vector3.RIGHT)
 		segments.add_child(instance)
 		

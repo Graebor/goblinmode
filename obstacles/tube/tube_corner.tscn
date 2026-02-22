@@ -1,11 +1,17 @@
 [gd_scene format=3 uid="uid://c1qe80du7c22p"]
 
+[ext_resource type="PackedScene" uid="uid://kbbsfc1nxxmj" path="res://obstacles/tube/PipeSphere.fbx" id="1_xgs3s"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pckik"]
 albedo_color = Color(0.8980392, 0.38039216, 0.078431375, 1)
 
 [node name="Node3D" type="Node3D" unique_id=193536455]
 
+[node name="PipeSphere" parent="." unique_id=1579858855 instance=ExtResource("1_xgs3s")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
 [node name="TubeSegment" type="CSGSphere3D" parent="." unique_id=176404580]
+visible = false
 radial_segments = 20
 rings = 12
 material = SubResource("StandardMaterial3D_pckik")

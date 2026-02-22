@@ -95,16 +95,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.270111, 0, 0.29035354)
 [node name="Items" type="Node3D" parent="." unique_id=1142739868]
 
 [node name="Bat" parent="Items" unique_id=1772857852 instance=ExtResource("4_jixg7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.25474, 0, -12.393295)
+transform = Transform3D(0.71129036, 0, 0.7028983, 0, 1, 0, -0.7028983, 0, 0.71129036, -14.25474, 0, -12.393295)
 
 [node name="Bat2" parent="Items" unique_id=278180425 instance=ExtResource("4_jixg7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.548649, 0, 12.148368)
+transform = Transform3D(0.7069093, 0, -0.70730424, 0, 1, 0, 0.70730424, 0, 0.7069093, -14.548649, 0, 12.148368)
 
 [node name="Bat3" parent="Items" unique_id=978088875 instance=ExtResource("4_jixg7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0573845, 0, 4.5556374)
+transform = Transform3D(-0.9208999, 0, -0.3897991, 0, 1, 0, 0.3897991, 0, -0.9208999, -2.0573845, 0, 4.5556374)
 
 [node name="Bat4" parent="Items" unique_id=1143934644 instance=ExtResource("4_jixg7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.106371, 0, -3.869843)
+transform = Transform3D(0.015428126, 0, -0.99988097, 0, 1, 0, 0.99988097, 0, 0.015428126, -2.106371, 0, -3.869843)
 
 [node name="Balls" type="Node3D" parent="." unique_id=58076082]
 
