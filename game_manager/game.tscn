@@ -6,9 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://lq4g5wj76qus" path="res://lobby/lobby.tscn" id="3_gindo"]
 [ext_resource type="PackedScene" uid="uid://mhwbx5wt4klx" path="res://levels/test_hole/test_hole.tscn" id="4_hamdu"]
 [ext_resource type="PackedScene" uid="uid://ciw88088ol35e" path="res://score_screen/score_screen.tscn" id="4_ru55a"]
+[ext_resource type="PackedScene" uid="uid://cs1dbndlx8722" path="res://levels/level_3.tscn" id="6_cib1v"]
 [ext_resource type="Script" uid="uid://dcncvtksw1tn0" path="res://camera/registered_camera.gd" id="6_gindo"]
 [ext_resource type="PackedScene" uid="uid://dva7wnekils6i" path="res://levels/level_1.tscn" id="6_rrbjt"]
-[ext_resource type="Script" uid="uid://dhxsyayt3q656" path="res://game_manager/countdown.gd" id="7_hamdu"]
+[ext_resource type="Script" path="res://game_manager/countdown.gd" id="7_hamdu"]
 [ext_resource type="FontFile" uid="uid://cvs578s1b2d8i" path="res://art/ui/LondrinaSolid-Black.ttf" id="7_w1imi"]
 [ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="8_1x5qb"]
 [ext_resource type="Resource" uid="uid://c201ya4aws6ry" path="res://audio/audio_assets/Cheers/sfx_confirmed_title.tres" id="8_fw0pt"]
@@ -23,7 +24,7 @@ title_scene = ExtResource("2_4p34t")
 player_scene = ExtResource("2_ru55a")
 lobby_scene = ExtResource("3_gindo")
 score_screen_scene = ExtResource("4_ru55a")
-levels = Array[PackedScene]([ExtResource("6_rrbjt"), ExtResource("4_hamdu"), ExtResource("4_hamdu"), ExtResource("4_hamdu")])
+levels = Array[PackedScene]([ExtResource("6_rrbjt"), ExtResource("6_cib1v"), ExtResource("6_cib1v"), ExtResource("4_hamdu")])
 game_camera = NodePath("CamOffset/Shaker/Camera3D")
 countdown = NodePath("CamOffset/Shaker/Camera3D/Countdown")
 shaker = NodePath("CamOffset/Shaker")

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bust0xh1gt5dy" path="res://items/item.gd" id="1_jvvpi"]
 [ext_resource type="PackedScene" uid="uid://djboajmgmeemb" path="res://items/models/Umbrella.fbx" id="2_1axim"]
+[ext_resource type="Resource" uid="uid://mo2r48kt572s" path="res://audio/audio_assets/Items/sfx_pickup_umbrella.tres" id="2_6237w"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1axim"]
 bounce = 0.8
@@ -21,6 +22,7 @@ angular_damp = 1.5
 script = ExtResource("1_jvvpi")
 power_segments = 4
 move_speed_multiplier = 0.7
+sfx_pickup = ExtResource("2_6237w")
 
 [node name="Umbrella" parent="." unique_id=1631427299 instance=ExtResource("2_1axim")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 3.5, 0.00950551, -0.4060613, -0.2564355)

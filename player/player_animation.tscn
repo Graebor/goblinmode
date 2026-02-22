@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://bdbst1n1hj6ww" path="res://audio/sfx_swing_impact_good.tres" id="9_k47re"]
 [ext_resource type="Resource" uid="uid://bp3uq62wafccv" path="res://audio/sfx_swing_miss.tres" id="10_f2pqm"]
 [ext_resource type="Resource" uid="uid://wjihx8x4kue4" path="res://audio/sfx_swing_windup.tres" id="11_sxqyg"]
+[ext_resource type="Resource" uid="uid://bi0qoycc25wsc" path="res://audio/sfx_item_drop.tres" id="12_mn3xa"]
 [ext_resource type="PackedScene" uid="uid://der424geqfbky" path="res://player/goblin/goblin_idle.tscn" id="13_jk1jc"]
 [ext_resource type="ArrayMesh" uid="uid://d21ck8yeb25ox" path="res://art/spark_thin.obj" id="13_jmglk"]
 [ext_resource type="PackedScene" uid="uid://cbn88o2oo7yt4" path="res://player/goblin/goblin_run_empty_hand_1.tscn" id="14_jk1jc"]
@@ -377,7 +378,7 @@ shading_mode = 0
 billboard_keep_scale = true
 
 [node name="PlayerAnimation" type="Node3D" unique_id=696991604 node_paths=PackedStringArray("animation_player_main", "root", "root2", "held_item_parent", "faceplant", "starfish", "sparker", "pointers")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
 script = ExtResource("1_fp5y0")
 animation_player_main = NodePath("TiltBack/Root/AnimationPlayer")
 root = NodePath("TiltBack/Root")
@@ -397,6 +398,7 @@ sfx_swing_impact_normal = ExtResource("8_nggqp")
 sfx_swing_impact_good = ExtResource("9_k47re")
 sfx_swing_miss = ExtResource("10_f2pqm")
 sfx_swing_windup = ExtResource("11_sxqyg")
+sfx_drop = ExtResource("12_mn3xa")
 
 [node name="TiltBack" type="Node3D" parent="." unique_id=310260365]
 transform = Transform3D(1, 0, 0, 0, 0.6427876, 0.7660444, 0, -0.7660444, 0.6427876, 0, 0, 0)
