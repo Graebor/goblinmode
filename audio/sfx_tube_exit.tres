@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AudioCollectionData" format=3 uid="uid://bexfn8a3vfqhs"]
+
+[ext_resource type="AudioStream" uid="uid://b8rdcl6m51yp5" path="res://audio/audio_assets/Swings/sfx_swing_regular_1.ogg" id="1_25122"]
+[ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="1_e8gki"]
+
+[resource]
+script = ExtResource("1_e8gki")
+clips = Array[AudioStream]([ExtResource("1_25122")])
+min_pitch = 1.5
+max_pitch = 1.5
+metadata/_custom_type_script = "uid://b1qny5ew5yveu"

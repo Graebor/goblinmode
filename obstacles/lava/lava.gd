@@ -6,6 +6,8 @@ var speed: float = 0.1
 
 @export var area: Area3D
 
+var _blast_fx: PackedScene = preload("res://fx/blast_fx.tscn")
+
 
 func _ready() -> void:
 	area.body_entered.connect(_on_body_entered)
@@ -31,6 +33,11 @@ func _on_body_entered(node: Node3D) -> void:
 		return
 	
 	node.queue_free()
+	
+	var blast: BlastFX = _blast_fx.instantiate()
+	blast.global_position = node.global_position
+	add_sibling(blast)
+	blast.blast(Color(1.0, 0.392, 0.04, 1.0))
 	
 	var players: Array[Node] = get_tree().get_nodes_in_group("Player")
 	var remaining: int = 0

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AudioCollectionData" format=3 uid="uid://cw766sxxtpuwb"]
+
+[ext_resource type="AudioStream" uid="uid://5v8v2ore8p15" path="res://audio/audio_assets/Impact/sfx_club_impact_object_1.ogg" id="1_8a74m"]
+[ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="4_mbwi0"]
+
+[resource]
+script = ExtResource("4_mbwi0")
+clips = Array[AudioStream]([ExtResource("1_8a74m")])
+overlap_mode = 2
+frame_spacing = 10
+metadata/_custom_type_script = "uid://b1qny5ew5yveu"

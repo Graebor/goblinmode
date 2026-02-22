@@ -4,21 +4,24 @@
 [ext_resource type="PackedScene" uid="uid://b4t4ab63momtu" path="res://title_screen/title_screen.tscn" id="2_4p34t"]
 [ext_resource type="PackedScene" uid="uid://bfsensfo38dwk" path="res://player/player.tscn" id="2_ru55a"]
 [ext_resource type="PackedScene" uid="uid://lq4g5wj76qus" path="res://lobby/lobby.tscn" id="3_gindo"]
-[ext_resource type="PackedScene" uid="uid://mhwbx5wt4klx" path="res://levels/test_hole/test_hole.tscn" id="4_hamdu"]
 [ext_resource type="PackedScene" uid="uid://ciw88088ol35e" path="res://score_screen/score_screen.tscn" id="4_ru55a"]
+[ext_resource type="PackedScene" uid="uid://osl3h7bwadn2" path="res://levels/level_0_easy.tscn" id="6_20o7g"]
 [ext_resource type="PackedScene" uid="uid://cs1dbndlx8722" path="res://levels/level_3_bumpers.tscn" id="6_cib1v"]
 [ext_resource type="Script" uid="uid://dcncvtksw1tn0" path="res://camera/registered_camera.gd" id="6_gindo"]
 [ext_resource type="PackedScene" uid="uid://s3gtcb8b5rec" path="res://levels/level_1_sand.tscn" id="6_rrbjt"]
-[ext_resource type="Script" uid="uid://dhxsyayt3q656" path="res://game_manager/countdown.gd" id="7_hamdu"]
-[ext_resource type="PackedScene" uid="uid://s3gtcb8b5rec" path="res://levels/level_1_sand.tscn" id="6_rrbjt"]
 [ext_resource type="Script" path="res://game_manager/countdown.gd" id="7_hamdu"]
+[ext_resource type="PackedScene" uid="uid://tx47kyewpeoa" path="res://levels/level_0_hedge.tscn" id="7_pwsoa"]
 [ext_resource type="FontFile" uid="uid://cvs578s1b2d8i" path="res://art/ui/LondrinaSolid-Black.ttf" id="7_w1imi"]
 [ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="8_1x5qb"]
 [ext_resource type="Resource" uid="uid://c201ya4aws6ry" path="res://audio/audio_assets/Cheers/sfx_confirmed_title.tres" id="8_fw0pt"]
+[ext_resource type="PackedScene" uid="uid://cgrjndo0e4oxe" path="res://levels/level_0_tube.tscn" id="8_pwsoa"]
 [ext_resource type="PackedScene" uid="uid://ctrqiys4oyx3l" path="res://levels/level_9_lava.tscn" id="9_6up75"]
+[ext_resource type="PackedScene" uid="uid://crmuvo122vlqk" path="res://levels/level_4_bumpersandforces.tscn" id="9_hedtl"]
 [ext_resource type="Resource" uid="uid://c1pdla363xorr" path="res://audio/sfx_count_3.tres" id="9_w1imi"]
+[ext_resource type="PackedScene" uid="uid://det7qgkb5k8q4" path="res://levels/level_7_basketball.tscn" id="9_xnmst"]
 [ext_resource type="Resource" uid="uid://bmknt4hs5h3i" path="res://audio/sfx_count_2.tres" id="10_4p34t"]
 [ext_resource type="AudioStream" uid="uid://mnt26dycmvtb" path="res://audio/audio_assets/Music/The Grass is Always Greener.wav" id="10_6up75"]
+[ext_resource type="PackedScene" uid="uid://dmdvfpx7axqnq" path="res://levels/level_2_tubes.tscn" id="10_roxm6"]
 [ext_resource type="AudioStream" uid="uid://cmhsusxtkoovc" path="res://audio/audio_assets/Music/Green and Retired Loop.wav" id="11_6up75"]
 [ext_resource type="Resource" uid="uid://cb7xfigfm37wk" path="res://audio/sfx_count_1.tres" id="11_rrbjt"]
 [ext_resource type="AudioStream" uid="uid://bfobv3f8s417j" path="res://audio/audio_assets/Music/Menu Loop.wav" id="12_7ugib"]
@@ -30,7 +33,7 @@ title_scene = ExtResource("2_4p34t")
 player_scene = ExtResource("2_ru55a")
 lobby_scene = ExtResource("3_gindo")
 score_screen_scene = ExtResource("4_ru55a")
-levels = Array[PackedScene]([ExtResource("6_rrbjt"), ExtResource("6_cib1v"), ExtResource("6_cib1v"), ExtResource("4_hamdu"), ExtResource("9_6up75")])
+levels = Array[PackedScene]([ExtResource("6_20o7g"), ExtResource("7_pwsoa"), ExtResource("8_pwsoa"), ExtResource("6_rrbjt"), ExtResource("6_cib1v"), ExtResource("10_roxm6"), ExtResource("9_xnmst"), ExtResource("9_hedtl"), ExtResource("9_6up75")])
 game_camera = NodePath("CamOffset/Shaker/Camera3D")
 countdown = NodePath("CamOffset/Shaker/Camera3D/Countdown")
 shaker = NodePath("CamOffset/Shaker")

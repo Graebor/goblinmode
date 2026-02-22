@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cyhxbst80otkx" path="res://player/personality.gd" id="1_os5y5"]
 [ext_resource type="Resource" uid="uid://e7f5cko738dg" path="res://audio/audio_assets/VO/June/voice_june_gamestart.tres" id="2_kx0o4"]
-[ext_resource type="Material" uid="uid://dg7utpaatq1oq" path="res://player/outlinetest.tres" id="2_vnyt2"]
+[ext_resource type="Material" path="res://player/outlinetest.tres" id="2_vnyt2"]
 [ext_resource type="Resource" uid="uid://bty6s1p6i6b3e" path="res://audio/audio_assets/VO/June/voice_june_got_item.tres" id="3_vnyt2"]
 [ext_resource type="Resource" uid="uid://dy064sp2fa8f2" path="res://audio/audio_assets/VO/June/voice_june_hit.tres" id="4_jwa2t"]
 [ext_resource type="Resource" uid="uid://c68ivtm84t0be" path="res://audio/audio_assets/VO/June/voice_june_selected.tres" id="5_kil0u"]
