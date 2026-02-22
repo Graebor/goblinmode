@@ -13,6 +13,7 @@ var _active_level_index: int = -1
 var _active_level: Node
 var _lobby: Lobby
 var _score_screen: ScoreScreen
+var _round_finished: bool
 
 func get_score(player: PlayerContext) -> int:
 	if (_scores.has(player)):
@@ -52,6 +53,7 @@ func _begin_level(index: int) -> void:
 		_active_level = levels[index].instantiate()
 		add_child(_active_level)
 		game_camera.current = true
+		_round_finished = false
 		
 		for context: PlayerContext in PlayerManager.players:
 			PlayerManager.spawn_player(context)
@@ -66,6 +68,10 @@ func _begin_level(index: int) -> void:
 
 
 func _on_round_finished() -> void:
+	if (_round_finished):
+		return
+	
+	_round_finished = true
 	await get_tree().create_timer(2).timeout
 	await ScreenFader.fade_to_black(0.2)
 	

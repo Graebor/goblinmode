@@ -14,6 +14,7 @@ var players: Array[PlayerContext] = []
 
 var round_order: Dictionary[PlayerContext, int] = {}
 var round_order_index: int = 0
+var players_already_done: Array[PlayerContext]
 
 func _ready() -> void:
 	HoleManager.ball_sinking.connect(_on_ball_sink)
@@ -21,13 +22,16 @@ func _ready() -> void:
 	
 	
 func _on_ball_sink(player_context: PlayerContext) -> void:
-	round_order_index += 1
-	round_order[player_context] = round_order_index
+	if (!players_already_done.has(player_context)):
+		players_already_done.append(player_context)
+		round_order_index += 1
+		round_order[player_context] = round_order_index
 
 
 func _on_level_started() -> void:
 	round_order_index = 0
 	round_order.clear()
+	players_already_done.clear()
 
 
 func _is_new_player(new_context: PlayerContext) -> bool:
