@@ -86,6 +86,7 @@ func _on_swing_began() -> void:
 
 func _on_swing_missed() -> void:
 	sfx_swing_miss.play3D(position)
+	sparker.scale = Vector3(0.1, 0.1, 0.1)
 	_play(&"swing_finish")
 	await get_tree().create_timer(0.2).timeout
 	if (_is_moving):
@@ -99,16 +100,15 @@ func _on_swing_missed() -> void:
 func _on_swing_impact(power: int, highest: int) -> void:
 	_play(&"swing_impact")
 	player_controller.player_context.personality.voice_swing.play3D(position)
-	match power:
-		0, 1:
-			sfx_swing_impact_bad.play3D(position)
-			sparker.scale = Vector3(0.2, 0.2, 0.2)
-		highest:
-			sfx_swing_impact_good.play3D(position)
-			sparker.scale = Vector3(1.5, 1.5, 1.5)
-		_:
-			sfx_swing_impact_normal.play3D(position)
-			sparker.scale = Vector3(0.6, 0.6, 0.6)
+	if (power == 0 || power == 1):
+		sfx_swing_impact_bad.play3D(position)
+		sparker.scale = Vector3(0.2, 0.2, 0.2)
+	elif (power == highest && highest >= 2):
+		sfx_swing_impact_good.play3D(position)
+		sparker.scale = Vector3(1.5, 1.5, 1.5)
+	else:
+		sfx_swing_impact_normal.play3D(position)
+		sparker.scale = Vector3(0.6, 0.6, 0.6)
 
 func _on_swing_released() -> void:
 	sfx_swing_followthrough.play3D(position)
