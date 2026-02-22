@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Personality" format=3 uid="uid://dga3tpljyjwyi"]
 
 [ext_resource type="Script" uid="uid://cyhxbst80otkx" path="res://player/personality.gd" id="1_delom"]
-[ext_resource type="Material" path="res://player/outlinetest.tres" id="2_lqhwm"]
+[ext_resource type="Material" uid="uid://dg7utpaatq1oq" path="res://player/outlinetest.tres" id="2_lqhwm"]
 [ext_resource type="Resource" uid="uid://bh0c3m5vm4w10" path="res://audio/audio_assets/VO/Annie/voice_annie_gamestart.tres" id="2_owwdq"]
 [ext_resource type="Resource" uid="uid://imupeeyaslyx" path="res://audio/audio_assets/VO/Annie/voice_annie_got_item.tres" id="3_lqhwm"]
 [ext_resource type="Resource" uid="uid://d1rf2yg2muuft" path="res://audio/audio_assets/VO/Annie/voice_annie_hit.tres" id="4_agbp6"]

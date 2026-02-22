@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cyhxbst80otkx" path="res://player/personality.gd" id="1_makdl"]
 [ext_resource type="Resource" uid="uid://dfoe4jme0bjnm" path="res://audio/audio_assets/VO/Graeme/voice_graeme_gamestart.tres" id="2_1ydjn"]
-[ext_resource type="Material" path="res://player/outlinetest.tres" id="2_k4o5g"]
+[ext_resource type="Material" uid="uid://dg7utpaatq1oq" path="res://player/outlinetest.tres" id="2_k4o5g"]
 [ext_resource type="Resource" uid="uid://6j50kdf6vh68" path="res://audio/audio_assets/VO/Graeme/voice_graeme_got_item.tres" id="3_k4o5g"]
 [ext_resource type="Resource" uid="uid://ddc43hl373q1h" path="res://audio/audio_assets/VO/Graeme/voice_graeme_hit.tres" id="4_5r0lm"]
 [ext_resource type="Resource" uid="uid://c3l8lxh5sennd" path="res://audio/audio_assets/VO/Graeme/voice_graeme_selected.tres" id="5_o7cfu"]

@@ -50,6 +50,14 @@ func _ready() -> void:
 	HoleManager.round_finished.connect(_on_round_finished)
 
 func _process(delta: float) -> void:
+	if not is_instance_valid(_score_screen) and _active_level_index >= 0:
+		if Input.is_action_just_pressed("level_next") and _active_level_index < levels.size() - 1:
+			_begin_level(_active_level_index + 1)
+			pass
+		if Input.is_action_just_pressed("level_prev"):
+			_begin_level(_active_level_index - 1)
+			pass
+	
 	if (_current_shake > 0):
 		_current_shake -= delta * 3
 		shaker.rotation_degrees.x = sin(_current_shake * shake_freq) * shake_angle * _current_shake
