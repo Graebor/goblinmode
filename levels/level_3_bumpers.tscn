@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://cs1dbndlx8722"]
 
 [ext_resource type="Texture2D" uid="uid://cmy8srtirkq5w" path="res://art/environment/T_Grass.png" id="1_0unm6"]
-[ext_resource type="Material" uid="uid://cidx77nbsht47" path="res://levels/rock.tres" id="2_q42ux"]
+[ext_resource type="Material" uid="uid://cidx77nbsht47" path="res://obstacles/wall/rock.tres" id="2_q42ux"]
 [ext_resource type="PackedScene" uid="uid://opmn5mrir4jc" path="res://hole/hole.tscn" id="3_wi0qq"]
 [ext_resource type="PackedScene" uid="uid://bj485t2ul33ix" path="res://items/club.tscn" id="6_svivd"]
 [ext_resource type="PackedScene" uid="uid://b2e0ju6ian5g4" path="res://obstacles/bumper_round.tscn" id="7_ofchu"]
 [ext_resource type="PackedScene" uid="uid://beuhof4d84i5o" path="res://items/bat.tscn" id="7_yafm2"]
 [ext_resource type="PackedScene" uid="uid://b5lgxsfykvq31" path="res://items/ball.tscn" id="9_t5hu4"]
 [ext_resource type="PackedScene" uid="uid://bbvxjns3aym1k" path="res://obstacles/hedge.tscn" id="10_eg35p"]
-[ext_resource type="PackedScene" uid="uid://bjjgj1yr8lm8s" path="res://obstacles/sandtrap.tscn" id="11_67vg4"]
+[ext_resource type="PackedScene" path="res://obstacles/sandtrap.tscn" id="11_67vg4"]
 [ext_resource type="PackedScene" uid="uid://o4y0ocmicixm" path="res://player/spawn.tscn" id="12_mqvtj"]
 
 [sub_resource type="Environment" id="Environment_jirdo"]
