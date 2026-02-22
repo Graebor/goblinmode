@@ -10,13 +10,15 @@ extends Path3D
 
 var balls_forward: Dictionary[Node3D, float] = {}
 var balls_backward: Dictionary[Node3D, float] = {}
-var speed: float = 0.5
+var speed: float = 10.0
+
+const TUBING_GROUP: String = "Tubing"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	curve_changed.connect(_regenerate)
-	entry.area_entered.connect(_on_entry_entered)
-	exit.area_entered.connect(_on_exit_entered)
+	entry.body_entered.connect(_on_entry_entered)
+	exit.body_entered.connect(_on_exit_entered)
 	
 	var start_pos: Vector3 = curve.get_point_position(0)
 	var end_pos: Vector3 = curve.get_point_position(curve.point_count - 1)
@@ -28,15 +30,21 @@ func _ready() -> void:
 
 
 func _on_entry_entered(node: Node3D) -> void:
-	if node.is_in_group("Ball") and not node.is_in_group("InHand") and not node.is_in_group("Sinking"):
-		balls_forward[node] = curve.get_baked_length()
-		node.visible = false
+	print(node.name)
+	if node.is_in_group("Ball") and not node.is_in_group(TUBING_GROUP) and not node.is_in_group("InHand") and not node.is_in_group("Sinking"):
+		if not balls_forward.has(node) and not balls_backward.has(node):
+			balls_forward[node] = curve.get_baked_length()
+			node.visible = false
+			node.add_to_group(TUBING_GROUP)
 
 
 func _on_exit_entered(node: Node3D) -> void:
-	if node.is_in_group("Ball") and not node.is_in_group("InHand") and not node.is_in_group("Sinking"):
-		balls_backward[node] = curve.get_baked_length()
-		node.visible = false
+	print(node.name)
+	if node.is_in_group("Ball") and not node.is_in_group(TUBING_GROUP) and not node.is_in_group("InHand") and not node.is_in_group("Sinking"):
+		if not balls_forward.has(node) and not balls_backward.has(node):
+			balls_backward[node] = curve.get_baked_length()
+			node.visible = false
+			node.add_to_group(TUBING_GROUP)
 
 
 func _process(delta: float) -> void:
@@ -64,9 +72,14 @@ func _spawn(ball: Node3D, area: Area3D, tube_position: Vector3) -> void:
 	area_pos.y = 0
 	tube_position.y = 0
 	
-	var direction: Vector3 = area_pos - tube_position
+	var direction: Vector3 = tube_position - area_pos
 	var body: RigidBody3D = ball as RigidBody3D
-	body.apply_impulse(direction * 5.0)
+	body.linear_velocity = Vector3.ZERO
+	body.apply_impulse(direction.normalized() * 5.0)
+	
+	await get_tree().create_timer(0.2).timeout
+	
+	ball.remove_from_group(TUBING_GROUP)
 
 
 func _regenerate() -> void:
@@ -76,8 +89,8 @@ func _regenerate() -> void:
 	if curve.point_count < 2:
 		return
 	
-	entry.global_position = curve.get_point_position(0)
-	exit.global_position = curve.get_point_position(curve.point_count - 1)
+	entry.position = curve.get_point_position(0)
+	exit.position = curve.get_point_position(curve.point_count - 1)
 	
 	for point: int in curve.point_count - 1:
 		var current_pos: Vector3 = curve.get_point_position(point)
@@ -86,7 +99,6 @@ func _regenerate() -> void:
 		var instance: Node3D = segment_scene.instantiate()
 		instance.get_child(0).height = current_pos.distance_to(next_pos)
 		instance.get_child(1).height = current_pos.distance_to(next_pos) + 0.01
-		#instance.rotation_degrees.y = position.angle_to(next_pos)
 		instance.look_at_from_position(current_pos.lerp(next_pos, 0.5), next_pos, Vector3.RIGHT)
 		segments.add_child(instance)
 		

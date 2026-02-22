@@ -22,6 +22,7 @@ signal stun_ended
 const IN_HAND_GROUP: String = "InHand"
 const SINKING_GROUP: String = "Sinking"
 const ITEM_GROUP: String = "Item"
+const TUBING_GROUP: String = "Tubing"
 
 @export var speed: float = 1.0
 @export var pickup_range: float = 1.5
@@ -284,7 +285,7 @@ func _get_closest_swing_target(previous: Node3D, players_must_be_stunned: bool) 
 	var items: Array[Node] = get_tree().get_nodes_in_group(ITEM_GROUP)
 	var closest: Node3D = null
 	for item: Node in items:
-		if not item.is_in_group(IN_HAND_GROUP) and not item.is_in_group(SINKING_GROUP) and item is Item and item != previous:
+		if not item.is_in_group(TUBING_GROUP) and not item.is_in_group(IN_HAND_GROUP) and not item.is_in_group(SINKING_GROUP) and item is Item and item != previous:
 			if global_position.distance_to(item.global_position) < pickup_range:
 				if closest == null:
 					closest = item
