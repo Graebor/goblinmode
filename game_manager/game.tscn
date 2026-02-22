@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://lq4g5wj76qus" path="res://lobby/lobby.tscn" id="3_gindo"]
 [ext_resource type="PackedScene" uid="uid://mhwbx5wt4klx" path="res://levels/test_hole/test_hole.tscn" id="4_hamdu"]
 [ext_resource type="PackedScene" uid="uid://ciw88088ol35e" path="res://score_screen/score_screen.tscn" id="4_ru55a"]
-[ext_resource type="PackedScene" uid="uid://cs1dbndlx8722" path="res://levels/level_3.tscn" id="6_cib1v"]
+[ext_resource type="PackedScene" uid="uid://cs1dbndlx8722" path="res://levels/level_3_bumpers.tscn" id="6_cib1v"]
 [ext_resource type="Script" uid="uid://dcncvtksw1tn0" path="res://camera/registered_camera.gd" id="6_gindo"]
 [ext_resource type="PackedScene" uid="uid://dva7wnekils6i" path="res://levels/level_1.tscn" id="6_rrbjt"]
 [ext_resource type="Script" path="res://game_manager/countdown.gd" id="7_hamdu"]
