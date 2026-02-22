@@ -5,21 +5,32 @@ extends Node3D
 
 @export var sinking_speed: float = 0.5
 @export var min_distance_to_sink: float = 0.2
+@export var sinking_threshold: float = 10.0
 
 var sinking_balls: Array[RigidBody3D] = []
 
+func _ready() -> void:
+	area3d.body_entered.connect(_on_body_entered)
+
+
+func _on_body_entered(node: Node3D) -> void:
+	if node.is_in_group("Ball") and not node.is_in_group("InHand") and not node.is_in_group("Sinking"):
+		if node is RigidBody3D:
+			var body: RigidBody3D = node as RigidBody3D
+			if body.linear_velocity.length() < sinking_threshold:
+				_start_sink_ball(body)
+
 
 func _physics_process(delta: float) -> void:
-	for body: Node3D in area3d.get_overlapping_bodies():
-		if body.is_in_group("Ball") and not body.is_in_group("InHand") and not body.is_in_group("Sinking"):
-			_start_sink_ball(body)
-
 	_sink_balls(delta)
+
 
 func _start_sink_ball(ball: RigidBody3D) -> void:
 	var item: Item = ball as Item
 	if item.last_player == null:
 		return
+	
+	ball.linear_velocity = Vector3.ZERO
 	
 	ball.add_to_group("Sinking")
 	ball.set_collision_layer_value(3, false) # Item
