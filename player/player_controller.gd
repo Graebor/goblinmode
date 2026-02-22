@@ -164,6 +164,7 @@ func _release_item(body: RigidBody3D) -> void:
 		body.owner = ItemManager
 		var item: Item = body as Item
 		item.last_player = player_context
+		item.rotation_degrees = Vector3(0, item.rotation_degrees.y, 0)
 	elif (body is PlayerController):
 		body.reparent(PlayerManager)
 		body.rotation = Vector3.ZERO
