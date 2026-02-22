@@ -153,13 +153,19 @@ func _process(_delta: float) -> void:
 
 
 func _refresh_is_moving() -> void:
-	var new_is_moving: bool = (_get_movement().length() > 0.1 && !_is_swinging && !_is_locked && !_is_grabbed && !is_stunned())
+	var movement: Vector3 = _get_movement()
+	var is_free: bool = !_is_swinging && !_is_locked && !_is_grabbed && !is_stunned()
+	var new_is_moving: bool = (movement.length() > 0.1 && is_free)
 	if (!_is_moving && new_is_moving):
 		_is_moving = true
 		movement_started.emit()
+		if (is_free && !_is_counting_down):
+			apply_impulse(movement.normalized() * 100 * _equipped_move_speed_multiplier)
 	elif (_is_moving && !new_is_moving):
 		_is_moving = false
 		movement_stopped.emit()
+		if (is_free && !_is_counting_down):
+			linear_velocity = linear_velocity * 0.1
 
 func _release_item(body: RigidBody3D) -> void:
 	if (body is Item):

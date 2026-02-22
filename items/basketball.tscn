@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://bhgr8qvn7nkun"]
+[gd_scene format=4 uid="uid://c5vicf7ow3xeu"]
 
 [ext_resource type="Script" uid="uid://bust0xh1gt5dy" path="res://items/item.gd" id="1_pljwg"]
 [ext_resource type="Resource" uid="uid://bopa8k8cw84pg" path="res://audio/audio_assets/Items/sfx_pickup_ball.tres" id="2_sxy44"]
@@ -38,9 +38,8 @@ axis_lock_linear_y = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
-mass = 0.5
 physics_material_override = SubResource("PhysicsMaterial_7hnrh")
-linear_damp = 0.5
+linear_damp = 0.25
 script = ExtResource("1_pljwg")
 power_segments = 4
 move_speed_multiplier = 0.8
@@ -54,5 +53,4 @@ material_override = SubResource("StandardMaterial3D_qt1fk")
 mesh = SubResource("ArrayMesh_7o8sl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1539824022]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 shape = SubResource("SphereShape3D_tab4e")
