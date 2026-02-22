@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://ctr5y701uyn5k" path="res://obstacles/force_zone.tscn" id="12_u64xv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rr7c"]
-albedo_color = Color(0.20620483, 0.7107474, 7.70092e-07, 1)
 albedo_texture = ExtResource("1_ddqkf")
 
 [sub_resource type="Environment" id="Environment_rsilw"]
@@ -61,7 +60,7 @@ collision_layer = 9
 collision_mask = 9
 size = Vector3(40, 1, 1)
 
-[node name="Bat" parent="." unique_id=2030069886 instance=ExtResource("5_k8drq")]
+[node name="Bat" parent="." unique_id=703776502 instance=ExtResource("5_k8drq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8396182, 0, -4.858269)
 
 [node name="GreatSword" parent="." unique_id=699654479 instance=ExtResource("6_v2a4s")]
@@ -70,13 +69,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1080604, 0, 4.695303)
 [node name="Dagger" parent="." unique_id=2030972932 instance=ExtResource("7_o6wue")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.562399, 0, 11.432042)
 
-[node name="Board" parent="." unique_id=79426484 instance=ExtResource("8_6i50c")]
+[node name="Board" parent="." unique_id=1424884512 instance=ExtResource("8_6i50c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.17501, 0, 6.8631473)
 
 [node name="Sword" parent="." unique_id=129852815 instance=ExtResource("9_o6wue")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3210287, 0, 6.976531)
 
-[node name="Umbrella" parent="." unique_id=1856805251 instance=ExtResource("10_6i50c")]
+[node name="Umbrella" parent="." unique_id=892405005 instance=ExtResource("10_6i50c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.09528, 0, 0.7198868)
 
 [node name="BumperRound" parent="." unique_id=1413217440 instance=ExtResource("11_2yvlk")]
