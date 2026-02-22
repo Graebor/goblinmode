@@ -8,6 +8,8 @@ extends Path3D
 @onready var entry: Area3D = $EntryArea3D
 @onready var exit: Area3D = $ExitArea3D
 @export var reset_curve: bool = true
+@onready var sfx_enter: AudioCollectionData = preload("res://audio/sfx_tube_enter.tres")
+@onready var sfx_exit: AudioCollectionData = preload("res://audio/sfx_tube_exit.tres")
 
 var balls_forward: Dictionary[Node3D, float] = {}
 var balls_backward: Dictionary[Node3D, float] = {}
@@ -39,6 +41,7 @@ func _on_entry_entered(node: Node3D) -> void:
 			balls_forward[node] = curve.get_baked_length()
 			node.visible = false
 			node.add_to_group(TUBING_GROUP)
+			sfx_enter.play3D(node.global_position)
 
 
 func _on_exit_entered(node: Node3D) -> void:
@@ -47,6 +50,7 @@ func _on_exit_entered(node: Node3D) -> void:
 			balls_backward[node] = curve.get_baked_length()
 			node.visible = false
 			node.add_to_group(TUBING_GROUP)
+			sfx_enter.play3D(node.global_position)
 
 
 func _process(delta: float) -> void:
@@ -70,6 +74,8 @@ func _spawn(ball: Node3D, area: Area3D, tube_position: Vector3) -> void:
 	ball.global_position.x = area.global_position.x
 	ball.global_position.z = area.global_position.z
 	ball.global_position.y = 0.0
+	
+	sfx_exit.play3D(ball.global_position)
 	
 	var area_pos: Vector3 = area.global_position
 	area_pos.y = 0
