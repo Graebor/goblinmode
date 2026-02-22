@@ -270,18 +270,20 @@ func _get_movement() -> Vector3:
 	direction = direction.normalized()
 	
 	if player_context.is_keyboard_player_1 == false and player_context.is_keyboard_player_2 == false:
-		direction.x = _handle_deadzone(Input.get_joy_axis(player_context.device_id, JOY_AXIS_LEFT_X))
-		direction.z = _handle_deadzone(Input.get_joy_axis(player_context.device_id, JOY_AXIS_LEFT_Y))
+		var deadened: Vector2 = _handle_deadzone(Vector2(
+			Input.get_joy_axis(player_context.device_id, JOY_AXIS_LEFT_X),
+			Input.get_joy_axis(player_context.device_id, JOY_AXIS_LEFT_Y)
+		))
+		direction.x = deadened.x
+		direction.z = deadened.y
 
 	return direction
 
-func _handle_deadzone(value: float) -> float:
+func _handle_deadzone(value: Vector2) -> Vector2:
 	var deadzone: float = 0.5
-	if value > deadzone:
+	if (value.length() >= deadzone):
 		return value
-	if value < -deadzone:
-		return value
-	return 0.0
+	return Vector2.ZERO
 
 func _get_closest_swing_target(previous: Node3D, players_must_be_stunned: bool) -> Item:
 	var items: Array[Node] = get_tree().get_nodes_in_group(ITEM_GROUP)
