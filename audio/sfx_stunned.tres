@@ -7,6 +7,6 @@
 script = ExtResource("1_e7l1r")
 clips = Array[AudioStream]([ExtResource("1_1lw2g")])
 overlap_mode = 1
-min_volume = 0.8
-max_volume = 0.8
+min_volume = 0.5
+max_volume = 0.5
 metadata/_custom_type_script = "uid://b1qny5ew5yveu"
