@@ -1,7 +1,12 @@
 [gd_resource type="Resource" script_class="AudioCollectionData" format=3 uid="uid://2vkbjnxy5uq2"]
 
+[ext_resource type="AudioStream" uid="uid://cc66hppf3rij3" path="res://audio/audio_assets/sfx_ball_hit_pole.ogg" id="1_k3y4m"]
 [ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="1_o1tlj"]
+[ext_resource type="AudioStream" uid="uid://b3kcruyblxbh7" path="res://audio/audio_assets/sfx_ball_hit_pole_2.ogg" id="2_w6m5l"]
+[ext_resource type="AudioStream" uid="uid://b8qlvtlnrgxxb" path="res://audio/audio_assets/sfx_ball_hit_pole_3.ogg" id="3_j1jku"]
+[ext_resource type="AudioStream" uid="uid://c734hrkawadxl" path="res://audio/audio_assets/sfx_ball_hit_pole_4.ogg" id="4_gs042"]
 
 [resource]
 script = ExtResource("1_o1tlj")
+clips = Array[AudioStream]([ExtResource("1_k3y4m"), ExtResource("2_w6m5l"), ExtResource("3_j1jku"), ExtResource("4_gs042")])
 metadata/_custom_type_script = "uid://b1qny5ew5yveu"
