@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://dhxsyayt3q656" path="res://game_manager/countdown.gd" id="7_hamdu"]
 [ext_resource type="FontFile" uid="uid://cvs578s1b2d8i" path="res://art/ui/LondrinaSolid-Black.ttf" id="7_w1imi"]
 [ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="8_1x5qb"]
+[ext_resource type="Resource" uid="uid://c201ya4aws6ry" path="res://audio/audio_assets/Cheers/sfx_confirmed_title.tres" id="8_fw0pt"]
 [ext_resource type="Resource" uid="uid://c1pdla363xorr" path="res://audio/sfx_count_3.tres" id="9_w1imi"]
 [ext_resource type="Resource" uid="uid://bmknt4hs5h3i" path="res://audio/sfx_count_2.tres" id="10_4p34t"]
 [ext_resource type="Resource" uid="uid://cb7xfigfm37wk" path="res://audio/sfx_count_1.tres" id="11_rrbjt"]
@@ -28,6 +29,7 @@ countdown = NodePath("CamOffset/Shaker/Camera3D/Countdown")
 shaker = NodePath("CamOffset/Shaker")
 shake_angle = 0.7
 shake_freq = 15.0
+sfx_confirm_title = ExtResource("8_fw0pt")
 
 [node name="CamOffset" type="Node3D" parent="." unique_id=1936496776]
 transform = Transform3D(1, 0, 0, 0, 0.34202015, 0.9396926, 0, -0.9396926, 0.34202015, 0, 80, 30.4)

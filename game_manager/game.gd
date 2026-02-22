@@ -11,6 +11,7 @@ class_name Game
 @export var shaker: Node3D
 @export var shake_angle: float = 5.0
 @export var shake_freq: float = 1.0
+@export var sfx_confirm_title: AudioCollectionData
 
 var _title: Node
 var _scores: Dictionary[PlayerContext, int]
@@ -45,6 +46,7 @@ func _process(delta: float) -> void:
 	
 	if (_title != null):
 		if (Input.is_action_just_pressed("swing")):
+			sfx_confirm_title.play3D(_title.position)
 			_title.queue_free()
 			_title = null
 			ScreenFader.battle_transition()

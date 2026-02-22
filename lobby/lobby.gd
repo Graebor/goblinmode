@@ -4,6 +4,8 @@ class_name Lobby
 signal players_confirmed
 
 @export var slots: Array[PlayerReadySlot]
+@export var sfx_move_to_stage1: AudioCollectionData
+@export var sfx_player_joined: AudioCollectionData
 
 var index: int = 0
 
@@ -21,6 +23,7 @@ func _on_player_joined(context: PlayerContext) -> void:
 		index += 1
 
 func _on_joined_slot() -> void:
+	sfx_player_joined.play3D(position)
 	_refresh_all_ready()
 
 func _on_readied_slot() -> void:
@@ -33,6 +36,7 @@ func _refresh_all_ready() -> void:
 
 func _on_start_requested() -> void:
 	if (_all_ready()):
+		sfx_move_to_stage1.play3D(position)
 		players_confirmed.emit()
 
 func _all_ready() -> bool:

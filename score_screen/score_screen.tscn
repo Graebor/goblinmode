@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://ciw88088ol35e"]
 
 [ext_resource type="Script" uid="uid://cew8mriscc856" path="res://score_screen/score_screen.gd" id="1_o3qiw"]
+[ext_resource type="Resource" uid="uid://ct76a5gelw54t" path="res://audio/audio_assets/Cheers/sfx_results_screen.tres" id="2_5fj6q"]
 [ext_resource type="FontFile" uid="uid://cvs578s1b2d8i" path="res://art/ui/LondrinaSolid-Black.ttf" id="2_c5s3i"]
 [ext_resource type="PackedScene" uid="uid://b4l6uofhhpf7k" path="res://score_screen/score_panel.tscn" id="2_h14rx"]
+[ext_resource type="Resource" uid="uid://bnwwy4k3foqly" path="res://audio/audio_assets/Cheers/sfx_results_final_screen.tres" id="3_7d56r"]
 [ext_resource type="FontFile" uid="uid://c0757uh3dawbu" path="res://art/ui/LondrinaSolid-Regular.ttf" id="3_8bg1l"]
 [ext_resource type="Texture2D" uid="uid://dk7p054ceej3l" path="res://art/ui/LobbyBackground.png" id="3_nwcxi"]
 [ext_resource type="Script" uid="uid://bugaqipx23k8v" path="res://prototypes/scale_wobble_3d.gd" id="4_c5s3i"]
@@ -44,6 +46,8 @@ clock_hand = NodePath("Clock/Hand")
 clock_root = NodePath("Clock")
 input_prompt = NodePath("InputPrompt")
 score_panels = [NodePath("ScorePanel1"), NodePath("ScorePanel2"), NodePath("ScorePanel3"), NodePath("ScorePanel4")]
+sfx_show = ExtResource("2_5fj6q")
+sfx_show_final = ExtResource("3_7d56r")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=489335778]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)

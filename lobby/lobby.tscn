@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://f5dm2jcxpa7m" path="res://lobby/lobby.gd" id="1_jtv5c"]
 [ext_resource type="FontFile" uid="uid://cvs578s1b2d8i" path="res://art/ui/LondrinaSolid-Black.ttf" id="2_gi5k6"]
 [ext_resource type="PackedScene" uid="uid://sr3r3ta2236u" path="res://lobby/player_ready_slot.tscn" id="2_mnguq"]
+[ext_resource type="Resource" uid="uid://bwp5nya7f7hmv" path="res://audio/audio_assets/Cheers/sfx_confirmed_lobby.tres" id="2_qfux7"]
+[ext_resource type="Resource" uid="uid://djtupnikx7ryh" path="res://audio/audio_assets/Cheers/sfx_joined_lobby.tres" id="3_4veey"]
 [ext_resource type="Texture2D" uid="uid://dk7p054ceej3l" path="res://art/ui/LobbyBackground.png" id="3_uj4ub"]
 [ext_resource type="Script" uid="uid://bugaqipx23k8v" path="res://prototypes/scale_wobble_3d.gd" id="5_dk04u"]
 
@@ -20,6 +22,8 @@ albedo_texture = ExtResource("3_uj4ub")
 [node name="Lobby" type="Node3D" unique_id=1518456137 node_paths=PackedStringArray("slots")]
 script = ExtResource("1_jtv5c")
 slots = [NodePath("PlayerReadySlot0"), NodePath("PlayerReadySlot1"), NodePath("PlayerReadySlot2"), NodePath("PlayerReadySlot3")]
+sfx_move_to_stage1 = ExtResource("2_qfux7")
+sfx_player_joined = ExtResource("3_4veey")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=489335778]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6770907, 9.157951)

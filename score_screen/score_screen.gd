@@ -11,6 +11,8 @@ signal finished_looking_at_scores
 @export var clock_root: Node3D
 @export var input_prompt: Node3D
 @export var score_panels: Array[ScorePanel]
+@export var sfx_show: AudioCollectionData
+@export var sfx_show_final: AudioCollectionData
 
 var _elapsed: float = 0.0
 var _needs_input: bool = false
@@ -41,9 +43,11 @@ func _ready() -> void:
 func setup(finished_level: int, total_levels: int) -> void:
 	_needs_input = true
 	if (finished_level >= total_levels):
+		sfx_show_final.play3D(position)
 		main_label.text = "FINAL SCORES"
 		rounds_label.text = "after all " + str(total_levels) + " holes"
 	else:
+		sfx_show.play3D(position)
 		main_label.text = "SCORES"
 		rounds_label.text = "after "+str(finished_level) + "/" + str(total_levels) + " holes"
 

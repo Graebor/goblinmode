@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AudioCollectionData" format=3 uid="uid://ct76a5gelw54t"]
+
+[ext_resource type="AudioStream" uid="uid://bkf1alm4y8d1o" path="res://audio/audio_assets/Cheers/sfx_levelDone_Cheer_1.ogg" id="1_7n5ih"]
+[ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="1_61t65"]
+[ext_resource type="AudioStream" uid="uid://bth0ahgluggav" path="res://audio/audio_assets/Cheers/sfx_levelDone_Cheer_2.ogg" id="2_oxjqi"]
+[ext_resource type="AudioStream" uid="uid://d3216bwod41ti" path="res://audio/audio_assets/Cheers/sfx_levelDone_Cheer_3.ogg" id="3_t4qrg"]
+
+[resource]
+script = ExtResource("1_61t65")
+clips = Array[AudioStream]([ExtResource("1_7n5ih"), ExtResource("2_oxjqi"), ExtResource("3_t4qrg")])
+metadata/_custom_type_script = "uid://b1qny5ew5yveu"
