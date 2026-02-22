@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bj485t2ul33ix"]
 
 [ext_resource type="Script" uid="uid://bust0xh1gt5dy" path="res://items/item.gd" id="1_8oco2"]
+[ext_resource type="Resource" uid="uid://c7lqbbsmgivuh" path="res://audio/audio_assets/Items/sfx_pickup_club.tres" id="2_2djhf"]
 [ext_resource type="PackedScene" uid="uid://dyxkh0j3bumns" path="res://items/models/Club.fbx" id="2_puy3q"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_puy3q"]
@@ -21,6 +22,7 @@ angular_damp = 1.5
 script = ExtResource("1_8oco2")
 power_segments = 5
 move_speed_multiplier = 0.8
+sfx_pickup = ExtResource("2_2djhf")
 
 [node name="Club" parent="." unique_id=1650559930 instance=ExtResource("2_puy3q")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 5, 0.009966314, -0.4289761, -0.2956882)

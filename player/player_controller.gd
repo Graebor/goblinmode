@@ -124,6 +124,8 @@ func _process(_delta: float) -> void:
 				var item: Item = target as Item
 				item.is_locked = true
 				item.last_player = player_context
+				if (item.sfx_pickup != null):
+					item.sfx_pickup.play3D(position)
 			target.reparent(inventory)
 			target.add_to_group(IN_HAND_GROUP)
 			target.global_position = inventory.global_position

@@ -2,5 +2,9 @@
 
 [ext_resource type="Script" uid="uid://c826pad56nfnx" path="res://player/spawn_point.gd" id="1_035xn"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_035xn"]
+albedo_color = Color(0.80702573, 0, 0.28383225, 1)
+
 [node name="Spawn" type="CSGTorus3D" unique_id=1097262877 groups=["Spawn"]]
+material = SubResource("StandardMaterial3D_035xn")
 script = ExtResource("1_035xn")

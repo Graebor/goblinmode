@@ -21,8 +21,11 @@ extends Node3D
 @export var sfx_swing_impact_good: AudioCollectionData
 @export var sfx_swing_miss: AudioCollectionData
 @export var sfx_swing_windup: AudioCollectionData
+@export var sfx_drop: AudioCollectionData
 
 var _is_moving: bool = false
+var _last_power: int
+var _last_highest: int
 
 func _ready() -> void:
 	for pointer: GoblinMaterialPointer in pointers:
@@ -100,17 +103,19 @@ func _on_swing_missed() -> void:
 func _on_swing_impact(power: int, highest: int) -> void:
 	_play(&"swing_impact")
 	player_controller.player_context.personality.voice_swing.play3D(position)
-	if (power == 0 || power == 1):
+	_last_power = power
+	_last_highest = highest
+
+func _on_swing_released() -> void:
+	if (_last_power == 0 || _last_power == 1):
 		sfx_swing_impact_bad.play3D(position)
 		sparker.scale = Vector3(0.2, 0.2, 0.2)
-	elif (power == highest && highest >= 2):
+	elif (_last_power == _last_highest && _last_highest >= 2):
 		sfx_swing_impact_good.play3D(position)
 		sparker.scale = Vector3(1.5, 1.5, 1.5)
 	else:
 		sfx_swing_impact_normal.play3D(position)
 		sparker.scale = Vector3(0.6, 0.6, 0.6)
-
-func _on_swing_released() -> void:
 	GameManager.game.screenshake(sparker.scale.x)
 	sfx_swing_followthrough.play3D(position)
 	_play(&"swing_finish")
@@ -128,6 +133,7 @@ func _on_grabbed_item() -> void:
 
 func _on_dropped_item() -> void:
 	_bump_tween()
+	sfx_drop.play3D(position)
 	if (_is_moving):
 		_play(&"walk_empty")
 

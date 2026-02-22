@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AudioCollectionData" format=3 uid="uid://b72ndesl5ten6"]
+
+[ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="1_qt02o"]
+[ext_resource type="AudioStream" uid="uid://dma3lrh37h5hg" path="res://audio/audio_assets/Items/sfx_item_pickup_shortSword.ogg" id="1_spepa"]
+
+[resource]
+script = ExtResource("1_qt02o")
+clips = Array[AudioStream]([ExtResource("1_spepa")])
+metadata/_custom_type_script = "uid://b1qny5ew5yveu"
