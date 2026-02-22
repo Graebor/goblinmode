@@ -159,12 +159,12 @@ func _refresh_is_moving() -> void:
 	if (!_is_moving && new_is_moving):
 		_is_moving = true
 		movement_started.emit()
-		if (is_free && !_is_counting_down):
+		if (!_is_counting_down):
 			apply_impulse(movement.normalized() * 100 * _equipped_move_speed_multiplier)
 	elif (_is_moving && !new_is_moving):
 		_is_moving = false
 		movement_stopped.emit()
-		if (is_free && !_is_counting_down):
+		if (!_is_counting_down):
 			linear_velocity = linear_velocity * 0.1
 
 func _release_item(body: RigidBody3D) -> void:
