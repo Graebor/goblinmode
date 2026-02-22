@@ -1,7 +1,15 @@
 [gd_resource type="Resource" script_class="AudioCollectionData" format=3 uid="uid://w67y151wfn7d"]
 
+[ext_resource type="AudioStream" uid="uid://dm12imhxmo0o2" path="res://audio/audio_assets/Footsteps/sfx_goblin_footstep_stop_1.ogg" id="1_bpt76"]
 [ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="1_t6rsw"]
+[ext_resource type="AudioStream" uid="uid://bq5jdh53gc1ir" path="res://audio/audio_assets/Footsteps/sfx_goblin_footstep_stop_2.ogg" id="2_kefed"]
+[ext_resource type="AudioStream" uid="uid://ekeyvjhxqi1t" path="res://audio/audio_assets/Footsteps/sfx_goblin_footstep_stop_3.ogg" id="3_r4hlu"]
 
 [resource]
 script = ExtResource("1_t6rsw")
+clips = Array[AudioStream]([ExtResource("1_bpt76"), ExtResource("2_kefed"), ExtResource("3_r4hlu")])
+min_pitch = 1.15
+max_pitch = 0.85
+min_volume = 0.06
+max_volume = 0.06
 metadata/_custom_type_script = "uid://b1qny5ew5yveu"
