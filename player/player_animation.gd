@@ -111,6 +111,7 @@ func _on_swing_impact(power: int, highest: int) -> void:
 		sparker.scale = Vector3(0.6, 0.6, 0.6)
 
 func _on_swing_released() -> void:
+	GameManager.game.screenshake(sparker.scale.x)
 	sfx_swing_followthrough.play3D(position)
 	_play(&"swing_finish")
 
@@ -161,5 +162,6 @@ func _on_was_released() -> void:
 
 func _on_stun_began() -> void:
 	_play(&"RESET")
+	GameManager.game.screenshake(0.5)
 	player_controller.player_context.personality.voice_hit.play3D(position)
 	faceplant.visible = true

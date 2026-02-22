@@ -8,6 +8,9 @@ class_name Game
 @export var levels: Array[PackedScene]
 @export var game_camera: Camera3D
 @export var countdown: Countdown
+@export var shaker: Node3D
+@export var shake_angle: float = 5.0
+@export var shake_freq: float = 1.0
 
 var _title: Node
 var _scores: Dictionary[PlayerContext, int]
@@ -16,11 +19,15 @@ var _active_level: Node
 var _lobby: Lobby
 var _score_screen: ScoreScreen
 var _round_finished: bool
+var _current_shake: float = 1.0
 
 func get_score(player: PlayerContext) -> int:
 	if (_scores.has(player)):
 		return _scores[player]
 	return 0
+
+func screenshake(amount: float = 1.0) -> void:
+	_current_shake = max(_current_shake, amount)
 
 func _ready() -> void:
 	GameManager.game = self
@@ -29,7 +36,13 @@ func _ready() -> void:
 	game_camera.current = false
 	HoleManager.round_finished.connect(_on_round_finished)
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	if (_current_shake > 0):
+		_current_shake -= delta * 3
+		shaker.rotation_degrees.x = sin(_current_shake * shake_freq) * shake_angle * _current_shake
+	else:
+		shaker.rotation_degrees.x = 0
+	
 	if (_title != null):
 		if (Input.is_action_just_pressed("swing")):
 			_title.queue_free()
