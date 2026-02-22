@@ -85,4 +85,5 @@ polygon = PackedVector2Array(-2.4031048, -6.125749, -8.221796, 7.759487, 5.47560
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.639528, 1.9073486e-06, 8.898146)
 
 [node name="ForceZone" parent="." unique_id=608486138 instance=ExtResource("12_u64xv")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.398, -0.49, 14.513)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.904728, 0.7263429, 11.600908)
+direction = 1

@@ -17,21 +17,30 @@ enum Direction {
 
 var direction_vectors: Array[Vector2] = [
 	Vector2(0, 1),
-	Vector2(1, 1),
-	Vector2(1, 0),
-	Vector2(1, -1),
-	Vector2(0, -1),
-	Vector2(-1, -1),
+	Vector2(-1, 1),
 	Vector2(-1, 0),
-	Vector2(-1, 1)
+	Vector2(-1, -1),
+	Vector2(0, -1),
+	Vector2(1, -1),
+	Vector2(1, 0),
+	Vector2(1, 1)
 ]
+
+@export var direction_textures: Array[Texture2D] = []
 
 var time = 0.0
 var speed = 0.1
 
+func _ready() -> void:
+	pass
+
+
 func _process(delta: float) -> void:
 	time += delta
-	material.uv1_offset.x = time * speed
+	material.uv1_offset.x = direction_vectors[direction].x * time * speed
+	material.uv1_offset.y = direction_vectors[direction].y * time * speed
+	material.albedo_texture = direction_textures[direction]
+	
 
 # Called when the node enters the scene tree for the first time.
 func _physics_process(_delta: float) -> void:
@@ -40,5 +49,5 @@ func _physics_process(_delta: float) -> void:
 		if node is RigidBody3D:
 			var body: RigidBody3D = node as RigidBody3D
 			var direction_vector: Vector2 = direction_vectors[direction]
-			var force: Vector3 = Vector3(direction_vector.x, 0, direction_vector.y)
-			body.apply_force(force * power)
+			var force: Vector3 = Vector3(-direction_vector.x, 0, -direction_vector.y)
+			body.apply_force(body.mass * force * power)
