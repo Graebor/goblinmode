@@ -378,7 +378,7 @@ shading_mode = 0
 billboard_keep_scale = true
 
 [node name="PlayerAnimation" type="Node3D" unique_id=696991604 node_paths=PackedStringArray("animation_player_main", "root", "root2", "held_item_parent", "faceplant", "starfish", "sparker", "pointers")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
 script = ExtResource("1_fp5y0")
 animation_player_main = NodePath("TiltBack/Root/AnimationPlayer")
 root = NodePath("TiltBack/Root")
