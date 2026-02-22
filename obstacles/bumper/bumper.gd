@@ -36,7 +36,7 @@ func _on_body_entered(node: Node3D) -> void:
 	node_pos.y = 0
 	
 	var direction: Vector3 = node_pos - self_pos
-	body.apply_impulse(max(body.linear_velocity.length(), 4.0) * direction * body.mass)
+	body.linear_velocity = (max(body.linear_velocity.length(), 4.0) * direction)
 	_do_tween(clamp(body.linear_velocity.length() / 4.0, 0.0, 1.0))
 	if not body is PlayerController:
 		return

@@ -41,7 +41,12 @@ func _on_start_requested() -> void:
 
 func _all_ready() -> bool:
 	var all_ready: bool = true
+	var count_ready: int = 0
 	for slot: PlayerReadySlot in slots:
 		if (slot._has_joined && !slot._is_ready):
 			all_ready = false
+		if (slot._has_joined && slot._is_ready):
+			count_ready += 1
+	if (count_ready < 2):
+		return false
 	return all_ready

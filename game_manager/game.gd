@@ -13,6 +13,11 @@ class_name Game
 @export var shake_freq: float = 1.0
 @export var sfx_confirm_title: AudioCollectionData
 
+@export var music_main: AudioStream
+@export var music_title: AudioStream
+@export var music_lobby: AudioStream
+@export var music_scores: AudioStream
+
 var _title: Node
 var _scores: Dictionary[PlayerContext, int]
 var _active_level_index: int = -1
@@ -35,6 +40,7 @@ func _ready() -> void:
 	_title = title_scene.instantiate()
 	add_child(_title)
 	game_camera.current = false
+	AudioManager.PlayMusic(music_title)
 	HoleManager.round_finished.connect(_on_round_finished)
 
 func _process(delta: float) -> void:
@@ -55,6 +61,7 @@ func _process(delta: float) -> void:
 
 func _move_to_lobby() -> void:
 	ScreenFader.fade_from_black()
+	AudioManager.PlayMusic(music_lobby)
 	_active_level_index = -1
 	_lobby = lobby_scene.instantiate()
 	add_child(_lobby)
@@ -72,7 +79,8 @@ func _on_players_confirmed() -> void:
 
 func _begin_level(index: int) -> void:
 	ScreenFader.battle_transition(0.3)
-		
+	AudioManager.PlayMusic(null)
+	
 	if (index < levels.size()):
 		print("starting level " + str(index))
 		_active_level_index = index
@@ -96,6 +104,7 @@ func _begin_level(index: int) -> void:
 
 		await countdown.run()
 		
+		AudioManager.PlayMusic(music_main, true)
 		GameManager.notify_level_started()
 	else:
 		print("all levels done, going to lobby")
@@ -106,6 +115,8 @@ func _begin_level(index: int) -> void:
 func _on_round_finished() -> void:
 	if (_round_finished):
 		return
+		
+	AudioManager.PlayMusic(music_scores)
 	
 	_round_finished = true
 	await get_tree().create_timer(2).timeout
