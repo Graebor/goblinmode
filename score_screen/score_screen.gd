@@ -63,12 +63,14 @@ func _reveal_panels() -> void:
 	
 	for context: PlayerContext in players:
 		var score = GameManager.game.get_score(context)
+		var previous_score = GameManager.game.get_previous_score(context)
+		var change = score - previous_score
 
 		await get_tree().create_timer(0.13).timeout
 		
 		var panel: ScorePanel = score_panels[i]
 		
-		panel.setup(i, score, context)
+		panel.setup(i, score, change, context)
 		panel.visible = true
 		panel.rotation_degrees.x = -180
 		

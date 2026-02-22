@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cacqyi0ixcphn" path="res://score_screen/score_panel.gd" id="1_5m6p7"]
 [ext_resource type="PackedScene" uid="uid://dl3fqjdferepx" path="res://art/PlacementBackdropRibbonAlt1.fbx" id="2_jvw72"]
+[ext_resource type="Resource" uid="uid://cw766sxxtpuwb" path="res://audio/sfx_score_tick.tres" id="2_u8rp5"]
 [ext_resource type="FontFile" uid="uid://c0757uh3dawbu" path="res://art/ui/LondrinaSolid-Regular.ttf" id="3_bcbtt"]
 [ext_resource type="PackedScene" uid="uid://bqjedtfpebbi1" path="res://art/ui/Crown.fbx" id="3_wgnoo"]
 [ext_resource type="PackedScene" uid="uid://dfiqut7yy5joo" path="res://art/ui/Trophy.fbx" id="4_b6vgk"]
@@ -14,13 +15,15 @@ _limits = [0.0, 1024.0, 0.0, 2.0]
 _data = [Vector2(0.85838145, 1024), 0.0, -3194.9314, 0, 0, Vector2(1.7427745, 58.990112), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="ScorePanel" type="Node3D" unique_id=1824850265 node_paths=PackedStringArray("score_label", "name_label", "trophies", "scaler")]
+[node name="ScorePanel" type="Node3D" unique_id=1824850265 node_paths=PackedStringArray("score_label", "score_add_label", "name_label", "trophies", "scaler")]
 script = ExtResource("1_5m6p7")
 score_label = NodePath("Score")
+score_add_label = NodePath("ScoreAdd")
 name_label = NodePath("Name")
 trophies = [NodePath("Offset/Gold"), NodePath("Offset/Silver"), NodePath("Offset/Bronze"), NodePath("Offset/Tin")]
 speed_curve = SubResource("Curve_5m6p7")
 scaler = NodePath("Scaler")
+sfx_score_tick = ExtResource("2_u8rp5")
 
 [node name="Scaler" type="Node3D" parent="." unique_id=1052570988]
 
@@ -35,11 +38,18 @@ font_size = 40
 horizontal_alignment = 0
 
 [node name="Score" type="Label3D" parent="." unique_id=1241518029]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0901095, 0, 0.050742745)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.91950023, 0, 0.050742745)
 text = "0"
 font = ExtResource("4_jvw72")
 font_size = 60
 horizontal_alignment = 2
+
+[node name="ScoreAdd" type="Label3D" parent="." unique_id=789465122]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9935136, 0, 0.050742745)
+text = "+0"
+font = ExtResource("4_jvw72")
+font_size = 60
+horizontal_alignment = 0
 
 [node name="Offset" type="Node3D" parent="." unique_id=1579156264]
 transform = Transform3D(0.9328837, -0.3526004, 0.073490776, 0.36010802, 0.90906835, -0.20956352, 0.007084042, 0.22196305, 0.9750294, -1.0364724, -0.14070101, 0.15152349)

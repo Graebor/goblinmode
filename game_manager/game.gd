@@ -20,6 +20,7 @@ class_name Game
 
 var _title: Node
 var _scores: Dictionary[PlayerContext, int]
+var _previous_scores: Dictionary[PlayerContext, int]
 var _active_level_index: int = -1
 var _active_level: Node
 var _lobby: Lobby
@@ -30,6 +31,11 @@ var _current_shake: float = 1.0
 func get_score(player: PlayerContext) -> int:
 	if (_scores.has(player)):
 		return _scores[player]
+	return 0
+
+func get_previous_score(player: PlayerContext) -> int:
+	if (_previous_scores.has(player)):
+		return _previous_scores[player]
 	return 0
 
 func screenshake(amount: float = 1.0) -> void:
@@ -74,6 +80,7 @@ func _on_players_confirmed() -> void:
 		_lobby.queue_free()
 		_lobby = null
 		_scores.clear()
+		_previous_scores.clear()
 		_begin_level(0)
 
 
@@ -125,6 +132,7 @@ func _on_round_finished() -> void:
 	_clear_active_level()
 	
 	print("adding scores together")
+	_previous_scores = _scores.duplicate()
 	for player: PlayerContext in PlayerManager.round_order.keys():
 		var points: int = PlayerManager.players.size() - PlayerManager.round_order[player]
 		if (!_scores.has(player)):
