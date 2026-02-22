@@ -82,9 +82,18 @@ func _begin_level(index: int) -> void:
 		game_camera.current = true
 		_round_finished = false
 		
-		for context: PlayerContext in PlayerManager.players:
-			PlayerManager.spawn_player(context)
+		var spawns: Array[Node] = get_tree().get_nodes_in_group("Spawn")
+		var shuffled: Array[Node3D]
+		for spawn: Node in spawns:
+			if (spawn is Node3D):
+				shuffled.insert(randi_range(0, shuffled.size()), spawn as Node3D)
 		
+		var i: int = 0
+		for context: PlayerContext in PlayerManager.players:
+			var j: int = wrap(i, 0, shuffled.size())
+			PlayerManager.spawn_player(context, shuffled[j].global_position)
+			i += 1
+
 		await countdown.run()
 		
 		GameManager.notify_level_started()
