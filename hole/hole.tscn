@@ -247,12 +247,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_5dei8")
 
 [node name="HoleCSGCylinder3D" type="CSGCylinder3D" parent="Pivot" unique_id=597930674]
+transform = Transform3D(1.275, 0, 0, 0, 1.275, 0, 0, 0, 1.275, 0, 0, 0)
 radius = 0.55
 height = 0.05
 sides = 20
 material = SubResource("StandardMaterial3D_5dei8")
 
 [node name="HoleCSGTorus3D" type="CSGTorus3D" parent="Pivot" unique_id=257258642]
+transform = Transform3D(1.275, 0, 0, 0, 1.275, 0, 0, 0, 1.275, 0, 0, 0)
 outer_radius = 0.6
 sides = 20
 material = SubResource("StandardMaterial3D_unfpl")
@@ -260,7 +262,7 @@ material = SubResource("StandardMaterial3D_unfpl")
 [node name="ExtraFlagPivot" type="Node3D" parent="Pivot" unique_id=1372720712]
 
 [node name="FlagPivot" type="Node3D" parent="Pivot/ExtraFlagPivot" unique_id=696346451]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.86602515, 0.49999997, 0, -0.49999985, 0.8660253, 0, 0, 0)
+transform = Transform3D(1.865, 0, 0, 0, 1.6151373, 0.9325, 0, -0.9325, 1.6151373, 0, 0, 0)
 
 [node name="PoleCSGCylinder3D" type="CSGCylinder3D" parent="Pivot/ExtraFlagPivot/FlagPivot" unique_id=490298313]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
