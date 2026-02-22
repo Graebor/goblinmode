@@ -1,13 +1,8 @@
-[gd_scene format=3 uid="uid://bvgmxrf62jsja"]
+[gd_scene format=3 uid="uid://df8htppmswbqi"]
 
 [ext_resource type="Script" uid="uid://cw645qcq2qpgu" path="res://obstacles/tube/tube.gd" id="1_g3ayn"]
 
-[sub_resource type="Curve3D" id="Curve3D_oa0cm"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.3116622, 1.3305497, -3.9928882, 0, 0, 0, 0, 0, 0, 0.5703802, -1.9766331, -5.101247, 0, 0, 0, 0, 0, 0, 2.8626475, 0.16299438, -1.50994, 0, 0, 0, 0, 0, 0, 5.586376, 0.26688194, -5.3908243),
-"tilts": PackedFloat32Array(0, 0, 0, 0)
-}
-point_count = 4
+[sub_resource type="Curve3D" id="Curve3D_g3ayn"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g3ayn"]
 radius = 0.3
@@ -16,9 +11,10 @@ radius = 0.3
 radius = 0.3
 
 [node name="Tube" type="Path3D" unique_id=202651051]
-curve = SubResource("Curve3D_oa0cm")
+curve = SubResource("Curve3D_g3ayn")
 debug_custom_color = Color(1, 1, 1, 1)
 script = ExtResource("1_g3ayn")
+reset_curve = false
 
 [node name="Segments" type="Node3D" parent="." unique_id=945338792]
 

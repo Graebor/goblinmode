@@ -1,7 +1,11 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://dp0yad1wad5sd"]
 
+[ext_resource type="Material" uid="uid://dg7utpaatq1oq" path="res://player/outlinetest.tres" id="1_gpvmo"]
+
 [resource]
 resource_name = "M_ClubHandle"
+render_priority = 1
+next_pass = ExtResource("1_gpvmo")
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.2769051, 0.31021687, 0.35280526, 1)
 emission_enabled = true

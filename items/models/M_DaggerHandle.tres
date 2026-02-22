@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cmc5ws5lamxdb"]
+
+[ext_resource type="Material" uid="uid://bx4jdw46rkxg0" path="res://player/outlinebigger.tres" id="1_atdr6"]
+
+[resource]
+resource_name = "M_DaggerHandle"
+render_priority = 1
+next_pass = ExtResource("1_atdr6")
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.30361176, 0.23382685, 0.43198746, 1)
+emission_enabled = true

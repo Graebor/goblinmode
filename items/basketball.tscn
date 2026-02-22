@@ -1,13 +1,15 @@
-[gd_scene format=4 uid="uid://c5vicf7ow3xeu"]
+[gd_scene format=4 uid="uid://bhgr8qvn7nkun"]
 
 [ext_resource type="Script" uid="uid://bust0xh1gt5dy" path="res://items/item.gd" id="1_pljwg"]
 [ext_resource type="Resource" uid="uid://bopa8k8cw84pg" path="res://audio/audio_assets/Items/sfx_pickup_ball.tres" id="2_sxy44"]
 [ext_resource type="Material" uid="uid://sf0slcsuf2jj" path="res://items/models/M_GolfBall.tres" id="3_18brd"]
+[ext_resource type="Material" uid="uid://dg7utpaatq1oq" path="res://player/outlinetest.tres" id="3_sxy44"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7hnrh"]
 bounce = 0.9
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qt1fk"]
+next_pass = ExtResource("3_sxy44")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_7o8sl"]
 resource_name = "Ball"

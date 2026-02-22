@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dcqhqyhfdw34r"]
+
+[ext_resource type="Material" uid="uid://bx4jdw46rkxg0" path="res://player/outlinebigger.tres" id="1_q0kw6"]
+
+[resource]
+resource_name = "M_SwordHandle"
+next_pass = ExtResource("1_q0kw6")
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.20004891, 0.34729782, 0.48018858, 1)
+emission_enabled = true

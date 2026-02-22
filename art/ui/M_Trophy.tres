@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://es3wnmrlaani"]
+
+[resource]
+resource_name = "M_Trophy"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.8880644, 0.72082555, 0.33751652, 1)
+emission_enabled = true
+emission = Color(0.92, 0.78660005, 0.1196, 1)
+emission_energy_multiplier = 0.8

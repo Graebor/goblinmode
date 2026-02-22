@@ -17,6 +17,11 @@ var round_order_index: int = 0
 var players_already_done: Array[PlayerContext]
 
 func _ready() -> void:
+	var shuffled: Array[Personality]
+	for pers: Personality in personalities:
+		shuffled.insert(randi_range(0, shuffled.size()), pers)
+	personalities = shuffled
+	
 	HoleManager.ball_sinking.connect(_on_ball_sink)
 	GameManager.level_started.connect(_on_level_started)
 	

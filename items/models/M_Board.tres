@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://tmg05bc0oir2"]
+
+[ext_resource type="Material" uid="uid://bx4jdw46rkxg0" path="res://player/outlinebigger.tres" id="1_06ltp"]
+
+[resource]
+resource_name = "M_Board"
+render_priority = 1
+next_pass = ExtResource("1_06ltp")
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.6422293, 0.5386748, 0.34251136, 1)
+emission_enabled = true
