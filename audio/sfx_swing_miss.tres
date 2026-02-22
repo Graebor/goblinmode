@@ -1,7 +1,11 @@
 [gd_resource type="Resource" script_class="AudioCollectionData" format=3 uid="uid://bp3uq62wafccv"]
 
+[ext_resource type="AudioStream" uid="uid://dj5e4xsjtldw8" path="res://audio/audio_assets/Swings/sfx_goblin_swing_soft_1.ogg" id="1_c54nn"]
 [ext_resource type="Script" uid="uid://b1qny5ew5yveu" path="res://audio_manager/audio_collection_data.gd" id="1_voyv2"]
+[ext_resource type="AudioStream" uid="uid://ng2xpecykuh5" path="res://audio/audio_assets/Swings/sfx_goblin_swing_soft_2.ogg" id="2_imjgi"]
+[ext_resource type="AudioStream" uid="uid://b66qdob5ncygi" path="res://audio/audio_assets/Swings/sfx_goblin_swing_soft_3.ogg" id="3_vt12v"]
 
 [resource]
 script = ExtResource("1_voyv2")
+clips = Array[AudioStream]([ExtResource("1_c54nn"), ExtResource("2_imjgi"), ExtResource("3_vt12v")])
 metadata/_custom_type_script = "uid://b1qny5ew5yveu"
