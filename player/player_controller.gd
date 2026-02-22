@@ -274,7 +274,7 @@ func _get_movement() -> Vector3:
 	return direction
 
 func _handle_deadzone(value: float) -> float:
-	var deadzone: float = 0.2
+	var deadzone: float = 0.5
 	if value > deadzone:
 		return value
 	if value < -deadzone:
