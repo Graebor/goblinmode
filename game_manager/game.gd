@@ -143,8 +143,10 @@ func round_finish(instant: bool) -> void:
 	
 	print("adding scores together")
 	_previous_scores = _scores.duplicate()
-	for player: PlayerContext in PlayerManager.round_order.keys():
-		var points: int = PlayerManager.players.size() - PlayerManager.round_order[player]
+	for player: PlayerContext in PlayerManager.players:
+		var points: int = 0
+		if PlayerManager.points.has(player):
+			points = PlayerManager.points[player]
 		if (!_scores.has(player)):
 			_scores[player] = points
 		else:

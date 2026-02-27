@@ -20,10 +20,6 @@ func _on_ball_sunk(_player_context: PlayerContext, _hole: Hole) -> void:
 		if not ball.is_queued_for_deletion():
 			remaining += 1
 	
-	if PlayerManager.round_order.keys().size() >= PlayerManager.players.size() - 1:
-		# all but 1 player finished
-		round_finished.emit()
-		return
 	if remaining == 0 and hole_count > 0:
 		# all balls are gone but only if the course has a hole
 		round_finished.emit()

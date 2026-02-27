@@ -11,10 +11,8 @@ var personalities: Array[Personality] = [
 ]
 
 var players: Array[PlayerContext] = []
+var points: Dictionary[PlayerContext, int] = {}
 
-var round_order: Dictionary[PlayerContext, int] = {}
-var round_order_index: int = 0
-var players_already_done: Array[PlayerContext]
 
 func _ready() -> void:
 	var shuffled: Array[Personality]
@@ -27,20 +25,30 @@ func _ready() -> void:
 	
 	
 func _on_ball_sink(player_context: PlayerContext) -> void:
-	if (!players_already_done.has(player_context)):
-		players_already_done.append(player_context)
-		round_order_index += 1
-		round_order[player_context] = round_order_index
+	if !points.has(player_context):
+		points[player_context] = 0
+	points[player_context] += 1
 
 
-func on_player_removed(player_context: PlayerContext, remaining: int) -> void:
-	round_order[player_context] = remaining
+func on_player_removed(player_context: PlayerContext) -> void:
+	var player_nodes: Array[Node] = get_tree().get_nodes_in_group("Player")
+	var remaining: int = 0
+	var last_remaining_player: PlayerContext
+	for player: Node in player_nodes:
+		if not player.is_queued_for_deletion():
+			remaining += 1
+			last_remaining_player = (player as PlayerController).player_context
+	
+	var score: int = players.size() - remaining - 1
+	points[player_context] = score
+			
+	if remaining <= 1:
+		points[last_remaining_player] = players.size() - 1
+		HoleManager.round_finished.emit()
 
 
 func _on_level_started() -> void:
-	round_order_index = 0
-	round_order.clear()
-	players_already_done.clear()
+	points.clear()
 
 
 func _is_new_player(new_context: PlayerContext) -> bool:

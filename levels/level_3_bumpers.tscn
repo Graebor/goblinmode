@@ -99,11 +99,8 @@ transform = Transform3D(0.92706615, 0, 0.37489784, 0, 1, 0, -0.37489784, 0, 0.92
 
 [node name="Balls" type="Node3D" parent="." unique_id=58076082]
 
-[node name="Ball" parent="Balls" unique_id=1289526853 instance=ExtResource("9_t5hu4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.92191, 0, -1.1806936)
-
 [node name="Ball2" parent="Balls" unique_id=2072227025 instance=ExtResource("9_t5hu4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.005611, 0, -5.6671567)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.575943, 0, -3.956171)
 
 [node name="Ball3" parent="Balls" unique_id=530406940 instance=ExtResource("9_t5hu4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.879644, 0, -6.339464)

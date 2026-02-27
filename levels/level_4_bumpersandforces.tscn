@@ -42,7 +42,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("11_vd2jn")
 uv1_scale = Vector3(3, 3, 3)
-uv1_offset = Vector3(-12.536642, 0, 0)
+uv1_offset = Vector3(-2.7926035, 0, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_raj2r"]
 transparency = 1
@@ -50,7 +50,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("12_xsjt3")
 uv1_scale = Vector3(3, 3, 3)
-uv1_offset = Vector3(12.536642, -12.536642, 0)
+uv1_offset = Vector3(2.7926035, -2.7926035, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e4f64"]
 transparency = 1
@@ -58,7 +58,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("13_raj2r")
 uv1_scale = Vector3(3, 3, 3)
-uv1_offset = Vector3(12.536642, 12.536642, 0)
+uv1_offset = Vector3(2.7926035, 2.7926035, 0)
 
 [node name="Level4" type="Node3D" unique_id=1030056555]
 
@@ -122,32 +122,14 @@ transform = Transform3D(-0.05721551, 0, 0.9983618, 0, 1, 0, -0.9983618, 0, -0.05
 
 [node name="Balls" type="Node3D" parent="." unique_id=58076082]
 
-[node name="Ball" parent="Balls" unique_id=1289526853 instance=ExtResource("4_tv6r2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.041994, 0, 10.724577)
-
 [node name="Ball2" parent="Balls" unique_id=2072227025 instance=ExtResource("4_tv6r2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.44416, 0, -11.053638)
-
-[node name="Ball3" parent="Balls" unique_id=530406940 instance=ExtResource("4_tv6r2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.242857, 0, -11.554264)
-
-[node name="Ball4" parent="Balls" unique_id=1610469948 instance=ExtResource("4_tv6r2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.12509, 0, 12.197164)
-
-[node name="Ball5" parent="Balls" unique_id=361682758 instance=ExtResource("4_tv6r2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.669943, 0, 8.704662)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.78754, 0, -1.2830505)
 
 [node name="Ball6" parent="Balls" unique_id=1501613842 instance=ExtResource("4_tv6r2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.158356, 0, 5.31662)
-
-[node name="Ball7" parent="Balls" unique_id=1104061481 instance=ExtResource("4_tv6r2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.168005, 0, -5.5772395)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.077354, 0, 6.148159)
 
 [node name="Ball8" parent="Balls" unique_id=1271921440 instance=ExtResource("4_tv6r2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.75276, 0, -7.964422)
-
-[node name="Ball9" parent="Balls" unique_id=831236820 instance=ExtResource("4_tv6r2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.637474, 0, -5.0461607)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.634489, 0, -8.837539)
 
 [node name="Hazards" type="Node3D" parent="." unique_id=309463524]
 

@@ -39,16 +39,6 @@ func _on_body_entered(node: Node3D) -> void:
 	add_sibling(blast)
 	blast.blast(Color(1.0, 0.392, 0.04, 1.0))
 	
-	var players: Array[Node] = get_tree().get_nodes_in_group("Player")
-	var remaining: int = 0
-	for player: Node in players:
-		if not player.is_queued_for_deletion():
-			remaining += 1
-	
 	if node is PlayerController:
 		var player_controller: PlayerController = node as PlayerController
-		PlayerManager.on_player_removed(player_controller.player_context, remaining)
-	
-	if remaining <= 1:
-		HoleManager.round_finished.emit()
-		
+		PlayerManager.on_player_removed(player_controller.player_context)
