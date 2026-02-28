@@ -8,7 +8,6 @@ extends Path3D
 @onready var segments: Node3D = $Segments
 @onready var entry: Area3D = $EntryArea3D
 @onready var exit: Area3D = $ExitArea3D
-@export var reset_curve: bool = true
 @onready var sfx_enter: AudioCollectionData = preload("res://audio/sfx_tube_enter.tres")
 @onready var sfx_exit: AudioCollectionData = preload("res://audio/sfx_tube_exit.tres")
 
@@ -21,10 +20,6 @@ var speed: float = 10.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if Engine.is_editor_hint() and reset_curve:
-		curve = Curve3D.new()
-		reset_curve = false
-	
 	curve_changed.connect(_regenerate)
 	entry.body_entered.connect(_on_entry_entered)
 	exit.body_entered.connect(_on_exit_entered)
