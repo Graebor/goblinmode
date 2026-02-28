@@ -113,7 +113,7 @@ func _regenerate() -> void:
 		if point == 0:
 			var cap: Node3D = end_scene.instantiate()
 			cap.look_at_from_position(current_pos.lerp(next_pos, 0.01), next_pos, Vector3.RIGHT)
-			cap.rotate(Vector3.UP, deg_to_rad(180))
+			cap.rotate_object_local(Vector3.UP, deg_to_rad(180))
 			segments.add_child(cap)
 			cap_start = cap
 		elif point == curve.point_count - 2:
