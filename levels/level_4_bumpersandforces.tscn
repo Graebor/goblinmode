@@ -42,7 +42,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("11_vd2jn")
 uv1_scale = Vector3(3, 3, 3)
-uv1_offset = Vector3(-2.7926035, 0, 0)
+uv1_offset = Vector3(-11.949799, 0, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_raj2r"]
 transparency = 1
@@ -50,7 +50,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("12_xsjt3")
 uv1_scale = Vector3(3, 3, 3)
-uv1_offset = Vector3(2.7926035, -2.7926035, 0)
+uv1_offset = Vector3(11.949799, -11.949799, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e4f64"]
 transparency = 1
@@ -58,7 +58,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("13_raj2r")
 uv1_scale = Vector3(3, 3, 3)
-uv1_offset = Vector3(2.7926035, 2.7926035, 0)
+uv1_offset = Vector3(11.949799, 11.949799, 0)
 
 [node name="Level4" type="Node3D" unique_id=1030056555]
 
@@ -109,16 +109,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.821638, 0, -0.18866348)
 [node name="Items" type="Node3D" parent="." unique_id=1142739868]
 
 [node name="Bat" parent="Items" unique_id=1772857852 instance=ExtResource("4_uqcia")]
-transform = Transform3D(0.75668705, 0, 0.6537773, 0, 1, 0, -0.6537773, 0, 0.75668705, -22.023499, 0, -0.4764663)
+transform = Transform3D(-0.7003364, 0, 0.71381295, 0, 1, 0, -0.71381295, 0, -0.7003364, -19.65361, 0, 12.079779)
 
 [node name="Club" parent="Items" unique_id=1533407938 instance=ExtResource("5_vd2jn")]
-transform = Transform3D(0.92730147, 0, 0.3743153, 0, 1, 0, -0.3743153, 0, 0.92730147, -19.75478, 0, -3.0914817)
+transform = Transform3D(0.92730147, 0, 0.3743153, 0, 1, 0, -0.3743153, 0, 0.92730147, -18.715359, 0, -12.155262)
 
 [node name="Club2" parent="Items" unique_id=1318050431 instance=ExtResource("5_vd2jn")]
-transform = Transform3D(-0.5900422, 0, -0.80737245, 0, 1, 0, 0.80737245, 0, -0.5900422, -20.615402, 0, 4.305793)
+transform = Transform3D(-0.5900422, 0, -0.80737245, 0, 1, 0, 0.80737245, 0, -0.5900422, -16.000359, 0, 2.351675)
 
 [node name="GreatSword2" parent="Items" unique_id=895161233 instance=ExtResource("8_e4f64")]
-transform = Transform3D(-0.05721551, 0, 0.9983618, 0, 1, 0, -0.9983618, 0, -0.05721551, -14.465029, 0, -1.3159722)
+transform = Transform3D(-0.9979033, 0, -0.064723894, 0, 1, 0, 0.064723894, 0, -0.9979033, -21.482471, 0, 1.6012546)
 
 [node name="Balls" type="Node3D" parent="." unique_id=58076082]
 

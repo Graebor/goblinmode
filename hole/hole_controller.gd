@@ -23,7 +23,7 @@ func _ready() -> void:
 
 
 func _on_body_entered(node: Node3D) -> void:
-	if node.is_in_group("Ball") and not node.is_in_group("InHand") and not node.is_in_group("Sinking"):
+	if node.is_in_group(Groups.BALL) and not node.is_in_group(Groups.IN_HAND) and not node.is_in_group(Groups.SINKING):
 		if node is RigidBody3D:
 			var body: RigidBody3D = node as RigidBody3D
 			var vel: float = body.linear_velocity.length()
@@ -62,7 +62,7 @@ func _start_sink_ball(ball: RigidBody3D) -> void:
 	
 	ball.linear_velocity = Vector3.ZERO
 	
-	ball.add_to_group("Sinking")
+	ball.add_to_group(Groups.SINKING)
 	ball.set_collision_layer_value(3, false) # Item
 	ball.set_collision_layer_value(4, false) # Ball
 	sinking_balls.push_back(ball)

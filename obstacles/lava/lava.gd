@@ -26,10 +26,10 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(node: Node3D) -> void:
-	if not node.is_in_group("Item") and not node.is_in_group("Player"):
+	if not node.is_in_group(Groups.ITEM) and not node.is_in_group(Groups.PLAYER):
 		return
 		
-	if node.is_in_group("InHand"):
+	if node.is_in_group(Groups.IN_HAND):
 		return
 	
 	node.queue_free()

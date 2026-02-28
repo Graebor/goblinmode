@@ -29,7 +29,7 @@ func _on_swing_ended() -> void:
 
 
 func _on_body_entered(node: Node3D) -> void:
-	if node.is_in_group("Sinking") or node.is_in_group("InHand"):
+	if node.is_in_group(Groups.SINKING) or node.is_in_group(Groups.IN_HAND):
 		return
 	
 	var body: RigidBody3D = node as RigidBody3D

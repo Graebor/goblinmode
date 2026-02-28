@@ -44,23 +44,23 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if is_in_group("InHand") and not is_in_group("Sinking"):
+	if is_in_group(Groups.IN_HAND) and not is_in_group(Groups.SINKING):
 		linear_velocity = Vector3.ZERO
 		angular_velocity = Vector3.ZERO
 		position = Vector3.ZERO
 
-	if is_in_group("Sinking"):
+	if is_in_group(Groups.SINKING):
 		linear_velocity = Vector3.ZERO
 		angular_velocity = Vector3.ZERO
 		
-	if is_in_group("Sand"):
+	if is_in_group(Groups.IN_SAND):
 		angular_damp = max(_original_angular_damp * _sand_damp_mod, _sand_damp_min)
 		linear_damp = max(_original_linear_damp * _sand_damp_mod, _sand_damp_min)
 	else:
 		angular_damp = _original_angular_damp
 		linear_damp = _original_linear_damp
 		
-	if is_in_group("Tubing"):
+	if is_in_group(Groups.TUBING):
 		set_collision_layer_value(3, false)
 		set_collision_layer_value(4, false)
 	else:
@@ -69,6 +69,6 @@ func _process(_delta: float) -> void:
 
 
 func _setup() -> void:
-	if not is_in_group("InHand"):
+	if not is_in_group(Groups.IN_HAND):
 		self.reparent(ItemManager)
 		#self.owner = ItemManager

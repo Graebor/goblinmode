@@ -19,8 +19,6 @@ var balls_forward: Dictionary[Node3D, float] = {}
 var balls_backward: Dictionary[Node3D, float] = {}
 var speed: float = 10.0
 
-const TUBING_GROUP: String = "Tubing"
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if Engine.is_editor_hint() and reset_curve:
@@ -40,21 +38,21 @@ func _ready() -> void:
 	_regenerate()
 
 func _on_entry_entered(node: Node3D) -> void:
-	if node.is_in_group("Ball") and not node.is_in_group(TUBING_GROUP) and not node.is_in_group("InHand") and not node.is_in_group("Sinking"):
+	if node.is_in_group(Groups.BALL) and not node.is_in_group(Groups.TUBING) and not node.is_in_group(Groups.IN_HAND) and not node.is_in_group(Groups.SINKING):
 		if not balls_forward.has(node) and not balls_backward.has(node):
 			balls_forward[node] = curve.get_baked_length()
 			node.visible = false
-			node.add_to_group(TUBING_GROUP)
+			node.add_to_group(Groups.TUBING)
 			sfx_enter.play3D(node.global_position)
 			cap_start.get_node("SmallBlastFX").blast(Color.WHITE)
 
 
 func _on_exit_entered(node: Node3D) -> void:
-	if node.is_in_group("Ball") and not node.is_in_group(TUBING_GROUP) and not node.is_in_group("InHand") and not node.is_in_group("Sinking"):
+	if node.is_in_group(Groups.BALL) and not node.is_in_group(Groups.TUBING) and not node.is_in_group(Groups.IN_HAND) and not node.is_in_group(Groups.SINKING):
 		if not balls_forward.has(node) and not balls_backward.has(node):
 			balls_backward[node] = curve.get_baked_length()
 			node.visible = false
-			node.add_to_group(TUBING_GROUP)
+			node.add_to_group(Groups.TUBING)
 			sfx_enter.play3D(node.global_position)
 			cap_end.get_node("SmallBlastFX").blast(Color.WHITE)
 
@@ -95,7 +93,7 @@ func _spawn(ball: Node3D, area: Area3D, tube_position: Vector3) -> void:
 	
 	await get_tree().create_timer(0.2).timeout
 	
-	ball.remove_from_group(TUBING_GROUP)
+	ball.remove_from_group(Groups.TUBING)
 
 
 func _regenerate() -> void:

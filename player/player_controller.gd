@@ -19,11 +19,6 @@ signal was_released
 signal stun_began
 signal stun_ended
 
-const IN_HAND_GROUP: String = "InHand"
-const SINKING_GROUP: String = "Sinking"
-const ITEM_GROUP: String = "Item"
-const TUBING_GROUP: String = "Tubing"
-
 @export var speed: float = 1.0
 @export var pickup_range: float = 1.5
 @export var power_meter: PowerMeter
@@ -128,7 +123,7 @@ func _process(_delta: float) -> void:
 				if (item.sfx_pickup != null):
 					item.sfx_pickup.play3D(position)
 			target.reparent(inventory)
-			target.add_to_group(IN_HAND_GROUP)
+			target.add_to_group(Groups.IN_HAND)
 			target.global_position = inventory.global_position
 			target.rotation = Vector3.ZERO
 			target.freeze = true
@@ -180,7 +175,7 @@ func _release_item(body: RigidBody3D) -> void:
 		body._is_grabbed = false
 		body._is_locked = false
 		body.was_released.emit()
-	body.remove_from_group(IN_HAND_GROUP)
+	body.remove_from_group(Groups.IN_HAND)
 	body.global_position.y = 0
 	body.freeze = false
 	if body is Item:
@@ -192,7 +187,7 @@ func _begin_swing() -> void:
 	var target: RigidBody3D = _get_closest_swing_target(null, false)
 	if target != null:
 		target.reparent(swing_spot)
-		target.add_to_group(IN_HAND_GROUP)
+		target.add_to_group(Groups.IN_HAND)
 		target.global_position = swing_spot.global_position
 		if (target is Item):
 			_swinging_item_has_layer_3 = target.get_collision_layer_value(3)
@@ -271,7 +266,7 @@ func _physics_process(_delta: float) -> void:
 		var direction: Vector3 = _get_movement()
 		apply_force(speed * direction * _equipped_move_speed_multiplier)
 	
-	if is_in_group("Sand"):
+	if is_in_group(Groups.IN_SAND):
 		angular_damp = _original_angular_damp * _sand_damp_mod
 		linear_damp = _original_linear_damp * _sand_damp_mod
 	else:
@@ -309,10 +304,10 @@ func _handle_deadzone(value: Vector2) -> Vector2:
 	return Vector2.ZERO
 
 func _get_closest_swing_target(previous: Node3D, players_must_be_stunned: bool) -> Item:
-	var items: Array[Node] = get_tree().get_nodes_in_group(ITEM_GROUP)
+	var items: Array[Node] = get_tree().get_nodes_in_group(Groups.ITEM)
 	var closest: Node3D = null
 	for item: Node in items:
-		if not item.is_in_group(TUBING_GROUP) and not item.is_in_group(IN_HAND_GROUP) and not item.is_in_group(SINKING_GROUP) and item is Item and item != previous:
+		if not item.is_in_group(Groups.TUBING) and not item.is_in_group(Groups.IN_HAND) and not item.is_in_group(Groups.SINKING) and item is Item and item != previous:
 			if global_position.distance_to(item.global_position) < pickup_range:
 				if closest == null:
 					closest = item
@@ -322,7 +317,7 @@ func _get_closest_swing_target(previous: Node3D, players_must_be_stunned: bool) 
 		var stun_is_valid: bool = true
 		if (players_must_be_stunned):
 			stun_is_valid = player.is_stunned()
-		if not player.is_in_group(IN_HAND_GROUP) and stun_is_valid and player != self and player != previous:
+		if not player.is_in_group(Groups.IN_HAND) and stun_is_valid and player != self and player != previous:
 			if global_position.distance_to(player.global_position) < pickup_range:
 				if closest == null:
 					closest = player

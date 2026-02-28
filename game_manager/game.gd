@@ -104,7 +104,7 @@ func _begin_level(index: int) -> void:
 		game_camera.current = true
 		_round_finished = false
 		
-		var spawns: Array[Node] = get_tree().get_nodes_in_group("Spawn")
+		var spawns: Array[Node] = get_tree().get_nodes_in_group(Groups.SPAWN)
 		var shuffled: Array[Node3D]
 		for spawn: Node in spawns:
 			if (spawn is Node3D):

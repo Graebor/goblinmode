@@ -31,7 +31,7 @@ func _on_ball_sink(player_context: PlayerContext) -> void:
 
 
 func on_player_removed(player_context: PlayerContext) -> void:
-	var player_nodes: Array[Node] = get_tree().get_nodes_in_group("Player")
+	var player_nodes: Array[Node] = get_tree().get_nodes_in_group(Groups.PLAYER)
 	var remaining: int = 0
 	var last_remaining_player: PlayerContext
 	for player: Node in player_nodes:
