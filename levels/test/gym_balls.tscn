@@ -1,0 +1,168 @@
+[gd_scene format=3 uid="uid://bxpo5cup8cluw"]
+
+[ext_resource type="Texture2D" uid="uid://cmy8srtirkq5w" path="res://art/environment/T_Grass.png" id="1_ia201"]
+[ext_resource type="Material" uid="uid://cidx77nbsht47" path="res://obstacles/wall/rock.tres" id="2_i04gt"]
+[ext_resource type="PackedScene" uid="uid://opmn5mrir4jc" path="res://hole/hole.tscn" id="3_6652n"]
+[ext_resource type="PackedScene" uid="uid://bj485t2ul33ix" path="res://items/tools/club.tscn" id="4_rvlma"]
+[ext_resource type="PackedScene" uid="uid://b5lgxsfykvq31" path="res://items/balls/ball.tscn" id="5_5xvit"]
+[ext_resource type="PackedScene" uid="uid://dbreta3vfgdlk" path="res://obstacles/wall.tscn" id="6_dc3xs"]
+[ext_resource type="PackedScene" uid="uid://d2k7gfikhs461" path="res://obstacles/item_ejector/timed_ball_ejector.tscn" id="7_0ygtb"]
+[ext_resource type="PackedScene" uid="uid://o4y0ocmicixm" path="res://player/spawn.tscn" id="17_i4goe"]
+
+[sub_resource type="Environment" id="Environment_wq1qo"]
+ambient_light_source = 2
+ambient_light_color = Color(0.78200006, 0.8786, 0.92, 1)
+tonemap_mode = 2
+tonemap_exposure = 0.66
+tonemap_white = 2.14
+adjustment_enabled = true
+adjustment_brightness = 1.04
+adjustment_contrast = 1.15
+adjustment_saturation = 1.25
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_uh08m"]
+exposure_multiplier = 1.771
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bt44k"]
+albedo_color = Color(0.17771304, 0.5520577, 0.43530717, 1)
+albedo_texture = ExtResource("1_ia201")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+
+[node name="Gym" type="Node3D" unique_id=1030056555]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=20630516]
+transform = Transform3D(0.70710677, 0.5416752, -0.45451948, 0, 0.64278764, 0.76604444, 0.70710677, -0.5416752, 0.45451948, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1853603493]
+environment = SubResource("Environment_wq1qo")
+camera_attributes = SubResource("CameraAttributesPractical_uh08m")
+
+[node name="Ground" type="Node3D" parent="." unique_id=772604053]
+
+[node name="Base" type="CSGBox3D" parent="Ground" unique_id=791192927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03453827, -1, 0)
+size = Vector3(58, 1, 33)
+material = SubResource("StandardMaterial3D_bt44k")
+
+[node name="Border" type="Node3D" parent="Ground" unique_id=2054560647]
+
+[node name="Top" type="CSGBox3D" parent="Ground/Border" unique_id=1430193274]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+use_collision = true
+size = Vector3(51, 1, 1)
+material = ExtResource("2_i04gt")
+
+[node name="Bottom" type="CSGBox3D" parent="Ground/Border" unique_id=1417298179]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.7)
+use_collision = true
+size = Vector3(51, 1, 1)
+material = ExtResource("2_i04gt")
+
+[node name="Left" type="CSGBox3D" parent="Ground/Border" unique_id=417879910]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
+use_collision = true
+size = Vector3(1, 1, 31)
+material = ExtResource("2_i04gt")
+
+[node name="Right" type="CSGBox3D" parent="Ground/Border" unique_id=354431360]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
+use_collision = true
+size = Vector3(1, 1, 31)
+material = ExtResource("2_i04gt")
+
+[node name="Hole" parent="." unique_id=1199113028 instance=ExtResource("3_6652n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.436277, 0, -13.14392)
+
+[node name="Items" type="Node3D" parent="." unique_id=1142739868]
+
+[node name="Club" parent="Items" unique_id=1772857852 instance=ExtResource("4_rvlma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.776958, 0, -8.811883)
+
+[node name="Club2" parent="Items" unique_id=1978840172 instance=ExtResource("4_rvlma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.60102, 0, -8.811883)
+
+[node name="Club3" parent="Items" unique_id=2028930410 instance=ExtResource("4_rvlma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.425083, 0, -8.811883)
+
+[node name="Club4" parent="Items" unique_id=1388944970 instance=ExtResource("4_rvlma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.28368, 0, -8.811883)
+
+[node name="Balls" type="Node3D" parent="." unique_id=58076082]
+
+[node name="Ball" parent="Balls" unique_id=252662598 instance=ExtResource("5_5xvit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.879045, 0, -10.715631)
+
+[node name="Ball2" parent="Balls" unique_id=579231913 instance=ExtResource("5_5xvit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.703108, 0, -10.715631)
+
+[node name="Ball3" parent="Balls" unique_id=44258338 instance=ExtResource("5_5xvit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.52717, 0, -10.715631)
+
+[node name="Ball4" parent="Balls" unique_id=1093108182 instance=ExtResource("5_5xvit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.385767, 0, -10.715631)
+
+[node name="Hazards" type="Node3D" parent="." unique_id=309463524]
+
+[node name="Wall" parent="Hazards" unique_id=761124046 instance=ExtResource("6_dc3xs")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -25, 0.5, 7)
+polygon = PackedVector2Array(0, 1, 0, -9, 4, -9, 4, -8, 1, -3, 1, 1)
+snap_mode = 1
+
+[node name="Wall2" parent="Hazards" unique_id=1734365011 instance=ExtResource("6_dc3xs")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -16, 0.5, 7)
+polygon = PackedVector2Array(0, 1, 0, -9, 4, -9, 4, -8, 1, -4, 1, 1)
+snap_mode = 1
+
+[node name="Wall3" parent="Hazards" unique_id=756843062 instance=ExtResource("6_dc3xs")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7, 0.5, 7)
+polygon = PackedVector2Array(0, 1, 0, -9, 4, -9, 4, -8, 1, -5, 1, 1)
+snap_mode = 1
+
+[node name="Wall4" parent="Hazards" unique_id=796661815 instance=ExtResource("6_dc3xs")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2, 0.5, 7)
+polygon = PackedVector2Array(0, 1, 0, -9, 4, -9, 4, -8, 1, -6, 1, 1)
+snap_mode = 1
+
+[node name="Wall5" parent="Hazards" unique_id=1969998730 instance=ExtResource("6_dc3xs")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 11, 0.5, 7)
+polygon = PackedVector2Array(0, 1, 0, -9, 4, -9, 4, -8, 1, -7, 1, 1)
+snap_mode = 1
+
+[node name="Wall6" parent="Hazards" unique_id=360717742 instance=ExtResource("6_dc3xs")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 20, 0.5, 7)
+polygon = PackedVector2Array(0, 1, 0, -9, 4, -9, 4, -8, 1, -8, 1, 1)
+snap_mode = 1
+
+[node name="ItemEjector" parent="Hazards" unique_id=1047408391 instance=ExtResource("7_0ygtb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.375458, 0, 5.3779316)
+
+[node name="ItemEjector2" parent="Hazards" unique_id=19419625 instance=ExtResource("7_0ygtb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.375458, 0, 5.3779316)
+
+[node name="ItemEjector3" parent="Hazards" unique_id=1294336726 instance=ExtResource("7_0ygtb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.375458, 0, 5.3779316)
+
+[node name="ItemEjector4" parent="Hazards" unique_id=131048098 instance=ExtResource("7_0ygtb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.624542, 0, 5.3779316)
+
+[node name="ItemEjector5" parent="Hazards" unique_id=868342743 instance=ExtResource("7_0ygtb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.624542, 0, 5.3779316)
+
+[node name="ItemEjector6" parent="Hazards" unique_id=348517793 instance=ExtResource("7_0ygtb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.624542, 0, 5.3779316)
+
+[node name="Spawns" type="Node3D" parent="." unique_id=1590108862]
+
+[node name="Spawn" parent="Spawns" unique_id=1097262877 instance=ExtResource("17_i4goe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.928312, 0, -12.917432)
+
+[node name="Spawn2" parent="Spawns" unique_id=1787963153 instance=ExtResource("17_i4goe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.752375, 0, -12.917432)
+
+[node name="Spawn3" parent="Spawns" unique_id=238147138 instance=ExtResource("17_i4goe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.576437, 0, -12.917432)
+
+[node name="Spawn4" parent="Spawns" unique_id=1649270702 instance=ExtResource("17_i4goe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.435034, 0, -12.917432)

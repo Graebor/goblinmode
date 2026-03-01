@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d2k7gfikhs461"]
+
+[ext_resource type="Script" uid="uid://bi37ifuxo32t6" path="res://obstacles/item_ejector/item_ejector.gd" id="1_h6k02"]
+[ext_resource type="PackedScene" uid="uid://ohra03dx5rwj" path="res://items/balls/timed_ball.tscn" id="2_vxljm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxljm"]
+albedo_color = Color(0.7231885, 0.5078685, 1.92523e-07, 1)
+
+[node name="ItemEjector" type="Node3D" unique_id=1047408391]
+script = ExtResource("1_h6k02")
+item_scene = ExtResource("2_vxljm")
+is_infinite = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1638218246]
+material = SubResource("StandardMaterial3D_vxljm")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1817663474]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3795166)
+size = Vector3(0.5, 0.5, 0.5)
+material = SubResource("StandardMaterial3D_vxljm")

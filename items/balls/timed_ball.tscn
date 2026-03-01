@@ -1,15 +1,17 @@
-[gd_scene format=4 uid="uid://b5lgxsfykvq31"]
+[gd_scene format=4 uid="uid://ohra03dx5rwj"]
 
-[ext_resource type="Script" uid="uid://bust0xh1gt5dy" path="res://items/item.gd" id="1_7hnrh"]
-[ext_resource type="Material" uid="uid://sf0slcsuf2jj" path="res://items/models/M_GolfBall.tres" id="2_qt1fk"]
-[ext_resource type="Resource" uid="uid://bopa8k8cw84pg" path="res://audio/audio_assets/Items/sfx_pickup_ball.tres" id="2_vp5ra"]
-[ext_resource type="Material" uid="uid://dg7utpaatq1oq" path="res://player/outlinetest.tres" id="3_xwmv4"]
+[ext_resource type="Script" uid="uid://bust0xh1gt5dy" path="res://items/item.gd" id="1_w1a62"]
+[ext_resource type="Resource" uid="uid://bopa8k8cw84pg" path="res://audio/audio_assets/Items/sfx_pickup_ball.tres" id="2_vwvpn"]
+[ext_resource type="Material" uid="uid://dg7utpaatq1oq" path="res://player/outlinetest.tres" id="3_2mkl2"]
+[ext_resource type="Material" uid="uid://sf0slcsuf2jj" path="res://items/models/M_GolfBall.tres" id="4_bts3c"]
+[ext_resource type="Script" uid="uid://b6yuo31wlgnim" path="res://items/timed_parent_deleter.gd" id="5_vwvpn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7hnrh"]
-bounce = 0.9
+friction = 0.0
+bounce = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qt1fk"]
-next_pass = ExtResource("3_xwmv4")
+next_pass = ExtResource("3_2mkl2")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_7o8sl"]
 resource_name = "Ball"
@@ -20,7 +22,7 @@ _surfaces = [{
 "index_count": 504,
 "index_data": PackedByteArray("CQA+ACQAJAA+AAoAJAA/AAkAJgAJAD8ACgBAACQAPwAlACYAEAA/ACQAEAAlAD8AEAAkAEAAJgAlAEEAEABBACUAQQBCACYAQwBAAAoAEABAAEMACgAWAEMAQwAWAEQAQgBBAEUAEABFAEEARQAMAEIAKgAMAEUARABGAEMAEABDAEYARgBEACgARQBHACoAEABHAEUAEABGACcAKAAnAEYAEAApAEcAKgBHACkAKQBIACoACwBIACkASQAnACgAKAALAEkAEAAnAEkAKQBJAAsAEABJACkALABKAAgABABKACwALABLAAQAFwBLACwACAArACwALABMABcATAAsACsAKwAIAC0AFwBMAE0ATQBOABcABQBOAE0ATQAuAAUATwAuAE0ALQBQACsATQATAE8ATQBMAFEAKwBRAEwAUQATAE0AFABPABMAGABRACsAKwBQABgAEwBRABgAEwBSABQAGABSABMAFABSAC8ALwBSABgALwBTABQAGQBQAC0AGABQABkALQBUABkAGABVAC8AGQBVABgAUwAvABoAMQAZAFQAVQAZADEAVAAHADEAGgADAFMALwBVAFYAVgAaAC8AMQBWAFUAMAADABoAMQAHADIAGgBXADAAGgBWABIAEgBWADEAEgBXABoAMgBYADEAMQBYABIAGwBYADIAEgBYABsAMgBZABsAGwBZAAIAMABXABwAHABXABIAHABaADAABgBaABwAAgAzABsAGwBbABIAEgBbABwAWwAbADMAMwACADQAHABbAFwAMwBcAFsAHAA1AAYAXAA1ABwAXQAGADUAEQBcADMANQBcABEANABeADMAMwBeABEANQBfAF0AEQBfADUAXQBfAB0AHQBfABEAHQBgAF0AHgBeADQAEQBeAB4ANABhAB4AEQBiAB0AHgBiABEAYAAdADYANwAeAGEAYgAeADcAYQAfADcANwAfAAAAAABjADcANgAgAGAANwBjACEAAQAgADYANgBkAAEAIQBkADYAIQBlADcANgBlACEANwBlAGIAZQA2AB0AHQBiAGUAOQA4AGYADgA4ADkAZgBnADkAZwBmABUAOQBoAA4AFQBpAGcAPQA5AGcAPQBoADkAPQBnAGkADgBoAGoAPQBqAGgAagAiAA4AawAiAGoAOgBpABUAPQBpADoAFQBsADoAagBtAGsAPQBtAGoAbgBrAG0AbwA6AGwAPQA6AG8AbAAPAG8AbwAPADsAbQAjAG4APQAjAG0APQBvAHAAOwBwAG8APQBxACMAbgAjAHEAcQANAG4APQA8AHEADQBxADwAPQBwADwAPABwADsAPAByAA0AOwByADwA"),
 "lods": [0.00973054, PackedByteArray("JAAJAAoAFgAkAAoAEAAJACQAEAAkABYAEAAlAAkACQAlACYAJQAMACYAEAAMACUAEAAWACcAJwAWACgACwAnACgAEAAnAAsAEAALACkAEAApAAwAKQALACoADAApACoACAArACwAKwAIAC0ABAAIACwAFwAEACwAFwAsAC4ABQAXAC4ALgAsABMAKwATACwAFAAuABMAGAATACsAEwAYABQAKwAtABgAFAAYAC8ALwADABQAGAAtABkAGAAZAC8ALQAHABkAAwAvABoALwAZABoAMAADABoAMQAZAAcAMQAaABkAMQAHADIAEgAaADEAGgASADAAMQAyABIAMAASABwAEgAyABsAEgAbABwAMgACABsABgAwABwAAgAzABsAMwACADQAHAAbADUAMwA1ABsAHAA1AAYAEQA1ADMAMwA0ABEANQARAAYAEQA0AB4ABgARAB0AEQAeAB0AHQAgAAYANAAfAB4AIAAdADYAHQAeADYAAQAgADYANgAhAAEANwA2AB4AIQA2ADcANwAeAB8ANwAAACEANwAfAAAADgA4ADkAOQA4ABUADgA5ACIAOgA5ABUAFQAPADoAOgAPADsAOwA8ADoAPAA7AA0APQA5ADoAPQA6ADwAPQAiADkAPQA8AA0ADQAiACMAPQAjACIAPQANACMA"), 0.019982077, PackedByteArray("EAAJAAoAEAAMAAkAFgAQAAoAEAALAAwAEAAWAAsABAAIABcACAATABcABQAXABMAFAAFABMAGAATAAgAEwAYABQAGAAIABkACAAHABkAFAAYABoAGAAZABoABwAaABkAGgADABQAEgAaAAcAGgASAAMAEgAHABsABwACABsAAwASABwAEgAbABwAAgAcABsABgADABwAEQAcAAIAHAARAAYABgARAB0AEQACAB4AEQAeAB0AAgAfAB4AHQAgAAYAHQAeACAAHwAgAB4AIQAgAB8AIAAhAAEAHwAAACEADQAiACMAIwAiAA4AIwAPAA0AIwAOAA8ADwAOABUA"), 0.03347774, PackedByteArray("EAAJAAoAEAAMAAkAEAAKAAsAEAALAAwAAgAAABEAAAABABEAEQABAAYAEQAGAAIAEgACAAYAEgAHAAIAAwASAAYAEgADAAcAEwAHAAMAEwAIAAcAFAATAAMACAATAAQAFAAFABMABQAEABMADwAOABUADQAOAA8A"), 0.07385523, PackedByteArray("AAABAAIAAgABAAYABwACAAYAAwAHAAYACAAHAAMAAwAFAAgABQAEAAgACQAKAAsACQALAAwADQAOAA8A"), 0.11671978, PackedByteArray("AAABAAIAAgABAAMABAACAAMAAwAFAAQA")],
-"material": ExtResource("2_qt1fk"),
+"material": ExtResource("4_bts3c"),
 "name": "M_Ball",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -39,12 +41,12 @@ axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 physics_material_override = SubResource("PhysicsMaterial_7hnrh")
-linear_damp = 0.5
-script = ExtResource("1_7hnrh")
+linear_damp = 0.25
+script = ExtResource("1_w1a62")
 power_segments = 2
 move_speed_multiplier = 0.2
 tint_with_owner = NodePath("Ball")
-sfx_pickup = ExtResource("2_vp5ra")
+sfx_pickup = ExtResource("2_vwvpn")
 can_be_thrown = true
 
 [node name="Ball" type="MeshInstance3D" parent="." unique_id=53324163]
@@ -54,3 +56,7 @@ mesh = SubResource("ArrayMesh_7o8sl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1539824022]
 shape = SubResource("SphereShape3D_tab4e")
+
+[node name="TimedParentDeleter" type="Node" parent="." unique_id=1942713381]
+script = ExtResource("5_vwvpn")
+metadata/_custom_type_script = "uid://b6yuo31wlgnim"

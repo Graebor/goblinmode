@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://cmy8srtirkq5w" path="res://art/environment/T_Grass.png" id="1_5443f"]
 [ext_resource type="Material" uid="uid://cidx77nbsht47" path="res://obstacles/wall/rock.tres" id="2_aco32"]
 [ext_resource type="PackedScene" uid="uid://opmn5mrir4jc" path="res://hole/hole.tscn" id="3_msyxh"]
-[ext_resource type="PackedScene" uid="uid://bj485t2ul33ix" path="res://items/club.tscn" id="4_j8rly"]
-[ext_resource type="PackedScene" uid="uid://b5lgxsfykvq31" path="res://items/ball.tscn" id="5_o4r3f"]
+[ext_resource type="PackedScene" uid="uid://bj485t2ul33ix" path="res://items/tools/club.tscn" id="4_j8rly"]
+[ext_resource type="PackedScene" uid="uid://b5lgxsfykvq31" path="res://items/balls/ball.tscn" id="5_o4r3f"]
 [ext_resource type="PackedScene" uid="uid://bjjgj1yr8lm8s" path="res://obstacles/sandtrap.tscn" id="6_xdcq4"]
 [ext_resource type="PackedScene" uid="uid://ctr5y701uyn5k" path="res://obstacles/force_zone.tscn" id="7_0rmra"]
 [ext_resource type="Texture2D" uid="uid://bl8k4imakquks" path="res://art/environment/T_Arrows.png" id="8_qk1ov"]
@@ -44,7 +44,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("8_qk1ov")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
-uv1_offset = Vector3(0, -4.7204485, 0)
+uv1_offset = Vector3(0, -2.3996625, 0)
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_msyxh"]
@@ -53,7 +53,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("8_qk1ov")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
-uv1_offset = Vector3(0, -4.7204485, 0)
+uv1_offset = Vector3(0, -2.3996625, 0)
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8rly"]
@@ -62,7 +62,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("8_qk1ov")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
-uv1_offset = Vector3(0, -4.7204485, 0)
+uv1_offset = Vector3(0, -2.3996625, 0)
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o4r3f"]
@@ -71,7 +71,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("9_s6fki")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
-uv1_offset = Vector3(-3.337861, -3.337861, 0)
+uv1_offset = Vector3(-1.6968176, -1.6968176, 0)
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdcq4"]
@@ -80,7 +80,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("10_41ej8")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
-uv1_offset = Vector3(-4.7204485, 0, 0)
+uv1_offset = Vector3(-2.3996625, 0, 0)
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rmra"]
@@ -89,7 +89,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("10_41ej8")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
-uv1_offset = Vector3(-4.7204485, 0, 0)
+uv1_offset = Vector3(-2.3996625, 0, 0)
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qk1ov"]
@@ -98,7 +98,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("11_8bq68")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
-uv1_offset = Vector3(4.7204485, 0, 0)
+uv1_offset = Vector3(2.3996625, 0, 0)
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6fki"]
@@ -107,7 +107,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("10_41ej8")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
-uv1_offset = Vector3(-4.7204485, 0, 0)
+uv1_offset = Vector3(-2.3996625, 0, 0)
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_41ej8"]
@@ -116,7 +116,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("11_8bq68")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
-uv1_offset = Vector3(4.7204485, 0, 0)
+uv1_offset = Vector3(2.3996625, 0, 0)
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8bq68"]
@@ -125,7 +125,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("11_8bq68")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
-uv1_offset = Vector3(4.7204485, 0, 0)
+uv1_offset = Vector3(2.3996625, 0, 0)
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5y34j"]
@@ -134,7 +134,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("12_5y34j")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
-uv1_offset = Vector3(-3.337861, 3.337861, 0)
+uv1_offset = Vector3(-1.6968176, 1.6968176, 0)
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnaf7"]
@@ -143,7 +143,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("13_dnaf7")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
-uv1_offset = Vector3(0, 4.7204485, 0)
+uv1_offset = Vector3(0, 2.3996625, 0)
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2i1xe"]
@@ -152,7 +152,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("14_2i1xe")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
-uv1_offset = Vector3(3.337861, 3.337861, 0)
+uv1_offset = Vector3(1.6968176, 1.6968176, 0)
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fl8w6"]
@@ -161,7 +161,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("11_8bq68")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
-uv1_offset = Vector3(4.7204485, 0, 0)
+uv1_offset = Vector3(2.3996625, 0, 0)
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ly1k2"]
@@ -170,7 +170,7 @@ blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("15_fl8w6")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
-uv1_offset = Vector3(3.337861, -3.337861, 0)
+uv1_offset = Vector3(1.6968176, -1.6968176, 0)
 uv1_triplanar = true
 
 [node name="Gym" type="Node3D" unique_id=1030056555]
