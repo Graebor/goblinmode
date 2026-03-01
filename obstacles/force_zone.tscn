@@ -11,17 +11,19 @@
 [ext_resource type="Texture2D" uid="uid://c5ktmrkksw1u1" path="res://art/environment/T_Arrows7.png" id="8_h0a63"]
 [ext_resource type="Texture2D" uid="uid://54rtgenev6tw" path="res://art/environment/T_Arrows8.png" id="9_eosqb"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20gwd"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3snr0"]
 transparency = 1
 blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("1_snpfr")
-uv1_scale = Vector3(3, 3, 3)
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_offset = Vector3(0, 21.499159, 0)
+uv1_triplanar = true
 
 [node name="ForceZone" type="CSGPolygon3D" unique_id=1003796369 node_paths=PackedStringArray("area")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 polygon = PackedVector2Array(-0.8778696, -4.444204, -8.221796, 7.759487, 5.4756045, 5.6645765, 12.355175, -3.883881)
-material = SubResource("StandardMaterial3D_20gwd")
+material = SubResource("StandardMaterial3D_3snr0")
 script = ExtResource("2_snpfr")
 area = NodePath("Area3D")
 direction_textures = Array[Texture2D]([ExtResource("1_snpfr"), ExtResource("3_3snr0"), ExtResource("4_ro0bt"), ExtResource("5_mqr82"), ExtResource("6_a7lhc"), ExtResource("7_ps0lm"), ExtResource("8_h0a63"), ExtResource("9_eosqb")])

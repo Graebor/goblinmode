@@ -1,0 +1,376 @@
+[gd_scene format=3 uid="uid://ddn56nycwhlyo"]
+
+[ext_resource type="Texture2D" uid="uid://cmy8srtirkq5w" path="res://art/environment/T_Grass.png" id="1_5443f"]
+[ext_resource type="Material" uid="uid://cidx77nbsht47" path="res://obstacles/wall/rock.tres" id="2_aco32"]
+[ext_resource type="PackedScene" uid="uid://opmn5mrir4jc" path="res://hole/hole.tscn" id="3_msyxh"]
+[ext_resource type="PackedScene" uid="uid://bj485t2ul33ix" path="res://items/club.tscn" id="4_j8rly"]
+[ext_resource type="PackedScene" uid="uid://b5lgxsfykvq31" path="res://items/ball.tscn" id="5_o4r3f"]
+[ext_resource type="PackedScene" uid="uid://bjjgj1yr8lm8s" path="res://obstacles/sandtrap.tscn" id="6_xdcq4"]
+[ext_resource type="PackedScene" uid="uid://ctr5y701uyn5k" path="res://obstacles/force_zone.tscn" id="7_0rmra"]
+[ext_resource type="Texture2D" uid="uid://bl8k4imakquks" path="res://art/environment/T_Arrows.png" id="8_qk1ov"]
+[ext_resource type="Texture2D" uid="uid://dw0wmutg6qflk" path="res://art/environment/T_Arrows2.png" id="9_s6fki"]
+[ext_resource type="Texture2D" uid="uid://dce2rk5xymxga" path="res://art/environment/T_Arrows3.png" id="10_41ej8"]
+[ext_resource type="Texture2D" uid="uid://c5ktmrkksw1u1" path="res://art/environment/T_Arrows7.png" id="11_8bq68"]
+[ext_resource type="Texture2D" uid="uid://cioo1xpw4w22o" path="res://art/environment/T_Arrows4.png" id="12_5y34j"]
+[ext_resource type="Texture2D" uid="uid://mx5sd0geefad" path="res://art/environment/T_Arrows5.png" id="13_dnaf7"]
+[ext_resource type="Texture2D" uid="uid://ctg4p1ly40e0i" path="res://art/environment/T_Arrows6.png" id="14_2i1xe"]
+[ext_resource type="Texture2D" uid="uid://54rtgenev6tw" path="res://art/environment/T_Arrows8.png" id="15_fl8w6"]
+[ext_resource type="PackedScene" uid="uid://bbvxjns3aym1k" path="res://obstacles/hedge.tscn" id="16_aco32"]
+[ext_resource type="PackedScene" uid="uid://o4y0ocmicixm" path="res://player/spawn.tscn" id="16_ly1k2"]
+
+[sub_resource type="Environment" id="Environment_wq1qo"]
+ambient_light_source = 2
+ambient_light_color = Color(0.78200006, 0.8786, 0.92, 1)
+tonemap_mode = 2
+tonemap_exposure = 0.66
+tonemap_white = 2.14
+adjustment_enabled = true
+adjustment_brightness = 1.04
+adjustment_contrast = 1.15
+adjustment_saturation = 1.25
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_uh08m"]
+exposure_multiplier = 1.771
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bt44k"]
+albedo_color = Color(0.17771304, 0.5520577, 0.43530717, 1)
+albedo_texture = ExtResource("1_5443f")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aco32"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
+albedo_texture = ExtResource("8_qk1ov")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_offset = Vector3(0, -4.7204485, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_msyxh"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
+albedo_texture = ExtResource("8_qk1ov")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_offset = Vector3(0, -4.7204485, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8rly"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
+albedo_texture = ExtResource("8_qk1ov")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_offset = Vector3(0, -4.7204485, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o4r3f"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
+albedo_texture = ExtResource("9_s6fki")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_offset = Vector3(-3.337861, -3.337861, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdcq4"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
+albedo_texture = ExtResource("10_41ej8")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_offset = Vector3(-4.7204485, 0, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rmra"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
+albedo_texture = ExtResource("10_41ej8")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_offset = Vector3(-4.7204485, 0, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qk1ov"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
+albedo_texture = ExtResource("11_8bq68")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_offset = Vector3(4.7204485, 0, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6fki"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
+albedo_texture = ExtResource("10_41ej8")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_offset = Vector3(-4.7204485, 0, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_41ej8"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
+albedo_texture = ExtResource("11_8bq68")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_offset = Vector3(4.7204485, 0, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8bq68"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
+albedo_texture = ExtResource("11_8bq68")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_offset = Vector3(4.7204485, 0, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5y34j"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
+albedo_texture = ExtResource("12_5y34j")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_offset = Vector3(-3.337861, 3.337861, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnaf7"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
+albedo_texture = ExtResource("13_dnaf7")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_offset = Vector3(0, 4.7204485, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2i1xe"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
+albedo_texture = ExtResource("14_2i1xe")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_offset = Vector3(3.337861, 3.337861, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fl8w6"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
+albedo_texture = ExtResource("11_8bq68")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_offset = Vector3(4.7204485, 0, 0)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ly1k2"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
+albedo_texture = ExtResource("15_fl8w6")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_offset = Vector3(3.337861, -3.337861, 0)
+uv1_triplanar = true
+
+[node name="Gym" type="Node3D" unique_id=1030056555]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=20630516]
+transform = Transform3D(0.70710677, 0.5416752, -0.45451948, 0, 0.64278764, 0.76604444, 0.70710677, -0.5416752, 0.45451948, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1853603493]
+environment = SubResource("Environment_wq1qo")
+camera_attributes = SubResource("CameraAttributesPractical_uh08m")
+
+[node name="Ground" type="Node3D" parent="." unique_id=772604053]
+
+[node name="Base" type="CSGBox3D" parent="Ground" unique_id=791192927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03453827, -1, 0)
+size = Vector3(58, 1, 33)
+material = SubResource("StandardMaterial3D_bt44k")
+
+[node name="Border" type="Node3D" parent="Ground" unique_id=2054560647]
+
+[node name="Top" type="CSGBox3D" parent="Ground/Border" unique_id=1430193274]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+use_collision = true
+size = Vector3(51, 1, 1)
+material = ExtResource("2_aco32")
+
+[node name="Bottom" type="CSGBox3D" parent="Ground/Border" unique_id=1417298179]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.7)
+use_collision = true
+size = Vector3(51, 1, 1)
+material = ExtResource("2_aco32")
+
+[node name="Left" type="CSGBox3D" parent="Ground/Border" unique_id=417879910]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
+use_collision = true
+size = Vector3(1, 1, 31)
+material = ExtResource("2_aco32")
+
+[node name="Right" type="CSGBox3D" parent="Ground/Border" unique_id=354431360]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
+use_collision = true
+size = Vector3(1, 1, 31)
+material = ExtResource("2_aco32")
+
+[node name="Hole" parent="." unique_id=1199113028 instance=ExtResource("3_msyxh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.436277, 0, -13.14392)
+
+[node name="Items" type="Node3D" parent="." unique_id=1142739868]
+
+[node name="Club" parent="Items" unique_id=1772857852 instance=ExtResource("4_j8rly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.776958, 0, -8.811883)
+
+[node name="Club2" parent="Items" unique_id=1978840172 instance=ExtResource("4_j8rly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.60102, 0, -8.811883)
+
+[node name="Club3" parent="Items" unique_id=2028930410 instance=ExtResource("4_j8rly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.425083, 0, -8.811883)
+
+[node name="Club4" parent="Items" unique_id=1388944970 instance=ExtResource("4_j8rly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.28368, 0, -8.811883)
+
+[node name="Balls" type="Node3D" parent="." unique_id=58076082]
+
+[node name="Ball" parent="Balls" unique_id=252662598 instance=ExtResource("5_o4r3f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.879045, 0, -10.715631)
+
+[node name="Ball2" parent="Balls" unique_id=579231913 instance=ExtResource("5_o4r3f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.703108, 0, -10.715631)
+
+[node name="Ball3" parent="Balls" unique_id=44258338 instance=ExtResource("5_o4r3f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.52717, 0, -10.715631)
+
+[node name="Ball4" parent="Balls" unique_id=1093108182 instance=ExtResource("5_o4r3f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.385767, 0, -10.715631)
+
+[node name="Hazards" type="Node3D" parent="." unique_id=309463524]
+
+[node name="Sandtrap" parent="Hazards" unique_id=1003796369 instance=ExtResource("6_xdcq4")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.37992477, -0.48, 15.197029)
+polygon = PackedVector2Array(0, 0, 7, 0, 7, 5, 0, 5)
+
+[node name="ForceZoneLong" parent="Hazards" unique_id=389048375 instance=ExtResource("7_0rmra")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -24.142561, -0.47, 14.972528)
+polygon = PackedVector2Array(0, 0, 5, 0, 5, 20, 0, 20)
+depth = 0.1
+material = SubResource("StandardMaterial3D_aco32")
+
+[node name="ForceZoneWeird" parent="Hazards" unique_id=1605393364 instance=ExtResource("7_0rmra")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 11.397764, -0.47, 18.288246)
+polygon = PackedVector2Array(4.1101093, 3.626564, 11.1214695, 7.045894, 11.1214695, 21.10315, 0.65623665, 17.234814)
+depth = 0.1
+material = SubResource("StandardMaterial3D_msyxh")
+
+[node name="ForceZone2" parent="Hazards" unique_id=1582787954 instance=ExtResource("7_0rmra")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -18.478209, -0.47, 10.033494)
+polygon = PackedVector2Array(0, 0, 5, 0, 5, 5, 0, 5)
+depth = 0.1
+material = SubResource("StandardMaterial3D_j8rly")
+
+[node name="ForceZone3" parent="Hazards" unique_id=131997191 instance=ExtResource("7_0rmra")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -18.581825, -0.47, 4.6454544)
+polygon = PackedVector2Array(0, 0, 5, 0, 5, 5, 0, 5)
+depth = 0.1
+material = SubResource("StandardMaterial3D_o4r3f")
+direction = 1
+
+[node name="ForceZone4" parent="Hazards" unique_id=108298540 instance=ExtResource("7_0rmra")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -13.262863, -0.47, 4.6454544)
+polygon = PackedVector2Array(0, 0, 5, 0, 5, 5, 0, 5)
+depth = 0.1
+material = SubResource("StandardMaterial3D_xdcq4")
+direction = 2
+
+[node name="ForceZone10" parent="Hazards" unique_id=567932327 instance=ExtResource("7_0rmra")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.8289261, -0.47, 4.541839)
+polygon = PackedVector2Array(0, 0, 5, 0, 5, 5, 0, 5)
+depth = 0.1
+material = SubResource("StandardMaterial3D_0rmra")
+direction = 2
+
+[node name="ForceZone11" parent="Hazards" unique_id=111668977 instance=ExtResource("7_0rmra")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5.940651, -0.47, 4.576377)
+polygon = PackedVector2Array(0, 0, 5, 0, 5, 5, 0, 5)
+depth = 0.1
+material = SubResource("StandardMaterial3D_qk1ov")
+direction = 6
+
+[node name="ForceZone12" parent="Hazards" unique_id=281466654 instance=ExtResource("7_0rmra")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.348629, -0.47, 9.9644165)
+polygon = PackedVector2Array(0, 0, 5, 0, 5, 5, 0, 5)
+depth = 0.1
+material = SubResource("StandardMaterial3D_s6fki")
+direction = 2
+
+[node name="ForceZone13" parent="Hazards" unique_id=1836752329 instance=ExtResource("7_0rmra")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.524563, -0.47, 9.998954)
+polygon = PackedVector2Array(0, 0, 5, 0, 5, 5, 0, 5)
+depth = 0.1
+material = SubResource("StandardMaterial3D_41ej8")
+direction = 6
+
+[node name="ForceZone14" parent="Hazards" unique_id=1408241568 instance=ExtResource("7_0rmra")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.420948, -0.47, 15.214297)
+polygon = PackedVector2Array(0, 0, 7, 0, 7, 5, 0, 5)
+depth = 0.1
+material = SubResource("StandardMaterial3D_8bq68")
+direction = 6
+
+[node name="ForceZone5" parent="Hazards" unique_id=1082165762 instance=ExtResource("7_0rmra")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.7021294, -0.47, 4.576377)
+polygon = PackedVector2Array(0, 0, 5, 0, 5, 5, 0, 5)
+depth = 0.1
+material = SubResource("StandardMaterial3D_5y34j")
+direction = 3
+
+[node name="ForceZone6" parent="Hazards" unique_id=21285072 instance=ExtResource("7_0rmra")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.7021294, -0.47, 10.033491)
+polygon = PackedVector2Array(0, 0, 5, 0, 5, 5, 0, 5)
+depth = 0.1
+material = SubResource("StandardMaterial3D_dnaf7")
+direction = 4
+
+[node name="ForceZone7" parent="Hazards" unique_id=48349588 instance=ExtResource("7_0rmra")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.7021294, -0.47, 15.525147)
+polygon = PackedVector2Array(0, 0, 5, 0, 5, 5, 0, 5)
+depth = 0.1
+material = SubResource("StandardMaterial3D_2i1xe")
+direction = 5
+
+[node name="ForceZone8" parent="Hazards" unique_id=414682651 instance=ExtResource("7_0rmra")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -13.262859, -0.47, 15.525147)
+polygon = PackedVector2Array(0, 0, 5, 0, 5, 5, 0, 5)
+depth = 0.1
+material = SubResource("StandardMaterial3D_fl8w6")
+direction = 6
+
+[node name="ForceZone9" parent="Hazards" unique_id=1930596830 instance=ExtResource("7_0rmra")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -18.719973, -0.47, 15.317916)
+polygon = PackedVector2Array(0, 0, 5, 0, 5, 5, 0, 5)
+depth = 0.1
+material = SubResource("StandardMaterial3D_ly1k2")
+direction = 7
+
+[node name="Hedge" parent="Hazards" unique_id=761124046 instance=ExtResource("16_aco32")]
+polygon = PackedVector2Array(-19.134445, 0.36265597, -18.6509, 0.36265597, -18.754517, -15.24884, -19.168982, -15.283378)
+
+[node name="Hedge2" parent="Hazards" unique_id=118985818 instance=ExtResource("16_aco32")]
+polygon = PackedVector2Array(-19.134445, 1.0534301, -2.1413994, 1.0534301, -2.0377846, -15.283378, -2.6940193, -15.283378, -2.6594772, 0.50081164, -19.168982, 0.32811806)
+
+[node name="Spawns" type="Node3D" parent="." unique_id=1590108862]
+
+[node name="Spawn" parent="Spawns" unique_id=1097262877 instance=ExtResource("16_ly1k2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.928312, 0, -12.917432)
+
+[node name="Spawn2" parent="Spawns" unique_id=1787963153 instance=ExtResource("16_ly1k2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.752375, 0, -12.917432)
+
+[node name="Spawn3" parent="Spawns" unique_id=238147138 instance=ExtResource("16_ly1k2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.576437, 0, -12.917432)
+
+[node name="Spawn4" parent="Spawns" unique_id=1649270702 instance=ExtResource("16_ly1k2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.435034, 0, -12.917432)

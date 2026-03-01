@@ -41,24 +41,27 @@ transparency = 1
 blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("11_vd2jn")
-uv1_scale = Vector3(3, 3, 3)
-uv1_offset = Vector3(-11.949799, 0, 0)
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_offset = Vector3(-0.31581813, 0, 0)
+uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_raj2r"]
 transparency = 1
 blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("12_xsjt3")
-uv1_scale = Vector3(3, 3, 3)
-uv1_offset = Vector3(11.949799, -11.949799, 0)
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_offset = Vector3(0.22331715, 0.22331715, 0)
+uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e4f64"]
 transparency = 1
 blend_mode = 1
 albedo_color = Color(0.4680944, 0.9999997, 0.9337507, 1)
 albedo_texture = ExtResource("13_raj2r")
-uv1_scale = Vector3(3, 3, 3)
-uv1_offset = Vector3(11.949799, 11.949799, 0)
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_offset = Vector3(0.22331715, -0.22331715, 0)
+uv1_triplanar = true
 
 [node name="Level4" type="Node3D" unique_id=1030056555]
 
@@ -149,7 +152,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.700193, 0, -4.580308)
 radius = 1.5
 
 [node name="ForceZone" parent="Hazards" unique_id=1003796369 instance=ExtResource("7_vd2jn")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.47, 0)
 polygon = PackedVector2Array(-5.7807283, 4.8031483, -8.116415, 3.430385, -8.906778, -0.643021, -7.082863, -4.594833, -6.0493126, -2.2845433, -3.7390232, -1.615775, -0.9423561, -3.014108, 2.8878632, -6.8443255, 4.468586, -4.351644, 6.170906, -0.76461536, 5.988514, 4.281545, 3.3410215, 7.7396026, -1.2198533, 5.490404, -3.5315332, 4.4282823)
+depth = 0.1
 material = SubResource("StandardMaterial3D_xsjt3")
 direction = 2
 
@@ -162,14 +167,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.068592, 0, -10.637064)
 radius = 2.5
 
 [node name="ForceZone2" parent="Hazards" unique_id=968617477 instance=ExtResource("7_vd2jn")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 18.508492, 0, -8.509651)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 18.508492, -0.47, -8.509651)
 polygon = PackedVector2Array(6.384493, 6.4797153, -7.656431, 6.6924562, -6.857934, 2.9161377, -4.608735, -1.5197821, -0.4232235, -4.7955713, 3.9734287, -6.355674, 6.449829, -6.767912)
+depth = 0.1
 material = SubResource("StandardMaterial3D_raj2r")
 direction = 5
 
 [node name="ForceZone3" parent="Hazards" unique_id=235111977 instance=ExtResource("7_vd2jn")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 19.217628, 0, 11.70077)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 19.217628, -0.47, 11.70077)
 polygon = PackedVector2Array(5.553257, 3.633504, 5.365822, 10.443578, -1.2568169, 9.443935, -7.2546816, 6.3825245, -8.6291895, 2.196517, -9.378922, -2.0519695, -7.2546816, -3.4264803, -1.4442482, -3.6139145)
+depth = 0.1
 material = SubResource("StandardMaterial3D_e4f64")
 direction = 7
 
